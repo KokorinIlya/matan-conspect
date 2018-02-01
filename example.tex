@@ -1,0 +1,1874 @@
+\documentclass[paper=a4, fontsize=11pt]{article}
+
+\usepackage[russian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,bindingoffset=0cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{amssymb}
+\usepackage{cmap}
+
+
+
+\parindent=0cm
+\linespread{1.2}
+
+\title{Билеты по матану, семестр 3}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Определения и формулировки}
+\subsection{Признак Абеля равномерной сходимости функционального ряда}
+$a_n, b_n: E \subset \mathds{R} \rightarrow \mathds{R}$.
+
+$\sum_{n=1}^{\infty}a_n(x)b_n(x)$ равномерно сходится на $E$, если:
+
+\begin{enumerate}
+    \item $\sum_{n=1}^{\infty}a_n(x)$ равномерно сходится на $E$.
+    \item Последовательность $b_n(x)$ равномерно ограничена на $E$ и монотонна для всех $x \in E$.
+\end{enumerate}
+
+\subsection{Равномерная сходимость функционального ряда}
+Функциональный ряд $\sum f_n(x)$ сходится равномерно к $f(x)$, если последовательность его частичных сумм
+равномерно сходится к $f(x)$.
+
+\subsection{Формулировка критерия Больцано--Коши для равномерной сходимости}
+Ряд $\sum f_n(x)$ равномерно сходится на $E$ тогда и только тогда, когда
+
+$$\forall \epsilon > 0\ \exists N: \forall m \geq n \geq N, x \in E\ |\sum_{k=n}^{m}f_k(x)| < \epsilon$$
+
+\subsection{Степенной ряд, радиус сходимости степенного ряда, формула Адамара}
+\begin{enumerate}
+    \item $\sum_{n=0}^{\infty} a_n (x-x_0)^n$~--- степенной ряд.
+    \item $R \in [0;+\infty]$: при $|x-x_0|<R$ ряд сходится, при $|x-x_0|>R$ ряд расходится~--- радиус сходимости степенного ряда.
+    \item Формула Адамара:
+        $$R = \frac{1}{\varlimsup \sqrt[n]{|a_n|}}$$
+\end{enumerate}
+
+\subsection{Экспонента как функция комплексного аргумента}
+$$exp(z) = \sum_{n=0}^{\infty} \frac{z^n}{n!}$$
+
+\subsection{Метод суммирования средними арифметическими}
+$\sum_{k=0}^{\infty} a_n$~--- ряд. $S_n = \sum_{k=0}^{n} a_n$.
+
+Сумма ряда по методу средних арифметических:
+
+$$S = \lim_{n \to +\infty} \frac{1}{n+1} \sum_{k=0}^{n} S_k$$
+
+\subsection{Метод суммирования Абеля--Пуассона}
+$\sum_{n=0}^{\infty}a_n$~--- ряд. Его сумма по Абелю-Пуассону:
+
+$$S = \lim_{x \to 1-0} \sum_{n=0}^{\infty} a_n x^n$$
+
+\subsection{Частная производная второго порядка, $k$-го порядка}
+$f: E \subset \mathds{R}^m \rightarrow \mathds{R}$, $a \in E$, $U(a) \in E$.
+
+$\exists f_{x_i}'$ в $U(a)$~--- частная производная $f$ по переменной $x_i$.
+
+Если в $a$ $\exists (f_{x_i}')'_{x_k}$, то она называется частной производной второго порядка по $x_i$ и $x_k$ в точке $a$
+($f_{x_ix_k}''(a)$).
+
+Аналогично~--- частные производные высших порядков.
+
+\subsection{Классы $C^r(E)$}
+$E \in \mathds{R}^m$~--- открыто.
+
+Класс функций $C^r(E)$, $r \in \mathds{N}$~--- класс функций на $E$, у которых существуют все частные производные порядка $r$ и они непрерывны.
+
+$C^0(E) = C(E)$~--- непрерывные на $E$ функции.
+
+$C^{\infty}(E) = C^0(E) \cap C^1(E) \cap C^2(E) \cap \dots$
+
+\subsection{Мультииндекс и обозначения с ним}
+$i = (i_1,\dots,i_m)$, $i_k \in \mathds{Z}_+$~--- мультииндекс.
+\begin{enumerate}
+    \item $|i| = i_1+\cdots+i_m$~--- высота мультииндекса.
+    \item $i! = i_1! \dots i_m!$
+    \item $x^i = x_1^{i_1} \dots x_m^{i_m}$
+    \item $f^{(i)} = \frac{\partial^{|i|}f}{\partial x^i} = \frac{\partial^{|i|}f}{\partial x_1^{i_1} \dots \partial x_m^{i_m}}$
+\end{enumerate}
+
+\subsection{Формула Тейлора (различные виды записи)}
+$E \subset \mathds{R}^m$, $f \in C^{r+1}(E)$, $x \in E$, $(x+h) \in U(x) \subset E$, $\theta \in (0;1)$
+
+$$f(x+h) = \sum_{|k| \leq r} \frac{f^{(k)}(x)}{k!} h^k + \sum_{|k|=r+1} \frac{f^{(k)}(x+\theta h)}{k!} h^k$$
+
+$$f(x+h) = \sum_{|k| \leq r} \frac{f^{(k)}(x)}{k!} h^k + o(|h|^r)$$
+
+$$f(x+h) = \sum_{s=0}^{r} \frac{d^s(a,h)}{s!} + \frac{d^{r+1}(a,\theta h)}{(r+1)!}$$
+
+\subsection{$n$-й дифференциал}
+$$d^n f(x,h) = \sum_{|k|=n} \frac{n!}{k!} f^{(k)}(x) h^k$$
+
+\subsection{Норма линейного оператора}
+$L \in \mathscr{L}_{m,n}$
+
+$||L|| = \sup_{|x|=1} |Lx|$
+
+\subsection{Положительно-, отрицательно-, незнако- определенная квадратичная форма}
+$Q: \mathds{R}^m \rightarrow \mathds{R}$. $Q(x) = \sum_{i=1}^{m} \sum_{j=1}^{m} a_{ij} x_i x_j$~--- квадратичная форма.
+
+\begin{enumerate}
+    \item $Q(x)$~--- положительно определённая форма, если $\forall x \neq 0\ Q(x) > 0$.
+    \item $Q(x)$~--- отрицательно определённая форма, если $\forall x \neq 0\ Q(x) < 0$.
+    \item $Q(x)$~--- незнакоопределённая форма, если $\exists x: Q(x) > 0$ и $\exists x: Q(x) < 0$.
+    \item $Q(x)$~--- положительно определённая вырожденная форма, если $\forall x \neq 0\ Q(x) \geq 0$, $\exists x \neq 0: Q(x)=0$.
+    \item $Q(x)$~--- отрицательно определённая вырожденная форма, если $\forall x \neq 0\ Q(x) \leq 0$, $\exists x \neq 0: Q(x)=0$.
+\end{enumerate}
+
+\subsection{Локальный максимум, минимум, экстремум}
+$f: E \subset \mathds{R}^m \rightarrow \mathds{R}$.
+\begin{enumerate}
+    \item $x_0 \in E$~--- точка локального максимума, если $\exists U(x_0): \forall x \in U(x_0) \cap E\ f(x) \leq f(x_0)$.
+    \item $x_0 \in E$~--- точка локального минимума, если $\exists U(x_0): \forall x \in U(x_0) \cap E\ f(x) \geq f(x_0)$.
+    \item $x_0 \in E$~--- точка строгого локального максимума, если
+        $\exists U(x_0): \forall x \in U(x_0) \cap e \setminus\{x_0\}\ f(x) < f(x_0)$.
+    \item $x_0 \in E$~--- точка строгого локального минимума, если
+        $\exists U(x_0): \forall x \in U(x_0) \cap e \setminus\{x_0\}\ f(x) > f(x_0)$.
+    \item $x_0 \in E$~--- точка (строгого) локального экстремума, если она является точкой (строгого) локального максимума или минимума.
+\end{enumerate}
+
+\subsection{Диффеоморфизм}
+$F: E \in \mathds{R}^m \rightarrow \mathds{R}^n$~--- диффеоморфизм, если $F$ обратимо, $F$ и $F^{-1}$ дифференцируемы.
+
+\subsection{Формулировка теоремы о локальной обратимости}
+$F: E \subset \mathds{R}^m \rightarrow \mathds{R}^m$, $E$ открыто, $F \in C^1(E,\mathds{R}^m)$, $x_0 \in E$, $det F'(x_0) \neq 0$.
+
+Тогда $\exists U(x_0) \subset E$, такое что $F$, суженное на $U(x_0)$~--- диффеоморфизм.
+
+\subsection{Формулировка теоремы о локальной обратимости в терминах систем уравнений}
+$
+    \begin{cases}
+        f_1(x_1,\dots,x_m) = y_1 \\
+        \vdots \\
+        f_m(x_1,\dots,x_m) = y_m \\
+    \end{cases}
+$
+
+$f_i \in C^1$. $\exists x^0$~--- решение, $det(\frac{\partial f_i}{\partial x_j}(x^0)) \neq 0$.
+
+Тогда $\exists U(x^0), V(y_0): \forall y \in V(y_0)\ \exists!$ решение $x \in U(x^0)$ и $x_i(y)$~--- гладкие.
+
+\subsection{Формулировка теоремы о неявном отображении в терминах систем уравнений}
+$
+    F: E \subset \mathds{R}^{m+n} \rightarrow \mathds{R}^n, F = (f_1,\dots,f_n), f_i \in C^1(E) \\
+    \begin{cases}
+        f_1(x_1,\dots,x_m,y_1,\dots,y_n) = 0 \\
+        \vdots \\
+        f_n(x_1,\dots,x_m,y_1,\dots,y_n) = 0 \\
+    \end{cases}
+$
+
+$(a,b) = (x_1,\dots,x_m,y_1,\dots,y_n)$~--- решение. $det(\frac{\partial f_i}{\partial y_j}) \neq 0$.
+
+Тогда $\exists U(a) \in \mathds{R}^m, U(b) \in \mathds{R}^n: \forall (x_1,\dots,x_m) \in U(a)$ решение системы от ($y_1,\dots,y_n$)
+в $U(b)$ единственно.
+
+\subsection{Простое k-мерное гладкое многообразие в $\mathds{R}^m$}
+$M \subset \mathds{R}^m$~--- простое k-мерное многообразие в $\mathds{R}^m$,
+если $\exists$ область $E \subset \mathds{R}^k$, $\Phi: E \rightarrow \mathds{R}^m: \Phi(E) = M$,
+$\Phi$~--- гомеоморфизм (непрерывное, обратимое, обратное непрерывно).
+
+$M$~--- гладкое k-мерное многообразие класса $C^r$, если $\Phi \in C^r$.
+
+\subsection{Относительный локальный максимум, минимум, экстремум}
+$f: E \subset \mathds{R}^{m+n} \rightarrow \mathds{R}$
+
+$\Phi: E \rightarrow \mathds{R}^n$
+
+$M_\Phi = {x \in E: \Phi(x) = 0}$
+
+$x_0 \in M_\Phi$~--- точка относительного локального максимума, если $\exists U(x_0): \forall x \in U(x) \cap M_\Phi\ f(x) \leq f(x_0)$.
+
+Аналогчино: минимум, экстремум, строгий экстремум.
+
+\subsection{Формулировка достаточного условия относительного экстремума}
+$f: E \subset \mathds{R}^{m+n} \rightarrow \mathds{R}$, $\Phi: E \subset \mathds{R}^n$, $f, \Phi \in C^1$.
+
+$a \in E$~--- подозрительная на экстремум точка: $\Phi(a) = 0$, $\exists \lambda \in \mathds{R}^n: G'(a) = f'(a) - \lambda\Phi'(a) = 0$.
+
+Пусть $rank\ \Phi'(a)=k$ реализуется на последних $k$ столбцах.
+
+$h = (h_1,\dots,h_{m+n})$~--- такой вектор, что $\Phi'(a)h = 0$. $h = (h_x,h_y)$, $h_y = \Psi(h_x)$~--- линейно.
+
+$G(x) = f(x) - \lambda\Phi(x)$. Квадратичная форма: $Q(h_x) = d^2G(a,(h_x,\Psi(h_x)))$.
+\begin{enumerate}
+    \item $Q$ положительно определённая $\Rightarrow$ $a$~--- точка относительного локального минимума.
+    \item $Q$ отрицательно определённая $\Rightarrow$ $a$~--- точка относительного локального максимума.
+    \item $Q$ незнакоопределённая $\Rightarrow$ $a$~--- не экстремум.
+\end{enumerate}
+\subsection{Касательное пространство к k-мерному многообразию в $\mathds{R}^m$}
+$M \subset \mathds{R}^m$~--- $k$-мерное многообразие, $\Phi: \mathds{R}^k \rightarrow \mathds{R}^m$~--- параметризация.
+
+$x_0 \in M$, $u_0 = \Phi^{-1}(x_0)$.
+
+Касательное пространство к $M$ в точке $x_0$~--- это множество
+$\{ \Phi'(u_0)h: h \in \mathds{R}^k \}$
+
+\subsection{Независимый набор функций}
+$f_1,\dots,f_n:E \subset \mathds{R}^m \to \mathds{R}$. $F = (f_1,\dots,f_n)$.
+
+Функции $f_1,\dots,f_n$ независимы в окрестности $U(x_0) \subset E$, если ($y_0 = F(x_0))$:
+
+$\exists V(y_0): \forall G: V(y_0) \rightarrow \mathds{R}$~--- непрерывна, выполнение тождества $G(F(x)) \equiv 0$ при $x \in U(x_0)$
+возможно только при $G \equiv 0$.
+
+\subsection{Кусочно-гладкий путь}
+Путь $\gamma: [a,b] \rightarrow \mathds{R}^m$, такой что $\exists$ дробление $a=t_0<t_1<\dots<t_n=b$:
+$\gamma$ гладкий на каждом отрезке дробления.
+
+\subsection{Интеграл векторного поля по кусочно-гладкому пути}
+$E \subset \mathds{R}$~--- открытое. $\gamma$~--- кусочно-гладкий путь в $E$, $V$~--- векторное поле в $E$.
+
+Интеграл $V$ по $\gamma$:
+
+$$I(V, \gamma) = \int_a^b V(\gamma(t)) \cdot \gamma'(t) dt = \int_a^b \sum_{i=1}^m V_i(\gamma(t)) \gamma_i'(t) dt =
+\int_a^b \sum_{i=1}^m V_i(\gamma(t)) d\gamma_i(t) $$
+
+Обозначение: $\int_a^b V d\gamma$.
+
+\subsection{Потенциал, потенциальное векторное поле}
+$E$~--- область в $\mathds{R}^m$. $V: E \rightarrow \mathds{R}^m$~--- непрерывное векторное поле.
+
+$V$ потенциально в $E$, если $\exists f: E \rightarrow \mathds{R} \in C^1(E): \forall x \in E\ V(x) = grad\ f$.
+
+\subsection{Локально потенциальное векторное поле}
+$E$~--- область в $\mathds{R}^m$. $V: E \rightarrow \mathds{R}^m$~--- непрерывное векторное поле.
+
+$V$~--- локально потенциальное в $E$, если $\forall x \in E\ \exists U(x)$: $V$ потенциально в $U$.
+
+\subsection{Похожие пути}
+Пути $\gamma_1,\gamma_2: [a,b] \rightarrow E$ ($E$~--- область), если у них есть общая <<гусеница>>:
+
+$\exists$ шары $B_1,\dots,B_n$, дробление $a=t_0<t_1<\dots<t_n=b: \forall \ \gamma_i([t_{j-1},t_j]) \subset B_j$.
+
+Замечания:
+\begin{enumerate}
+    \item Можно требовать, что радиусы $<\delta$.
+    \item Можно требовать, чтобы в шарах некоторое внкторное поле было потенциальным.
+    \item Любой путь похож на ломаную.
+\end{enumerate}
+
+\subsection{Интеграл локально-потенциального векторного поля по произвольному пути}
+Интеграл локально-потенциального векторного поля $V$ в $E$ по произвольному пути $\gamma$~--- это его интеграл по
+похожему на него кусочно-гладкому пути.
+
+\subsection{Гомотопия путей свзанная и петельная}
+$\gamma_0,\gamma_1: [a,b] \rightarrow E$~--- пути.
+
+$\Gamma:[a,b] \times [0,1] \rightarrow E$~--- непрерывно.
+
+$\Gamma(t,0) = \gamma_0(t)$, $\Gamma(t,1) = \gamma_1(t)$.
+
+$\Gamma$~--- гомотопия.
+
+Если $\forall s \in [0,1]\ \Gamma(a,s)=\gamma_0(a)=\gamma_1(a)$, $\Gamma(b,s)=\gamma_0(b)=\gamma_1(b)$, то это связанная гомотопия.
+
+Если $\forall s \in [0,1]\ \Gamma(a,s)=\Gamma(b,s)$, то это петельная гомотопия.
+
+\subsection{Односвязная область}
+Область $E$ односвязная, если $\forall \gamma$~--- замкнутый путь в $E$ $\exists$ петельная гоотопия $\gamma$ в постоянный путь (точку).
+
+\subsection{Полукольцо, алгебра, сигма-алгебра}
+Семейство подмножеств $\mathds{P}$ множества $X$~--- полукольцо, если:
+\begin{enumerate}
+    \item $\emptyset \in \mathds{P}$.
+    \item Если $A,B \in \mathds{P}$, то $A \cap B \in \mathds{P}$.
+    \item Если $A,B \in \mathds{P}$, то $A \setminus B = \bigcup_{k=1}^{n} C_k$, где $C_k \in \mathds{P}$, дизъюнктны.
+\end{enumerate}
+
+Семейство подмножеств $\mathds{A}$ множества $X$~--- алгебра, если:
+\begin{enumerate}
+    \item $\emptyset \in \mathds{A}$.
+    \item Если $A \in \mathds{A}$, то $X \setminus A \in \mathds{A}$.
+    \item Если $A,B \in \mathds{A}$, то $A \cup B \in \mathds{A}$.
+\end{enumerate}
+
+Семейство подмножеств $\mathds{A}$ множества $X$~--- $\sigma$-алгебра, если:
+\begin{enumerate}
+    \item $\emptyset \in \mathds{A}$.
+    \item Если $A \in \mathds{A}$, то $X \setminus A \in \mathds{A}$.
+    \item Если $A_1,A_2,\dots \in \mathds{A}$, то $\bigcup A_k \in \mathds{A}$.
+\end{enumerate}
+
+\subsection{Объем}
+\subsubsection{Конечная аддитивность}
+$\mu: \mathds{P} \rightarrow \overline{\mathds{R}}$ ($\mathds{P}$~--- полукольцо) ~--- конечно аддитивна, если
+\begin{enumerate}
+    \item $\mu(\emptyset)=0$.
+    \item $+\infty$ и $-\infty$ не могут оба включаться в область значений $\mu$.
+    \item Если $A_1,\dots,A_k \in \mathds{P}$, дизъюнктны, $\bigcup A_i \in \mathds{P}$, то $\mu(\bigcup A_i) = \sum \mu(A_i)$.
+\end{enumerate}
+
+\subsubsection{Объем}
+$\mu: \mathds{P} \rightarrow \mathds{R}$ ($\mathds{P}$~--- полукольцо)~--- объём, если:
+\begin{enumerate}
+    \item $\forall A\ \mu(a) \geq 0$.
+    \item $\mu$ конечно аддитивна.
+\end{enumerate}
+
+\subsection{Ячейка}
+$a, b \in \mathds{R}^n$, $a < b$ ($\forall k\ a_k < b_k$).
+
+Ячейка~--- параллелепипед $[a,b) = [a_1,b_1) \times \cdots \times [a_n,b_n)$.
+
+$\emptyset$~--- тоже ячейка.
+
+Множество всех ячеек~--- $\mathds{P}_n$
+
+\subsection{Классический объем в $\mathds{R}^m$}
+$v: \mathds{P}_n \rightarrow \mathds{R}_+$. $v[a,b) = \prod_{k=1}^n (b_k-a_k)$, $v(\emptyset) = 0$.
+
+\subsection{Мера, пространство с мерой}
+$\mu: \mathds{P} \rightarrow \mathds{R}$ ($\mathds{P}$~--- полукольцо)~--- мера, если:
+\begin{enumerate}
+    \item $\mu$~--- объём.
+    \item Счётная аддитивность:
+    $A_1,A_2,\dots \in \mathds{P}$, дизъюнктны, $\bigcup A_i \in \mathds{P}$, тогда $\mu(\bigcup A_i) = \sum \mu(A_i)$.
+\end{enumerate}
+Пространство с мерой~--- тройка $(X,\mathds{A},\mu)$:
+$X$~--- множество, $\mathds{A}$~--- $\sigma$-алгебра подмножеств $X$, $\mu$~--- мера на $\mathds{A}$.
+
+\subsection{Дискретная мера}
+$x_1,x_2,\dots \in X$, $h_1,h_2,\dots \in [0,+\infty]$.
+
+$\mu(A) = \sum_{x_i \in A} h_i$.
+
+\subsection{Формулировка теоремы о непрерывности сверху}
+$\mathds{A}$~--- алгебра подмножеств $X$, $\mu$~--- конечный объём на $\mathds{A}$. Тогда эквивалентно:
+\begin{enumerate}
+    \item $\mu$~--- мера.
+    \item Если $A_1,A_2,\dots \in \mathds{A}$, $\forall k\ A_k \supset A_{k+1}$, $A = \bigcap A_k \in \mathds{A}$,
+    то $\mu(A_n) \to \mu(A)$.
+\end{enumerate}
+
+\subsection{Формулировка теоремы о лебеговском продолжении меры}
+$\mathds{P}_0$~--- полукольцо подмножеств $X$, $\mu_0$~--- $\sigma$-конечная мера на $\mathds{P}_0$.
+
+Тогда $\exists$ $\sigma$-алгебра $\mathds{A}$ и мера $\mu$ на $\mathds{A}$, что:
+\begin{enumerate}
+    \item $\mathds{P}_0 \subset \mathds{A}$ и $\mu$~--- продолжение $\mu_0$.
+    \item $\mu$~--- полная мера.
+    \item $\mu$~--- минимальная: если найдётся $\sigma$-алгебра $\mathds{A}_1$ и мера $\mu_1$ на ней, удовлетворяющие (1) и (2),
+    то $\mathds{A} \subset \mathds{A}_1$ и $\mu_1$~--- продолжение $\mu$.
+    \item Если $\mathds{P}$~--- полукольцо, $\mathds{P}_0 \subset \mathds{P} \subset \mathds{A}$, $\overline{\mu}$~---
+    мера на $\mathds{P}$, являющаяся продолжением $\mu_0$, то $\overline{\mu}$~-- сужение $\mu$.
+    \item $\forall A \in \mathds{A}$ $\mu(A) =
+    \inf_{(P_1,P_2,\dots \in \mathds{P}_0,\ A \subset \bigcup P_i)} \sum \mu(P_i)$.
+\end{enumerate}
+
+\subsection{Полная мера}
+Мера, заданная на полукольце $\mathds{P}$, называется полной, если любое подмножество множества меры $0$ также принадлежит $\mathds{P}$.
+
+\subsection{Сигма-конечная мера}
+$\mu$~--- мера на полукольце $\mathds{P}$ над $X$. Если $X = \bigcup_{k=1}^\infty X_k$, где $X_k \in \mathds{P}$
+и $\mu(X_k) < +\infty$, то мера $\mu$ $\sigma$-конечная.
+
+\subsection{Мера Лебега, измеримое по Лебегу множество}
+$\mathds{P}_n$~--- полукольцо ячеек в $\mathds{R}^n$, $\mu$~--- классический объём.
+
+Мера Лебега~--- это лебеговское продолжение меры $\mu$ из теоремы о лебеговском продолжении меры на $\sigma$-алгебру $\mathfrak{M}^n$.
+
+Элементы $\mathfrak{M}^n$~--- измеримые по Лебегу множества.
+
+\subsection{Борелевская сигма-алгебра}
+Борелевская $\sigma$-алгебра над метрическим пространством $X$~--- это минимальная по включению $\sigma$-алгебра, содержащая все
+открытые подмножества $X$.
+
+\subsection{Формулировка теоремы о мерах, инвариантных относительно сдвигов}
+$\mu$~--- мера в $\mathds{R}^m$ на $\mathfrak{M}^m$.
+\begin{enumerate}
+    \item $\forall A \in \mathfrak{M}^m,V \in \mathds{R}^m$ $\mu(A) = \mu(A+V)$.
+    \item Если $A \in \mathfrak{M}^m$ ограничено, то $\mu(A) < +\infty$.
+\end{enumerate}
+Тогда $\exists k \geq 0$, что $\mu = k \lambda_m$ ($\lambda_m$~--- мера Лебега).
+
+\subsection{Ступенчатая функция}
+Функция $f:x \rightarrow \mathds{R}$ называется ступенчатой, если $\exists$ конечное разбиение
+$X = X_1 \sqcup \dots \sqcup X_n$, что $f$ константна на каждом $X_i$.
+
+\subsection{Разбиение, допустимое для ступенчатеой функции}
+Разбиение $X = X_1 \sqcup \dots \sqcup X_n$~--- допустимое для ступенчатой функции $f$,
+если $f$ константна на каждом $X_i$.
+
+\subsection{Измеримая функция}
+$(X,\mathds{A},\mu)$~--- пространство с мерой.
+
+Функция $f: E \subset X \rightarrow \overline{\mathds{R}}$ ($E \in \mathds{A}$)~--- измеримая на $E$, если для любого $a \in \mathds{R}$
+множество $\{x \in E: f(x) < a\}$ измеримо.
+
+\section{Теоремы}
+\subsection{Признак Дирихле равномерной сходимости функционального ряда}
+$a_n, b_n: E \subset \mathds{R} \rightarrow \mathds{R}$.
+
+$\sum_{n=1}^{\infty}a_n(x)b_n(x)$ равномерно сходится на $E$, если:
+\begin{enumerate}
+    \item Частичные суммы $\sum a_n(x)$ равномерно ограничены на $E$.
+    \item $\forall x$ $b_n(x)$ монотонно, $b_n(x)$ равномерно сходится к $0$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Доказываем по критерию Коши:
+    $\forall \epsilon > 0\ \exists K: \forall M>N>K,\forall x\ |\sum_{k=N}^M a_n(x)b_n(x)| < \epsilon$.
+    \item Преобразование Абеля: $\sum_{k=N}^M a_k b_k = A_M b_M - A_{N-1}b_N + \sum_{k=N}^{M-1} (b_k-b_{k+1}) A_K$.
+    \item $|A_M b_M - A_{N-1}b_N + \sum_{k=N}^{M-1} (b_k-b_{k+1}) A_K| \leq C_A(|b_M| + |b_N| + \sum_{k=N}^{M-1}|b_k-b_{k+1}|)
+    \leq C_A(|b_M| + 2|b_N|)$.
+
+    Это $< \epsilon$ НСНМ.
+\end{enumerate}
+
+\subsection{Непрерывная дифференцируемость гамма функции}
+$\Gamma(z) = \int_0^{\infty}t^{z-1}e^{-t}dt$~--- непрерывно дифференцируема.
+\\\\
+\emph{Доказательство:}
+$$\frac{1}{\Gamma(z)} = z e^{\gamma z} \prod_{k=1}^{\infty}(1 + \frac{z}{k}) e^{-\frac{z}{k}}$$
+
+$$-ln \Gamma(z) = ln z + \gamma z + \sum_{k=1}^{\infty} \underbrace{(ln(1+\frac{z}{k}) - \frac{z}{k})}_{u_k(z)}$$
+
+$$u'_k(z) = \frac{-z}{k(z+k)}$$
+
+Ряд $\sum u'_k(z)$ равномерно сходится в окрестности любой точки, значит, $\sum u_k(z)$ непрерывно дифференцируем.
+Всё остальное в $ln \Gamma(z)$ тоже диифференцируемо.
+
+\subsection{Теорема о круге сходимости степенного ряда}
+$A(z)=\sum_{n=0}^{\infty}c_n(z-z_0)^n$~--- степенной ряд.
+
+Возможны три случая:
+\begin{enumerate}
+    \item $A$ сходится только в $z_0$.
+    \item $A$ сходится на $\mathds{C}$.
+    \item $\exists R \in (0;\infty)$: $A$ сходится при $|z-z_0|<R$ и расходится при $|z-z_0|>R$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Признак Коши для ряда $\sum b_n$: если $\varlimsup \sqrt[n]{|b_n|} < 1$, ряд сходится, если $> 1$, расходится.
+    \item $\varlimsup \sqrt[n]{|a_n(z-z_0)^n|} = (\varlimsup \sqrt[n]{|a_n|})|z-z_0|$.
+    \item Дальше просто.
+\end{enumerate}
+
+\subsection{Теорема о непрерывности степенного ряда}
+$\sum_{n=0}^{\infty}c_n(z-z_0)^n$~--- степенной ряд. $R>0$~--- радиус сходимости.
+\begin{enumerate}
+    \item $\forall 0<r<R$ ряд сходится равномерно в круге $B(z_0,r)$.
+    \item $f(z)=\sum_{n=0}^{\infty}c_n(z-z_0)^n$ непрерывна на $B(z_0,R)$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Признак Вейрштрасса. $z \in B(z_0,r)$. $|a_n(z-z_0)^n| \leq |a_n|r^n$.
+        \item $\sum |a_n|r^n$ сходится, так как $\sum |a_n|(z-z_0)^n$ сходится при $z=z_0+r$.
+    \end{enumerate}
+    \item Непрерывность следует из равномерной сходимости.
+\end{enumerate}
+
+\subsection{Теорема о дифференцировании степенного ряда. Следствие об интегрировании. Пример.}
+$(A): f(z)=\sum_{n=0}^{\infty}c_n(z-z_0)^n$~--- степенной ряд. $R>0$~--- радиус сходимости.
+
+$(A'): \sum_{n=1}^{\infty}n c_n(z-z_0)^{n-1}$.
+
+Тогда:
+\begin{enumerate}
+    \item Радиус сходимости $A'$ равен $R$.
+    \item $f'(z) = \sum_{n=1}^{\infty}n c_n(z-z_0)^{n-1}$.
+\end{enumerate}
+
+Следствие: 
+
+$('A): \sum_{n=0}^{\infty}\frac{1}{n+1} c_n(z-z_0)^{n+1}$.
+
+Тогда:
+\begin{enumerate}
+    \item Радиус сходимости $'A$ равен $R$.
+    \item $\int_{z_0}^z f(t)dt = \sum_{n=0}^{\infty}\frac{1}{n+1} c_n(z-z_0)^{n+1}$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $R' = \frac{1}{\varlimsup \sqrt[n]{(n+1)a_{n+1}}} = R$ (несложно).
+    \item Ряд из производных равномерно сходится, значит, исходный ряд дифференцируем и имеет такие производные.
+    \item Про интеграл изи.
+\end{enumerate}
+
+\subsection{Свойства экспоненты}
+\begin{enumerate}
+    \item $exp(0)=1$
+    \item $exp \in C^{\infty}(\mathds{C})$, $exp'=exp$
+    \item $exp(z_1+z_2)=exp(z_1)\cdot exp(z_2)$
+    \item $exp(\overline{z}) = \overline{exp(z)}$
+    \item $\forall z\ exp(z) \neq 0$
+\end{enumerate}
+Пусть $exp(ix) = Cos x + i Sin x$, $exp(ix) = T$ ($x \in \mathds{R}$).
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item $Cos x = \frac{exp(ix)+exp(-ix)}{2} = \sum_{k=0}^{\infty} (-1)^k \frac{x^{2k}}{(2k)!}$
+    \item $Sin x = \frac{exp(ix)-exp(-ix)}{2i} = \sum_{k=1}^{\infty} (-1)^{k-1} \frac{x^{2k-1}}{(2k-1)!}$
+    \item $T(x+y) = T(x) \cdot T(y)$
+    \item $Cos(x+y) = Cos x \cdot Cos y - Sin x \cdot Sin y$
+    \item $Sin(x+y) = Sin x \cdot Cos y + Cos x \cdot Sin y$
+    \item $|T(x)|=1$
+    \item $T'(x)=iT(x)$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Очевидно.
+    \item Взять и продифференцировать.
+    \item $exp(z_1 + z_2) = \sum_{n=0}^{\infty} \sum_{k=0}^n \frac{z_1^k z_2^{n-k}}{k!(n-k)!} = exp(z_1) \cdot exp(z_2)$.
+    \item Очевидно.
+    \item Если $exp(z_0)=0$, то $exp(0) = exp(-z + z) = exp(-z) \cdot 0 = 0$, а это не так.
+    \item Взять и посчитать.
+    \item Взять и посчитать.
+    \item Из пункта 3.
+    \item Взять и посчитать.
+    \item Взять и посчитать.
+    \item Взять и посчитать.
+    \item Взять и продифференцировать.
+\end{enumerate}
+
+\subsection{Метод Абеля суммирования рядов. Следствие}
+$\sum_{n=0}^{\infty}a_n$~--- сходится.
+
+Тогда $f(x) = \sum_{n=0}^{\infty}a_n x^n$ корректно задана на $(-1;1)$ и $\lim_{x \to 1-0} f(x) = \sum_{n=0}^{\infty}a_n$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\sum a_n x^n$ сходится при $x = 1$, значит, $R \geq 1$. Доказать: $f(x)$ непрерывна на $[0,1]$.
+    \item $\sum a_n x^n$ равномерно сходится на $[0,1]$, потому что $\sum a_n$ равномерно сходится относительно $x$,
+    $x^n$ монотонна и ограничена (прихнак Абеля).
+\end{enumerate}
+
+\subsection{Единственность разложения функции в ряд}
+Если функция $f$ раскладывается в степенной ряд в $U(x_0)$, то разложение единственно.
+\\\\
+\emph{Доказательство:}
+
+Коэффициенты однозначно определяются производными всех порядков $f$ в точке $x_0$.
+
+\subsection{Разложение бинома в ряд Тейлора}
+$$(1+x)^a = 1 + ax + \frac{a(a-1)}{2}x^2 + \dots = \sum_{n=0}^{\infty} C_a^n x^n, |x|<1$$
+
+$$C_a^n = \frac{a(a-1)\cdots(a-n+1)}{n!}$$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Рассмотрим ряд $f(x) = \sum_{n=0}^{\infty} C_a^n x^n$.
+    \item По правилу Даламбера, $R = \lim |\frac{c_n}{c_{n+1}}| = \lim |\frac{n+1}{a-n}| = 1$.
+    \item Продифференцируем его: $f'(x) = \sum_{n=0}^{\infty} \frac{a(a-1)\cdots(a-n)}{n!} x^n$.
+    \item Домножаем на $(1+x)$:
+    $(1+x)f'(x) = a + \sum_{n=1}^{\infty} (\frac{a(a-1)\cdots(a-n)}{n!} + \frac{a(a-1)\cdots(a-n+1)}{(n-1)!}) x^n =
+    \sum_{n=0}^{\infty} a\frac{a(a-1)\dots(a-n+1)}{n!} = af(x)$.
+    \item Пусть $g(x) = \frac{f(x)}{(1+x)^a}$. $g'(x) = \frac{f'(x)(1+x)^a - a(1+x)^{a-1}f(x)}{(1+x)^{2a}} =
+    \frac{f'(x)(1+x) - af(x)}{(1+x)^{a+1}} = 0$.
+    \item Производная $g$ равна нулю, поэтому $g \equiv const = g(0) = 1$. Поэтому $f(x) = (1+x)^a$.
+\end{enumerate}
+
+\subsection{Пример функции, у которой ряд Тейлора расходится при $x\ne0$}
+$$f(t) = \int_0^{\infty} \frac{e^{-x}dx}{1+t^2x}$$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\frac{1}{1+t^2x} = 1 - t^2x + (t^2x)^2 + \cdots + (-t^2x)^n + \frac{(-t^2x)^{n+1}}{1+t^2x}$.
+    Доказательство: домножить всё на $1+t^2x$.
+    \item Домножим на $e^{-x}$ и проинтегрируем по $x$.
+
+    $f(t) = \int_0^{\infty} e^{-x}dx + \cdots + (-1)^nt^{2n}\int_0^{\infty}e^{-x}x^ndx +
+    (-1)^{n+1}t^{2n+2}\int_0^{\infty}\frac{e^{-x}x^{n+1}}{1+t^2x}$.
+    \item Остаток тут $o(t^{2n+1})$, поэтому это ряд Тейлора. Члены ряда тут последовательные факториалы, поэтому он расходится.
+\end{enumerate}
+
+\subsection{Теорема о разложимости функции в ряд Тейлора}
+$f \in C^{\infty}((x_0-h;x_0+h))$
+
+$f$ разложима в ряд Тейлора в окрестности $x_0$ тогда и только тогда, когда
+
+$$\exists \delta,c,A>0: \forall n,|x-x_0|<\delta\ |f^{(n)}(x)| \leq cA^nn!$$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\Leftarrow$
+    \begin{enumerate}
+        \item $f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \frac{f^{(n+1)}(\overline{x})}{(n+1)!}(x-x_0)^{n+1}$.
+        \item Остаток должен $\to 0$. $|\frac{f^{(n+1)}(\overline{x})}{(n+1)!}(x-x_0)^{n+1}| \leq c(A|x-x_0|)^{n+1} \to 0$
+        (в некоторой окрестности $x_0$).
+    \end{enumerate}
+    \item $\Rightarrow$
+    \begin{enumerate}
+        \item Рассмотрим точку $x_1 \neq x_0$, $f(x_1) = \sum_{k=0}^{\infty} \frac{f^{(k)}(x_0)}{k!} (x_1-x_0)^k$.
+
+        Ряд сходится, поэтому слагаемые ограничени по модулю: $\forall k$ $|\frac{f^{(k)}(x_0)}{k!} (x_1-x_0)^k| \leq c$.
+        \item $b = \frac{1}{|x_1-x_0|}$. Тогда $|f^{(k)}(x_0)| \leq c k! b^k$.
+        \item Пусть $x \in B(x_0,\frac{1}{2b})$. 
+        $f^{(n)}(x) = \sum_{k=n}^{\infty} \frac{f^{(k)}(x_0)}{(k-n)!} (x-x_0)^{k-n}$.
+
+        $$|f^{(n)}(x)| \leq \sum_{k=n}^{\infty} \frac{|f^{(k)}(x_0)|}{(k-n)!} |x-x_0|^{k-n} \leq
+        \sum_{k=n}^{\infty} \frac{ck!b^k}{(k-n)!} |x-x_0|^{k-n} =
+        cb^n \sum_{k=n}^{\infty} k(k-1)\cdots(k-n+1) (b|x-x_0|)^{k-n} =$$
+        $$= cb^n\frac{n!}{(1-b|x-x_0|)^{n+1}} \leq \frac{cb^nn!}{(\frac{1}{2})^{n+1}} = 2c(2b)^nn!$$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Теорема Таубера}
+$\lim_{x \to 1-0} \sum a_n x^n = A$, $a_n = o(\frac{1}{n})$.
+
+Тогда $\sum a_n = A$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\delta_n = max_{k \geq n}|k \cdot a_k|$ (достигается, т.к. $\to 0$). $\delta_n \to 0$.
+    \item $\sum_{n=1}^N a_n - A = (\sum_{n=1}^N a_n - \sum_{n=1}^N a_n x^n) - \sum_{n=N+1}^{\infty}a_nx^n +
+    (\sum_{n=1}^{\infty}a_nx^n - A)$.
+    \item $|\sum_{n=1}^N a_n - A| \leq \sum_{n=1}^N |a_n||1-x^n| + \sum_{n=N+1}^{\infty}\frac{|na_n|x^n}{n} +
+    |\sum_{n=1}^{\infty} a_nx^n - A|$ (3).
+    \item Неравенство Бернулли: $1-x^n \leq n(1-x)$.
+
+    $(3) \leq N \delta_1(1-x) + \frac{\delta_{N+1}}{(N+1)(1-x)} + |\sum_{n=1}^{\infty} a_nx^n - A|$ (4).
+    \item $\epsilon > 0$. $N \to \infty$. $x$ такое, что $(1-x)N=\epsilon$.
+    \begin{enumerate}
+        \item $\delta_{N+1} < \epsilon^2$ НСНМ.
+        \item $|\sum a_nx^n - A| < \epsilon$ НСНМ.
+    \end{enumerate}
+    Тогда $(4) \leq \epsilon \delta_1 + \frac{\epsilon^2 N}{(N+1)\epsilon} + \epsilon \leq \epsilon(\delta_1 + 2)$.
+\end{enumerate}
+
+\subsection{Теорема Коши о перманентности метода средних арифметических}
+
+Если ряд сходится к $S$, то его сумма по методу средних арифметических равна $S$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\forall \epsilon > 0\ \exists N: \forall n > N\ |S_n-S| < \epsilon$.
+    \item $|\sigma_n - S| = |\frac{1}{n+1}\sum_{k=0}^n S_k - S| \leq \frac{1}{n+1} \sum_{k=0}^n |S_k - S|$ (2).
+    \item При $n > N$: $(2) < \frac{\sum_{k=0}^N|S_k-S|}{n+1} + \sum_{k=N+1}^n \frac{\epsilon}{n+1}$.
+
+    НСНМ это $< 2\epsilon$.
+\end{enumerate}
+
+\subsection{Преобразование Абеля степенного ряда}
+$$\sum_{n=0}^{\infty} a_n x^n = (1-x) \sum_{n=0}^{\infty} A_n x^n$$
+
+$A_n = \sum_{k=0}^n a_k$~--- частчиные суммы, $|x| < min(1, R)$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Рассмотрим произведение $(\sum_{n=0}^{\infty}a_nx^n) \cdot \frac{1}{1-x}$.
+    \item При $|x| < min(1,R)$, $(\sum_{n=0}^{\infty}a_nx^n) \cdot \frac{1}{1-x} =
+    (\sum_{n=0}^{\infty}a_nx^n) \cdot (\sum_{n=0}^{\infty} x^n) = \sum_{n=0}^{\infty} A_nx^n$.
+    \item Поэтому $\sum_{n=0}^{\infty} a_n x^n = (1-x) \sum_{n=0}^{\infty} A_n x^n$.
+\end{enumerate}
+%\begin{enumerate}
+%    \item Преобразование для конченой суммы: $\sum_{k=0}^N a_kx^k = (1-x)\sum_{k=0}^{N-1} A_kx^k - A_Nx^n$.\\
+%    Доказать: $A_Nx^N \to 0$ при $N \to \infty$.
+%    \item $|x| < r < min(1, R)$. $|a_k|r^k$~--- ограничено $L$, так как $\sum|a_k|r^k$ сходится.
+%    \item $$|A_nx^N| = |(a_0+\cdots+a_N)x^N| \leq (|a_0|+\cdots+|a_N|)|x|^N = \sum_{k=0}^{N} |a_k|r^k\frac{|x|^N}{r^k} \leq$$
+%    $$ \leq L|x|^N \sum_{k=0}^N \frac{1}{r^k} = L|x|^N \frac{\frac{1}{r^{N+1}}-1}{\frac{1}{r}-1} = L|x|^N \frac{\frac{1}{r^N}-r}{1-r} =
+%    \frac{L(\frac{|x|}{r})^N}{1-r} - L|x|^N \frac{r}{1-r} \to 0$$
+%\end{enumerate}
+
+\subsection{Теорема о связи суммируемости по Чезаро и по Абелю--Пуассону}
+Если сумма ряда по методу средних арифметических равна $A$, то и его сумма по методу Абеля равна $A$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $A_n = \sum_{k=1}^n a_k$, $\sigma_n = \frac{1}{n+1} \sum_{k=0}^n A_k$. $\sigma_n \to A$.
+    \item $\sum a_k$ сходится по Чезаро, поэтому $a_k = o(k)$:
+    \begin{enumerate}
+        \item $\lim \frac{a_n}{n} = \lim \frac{A_n - A_{n-1}}{n} =
+        \lim \frac{((n+1)\sigma_n - n\sigma_{n-1}) - (n\sigma_{n-1} - (n-1)\sigma_{n-2})}{n} =
+        \lim \frac{(n+1)A - 2nA + (n-1)A}{n} = 0$.
+    \end{enumerate}
+    \item $f(x) = \sum a_k x^k$ имеет радиус сходимости $R \geq 1$:
+    \begin{enumerate}
+        \item $\varlimsup \sqrt[n]{o(n)} \leq 1$.
+        \item $R = \frac{1}{\varlimsup \sqrt[n]{o(n)}} \geq 1$.
+    \end{enumerate}
+    \item $\sum a_k x^k = (1-x) \sum A_k x^k = (1-x)^2 \sum (k+1)\sigma_k x^k$.
+    \item $(1-x)^2 \sum (k+1) x^k = 1$, значит, $(1-x)^2 \sum (k+1) A x^k = A$ ($\sigma_k \to A$).
+    \item $f(x) - A = (1-x)^2 \sum (k+1)(\sigma_k-A)x^k =
+    (1-x)^2 \sum_{k=0}^N (k+1)(\sigma_k-A)x^k + (1-x)^2 \sum_{k=N+1}^{\infty} (k+1)(\sigma_k-A)x^k$
+    \begin{enumerate}
+        \item $N: |\sigma_k - A| < \epsilon$
+
+        $|(1-x)^2 \sum_{k=N+1}^{\infty} (k+1)(\sigma_k-A)x^k| \leq \epsilon$
+        \item При $1 > x > x_0$, $|(1-x)^2 \sum_{k=0}^N (k+1)(\sigma_k-A)x^k| < \epsilon$
+        \item Таким образом, при $x \to 1-0$ $f(x) \to A$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Независимость частных производных от порядка дифференцирования}
+$f: E \subset \mathds{R}^2 \rightarrow \mathds{R}$, $f \in C^2(E)$
+
+$a \in E$
+
+Тогда $f''_{xy}(a) = f''_{yx}(a)$
+\\\\
+Общий вид:
+
+$f: E \subset \mathds{R}^m \rightarrow \mathds{R}$, $f \in C^k(E)$
+
+$a \in E$
+
+$i_1,\dots,i_k$~--- набор индексов, $i_r \in \{1,\dots,m\}$
+
+$j_1,\dots,j_k$~--- его перестановка
+
+Тогда $\frac{\partial^k}{\partial x_{i_1}\dots \partial x_{i_m}}f(a) = \frac{\partial^k}{\partial x_{j_1}\dots \partial x_{j_m}}f(a)$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Пусть $\Delta^2 f(h,k) = f(x_0+h,y_0+k) - f(x_0+h,y_0) - f(x_0,y_0+k) + f(x_0,y_0)$.
+    \item $\alpha(h) = \Delta^2 f(h,k)$ при фиксированном $k$.
+
+    $\alpha(0) = 0$. $\alpha(h) = \alpha(h) - \alpha(0) = \alpha'(\overline{h})h$ (теорема Лагранжа по $h$)
+    
+    $= (f'_x(x_0+\overline{h},y_0+k)-f'_x(x_0+\overline{h},y_0))h =
+    f''_{xy}(x_0+\overline{h},y_0+\overline{k})hk$ (теорема Лагранжа по $k$)
+
+    \item $\beta(k) = \Delta^2 f(h,k)$ при фиксированном $h$. Аналогично:
+    
+    $\beta(k) = f''_{yx}(x_0+\overline{\overline{h}},y_0+\overline{\overline{k}})hk$
+
+    \item При фиксированных $h$ и $k$:
+    $f''_{xy}(x_0+\overline{h},y_0+\overline{k})hk = f''_{yx}(x_0+\overline{\overline{h}},y_0+\overline{\overline{k}})hk$
+
+    При $(h,k) \to 0$, по непрерывности $f''_{xy}(x_0,y_0) = f''_{yx}(x_0,y_0)$.
+
+    \item Про высшие порядки~--- простое следствие.
+\end{enumerate}
+
+\subsection{Полиномиальная формула}
+$$a_1,\dots,a_m \in \mathds{R},r \in \mathds{N}_0$$
+$$(a_1+\cdots+a_m)^r = \sum_{|j|=r} \frac{r!}{j!}a^j$$
+\\\\
+\emph{Доказательство:}
+Индукция по $r$. Взять и посчитать.
+
+\subsection{Лемма о дифференцировании <<сдвига>>}
+$f: E \subset \mathds{R}^m \rightarrow \mathds{R}$, $E$ открыто, $f \in C^r(E)$, $h \in \mathds{R}^m$, $a \in E$
+
+$\forall t \in (-\epsilon;\epsilon)\ a+th \in E$, $\phi(t) = f(a+th)$
+
+Тогда $\forall k \leq r,k \in \mathds{N}\ \phi^{(k)}(0) = \sum_{|i|=k} \frac{k!}{i!} h^i \frac{\partial^k f}{\partial x^i}(a)$
+\\\\
+\emph{Доказательство:}
+Индукция по $k$.
+\begin{enumerate}
+    \item База: $k=0$. $\phi(0) = f(a)$.
+    \item Шаг.
+
+    $$(\sum_{|i|=k} \frac{k!}{i!} h^i \frac{\partial^k f}{\partial x^i}(a+th))'_t =
+    \sum_{j=1}^m \sum_{|i|=k} \frac{k!}{i!} h^i \frac{\partial^{k+1} f}{\partial x^i \partial x_j}(a+th) h_j =$$
+    $$=\sum_{j=1}^m \sum_{|i|=k+1, i_j \geq 1} \frac{k!i_j}{i!} h^i \frac{\partial^{k+1} f}{\partial x^i}(a+th) =
+    \sum_{|i|=k+1} \frac{(k+1)!}{i!} h^i \frac{\partial^{k+1} f}{\partial x^i}(a+th)$$
+\end{enumerate}
+
+\subsection{Многомерная формула Тейлора (с остатком в форме Лагранжа и Пеано)}
+$E \subset \mathds{R}^m$, $f \in C^{r+1}(E)$, $a \in E$, $x \in B(a) \subset E$
+
+Тогда $\exists \theta \in (0;1)$:
+
+Лагранж:
+$$f(x) = \sum_{|k| \leq r} \frac{f^{(k)}(a)}{k!} (x-a)^k + \sum_{|k|=r+1} \frac{f^{(k)}(a+\theta (x-a))}{k!} (x-a)^k$$
+Пеано:
+$$f(x) = \sum_{|k| \leq r} \frac{f^{(k)}(a)}{k!} (x-a)^k + o(|x-a|^r)$$
+\\\\
+\emph{Доказательство:}
+$$x = a + h,\ \phi(t) = f(a + th)$$
+
+$$\phi(1) = \sum_{k=0}^r \frac{\phi_{(k)}(0)}{k!} + \frac{\phi^{r+1}(\theta)}{(r+1)!}$$
+Применяем лемму о дифференцировании сдвига:
+$$f(a+h) = \sum_{s=0}^r \sum_{|k|=s} \frac{f^{(k)}(a)}{k!} h^k + \sum_{|k|=r+1} \frac{f^{(k)}(a+\theta h)}{k!} h^k$$
+Остаток~--- $o(|h|^r)$.
+
+\subsection{Теорема о пространстве линейных отображений}
+\begin{enumerate}
+    \item В $\mathscr{L}_{m,n}$ $||L||$~--- это норма.
+    \item $L \in \mathscr{L}_{m,n}$, $M \in \mathscr{L}_{n,p}$. Тогда $||ML|| \leq ||L|| \cdot ||M||$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item По определению нормы
+    \begin{enumerate}
+        \item $||L|| \geq 0$, $||L|| = 0 \Leftrightarrow L = 0$~--- очевидно.
+        \item $||\lambda L|| = |\lambda| \cdot ||L||$~--- очевидно.
+        \item $|(L_1+L_2)x| \leq |L_1 x| + |L_2 x| \leq (||L_1||+||L_2||)|x|$
+
+        $\sup_{|x|=1} |(L_1+L_2)x| \leq ||L_1||+||L_2||$
+    \end{enumerate}
+    \item $|ML x| \leq ||M|| \cdot ||L|| \cdot |x|$
+
+    $\sup_{|x|=1} |ML x| \leq ||M|| \cdot ||L||$
+\end{enumerate}
+
+\subsection{Лемма об условиях, эквивалентных непрерывности линейного оператора}
+$X,Y$~--- нормированные пространства.  $A \in \mathscr{L}(X,Y)$. Следующие утверждения эквивалентны:
+\begin{enumerate}
+    \item $A$ ограничен ($||A||$ кончена)
+    \item $A$ непрерывен в $0$
+    \item $A$ непрерывен в $X$
+    \item $A$ равномерно непрерывен в $X$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $(4) \Rightarrow (3)$, $(3) \Rightarrow (2)$~--- очевидно.
+    \item $(2) \Rightarrow (1)$. $A$ непрерывен в $0$:
+    $\forall \epsilon > 0\ \exists \delta > 0: \forall x: |x|<\delta\ |Ax| < \epsilon$.
+
+    $\epsilon = 1$. $\exists \delta > 0: \forall x: |x|<\delta\ |Ax| < 1$.
+
+    Домножим $x$ на $\frac{2}{\delta}$. $\forall x:|x| < 2\ |Ax| \leq \frac{2}{\delta}$.
+    Норма ограничена.
+    \item $1 \Rightarrow 4$. Определение равномерной непрерывности:
+    
+    $\forall \epsilon > 0\ \exists \delta (=\frac{\epsilon}{||A||}) > 0: \forall x_1,x_2:|x_1-x_2|<\delta\ |Ax_1-Ax_2| < \epsilon$.
+
+    Так и есть.
+\end{enumerate}
+
+\subsection{Теорема Лагранжа для отображений}
+$F: E \subset \mathds{R}^m \rightarrow \mathds{R}^n$, $E$ открыто, $F$ дифференцируема на $E$.
+
+$[a;b] \subset E$ ($[a;b] = \{a+(b-a)t|t \in [0;1]\}$). Тогда $\exists c \in [a;b]: |F(b)-F(a)| \leq ||F'(c)|| \cdot |b-a|$.
+\\\\
+\emph{Доказательство:}
+
+$\phi(t) = F(a + (b-a)t)$, $t \in [0,1]$. $\phi'(t) = F'(a+(b-a)t)\cdot(b-a)$.
+
+Теорема Лагранжа: $\exists t \in [0,1]: \phi(1)-\phi(0) = \phi'(t)$.
+
+$\exists c \in [a,b]: F(b)-F(a) = F'(c) \cdot (b-a)$.
+
+$|F(b) - F(a)| \leq ||F'(c)|| \cdot |b-a|$.
+
+\subsection{Теорема об обратимости линейного отображения, близкого к обратимому}
+$L \in \Omega_m$ (обратимый линейный оператор $\mathds{R}^m \rightarrow \mathds{R}^m$).
+
+$M \in \mathscr{L}_{m,m}$, $||L-M|| < \frac{1}{||L^{-1}||}$
+
+Тогда:
+\begin{enumerate}
+    \item $M$ обратим
+    \item $||M^{-1}|| \leq \frac{1}{||L^{-1}||^{-1} - ||L-M||}$
+    \item $||L^{-1}-M^{-1}|| \leq \frac{||L^{-1}|| \cdot ||L-M||}{||L^{-1}||^{-1} - ||L-M||}$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item $A \in \mathscr{L}_{m,m}$. Если $\exists c > 0: \forall x\ |Ax| \geq c|x|$, то $A$ обратим,
+        и $||A^{-1}|| \leq \frac{1}{c}$.
+        \begin{enumerate}
+            \item Обратим, потому что $Ker\ A = \{0\}$.
+            \item Ограничение на норму несложно выводится.
+        \end{enumerate}
+        \item $|L^{-1}Lx| = |x| \Rightarrow ||L^{-1}|| \cdot |Lx| \geq |x| \Rightarrow |Lx| \geq ||L^{-1}||^{-1} |x|$.
+        \item $Mx = Lx + (M-L)x$.
+
+        $|Mx| \geq |Lx| - |(M-L)x| \geq |Lx| - ||M-L||\cdot|x| \geq ||L^{-1}||^{-1}\cdot|x| - ||M-L||\cdot|x|
+        = (||L^{-1}||^{-1} - ||M-L||) |x| = c|x|$, $c > 0$.
+
+        Значит, $M$ обратим.
+    \end{enumerate}
+    \item $|Mx| \geq (||L^{-1}||^{-1} - ||M-L||) \cdot |x|$.
+    
+    $||M^{-1}|| \leq (||L^{-1}||^{-1} - ||M-L||)^{-1}$.
+    \item $||L^{-1} - M^{-1}|| = ||L^{-1}(M-L)M^{-1}|| \leq ||L^{-1}||\cdot||M-L||\cdot||M^{-1}|| \leq
+    \frac{||L^{-1}||\cdot||M-L||}{||L^{-1}||^{-1} - ||M-L||}$.
+
+\end{enumerate}
+
+\subsection{Теорема о непрерывно дифференцируемых отображениях}
+$F: E \subset \mathds{R}^m \rightarrow \mathds{R}^l$, $F': E \rightarrow \mathscr{L}_{m,l}$
+
+Следующие утверждения эквивалентны:
+\begin{enumerate}
+    \item $F \in C^1(E)$ (все частные производные непрерывны).
+    \item $F'$ непрерывно.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $(1) \Rightarrow (2)$
+    \begin{enumerate}
+        \item Фиксируем $a\in E$.
+        $||F'(a) - F'(b)|| \leq \sqrt{\sum(\frac{\partial f_i}{\partial x_j}(a)-\frac{\partial f_i}{\partial x_j}(b))^2}$
+        \item Доказать: $\forall \epsilon > 0\ \exists \delta > 0: \forall b: |a-b|<\delta\ ||F'(a)-F'(b)||<\epsilon$.
+
+        $\delta: \forall b \in B(a,\delta),i,j\ |\frac{\partial f_i}{\partial x_j}(a)-\frac{\partial f_i}{\partial x_j}(b)| <
+        \frac{\epsilon}{\sqrt{ml}}$~--- существует по непрерывности частных производных.
+    \end{enumerate}
+    \item $(2) \Rightarrow (1)$
+
+    $|\frac{\partial f_i}{\partial x_j}(a)-\frac{\partial f_i}{\partial x_j}(b)| \leq
+    \sqrt{\sum_{i=1}^{l}(\frac{\partial f_i}{\partial x_j}(a)-\frac{\partial f_i}{\partial x_j}(b))^2} =
+    |(F'(a)-F'(b)) \cdot (0 \dots 1 \dots 0)| \leq ||F'(a) - F'(b)||$
+\end{enumerate}
+
+\subsection{Лемма об оценке квадратичной формы и об эквивалентных нормах}
+\begin{enumerate}
+    \item $Q$~--- положительно определённая квадратичная форма в $\mathds{R}^m$.\\
+    Тогда $\exists c_Q > 0: \forall h\ |Qh| \geq c_Q|h|^2$
+    \item $p: \mathds{R}^m \rightarrow \mathds{R}$~--- норма.\\
+    Тогда $\exists c_1,c_2 > 0: \forall x\ c_1|x| \leq p(x) \leq c_2|x|$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $S(0,1)$~--- единичная сфера, компакт. $Q$ достигает минимума на $S$. $c_Q$~--- этот минимум.
+    \item 
+    \begin{enumerate}
+        \item Докажем непрерывность $p(x)$ ($e^k$~--- базисные векторы):
+
+        $p(x-y) = p(\sum_{k=1}^m (x_k-y_k)e^k) \leq \sum_{k=1}^m |x_k-y_k|p(e^k) \leq \sqrt{(\sum|x_k-y_k|^2)(\sum p_k^2)} = M|x-y|$.
+        
+        Применяется неравенство Коши-Буняковского.
+        \item $p(x)$ непрерывна: $c_1 = min_{x \in S(0,1)} p(x)$, $c_2 = max_{x \in S(0,1)} p(x)$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Теорема Ферма. Необходимое условие экстремума. Теорема Ролля}
+\subsubsection{Теорема Ферма}
+$f: E \subset \mathds{R}^m \rightarrow \mathds{R}$, $x_o \in Int(E)$~--- точка экстремума.
+
+$f$ диффференцируема в $x_0$. Тогда $\forall l \in \mathds{R}^m, |l|=1\ \frac{\partial f}{\partial l}(x_0)=0$
+\\\\
+\emph{Доказательство:}
+
+$\phi(t) = f(x_0 + tl)$. $\frac{\partial f}{\partial l}(x_0) = \phi'(0)$.
+
+$\phi'(0)$, так как это экстремум.
+
+\subsubsection{Необходимое условие экстремума}
+В условиях теоремы Ферма: все частные производные $f$ в $x_0$ равны $0$.
+\\\\
+\emph{Доказательство:}
+
+Из теоремы Ферма: частные производные~--- это производные по направлениям координатных осей.
+
+\subsubsection{Теорема Ролля}
+$f: K \subset \mathds{R}^m \rightarrow \mathds{R}$. $K$~--- компакт, $f$ непрерывна на $K$, дивверенцируема на $Int(K)$.
+
+$f$ постоянна на границе $K$. Тогда $\exists x_0 \in Int(K): grad\ f(x_0) = 0$.
+\\\\
+\emph{Доказательство:}
+
+Функция достинает минимума и максимума на компакте. В этих точках $grad=0$.
+
+\subsection{Достаточное условие экстремума}
+$f: E \subset \mathds{R}^m \rightarrow \mathds{R}$, $f \in C^2(E)$.
+
+$x_0 \in Int(E)$. $grad\ f(x_0) = 0$. $Q(h) = d^2 f(x_0)(h)$.
+
+Тогда:
+\begin{enumerate}
+    \item Если $Q$ положительно определённая, то $x_0$~--- локальный минимум.
+    \item Если $Q$ отрицательно определённая, то $x_0$~--- локальный максимум.
+    \item Если $Q$ незнакоопределённая, то $x_0$~--- не экстремум.
+\end{enumerate}
+
+\emph{Доказательство:}
+
+$f(x_0+h) - f(x_0) = \frac{1}{2}d^2f(x_0,h) + o(|h|^2) = \frac{1}{2}Q(h) + o(|h|^2)$.
+
+\begin{enumerate}
+    \item При $h \neq 0$ $Q(h) > 0$. $Q(h) \geq c_Q|h|^2$. $\frac{1}{2}c_Q|h|^2 + o(|h|^2) > 0$ в некоторой окрестности.
+    \item Аналогично.
+    \item $h_1,h_2: Q(h_1) > 0, Q(h_2) < 0$. $k \to 0$. $Q(kh_1) = k^2 Q(h_1)$. $\frac{1}{2}k^2Q(h_1) + o(|h|^2) > 0$ в некоторой окрестности.
+    
+    Аналогично с $h_2$.
+\end{enumerate}
+
+\subsection{Лемма о <<почти локальной инъективности>>}
+$F: E \subset \mathds{R}^m \rightarrow \mathds{R}^m$~--- дифференцируемо в $x_0 \in E$.
+
+$E$~--- открытое.
+
+$det\ F'(x_0) \neq 0$
+
+Тогда $\exists c,\delta>0: \forall h,|h|<\delta\ |F(x_0+h)-F(x_0)| \geq c|h|$.
+\\\\
+\emph{Доказательство:}
+
+$|F(x_0+h)-F(x_0)| = |F'(x_0)h + o(h)| \geq |F'(x_0)h| - |o(h)| \geq c|h| + o(|h|) > \frac{c}{2}$ (в некоторой окрестности).
+
+\subsection{Теорема о сохранении области}
+$F: E \subset \mathds{R}^m \rightarrow \mathds{R}^m$, $E$ открыто.
+
+$F$ дифференцируемо в $E$, $\forall x \in E\ det\ F'(x) \neq 0$
+
+Тогда $F(E)$ открыто.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $x_0 \in E$, $y_0 = F(x_0)$. Проверим, что $y_0$~--- внутренняя точка $F(E)$.
+    \item По лемме: $\exists c,\delta>0: \forall h: |h| \leq \delta,\ |F(x_0+h)-F(x_0)| \geq c|h|$.
+
+    $x = x_0+h$. При $x \in S(x_0, \delta)$ $F(x) \neq F(x_0)$.
+    \item $r = \frac{1}{2} dist(y_0,F(S(x_0,\delta)))$.
+    Проверить: $B(y_0,r) \subset F(E)$.
+    \item Фиксируем $y \in B(y_0,r)$. $g(x) = |F(x)-y|^2$, $x \in \overline{B(x_0,\delta)}$.
+    Минимум $g$ достигается в этом шаре:
+
+    При $x \in S(x_0,\delta)$ $g(x) \geq r^2$. При $x=x_0$ $g(x_0) = |y_0-y|^2 < r^2$.
+
+    \item $g(x) = (f_1(x)-y_1)^2 + \cdots + (f_m(x)-y_m)^2$. Пусть в точке $x$ достигается минимум, там производные равны $0$:
+
+    $
+    \begin{cases}
+        0 = \frac{\partial g}{\partial x_1} = 2((f_1(x)-y_1) \frac{\partial f_1}{\partial x_1} +
+        \cdots + (f_m(x)-y_m) \frac{\partial f_m}{\partial x_1})\\
+        \vdots\\
+        0 = \frac{\partial g}{\partial x_m} = 2((f_1(x)-y_1) \frac{\partial f_1}{\partial x_m} +
+        \cdots + (f_m(x)-y_m) \frac{\partial f_m}{\partial x_m})
+    \end{cases}
+    $
+
+    Система от переменных $(f_i(x) - y_i)$. Матрица невырождена (это $F'(x)$). Значит, решение только при $f_i(x) - y_i = 0$
+    при всех $i$.
+\end{enumerate}
+
+\subsection{Следствие о сохранении области для отображений в пространство меньшей размерности}
+$F: E \subset \mathds{R}^m \rightarrow \mathds{R}^l$, $l < m$, $E$ открыто, $F \in C^1(E)$.
+
+$\forall x\ rank\ F'(x)=l$.
+
+Тогда $F(E)$ открыто.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $x_0 \in E$, $y_0 = F(x_0)$. $rank\ F'(x_0) = l$. Пусть он реализуется на первых $l$ столбцах.
+    \item $det(\frac{\partial f_i}{\partial x_j})_{i,j=1\dots l} \neq 0$ в $U(x_0)$.
+    \item Пусть $\widetilde{F}(x) = (f_1,\dots,f_l,x_{l+1},\dots,x_{m})$ ($E \rightarrow \mathds{R}^m$).
+
+    $det\ \widetilde{F} = det\ F \neq 0$.
+    $\widetilde{F}(U(x_0))$ открыто в $\mathds{R}^m$, а $F(U(x_0))$~--- проекция на $\mathds{R}^l$.
+\end{enumerate}
+
+
+\subsection{Теорема о диффеоморфизме}
+$T \in C^r(E \subset \mathds{R}^m, \mathds{R}^m)$ ($r \in \mathds{N} \cup \{\infty\}$).
+
+$T$ обратимо, невырождено. Тогда:
+\begin{enumerate}
+    \item $T^{-1} \in C^r$
+    \item $(T^{-1})'(y_0) = (T'(x_0))^{-1}$ ($T(x_0)=y_0$)
+\end{enumerate}
+
+\emph{Доказательство:}
+
+Индукция по $r$.
+\begin{enumerate}
+    \item База: $r=1$. 
+    \begin{enumerate}
+        \item $S=T^{-1}$. $S$ непрерывно по теореме о сохранении области (топологическое определение непрерывности).
+        \item $A = T'(x_0)$. По лемме, $\exists c,\delta>0: \forall x \in B(x_0,\delta)\ |T(x)-T(x_0)| \geq c|x-x_0|$.
+
+        $T(x)-T(x_0) = A(x-x_0) + \alpha(x)|x-x_0|$ ($lim_{x \to x_0}\alpha(x) = 0$).
+        \item $y-y_0 = A(S(y)-S(y_0)) + \alpha(S(y))|S(y)-S(y_0)|$.
+        
+        $S(y) - S(y_0) = A^{-1}(y-y_0) - A^{-1}\alpha(S(y))|S(y)-S(y_0)|$
+        \item При $S(y)-S(y_0) < \delta$:
+        $A^{-1}\alpha(S(y))|S(y)-S(y_0)| \leq ||A^{-1}||\cdot|\alpha(S(y))|\cdot\frac{1}{c}|y-y_0| = o(|y-y_0|)$.
+        \item Значит, $S'(y_0) = A^{-1}$. Гладкость: $S'$ непрерывна, так как $S'(y) = T'(S(y))^{-1}$.
+    \end{enumerate}
+    \item \emph{(Кохась сказал, что это не нужно)} Шаг: $S'(y) = T'(S(y))^{-1}$. $S \in C^{r-1}$ по индукционному предположению.
+    Если $T \in C^r$, то $T' \in C^{r-1}$, $T'^{-1} \in C^{r-1}$, $S \in C^r$.
+\end{enumerate}
+
+\subsection{Теорема о неявном отображении}
+$F: E \in \mathds{R}^{m+n} \rightarrow \mathds{R}^n$, $E$ открыто, $F \in C^r$.
+
+$(a,b) \in E$ ($a \in \mathds{R}^m$, $b \in \mathds{R}^n$), $F(a,b)=0$, $det\ F'_b(a,b) \neq 0$.
+
+Тогда
+$$\exists U(a) \subset \mathds{R}^m, V(b) \subset \mathds{R}^n: \exists! \phi: U \rightarrow V \in C^r: \forall x \in U\ F(x,\phi(x))=0$$
+При этом
+$$\phi' = -(F'_y(x,\phi(x)))^{-1} \cdot F'_x(x,\phi(x))$$
+\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\Phi: E \rightarrow \mathds{R}^{m+n}$. $\Phi(x,y) = (x,F(x,y))$.
+    
+    $\Phi' =
+    \begin{pmatrix}
+        E & 0\\
+        F'_x & F'_y
+    \end{pmatrix}$. $det\ \Phi = det\ F'_y$. $det\ \Phi'(a,b) \neq 0$
+    \item По теореме о локальной обратимости,
+    $\exists U(a,b) (= P(a) \times Q(b)): \Phi: U \rightarrow \mathds{R}^{m+n}$~--- диффеоморфизм. $V = \Phi(U)$~--- открытое.
+    \item $\Psi: V \rightarrow U = \Phi^{-1}$. $\Phi(x,y) = (x,F(x,y))$. $\Psi(u,v) = (u,H(u,v))$ ($H: V \rightarrow Q$).
+    \item $\phi(x) = H(x, 0_n)$. $F(x, \phi(x)) = F(x, H(x, 0_n))$. $\Phi(x,H(x,0_n))=(x,0) \Rightarrow F(x,\phi(x)) = 0$.
+    \item Единственность. $(x,y) \in U$. $F(x,y)=0$. $(x,y) = \Psi(\Phi(x,y)) = \Psi(x,F(x,y)) = \Psi(x,0) = (x,\phi(x))$.
+    \item Формула. $F(x,\phi(x)) = 0$.
+
+    $F'_x + F'_y\phi'(x) = 0$.
+    
+    $\phi' = -(F'_y)^{-1}F'_x$.
+\end{enumerate}
+
+\subsection{Теорема о задании гладкого многообразия системой уравнений}
+$M \in \mathds{R}^m$, $r \in \mathds{N} \cup \{\infty\}$, $1 \leq k \leq m$.
+
+$\forall p \in M$ эквивалентно:
+\begin{enumerate}
+    \item $\exists U(p) \subset \mathds{R}^m$: $M \cap U(p)$~--- простое $k$-мерное $C^r$гладкое многообразие.
+    \item $\exists U(p) \subset \mathds{R}^m, f_1,\dots,f_{m-k}: U \rightarrow \mathds{R} \in C^r:
+    \forall x\ x \in U(p) \cap M \Leftrightarrow \forall i\ f_i(x)=0$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $(1) \Rightarrow (2)$
+    \begin{enumerate}
+        \item Параметризация: $\Phi: E \subset \mathds{R}^k \rightarrow \mathds{R}^m$, $\Phi \in C^r$, $\Phi(t^0) = p$,
+        $rank\ \Phi'(t) = k$ ($t \in E$).
+        \item Пусть $det(\frac{\partial \Phi_j}{\partial t_j})_{i,j=1\dots k} \neq 0$ при $t=t^0$.
+
+        $L: \mathds{R}^m \rightarrow \mathds{R}^k$~--- проекция ($L(x,y) = x$). $L \circ \Phi(t)$~--- невырожденное.
+        \item $\exists W(t_0)$ такое, что $L \circ \Phi: W(t_0) \rightarrow \mathds{R}^k$~--- обратимо.
+
+        $\Psi: V \rightarrow W = (L \circ \Phi)^{-1}$. $V = (L\circ\Phi)(W)$.
+        \item $\Phi: W \rightarrow M$~--- гомеоморфизм. $\Phi(W)$~--- открыто в $M$.
+        Тогда $\exists U \subset (V \times \mathds{R}^{m-k})$~--- открытое, $U \cap M = \Phi(W)$.
+        \item $L:\Phi(W) \rightarrow V$~--- биекция. Поэтому $\exists H:V \rightarrow \mathds{R}^{m-k}$,
+        $\forall x \in V\ (x,H(x)) \in M$. $(x,H(x)) = \Phi(\Psi(x)) \in C^r$.
+        \item Построим $f_1,\dots,f_{m-k}$:
+        
+        $f_i(x_1,\dots,x_m) = h_i(x_1,\dots,x_k) - x_{k+i}$.
+        \item $rank F' = k$, потому что $F' = (H'\ \ -E)$.
+    \end{enumerate}
+    \item $(2) \Rightarrow (1)$
+    
+    Это просто теорема о неявном отображении.
+\end{enumerate}
+
+\subsection{Следствие о двух параметризациях}
+$M \subset \mathds{R}^m$~--- простое $k$-мерное $C^r$~--- гладкое многообразие.
+
+$p \in M$, $U(p)$~--- окрестность $p$ в $\mathds{R}^m$.
+
+$\Phi_1: E_1 \subset \mathds{R}^k \rightarrow U(p) \cap M$, $\Phi_2: E_2 \subset \mathds{R}^k \rightarrow U(p) \cap M$~---
+две $C^r$~--- параметризации $M$.
+
+Тогда $\exists \Psi: E_1 \rightarrow E_2$~--- диффеоморфизм, $\Phi_1 = \Phi_2 \circ \Psi$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\Psi = \Phi_2^{-1} \circ \Phi_1$~--- обратимое отображение. Осталось доказать дифференцируемость и невырожденность.
+    \item Докажем это в точке $t_2 \in E_2$. Как и в доказательстве теоремы о задании гладкого многообразия системой уравнений,
+    $\exists W_2(t_2)$~--- окрестность $t_2$, $L$~--- проекция $\Phi_2(W_2)$ на $V \subset \mathds{R}^k$.
+    \item $W_1 = \Psi^{-1}(W_2)$~--- окрестность $t_1=\Psi^{-1}(t_2)$. $(L \circ \Phi_i):E_i \rightarrow V$~--- непрерывние биекции.
+    \item $\Psi = \underbrace{(L \circ \Phi_2)^{-1}}_{\text{диффеоморфизм}} \circ
+    \underbrace{(L \circ \Phi_1)}_{\text{дифференцируемо}}$.
+    \item $\Psi$ дифференцируемо, докажем невырожденность. $\Phi_1 = \Phi_2 \circ \Psi$. $\Phi'_1 = \Phi'_2 \Psi'$.
+    $rank\ \Phi'_1 = rank\ \Phi'_2 = k$, поэтому и $rank\ \Psi' = k$.
+\end{enumerate}
+
+\subsection{Необходимое условие относительного локального экстремума}
+$f: E \subset \mathds{R}^{m+n} \rightarrow \mathds{R}$, $\Phi: E \rightarrow \mathds{R}^n$, $f, \Phi \in C^1$.
+
+$a \in E, \Phi(a) = 0$~--- точка относительного локального экстремума $f$.
+
+$rank\ \Phi'(a) = n$.
+
+Тогда $\exists \lambda \in \mathds{R}^n: f'(a) - \lambda \Phi'(a) = 0$
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $rank\ \Phi'(a) = n$~--- пусть реализуется на последних $n$ столбцах.
+    \item $a = (x,y)$. $\exists P(x) \subset \mathds{R}^m, Q(y) \subset \mathds{R}^n,
+    \phi: P \rightarrow Q$: $\Phi(x,\phi(x)) = 0$~--- параметризация многообразия.
+    \item $g: P \rightarrow \mathds{R}$, $g(x) = f(x,\phi(x))$.
+    \item $(x,\phi(x)) = a$. Тогда, поскольку это экстремум, $g'(x) = 0$.
+    
+    $g'(x) = f(x,\phi(x))'_x = f'_x + f'_y \phi' = 0$
+    \item $\Phi(x,\phi(x)) = 0$
+
+    $\Phi'_x + \Phi'_y \phi' = 0$. Возьмём $\lambda \in \mathds{R}^n$.
+
+    $f'_x - \lambda\Phi'_x + (f'_y - \lambda\Phi'_y)\phi' = 0$
+    \item Подберём такое $\lambda$, что второе слагаемое равно $0$ (это можно сделать, так как $\Phi'_y$ невырожденное).
+
+    $f'_x - \lambda\Phi'_x = 0$, всё получается.
+\end{enumerate} 
+
+\subsection{Вычисление нормы линейного оператора с помощью собственных чисел}
+$A \in \mathscr{L}_{m,n}$. $\lambda_1,\dots,\lambda_m$~--- собственные числа $A^TA$.
+
+Тогда $||A|| = max \sqrt{\lambda_i}$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $|Ax|^2 = \sum_{k=1}^n (\sum_{i=1}^m a_{ki}x_i)^2 = \sum_{k=1}^n \sum_{i=1}^m \sum_{j=1}^m a_{ki} a_{kj} x_i x_j =
+    \sum_{i=1}^m (\sum_{k=1}^m a_{ki} (\sum_{j=1}^n a_{kj} x_j)) x_i = \langle A^TAx,x \rangle$.
+    \item $||A|| = \sup_{|x|=1} |Ax| = \sup_{|x|=1} \sqrt{\langle A^TAx,x \rangle}$.
+    \item $B_{[n \times n]} = A^TA$~--- симметричная. Все собственные числа вещественны.
+    \item $\sup_{|x|=1} \langle Bx,x \rangle$. Метод множителей Лагранжа:
+
+    $G(x) = \langle Bx,x \rangle - \lambda (x^2-1) = \sum_{k=1}^n \sum_{i=1}^n b_{ki}x_ix_k - \lambda(x^2-1)$.
+    $\lambda \in \mathds{R}$. $G'(x) = 0$.
+
+    $\begin{cases}
+        2(\sum_{i=1}^n b_{1i}x_i - \lambda x_1) = 0 \\
+        \vdots\\
+        2(\sum_{i=1}^n b_{ni}x_i - \lambda x_n) = 0 \\
+        x_1^2 + \cdots + x_n^2 - 1 = 0
+    \end{cases}$
+
+    $\begin{cases}
+        Bx - \lambda x = 0\\
+        x \in S(0,1)
+    \end{cases}$
+    \item Таким образом, максимум может достигаться только если $x$~--- собственный вектор, максимум равен собственному числу.
+    \item $||A|| = \sqrt{\langle A^TAx,x \rangle} = max \sqrt{\lambda_i}$.
+\end{enumerate}
+
+\subsection{Лемма о корректности определения касательного пространства}
+$M$~--- $k$-мерное гладкое многообразие в $\mathds{R}^m$, $p \in M$. Касательное пространство к $M$ в точке $p$
+не зависит от выбора параметризации.
+\\\\
+\emph{Доказательство:}
+
+Пусть $\Phi_1,\Phi_2$~--- параметризации. По теореме о двух параметризациях, $\Phi_1 = \Phi_2 \circ \Psi$.
+
+$\Phi_1(t_1) = \Phi_2(t_2) = p$. $\Phi'_1 = \Phi'_2 \Psi'$.
+
+$\Phi'_1(\mathds{R}^k) = (\Phi'_2 \Psi')(\mathds{R}^k) = \Phi'_2(\mathds{R}^k)$.
+
+Такио образом, касательные пространства, порождённые двумя параметризациями, совпадают.
+
+\subsection{Касательное пространство в терминах векторов скорости гладких путей}
+$M$~--- $k$-мерное гладкое многообразие в $\mathds{R}^m$, $p \in M$, $v \in \mathds{R}^m$.
+
+$v \in T_p(M)$ тогда и только тогда, когда $\exists$ путь $\gamma:[-\epsilon,\epsilon] \rightarrow M$ такой, что
+$\gamma(0) = p$ и $\gamma'(0) = v$.
+\\\\
+\emph{Доказательство:}
+
+$\Phi: E \subset \mathds{R}^k \to \mathds{R}^m$~--- параметризация. $\Phi(t_0) = p$.
+\begin{enumerate}
+    \item $\Leftarrow$
+    \begin{enumerate}
+        \item Пусть $\phi(t) = \Phi^{-1}(\gamma(t))$~--- соответствующий путь в $E$.
+        \item Путь гладкий, так как, в терминах доказательства теоремы о задании многообзация системой уравнений,
+        $\Phi^{-1} = \Psi \circ L$~--- гладкое отображение.
+        \item $\gamma'(t) = \Phi(\phi(t))' = \Phi'(\phi(t))\cdot \phi'(t)$.
+
+        $\gamma'(0) \in T_p(M)$.
+    \end{enumerate}
+    \item $\Rightarrow$
+    \begin{enumerate}
+        \item $v \in T_p(M) \Rightarrow \exists w \in \mathds{R}^k: \Phi'(t_0) w = v$.
+        \item Рассмотрим путь $\gamma(t) = \Phi(t_0 + wt)$.
+
+        $\gamma'(0) = \Phi'(t_0) w$, что и требовалось.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Теорема о функциональной зависимости}
+$f_1,\dots,f_n: E \subset \mathds{R}^m \to \mathds{R} \in C^1$, $F = (f_1,\dots,f_n)$.
+
+$rank\ F'(x) \leq k$ при $x \in E$, $rank\ F'(x_0) = k$, реализуется на $det(\frac{\partial f_i}{\partial x_j})_{i,j=1\dots k}$.
+
+$y_0 = F(x_0)$.
+
+Тогда $\exists U(x_0),V(y_0), g_{k+1},\dots,g_n:V \rightarrow \mathds{R}$ такие, что
+$\forall i \in \{k+1,\dots,n\},x \in U(x_0)\ f_i(x) = g_i(f_1(x),\dots,f_k(x))$.
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Обозначение: $x = (x_1,\dots,x_k,x_{k+1},\dots,x_m) = (\overline{x},\overline{\overline{x}})$.
+    \item $\Phi: E \rightarrow \mathds{R}^m$. $\Phi(x) = (f_1(x),\dots,f_k(x),x_{k+1},\dots,x_m)$.
+
+    $det\ \Phi'(x_0) \neq 0 \Rightarrow \exists U(x_0)$: $\Phi$ на $U(x_0)$~--- диффеоморфизм (теорема о локальной обратимости).
+    \item $\widetilde{F} = F \circ \Phi^{-1}$. $\widetilde{F}(w) = (\overline{w},\Theta(w))$.
+
+    $rank\ \widetilde{F}' = rank\ (F' (\Phi^{-1})') = rank\ F' \leq k$ (потому что $\Phi^{-1}$ невырождено).
+
+    \item $w_0 = \Phi(x_0)$. $\widetilde{F}'(w_0) = 
+    \begin{pmatrix}
+        E_{[k \times k]} & 0\\
+        \Theta'_{\overline{w}}(w_0) & \Theta'_{\overline{\overline{w}}}(w_0)
+    \end{pmatrix}
+    $.
+    \item Ранг $\widetilde{F}'(w_0)$ не больше $k$, и он достигается на $E_{[k \times k]}$.
+    Значит, $\Theta'_{\overline{\overline{w}}}(w_0) = 0$, и $\Theta$~--- функция только от $\overline{w}$.
+    $\widetilde{F}(w) = (\overline{w}, \Theta(\overline{w}))$~--- тоже функция только от $\overline{w}$.
+    \item $F = \overline{F} \circ \Phi$. $F(x) = (f_1(x),\dots,f_k(x),\Theta(f_1(x),\dots,f_k(x)))$.
+    Тогда $g_{k+i} = \Theta_i$.
+\end{enumerate}
+
+
+\subsection{Простейшие свойства интеграла векторного поля по кусочно-гладкому пути}
+$V$~--- векторное поле на $E$, $\gamma:[a,b] \rightarrow E$~--- путь.
+\begin{enumerate}
+    \item Линейность по $V$.
+    \item Аддитивность при дроблении промежутка.
+    \item $\phi:[p,q] \rightarrow [a,b]$, $\gamma_1 = \gamma \circ \phi$, $\phi(p)=a$, $\phi(q)=b$.
+    Тогда интегралы по $\gamma$ и $\gamma_1$ равны.
+    \item Интеграл по обратному пути равен минус интегралу по прямому.
+    \item $|I(V,\gamma)| \leq max_{t \in [a,b]} |V(\gamma(t))| \cdot len(\gamma)$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Очевидно.
+    \item Очевидно.
+    \item $\int_p^q \langle V(\gamma(\phi(t))),\gamma(\phi(t))' \rangle dt =
+    \int_p^q \langle V(\gamma(\phi(t))),\gamma'(\psi(t)) \rangle \psi'(t)dt
+     = \int_a^b \langle V(\gamma(t_1),\gamma'(t_1) \rangle dt_1$.
+    \item $\int_a^b \langle V(\gamma(a+b-t)),\gamma(a+b-t)' \rangle dt =
+    \int_a^b \langle V(\gamma(a+b-t),\gamma'(a+b-t) \rangle \cdot(-1)dt =
+    -\int_a^b \langle V(\gamma(t_1),\gamma'(t_1) \rangle dt_1$
+    \item $|\int_a^b \langle V,\gamma' \rangle dt| \leq \int_a^b |\langle V,\gamma' \rangle| dt \leq
+    \int_a^b |V|\cdot|\gamma'| dt \leq max_{t \in [a,b]} |V(\gamma(t))| \int_a^b |\gamma'|dt = 
+    max_{t \in [a,b]} |V(\gamma(t))| \cdot len(\gamma)$.
+\end{enumerate}
+
+\subsection{Обобщенная формула Ньютона--Лейбница}
+$V: E \subset \mathds{R} \rightarrow \mathds{R}$~--- потенциальное воекторное поле. $f$~--- потенциал.
+
+$\gamma:[a,b] \rightarrow E$~--- кусочно-гладкий путь. Тогда $I(V, \gamma) = f(\gamma(b)) - f(\gamma(a))$
+\\\\
+\emph{Доказательство:}
+
+Пусть $\gamma$ гладкий (иначе~--- по кусочкам).
+$$\int_a^b \sum_{i=1}^m V_i(\gamma(t))\gamma'_i(t)dt = \int_a^b \sum_{i=1}^m f'_i(\gamma(t))\gamma'_i(t)dt =
+\int_a^b f_i(\gamma(t))'_t dt = f(\gamma(b)) - f(\gamma(a))$$
+
+\subsection{Характеризация потенциальных векторных полей в терминах интегралов}
+$V: E \subset \mathds{R}^m \to \mathds{R}^m$. Эквивалентно:
+\begin{enumerate}
+    \item $V$~--- потенциальное.
+    \item $\forall a,b \in E$ интеграл по пути из $a$ в $b$ не зависит от пути.
+    \item Интеграл по любой кусочно-гладкой петле равен $0$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $(1) \Rightarrow (2)$: по обобщённой формуле Ньютона-Лейбница.
+    \item $(2) \Rightarrow (3)$: интеграл по любой петле из точки $a$ равен интегралу по постоянному пути в точке $a$, а он равен $0$.
+    \item $(3) \Rightarrow (2)$:
+    \begin{enumerate}
+        \item $\gamma_1,\gamma_2:[a,b] \rightarrow E$, $\gamma_1(a)=\gamma_2(a)$, $\gamma_1(b)=\gamma_2(b)$.
+        \item Рассмотрим петлю: сначала $\gamma_1$, потом обратный к $\gamma_2$.
+
+        $I(V,\gamma_1) + I(V,rev(\gamma_2)) = 0 \Rightarrow I(V,\gamma_1) = I(V,\gamma_2)$.
+    \end{enumerate}
+    \item $(2) \Rightarrow (1)$:
+    \begin{enumerate}
+        \item $x_0 \in E$. $f(x) = I(V,\gamma)$, где $\gamma$~--- любой путь из $x_0$ в $x$. Докажем, что $f$~--- потенциал.
+        \item $f'_1(x) = \lim_{h \to 0} \frac{f(x+e_1h) - f(x)}{h}$.
+        \item $\gamma:[0,1] \rightarrow E$. $\gamma(t) = x+e_1ht$.
+        
+        $f(x+e_1h)-f(x) = I(V,\gamma) = \int_0^1 \langle V(\gamma(t)),\gamma'(t) \rangle dt = h \int_0^1 V_1(x+the_1) dt =
+        h V_1(x+che_1)$ ($c \in [0,1]$~--- теорема о среднем значении).
+        \item При $h \to 0$ $ch \to 0$, $\frac{f(x+he_1)-f(x)}{h} = V_1(x+che_1) \to V_1(x)$.
+        \item То же самое для всех остальных координат.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Необходимое условие потенциальности гладкого поля. Лемма Пуанкаре}
+\subsubsection{Необходимое условие потенциальности гладкого поля}
+$V: E \subset \mathds{R}^m \to \mathds{R}^m$~--- гладкое векторное поле, потенцильное.
+
+Тогда $\forall x \in E$ матрица $V'(x)$ симметрична:
+
+$\forall i,k \in \{1,\dots,m\}\ \frac{\partial V_i}{\partial V_k} = \frac{\partial V_k}{\partial V_i}$ (*).
+\\\\
+\emph{Доказательство:}
+
+$f$~--- потенциал. $V_i = f'_i$. $(V_i)'_k = (f'_i)'_k = f''_{ik} = (V_k)'_i$.
+
+\subsubsection{Лемма Пуанкаре}
+$V:E \subset \mathds{R}^m \rightarrow \mathds{R}^m$, $E$~--- выпуклая область.
+$V$~--- гладкое, удовлетворяет условию (*) из необходимого условия потенциальности.
+
+Тогда $V$ потенциально.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $a \in E$. Пусть $f(x) = I(V,\gamma_x)$, где $\gamma_x:[0,1] \rightarrow E$, $\gamma(t) = a + t(x-a)$~---
+    прямой путь из $a$ в $x$. Докажем, что $f$~--- потенциал.
+    \item $\gamma' = x - a$
+    \item $f(x) = \int_0^1 \sum_{k=1}^m V_k(a+t(x-a)) (x_k-a_k)dt$.
+    \item $$f'_{x_j} = \int_0^1 V_j(a+t(x-a))dt +
+    \int_0^1 \sum_{k=1}^m \underbrace{\frac{\partial V_k}{\partial x_j}}_{\frac{\partial V_j}{\partial x_k}}(a+t(x-a))\cdot t\cdot (x_k-a_k) dt =
+    \int_0^1 (tV_j(a+t(x-a)))'_t dt = 1\cdot V_j(x) - 0 \cdot V_j(a) = V_j(x)$$
+\end{enumerate}
+
+\subsection{Лемма о гусенице}
+$\gamma:[a,b] \rightarrow E \subset \mathds{R}^m$~--- непрерывный путь в области.
+
+$\exists$ дробление $a=t_0<t_1<\dots<t_n = b$ и шары $B_1,\dots,B_n \subset E$, такие что
+$\forall i\ \gamma[t_{i-1},t_i] \subset B_i$.
+
+На шары $B_i$ можно накладывать ограничения: чтобы заданное локально потенциальное поле $V$ было потенциальным в них.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Для каждого $t \in [a,b]$ возьмём подходящий шар $B_t = B(\gamma(t),r_t)$.
+    \item
+    $\alpha_t = \inf \{s \in [a,t]: \gamma([s,t]) \subset B_t\}$.\\
+    $\beta_t = \sup \{s \in [t,b]: \gamma([t,s]) \subset B_t\}$.
+
+    Пусть $\alpha_t < \widetilde{\alpha}_t < t < \widetilde{\beta}_t < \beta_t$.
+    Тогда $\gamma((\widetilde{\alpha}_t, \widetilde{\beta}_t)) \in B_t$.
+
+    В $t=a$: $[a,\widetilde{\beta}_a)$.
+    В $t=b$: $(\widetilde{\alpha}_b,b]$.
+    \item $[a,b]$ покрыт такими интервалами. Поскольку $[a,b]$~--- компакт, существует конечное подпокрытие. Уберём вложенные интервалы.
+    Получили покрытие интервалами $(\widetilde{\alpha}_1, \widetilde{\beta}_1), \dots, (\widetilde{\alpha}_n, \widetilde{\beta}_n)$
+    и соответствующее покрытие шарами.
+    \item $t_0 = a$, $t_n = b$. $i \in {1,\dots,n-1}$,
+    $t_i \in (\widetilde{\alpha}_{i-1}, \widetilde{\beta}_{i-1}) \cap (\widetilde{\alpha}_i, \widetilde{\beta}_i)$.
+\end{enumerate}
+
+\subsection{Лемма о равенстве интегралов по похожим путям}
+$V$~--- локально потенциальное векторное поле на $E$.
+
+$\gamma_1,\gamma_2: [a,b] \rightarrow E$~--- пути с совпадающими концами, $V$-похожие, кусочно-гладкие.
+
+Тогда интегралы по ним равны.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Рассмотрим общую $V$-гусеницу. В шаре $B_i$ определён потенциал $\phi_i$. Пусть они определены так, что
+    на пересечении шаров $B_i$ и $B_{i-1}$ потенциалы $\phi_i$ и $\phi_{i-1}$ совпадают.
+    \item Рассмотрим дробление $a=t_0<t_1<\dots<t_n=b$, такое что $\forall i \in {1,\dots,n-1}\ \gamma_1(t_i) \in B_i \cap B_{i+1}$.
+    \item $I(V,\gamma_1) = \sum_{i=1}^n I(V,\gamma_1 |_{[t_{i-1},t_i]}) =
+    \sum_{i=1}^n (\phi_i(\gamma_1(t_i)) - \phi_i(\gamma_1(t_{i-1}))) = \phi_n(\gamma_1(b)) - \phi_1(\gamma_1(a))$.
+    \item То же самое для $\gamma_2$. Значит, они равны.
+\end{enumerate}
+
+\subsection{Лемма о похожести путей, близких к данному}
+$\gamma:[a,b] \rightarrow E$. Тогда $\exists \delta > 0: \forall \gamma_1,\gamma_2: [a,b] \rightarrow E$, такие что
+$\forall t \in [a,b]\ |\gamma_i(t)-\gamma(t)|<\delta$ $\gamma_1$ и $\gamma_2$ похожи.
+\\\\
+\emph{Доказательство:}
+
+Нужно взять такое $\delta$, что $\delta$-окрестность $\gamma$ на $[t_{i-1},t_i]$ помещается в $B_i$ для всех $i$.
+
+\subsection{Равенство интегралов по гомотопным путям}
+$V$~--- локально потенциальное векторное поле на $E$.
+
+$\gamma_0,\gamma_1: [a,b] \rightarrow E$~--- связанно гомотопные пути в $E$.
+
+Тогда интегралы по ним равны.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\Gamma:[a,b]\times[0,1]$~--- гомотопия. $\gamma_s(t) = \Gamma(t,s)$.
+    \item $\Phi(s) = I(V,\gamma_s)$.
+    \item $\Gamma$ непрерывна, $[a,b]\times[0,1]$~--- компакт, поэтому $\Gamma$ равномерно непрерывна.
+    \item Рассмотрим $\gamma_s$. По лемме, $\exists \delta_s > 0$ такая, что любой путь $\overline{\gamma}:[a,b] \rightarrow E$,
+    $\forall t\ |\overline{\gamma}(t)-\gamma_s(t)| < \delta_s$~--- похож на $\gamma_s$.
+
+    $\Gamma$ равномерно непрерывно:
+    $\forall \epsilon > 0\ \exists \delta > 0: \forall s_1,s_2,|s_1-s_2|<\delta\ |\Gamma(t,s_1)-\Gamma(t,s_2)| < \epsilon$.
+
+    Подставим $\epsilon = \delta_s$:
+    $\exists \delta > 0: \forall s_1,|s_1-s|<\delta\ |\Gamma(t,s_1)-\Gamma(t,s)| < \delta_s$.
+    \item $\forall s_1 \in (s-\delta,s+\delta)\cap[0,1]$ $\gamma_{s_1}$ похож на $\gamma_s$, поэтому $\Phi$ постоянна в окрестности $s$.
+    \item $\forall s \in [0,1]$ $\Phi$ постоянна в окрестности $s$. Поэтом $\Phi$~--- константа, и $\Phi(0) = \Phi(1)$.
+\end{enumerate}
+
+
+
+\subsection{Теорема о резиночке}
+Область $E = \mathds{R}^2 \setminus \{(0,0)\}$ не является односвязной.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Рассмотрим векторное поле $V(x,y) = (\frac{-y}{x^2+y^2},\frac{x}{x^2+y^2})$.\\
+    $(V_1)'_y = \frac{-(x^2+y^2) + 2y^2}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2}$\\
+    $(V_2)'_x = \frac{(x^2+y^2) - 2x^2}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2}$\\
+    $(V_1)'_y = (V_2)'x$, поэтому $V$ локально потенциальное.
+    \item Рассмотрим замкнутый путь $\gamma:[0,2\pi] \rightarrow E$, $\gamma(t) = (cos(t),sin(t))$.\\
+    $I(V,\gamma) = \int_0^{2\pi} (\frac{-sin(t)}{cos^2(t)+sin^2(t)}(-sin(t)) + \frac{cos(t)}{cos^2(t)+sin^2(t)}cos(t)) dt =
+    \int_0^{2\pi} (sin^2(t) + cos^2(t))dt = 2\pi \neq 0$.
+    \item Интеграл по замкнутому пути не равен $0$, поэтому поле не потенциально. При этом поле локально потенциально,
+    поэтому по теореме Пуанкаре для односвязной области $E$ не односвязна.
+\end{enumerate}
+
+\subsection{Теорема Пуанкаре для односвязной области}
+$E$~--- односвязная область в $\mathds{R}^m$, $V$~--- локально потенциальное векторное поле в $E$.
+
+Тогда $V$ потенциально.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\gamma$~--- петля в $E$. Область односвязна, поэтому она гомеоморфна точке, поэтому интеграл по ней $0$.
+    \item Интеграл по любой петле $0$, поэтому поле потенциально.
+\end{enumerate}
+
+\subsection{Свойства объема: усиленная монотонность, конечная полуаддитивность}
+$v: \mathds{P} \rightarrow \overline{\mathds{R}}$~--- объём. Тогда:
+\begin{enumerate}
+    \item Усиленная монотонность. $A_1,A_2\dots \in \mathds{P}$, дизъюнктны, $\bigcup A_i \subset B \in \mathds{P}$.
+    Тогда $\sum v(A_i) \leq v(B)$.
+    \item Конечная полуаддитивность. $A_1,\dots,A_n \in \mathds{P}$, $A \subset \bigcup A_i$, $A \in \mathds{P}$.
+    Тогда $v(A) \leq \sum v(A_i)$.
+    \item $A,B, A \setminus B \in \mathds{P}$, $v(B) < +\infty$.
+    Тогда $v(A \setminus B) \geq v(A) - v(B)$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Докажем для конченого набора. $B \setminus \bigcup A_k = \bigcup_{i=1}^N C_i$ ($C_i \in \mathds{P}$, дизъюнктны).
+        Это нетрудно выводится из определения полукольца.
+        \item $B = (\bigcup A_i) \cup (\bigcup C_i)$. По аддитивности, $v(B) \geq \sum v(A_i)$.
+        \item Устремляем $n$ к $\infty$: $\forall k\ v(B) \geq \sum_{i=1}^k A_i \Rightarrow v(B) \geq \sum_{i=1}^{\infty} A_i$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Пусть $B_i = A_i \cap A$.
+        \item $C_1 = B_1$, $C_{i+1}$ = $B_{i+1} \setminus (B_1 \cup \dots \cup B_i)$,
+        $\forall i\ C_i = \bigsqcup_{j=1}^{N_i} D_{ij} \in \mathds{P}$, $C_i \subset A_i$.
+        \item $A = \bigsqcup_{i,j} D_{ij} \Rightarrow v(A) = \sum v(D_{ij}) = \sum_{i=1}^n v(C_i) \leq \sum_{i=1}^n v(A_i)$.
+    \end{enumerate}
+    \item $v(A \setminus B) = v(A) - v(A \cap B) \geq V(A) - V(B)$.
+\end{enumerate}
+
+\subsection{Теорема об эквивалентности счетной аддитивности и счетной полуаддитивности}
+$v: \mathds{P} \rightarrow \overline{\mathds{R}}$~--- объём. Тогда эквивалентны:
+\begin{enumerate}
+    \item $v$~--- мера.
+    \item $v$ удовлетворяет свойству счётной полуаддитивности:
+    $A,A_1,A_2,\dots \in \mathds{P}$, $A \subset \bigcup A_i$. Тогда $v(A) \leq \sum v(A_i)$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $(1) \Rightarrow (2)$: совпадает с доказательством конечной полуаддитивности объёма.
+    \begin{enumerate}
+        \item Пусть $B_i = A_i \cap A$.
+        \item $C_1 = B_1$, $C_{i+1}$ = $B_{i+1} \setminus (B_1 \cup \dots \cup B_i)$,
+        $\forall i\ C_i = \bigsqcup_{j=1}^{N_i} D_{ij} \in \mathds{P}$, $C_i \subset A_i$.
+        \item $A = \bigsqcup_{i,j} D_{ij} \Rightarrow v(A) = \sum v(D_{ij}) = \sum_{i=1}^{\infty} v(C_i) \leq \sum_{i=1}^{\infty} v(A_i)$.
+    \end{enumerate}
+    \item $(2) \Rightarrow (1)$.
+    \begin{enumerate}
+        \item Докажем счётную аддитивность: $A,A_1,A_2,\dots \in \mathds{P}$, $A = \bigsqcup A_i$.
+        \item $v(A) \leq \sum v(A_i)$ по счётной полуаддитивности.
+        \item $v(A) \geq \sum v(A_i)$ по усиленной монотонности объёма.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Теорема о непрерывности снизу}
+$\mathds{A}$~--- алгебра подмножеств $X$, $\mu$~--- объём на $\mathds{A}$. Тогда эквивиалентно:
+\begin{enumerate}
+    \item $\mu$~--- мера.
+    \item Если $A_1,A_2,\dots \in \mathds{A}$, $\forall k\ A_k \subset A_{k+1}$, $A = \bigcup A_k \in \mathds{A}$, то
+    $\mu(A_n) \to \mu(A)$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $(1) \Rightarrow (2)$:
+    \begin{enumerate}
+        \item $B_1 = A_1,\ B_2 = A_2 \setminus A_1,\dots,B_i = A_i \setminus A_{i-1},\dots$. Все $B_i \in \mathds{A}$.
+        \item $A = \bigsqcup_{i=1}^{\infty} B_i \Rightarrow \mu(A) = \sum_{i=1}^{\infty} \mu(B_i)$.
+        \item $\mu(A_k) = \sum_{i=1}^{k} \mu(B_i)$~--- частичные суммы, поэтому $\mu(A_k) \to \mu(A)$.
+    \end{enumerate}
+    \item $(2) \Rightarrow (1)$:
+    \begin{enumerate}
+        \item $C,C_1,C_2,\dots \in \mathds{A}$, $C = \bigsqcup C_i$. Доказать: $\mu(C) = \sum \mu(C_i)$.
+        \item Пусть $D_1 = C_1,\ D_2 = C_1 \sqcup C_2, \dots, D_i = \bigsqcup_{j=1}^i C_j$. $D_i \in \mathds{A}$,
+        $\mu(D_i) = \sum_{j=1}^i \mu(C_j)$.
+        \item $D_i \subset D_{i+1}$, $\bigcup D_i = C$. По непрерывности снизу: $\mu(D_n) \to \mu(C)$.\\
+        $\sum_{i=1}^n \mu(C_i) \to \mu(C)$.\\
+        $\sum_{i=1}^{\infty} \mu(C_i) = \mu(C)$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Счетная аддитивность классического объема}
+Если $\Delta, \Delta_1, \Delta_2, \dots \in \mathds{P}_n$ (ячейки), $\Delta_i$ дизъюнктны, $\Delta = \bigcup \Delta_i$,
+то $v(\Delta) = \sum v(\Delta_i)$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $\Delta = [a,b)$, $\Delta_i = [a_i,b_i)$.
+    \item $[a,\widetilde{b}] \subset [a,b)$, $vol[a,\widetilde{b}] \geq \mu[a,b) - \epsilon$.
+    \item Пусть для каждого $\Delta_i$: $(\widetilde{a}_i,b_i) \supset [a_i,b_i)$,
+    $vol(\widetilde{a}_i,b_i) \leq \mu[a_i,b_i) + \frac{\epsilon}{2^i}$.
+    \item $[a,\widetilde{b}]$~--- компакт, покрытый открытыми множествами $(\widetilde{a}_i,b_i)$.
+    Существует конечное подпокрытие $[a,\widetilde{b}] \subset \bigcup_{k=1}^n (\widetilde{a}_{i_k},b_{i_k})$.
+    \item $[a,\widetilde{b}) \subset \bigcup_{k=1}^n [\widetilde{a}_{i_k},b_{i_k})$.
+    По конечной полуаддитивности объёма,
+    $\underbrace{\mu[a,\widetilde{b})}_{\geq \mu[a,b) - \epsilon} \leq
+    \sum_{k=1}^n \underbrace{\mu[\widetilde{a}_{i_k},b_{i_k})}_{\leq \mu[a_{i_k},b_{i_k}) + \frac{\epsilon}{2^{i_k}}}$.
+    \item $\mu[a,b)-\epsilon \leq \sum_{k=1}^n \mu[a_{i_k},b_{i_k}) + \frac{\epsilon}{2^{i_k}} <
+    \sum_{k=1}^n \mu[a_{i_k},b_{i_k}) + \epsilon$.
+    \item $\mu[a,b) - 2\epsilon \leq \sum_{k=1}^n \mu[a_{i_k},b_{i_k}) \leq \sum_{i=1}^{\infty} \mu[a_i,b_i)$. 
+    \item Устремляем $\epsilon$ к 0, получаем счётную полуаддитивность.
+    \item Из счётной полуаддитивности объёма следует счётная аддитивность по теореме об
+    эквивалентности счетной аддитивности и счетной полуаддитивности.
+\end{enumerate}
+
+\subsection{Лемма о структуре открытых множеств и множеств меры 0}
+Рациональный куб~--- такая ячейка $[a,b)$, что все $a_k$ и $b_k$ рациональны и все $b_k-a_k$ равны.
+\begin{enumerate}
+    \item $E \subset \mathds{R}^m$~--- открытое. Тогда $E$ прредставимо в виде $E = \bigsqcup Q_i$~---
+    не более чем счётное количество рациональных кубов, замыкание каждого из которых содержится в $E$.
+    \item $E \in \mathfrak{M}^m$, $\lambda_m(E) = 0$. Тогда $\forall \epsilon > 0$ $\exists Q_1,Q_2\dots$~--- рациональные кубы,
+    $E \subset \bigcup_{i=1}^{\infty} Q_i$, $\sum_{i=1}^{\infty} \mu(Q_i) < \epsilon$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Для каждого $x$ из $E$ выберем $\widetilde{Q}_x$~--- подходящий под условие рациональный куб, содержащий $x$.
+        \item Всего рациональных кубов счётное число, поэтому $E$ покрывается $\bigcup_{i=1}^{\infty} \widetilde{Q}_i$.
+        \item Сделаем объединение дизъюнктным. $Q_{1,1} = \widetilde{Q}_1$,\\
+        далее $\widetilde{Q}_i \setminus (\widetilde{Q}_1 \cup \dots \cup \widetilde{Q}_{i-1}) =
+        \bigsqcup_{k=1}^{N_i} Q_{i,k}$:
+        \begin{enumerate}
+            \item $\widetilde{Q}_i \setminus (\widetilde{Q}_1 \cup \dots \cup \widetilde{Q}_{i-1})$ разбивается на ячейки,
+            причём они рациональны.
+            \item Рациональную ячейку можно разбить на рациональные кубы: рассмотрим $t$~--- общий знаменатель всех $a_k$, $b_k$,
+            разобъём на кубы со стороной $\frac{1}{t}$.
+            \item Разбиение конечно.
+        \end{enumerate}
+        \item $E = \bigsqcup Q_{i,k}$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Дан $\epsilon$. $\lambda_m(E) = 0 \Leftrightarrow
+        \inf_{(P_1,P_2,\dots \in \mathds{P}_m,\ E \subset \bigcup P_i)} \sum \mu(P_i) = 0$.
+        \item Тогда существует такой набор $P_1,P_2,\dots$, что $\sum \mu(P_i) < \frac{\epsilon}{2}$.
+        \item $P_i = [a_i,b_i)$. Пусть $B_i = (\widetilde{a}_i,b_i)$, при этом $\mu(B_i) \leq 2\mu(P_i)$.
+        \item $E$ покрыт $\bigcup B_i$~--- открытое множество меры меньше $\epsilon$.
+        \item Это открытое множество представимо в виде объединения рациональных кубов.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Пример неизмеримого по Лебегу множества}
+Введём на $[0,1]$ отношение эквивалентности: $x \sim y$, если $x-y \in \mathds{Q}$.
+
+Из каждого класса эквивалентности выберем по элементу (тут мы пользуемся аксииомой выбора).
+Полученное множество $E$ неизмеримо по Лебегу.
+\\\\
+\emph{Доказательство:}
+
+Рассмотрим сдвиги этого множества на все рациональные числа из $[-1,1]$. Они дизъюнктны, покрывают $[0,1]$ и содержатся в $[-1,2]$.
+\begin{enumerate}
+    \item Если $\mu(E)=0$, то $\mu[0,1]=0$, это не так.
+    \item Если $\mu(E)>0$, то $\mu[-1,2]=\infty$, это не так.
+\end{enumerate}
+
+\subsection{Регулярность меры Лебега}
+$A \in \mathfrak{M}^m$. Тогда
+$$\lambda_m(A) = \inf \{G: G \supset A, G\ \text{открытое}\} = \sup \{F: F \subset A, F\ \text{замкнутое}\} =
+\sup \{K: K \subset A, K\ \text{компактное}\}$$
+\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Докажем, что $\forall \epsilon > 0$ $\exists$ открытое $G_\epsilon \supset A$: $\lambda_m(G_\epsilon \setminus A) < \epsilon$.
+    \begin{enumerate}
+        \item Пусть $\lambda_m(A) < +\infty$.
+        \begin{enumerate}
+            \item $\lambda_m(A) = \inf_{(P_1,P_2,\dots \in \mathds{P}_m,\ A \subset \bigcup P_i)} \sum \mu(P_i)$.
+            \item Тогда есть $P_1,P_2,\dots \in \mathds{P}_m,\ A \subset \bigcup P_i$,
+            $\sum \mu(P_i) < \lambda_m(A) + \frac{\epsilon}{2}$.
+            \item Для всех $P_i$ построим $\widetilde{P}_i \supset P_i$~--- открытое,
+            $\lambda_m(\widetilde{P}_i) \leq \lambda_m(P_i) + \frac{\epsilon}{2^{i+1}}$.
+            \item $G_\epsilon = \bigcup \lambda_m(\widetilde{P}_i)$. $\lambda_m(G_\epsilon) \leq \lambda_m(A) + \epsilon$.
+        \end{enumerate}
+        \item Пусть $\lambda_m(A) = +\infty$.
+        \begin{enumerate}
+            \item $\mathds{R}^m = \bigsqcup Q_i$~--- единичные кубы. $A_i = A \cap Q_i$, $A = \bigsqcup A_i$, $\lambda_m(A_i) \leq 1$.
+            \item Для каждого $i$ построим открытое $G_i$: $A_i \subset G_i$, $\lambda_m(G_i \setminus A_i) \leq
+            \frac{\epsilon}{2^i}$.
+            \item $G_\epsilon = \bigcup G_i \supset A$. $\lambda_m(G_\epsilon) \leq \lambda_m(A) + \epsilon$.
+        \end{enumerate}
+    \end{enumerate}
+    \item Докажем, что $\forall \epsilon > 0$ $\exists$ замкнутое $F_\epsilon \subset A$: $\lambda_m(A \setminus F_\epsilon) < \epsilon$.
+    \begin{enumerate}
+        \item $A \setminus F_\epsilon = F_\epsilon^c \setminus A^c$, $F_\epsilon^c \supset A^c$.
+        \item $\lambda_m(A \setminus F_\epsilon) = \lambda_m(F_\epsilon^c \setminus A^c)$.
+        \item По (1), найдётся такое открытое $F_\epsilon^c$, что это выполняется.
+        \item Дополнение к открытому замкнуто.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\lambda_m(A) = \sup \{F: F \subset A, F\ \text{замкнутое}\}$.
+        \item Любое $F$ представляется как объединение счётного числа компактов $K_i = F \cap \overline{B(0,i)}$.
+        \item Поэтому $\lambda_m(A) = \sup \{K: K \subset A, K\ \text{компактное}\}$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Лемма о сохранении измеримости при непрерывном отображении}
+$T: \mathscr{O} \subset \mathds{R}^m \rightarrow \mathds{R}^m$~--- непрерывно,
+$\forall E \in \mathfrak{M}^m, E \subset \mathscr{O}, \lambda_m(E)=0$ выполнено
+$\lambda_m(T(E)) = 0$.
+
+Тогда $\forall A \in \mathfrak{M}^m,A \subset \mathscr{O}\ T(A) \in \mathfrak{M}^m$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $A$~--- измеримо $\Leftrightarrow$ $A=\bigcup K_i \cup N$, где $K_i$~--- компакты, $N$~--- множество меры $0$.
+    \item $T(A) = \bigcup T(K_i) \cup T(N)$.
+    \begin{enumerate}
+        \item Непрерывный образ компакта~--- компакт.
+        \item $T(N)$ имеет меру 0.
+    \end{enumerate}
+    \item Поэтому $T(A)$ измеримо.
+\end{enumerate}
+
+\subsection{Лемма о сохранении измеримости при гладком отображении. Инвариантность меры Лебега относительно сдвигов}
+\begin{enumerate}
+    \item $T: \mathscr{O} \subset \mathds{R}^m \rightarrow \mathds{R}^m \in C^1$, $\mathscr{O}$ открыто.
+    Тогда $\forall A \in \mathfrak{M}^m,A \subset \mathscr{O}$ выполнено $T(A) \in \mathfrak{M}^m$.
+    \item $\forall A \in \mathfrak{M}^m,v \in \mathds{R}^m$ выполнено $A + v \in \mathfrak{M}^m$, $\lambda_m(A+v) = \lambda_m(A)$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item $E$ можно покрыть счётным числом компактов $K_i$, которые содержатся в $\mathscr{O}$.
+        Например, можно взять замкнутые кубы, покрывающие $\mathscr{O}$.
+        \item Докажем, что для всех $A \cap K_i$ $T(A \cap K_i)$ имеет меру ноль. Из этого будет следовать, что $T(A)$ имеет меру ноль.
+        \item Далее считаем, что $A$ покрыто одним компактом $K \subset \mathscr{O}$.
+        \item На компакте $K$ существует глобальная константа Липшица $L$ для $T$, равная $max ||T'||$.
+        \item $\forall \epsilon > 0$ $\exists C_1,C_2,\dots$~--- кубы $[a_i,b_i] \subset K$,
+        $A \subset \bigcup C_i$, $\sum \lambda_m(C_i) < \epsilon$.
+        \item $r_i$~--- длины сторон кубов. $\sup_{x \in C_i}|x-a_i| = r_i\sqrt{m}$. Тогда из условия Липшица:
+        $T(C_i) \subset \overline{B}(T(a_i),Lr_i\sqrt{m}) \Rightarrow \lambda_m(T(C_i)) \leq (2Lr_i\sqrt{m})^m =
+        \lambda_m(C_i)\cdot const$.
+        \item Получается, что $\lambda_m(T(\bigcup C_i)) \leq \epsilon \cdot const$. Значит, мера $T(A)$ равна нулю.
+        \item $T$ непрерывно и переводит множества меры ноль во множества меры ноль, поэтому оно сохраняет измеримость.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Сдвиг~--- гладкое отображение, поэтому $A+v \in \mathfrak{M}^m$.
+        \item $\lambda_m(A) = \inf_{(P_1,P_2,\dots \in \mathds{P}_m,\ A \subset \bigcup P_i)} \sum \mu(P_i)$.
+        Классический объём инвариантен относительно сдвига.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Инвариантность меры Лебега при ортогональном преобразовании}
+Если $T$~--- ортогональный линейный оператор (сохраняет скаларное произведение) и $E \in \mathfrak{M}^m$,
+то $T(E) \in \mathfrak{M}^m$, $\lambda_m(T(E))=\lambda_m(E)$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $T(E) \in \mathfrak{M}^m$, потому что $T$ гладкое.
+    \item Пусть $\mu(E) = \lambda_m(T(E))$. $\mu$~--- мера на $\mathfrak{M}^m$, поскольку $T$~--- биекция.
+    \item $\mu$ инвариантна относительно сдвигов: $\mu(A+v) = \lambda_m(T(A+v)) = \lambda_m(T(A) + Tv) = \lambda_m(T(A)) = \mu(A)$.
+    \item По теореме о мерах, инвариантных относительно сдвигов, $\mu \equiv c\lambda_m$.
+    \item Рассмотрим шар $B = B(0,1)$. $\lambda_m(B) \neq 0$. $T(B) = B \Rightarrow \mu(B) = \lambda_m(B) \Rightarrow c=1$.
+    \item $\mu \equiv \lambda_m \Rightarrow \lambda_m(T(E)) = \lambda_m(E)$.
+\end{enumerate}
+
+\subsection{Лемма <<о структуре компактного оператора>>}
+$V: \mathds{R}^m \rightarrow \mathds{R}^m$~--- невырожденный линейный оператор.
+
+Тогда $\exists$ ортонормированные базисы $\{g_i\}$, $\{h_i\}$ в $\mathds{R}^m$, $s_1,\dots,s_m > 0$, такие что
+$\forall x \in \mathds{R}^m$ $Vx = \sum_{k=1}^m s_k \langle x,g_k \rangle h_k$,
+$|det\ V| = \prod_{k=1}^{\infty} s_k$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $W = V^TV$~--- симметричен относительно главной диагонали, поэтому все собственные $W$ числа вещественны,
+    а из собственных векторов $W$ можно составить базис $\{g_i\}$.
+    \item Все собственные числа $\lambda_i > 0$: $\lambda_i = \langle Wg_i,g_i \rangle = \langle V^TVg_i,g_i \rangle =
+    \langle Vg_i,Vg_i \rangle > 0$.
+    \begin{enumerate}
+        \item Переход $\langle V^TVg_i,g_i \rangle = \langle Vg_i,Vg_i \rangle$ описан в вычислении нормы оператора
+        через собственные числа.
+    \end{enumerate}
+    \item $s_i = \sqrt{c_i}$. $h_i = \frac{1}{s_i} V g_i$.
+    \item $\{h_i\}$~--- ОНБ: $\langle h_i,h_j \rangle = \frac{1}{s_is_j} \langle Vg_i,Vg_j \rangle =
+    \frac{1}{s_is_j} \langle Wg_i,g_j \rangle = \frac{1}{s_is_j} c_i \langle g_i,g_j \rangle = \delta_i^j$.
+    \item $\sum_{k=1}^m s_k \langle x,g_k \rangle h_k = \sum_{k=1}^m \langle x,g_k \rangle Vg_i =
+    V \sum_{k=1}^m \langle x,g_i \rangle g_i = Vx$.
+    \item $(det\ V)^2 = det\ V^TV = det\ W = \lambda_1 \cdot \dots \cdot \lambda_m$.
+\end{enumerate}
+
+\subsection{Теорема о преобразовании меры Лебега при линейном отображении}
+$V \in \mathscr{L}_{m,m}$.
+
+Тогда $\forall A \subset \mathfrak{M}^m$ $VA \in \mathfrak{M}^m$ и $\lambda_m(VA) = |det\ V| \lambda_m(A)$.
+\\\\
+\emph{Доказательство:}
+\begin{enumerate}
+    \item Если $det\ V=0$, то $Im(V)$ имеет размерность $<m$, $VA$ лежит в пространстве размерности меньше $m$ и потому имеет меру ноль.
+    \item Далее $det\ V \neq 0$. $V$~--- невырожденный.
+    \item По теореме о структуре компактного оператора, $Vx = \sum_{k=1}^m s_k \langle x,g_k \rangle h_k$,
+    где $\{g_i\}$, $\{h_i\}$~--- ортонормальные базисы, $s_i > 0$, $\prod_{k=1}^m s_i = |det\ V|$.
+    \item Пусть $\mu(A) = \lambda_m(VA)$. Это мера на $\mathfrak{M}^m$. $\mu$ инвариантно относительно сдвигов, поэтому
+    $\exists k$: $\mu \equiv k \lambda_m$.
+    \begin{enumerate}
+        \item Тут $\mu$ введена так же, как в теореме об инвариантности меры Лебега относительно ортогонального преобразования.
+    \end{enumerate}
+    \item $Q$~--- единичный куб со сторонами на $g_i$. $\lambda_m(Q) = 1$.
+    \item $Vg_i = s_ih_i$, поэтому $VQ$~--- параллелепипед, построенный на векторах $s_ih_i$.
+    \item $\mu(Q) = \lambda_m(VQ) = \prod_{k=1}^m s_i = |det\ V| \Rightarrow k=|det\ V|$.
+\end{enumerate}
+
+\subsection{Теорема об измеримости пределов и супремумов}
+$f_n: X \rightarrow \overline{\mathds{R}}$ измеримы на $X$. Тогда:
+\begin{enumerate}
+    \item $\sup_{n \in \mathds{N}} f_n(x)$, $\inf_{n \in \mathds{N}} f_n(x)$~--- измеримы.
+    \item $\varlimsup_{n \to +\infty} f_n(x)$, $\varliminf_{n \to +\infty} f_n(x)$~--- измеримы.
+    \item Если $f_n(x)$ поточечно сходится к $g(x)$, то $g(x)$~--- измерима.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $h(x) = \sup_{n \in \mathds{N}} f_n(x)$ $X(h>a) = \bigcup_{n \in \mathds{N}} X(f_n > a)$~--- измеримо.
+        \item $\inf$ аналогично.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item $\varlimsup_{n \to +\infty} f_n(x) = \lim_{n \to +\infty} y_n(x)$, $y_n(x) = sup_{k \geq 0} f_{n+k}(x)$.
+        \item $\forall x y_n(x)$ монотонно убывает, поэтому $\varlimsup_{n \to +\infty} y_n(x) = \inf_{n \in \mathds{N}} y_n(x)$~---
+        измеримо по пункту 1.
+        \item $\varliminf$ аналогично.
+    \end{enumerate}
+    \item Обычный предел, если он существует, равен верхнему и нижнему.
+\end{enumerate}
+
+\subsection{Характеризация измеримых функций с помощью ступенчатых}
+$(X,\mathds{A},\mu)$~--- пространство с мерой.
+
+$f$~--- измеримая функция на $X$, $\forall x\ f(x) \geq 0$. Тогда $\exists$ ступенчатые функции $f_n$, такие что:
+\begin{enumerate}
+    \item $\forall x$ $0 \leq f_n(x) \leq f_{n+1}(x) \leq f(x)$.
+    \item $f_n(x)$ поточечно сходится к $f(x)$.
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+    \item $n \in \mathds{N}$. Пусть $e_{n,k} = X(\frac{k}{n} \leq f < \frac{k+1}{n})$ при $k \in \{0,1,\dots,n^2-1\}$,
+    $e_{n,n^2} = X(n \leq f)$.
+    \item $e_{n,0}, e_{n,1}, \dots, e_{n,n^2}$~--- разбиение $X$. Пусть $g_n = \frac{k}{n}$ при $x \in e_{n,k}$.
+    \item $\lim_{n \to +\infty} g_n(x) = f(x)$.
+    \item $f_n(x) = max(g_1(x),\dots,g_n(x))$.
+\end{enumerate}
+\emph{Замечание:} я чёт не понимаю, почему тут не используется измеримость $f$. Возможно, требуется, чтобы $f_n$ были
+измеримыми (в определении ступенчатой функции этого нет), а это действительно следует из измеримости $f$.
+
+\end{document}
