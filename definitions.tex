@@ -1,6 +1,7 @@
-\documentclass[paper=a4, fontsize=11pt]{article}
+\documentclass[paper=a4, fontsize=15pt]{article}
 
 \usepackage[russian]{babel}
+\usepackage{scrextend}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1,T2A]{fontenc}
 \usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,bindingoffset=0cm]{geometry}
@@ -16,7 +17,6 @@
 
 
 \parindent=0cm
-\linespread{1.2}
 
 \title{Определения по матану, семестр 4}
 
@@ -25,12 +25,42 @@
 \tableofcontents
 \newpage
 
-\section{Первое опредение}
-Тут будет первое определение
+\section{Интеграл ступенчатой функции}
+$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
 
-\section{Второе опредение}
-Тут будет второе определение
+$f = \sum\limits_{k = 1}^{n}(\lambda_k \cdot \chi_{E_k})$ - ступенчатая функция, $E_k$ - измеримые дизъюнктные множества, $f \geqslant 0$
 
+Интегралом ступенчатой функции $f$ на множестве $\mathds{X}$ назовём $$\int\limits_\mathds{X} f d\mu := \sum\limits_{k = 0}^{n} \lambda_k \cdot \mu E_k$$
 
+Будем считать, что $[0 \cdot \infty = 0]$
+
+\section{Интеграл неотрицательной измеримой функции}
+$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
+
+$f$ - измеримо, $f \geqslant 0$, её интегралом на множестве $\mathds{X}$ назовём
+
+$$\int\limits_{\mathds{X}} f d\mu := sup (\int\limits_{\mathds{X}} g)$$
+
+, где $0 \leqslant g \leqslant f, g - $ступенчатая
+
+\section{Суммируемая функция}
+$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
+
+$f - $измерима, $\int\limits_{\mathds{X}}f^+$ или $\int\limits_{\mathds{X}}f^-$ конечен (хотя бы один из них).
+
+Тогда интегралом $f$ на $\mathds{X}$ назовём $$\int\limits_{\mathds{X}}f d\mu := \int\limits_{\mathds{X}}f^+ - \int\limits_{\mathds{X}}f^+$$
+
+Тогда если конечен $\int\limits_{\mathds{X}} f,$ (то есть конечны интегралы по обеим срезкам), то $f$ называют суммируемой
+
+\section{Интеграл суммируемой функции}
+$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
+
+$f -$ измерима, $E \in \mathds{A}$
+
+Тогда интегралом $f$ на множестве $E$ назовём
+
+$$\int\limits_{\mathds{E}}f d\mu := \int\limits_{\mathds{X}}f \cdot \chi(E) d\mu$$
+
+$f$ суммируемая на $E$, если $\int\limits_{\mathds{X}}f^+ \chi(E)$ и $\int\limits_{\mathds{X}}f^- \chi(E)$ конечны
 
 \end{document}
