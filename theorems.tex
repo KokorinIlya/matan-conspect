@@ -1,6 +1,7 @@
-\documentclass[paper=a4, fontsize=11pt]{article}
+\documentclass[paper=a4, fontsize=15pt]{article}
 
 \usepackage[russian]{babel}
+\usepackage{scrextend}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1,T2A]{fontenc}
 \usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,bindingoffset=0cm]{geometry}
@@ -13,10 +14,10 @@
 \usepackage{dsfont}
 \usepackage{amssymb}
 \usepackage{cmap}
+\usepackage{hyperref}
 
 
 \parindent=0cm
-\linespread{1.2}
 
 \title{Теоремы по матану, семестр 4}
 
@@ -25,8 +26,47 @@
 \tableofcontents
 \newpage
 
+\section{Характеризация измеримых функций с помощью ступенчатых (формулировка). Следствия}
+
+\section{Измеримость монотонной функции}
+
+\section{Теорема Лебега о сходимости почти везде и сходимости по мере}
+
+\section{Теорема Рисса о сходимости по мере и сходимости почти везде}
+
 \section{Простейшие свойства интеграла Лебега}
-Тут будет первая теорема
+\subsection{Для определения (5)}
+\begin{enumerate}
+	\item $\int\limits_{\mathds{X}}f$ не зависит от представления $f$ как ступенчатой функции, то есть если $f$ реализуется как $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$ и как $f = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$, интегралы по этим функциям равны
+	
+	\proofname{:}
+	
+	Выпишем общее разбиение для этих двух разбиений
+	
+	Пусть $F_{ij} = E_i \cap G_j$
+	
+	Тогда $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k}) = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l}) = \sum\limits_{i, j}(\lambda_i (= \alpha_j) \cdot \chi_{F_{i, j}})$
+	
+	$\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) = \sum\limits_i (\lambda_i \cdot \sum\limits_j (\mu F_{i, j})) = \sum\limits_i (\lambda_i \cdot \mu E_i) = \int f$ для первого разбиения
+	
+	Аналогично для второго разбиения получаем 
+	
+	$\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) = \sum\limits_j (\alpha_i \cdot \sum\limits_i (\mu F_{i, j})) = \sum\limits_j (\lambda_j \cdot \mu G_i) = \int f$ для второго разбиения, что и требовалось доказать
+	
+	\item $f, g$ -измеримые ступенчатые функции, $f \leqslant g$, тогда $\int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
+	
+	\proofname{:}
+	
+	Пусть $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$, $g = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$
+	
+	Аналогично доказательству предыдущей теоремы, строим общее ступенчатое разбиение
+	
+	Пусть $F_{ij} = E_i \cap G_j$
+	
+	Тогда $\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) \leqslant \sum\limits_j(\alpha_j \cdot \mu F_{i, j}) = \int g$, что и требовалось доказать
+\end{enumerate}
+
+\subsection{Для определения (6)}
 
 \section{Счетная аддитивность интеграла (по множеству)}
 Тут будет вторая теорема
