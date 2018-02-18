@@ -328,7 +328,44 @@ $f$ - суммируема на $A \Rightarrow \int\limits_{A}f = \sum\limits_{i
 $f \geqslant 0$ - изм. $\delta: \mathbb{A} \rightarrow \mathbb{\overline{R}}(A\longmapsto \int\limits_{A}fd\mu) \Rightarrow \delta$ - мера
 
 \section{Теорема Леви}
+$(X,\mathds{A},\mu),\ f_n \geqslant 0$ - изм.
+ 
+$f_1(x) \leqslant ...\leqslant f_n(x) \leqslant f_{n+1}(x) \leqslant ...$ при почти всех $x$
 
+$f(x) = \lim\limits_{n \rightarrow \infty}f_n(x)$ при почти всех $x$ (считаем, что при остальных $x: f \equiv 0$)
+\\
+
+\emph{Тогда:} $\lim\limits_{n \rightarrow \infty} \int\limits_{X}f_n(x)d\mu = \int\limits_{X}f(x)d\mu$
+\\
+
+\emph{Доказательство:}
+
+$N.B. \int\limits_{X}f_n \leqslant \int\limits_{X}f_{n+1} \Rightarrow \exists \lim$
+
+$f$ - измерима как предел последователтности измеримых функций
+
+\begin{enumerate}
+	\item $\leqslant$
+	
+	Очевидно $f_n \leqslant f$ при п.в $x \Rightarrow \int\limits_{X}f_n \leqslant \int\limits_{X}f$. Делаем предельный переход по $n$
+	
+	\item $\geqslant$
+		\begin{enumerate}
+			\item Логичная редукция: $\lim\limits_{n \rightarrow \infty} \int\limits_{X}f_n(x) \geqslant \int\limits_{x}g$, где $0 \leqslant g \leqslant f$ - ступенчатая
+			
+			\item Наглая редукция: $\forall c \in (0,1): \lim\int\limits_{X}f_n(x) \geqslant c \cdot \int\limits_{X}g$
+				\begin{enumerate}
+					\item $E_n = \{x\ |\ f_n(x) \geqslant c \cdot g\}$. Очевидно $E_1 \subset ... \subset E_n \subset E_{n + 1} \subset ...$
+					
+					\item $\bigcup\limits_{n=1}^{\infty}E_n = X$ т.к. $c < 1$
+					
+					\item $\int\limits_{X}f_n \geqslant \int\limits_{E_n}f_n \geqslant \int\limits_{E_n}g \Rightarrow \lim \int\limits_{X}f_n \geqslant c \cdot \lim \int\limits_{E_n}g = c \cdot \int\limits_{X}g$
+					
+					\item Последний знак равно обусловлен тем, что интеграл неотрицательной и измеримой функции по множеству - мера (см. следствие 3 предыдущей теоремы), и мы используем неперрывность меры снизу
+				\end{enumerate}
+		\end{enumerate}
+\end{enumerate}			
+	
 \section{Линейность интеграла Лебега}
 
 \end{document}
