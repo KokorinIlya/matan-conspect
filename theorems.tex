@@ -96,7 +96,7 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 \begin{enumerate}
 	\item $\int\limits_{\mathds{X}}f$ не зависит от представления $f$ как ступенчатой функции, то есть если $f$ реализуется как $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$ и как $f = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$, интегралы по этим функциям равны
 	
-	\proofname{:}
+	\emph{Доказательство:}
 	
 	Выпишем общее разбиение для этих двух разбиений
 	
@@ -112,7 +112,7 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 	
 	\item $f, g$ -измеримые ступенчатые функции, $f \leqslant g$, тогда $\int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
 	
-	\proofname{:}
+	\emph{Доказательство:}
 	
 	Пусть $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$, $g = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$
 	
@@ -123,7 +123,137 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 	Тогда $\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) \leqslant \sum\limits_j(\alpha_j \cdot \mu F_{i, j}) = \int g$, что и требовалось доказать
 \end{enumerate}
 
-\subsection{Для определения (6)}
+\subsection{Для окончательного определения}
+
+\begin{enumerate}
+	\item Монотонность
+	$f \leqslant g \Rightarrow \int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
+	
+	\emph{Доказательство:}
+	\begin{enumerate}
+		\item $f, g \geqslant 0$, тогда доказательство тривиально (по свойствам супремума)
+		\item $\int\limits_{\mathds{X}} f = \int\limits_{\mathds{X}} f^+ - \int\limits_{\mathds{X}} f^-$
+		
+		$\int\limits_{\mathds{X}} g = \int\limits_{\mathds{X}} g^+ - \int\limits_{\mathds{X}} g^-$
+		
+		Из того, что $\int\limits_{\mathds{X}} f^+ \leqslant \int\limits_{\mathds{X}} g^+$, а $\int\limits_{\mathds{X}} f^- \geqslant \int\limits_{\mathds{X}} g^-$ следует, что $\int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
+	\end{enumerate}
+
+	\item 
+	$\int\limits_{\mathds{E}} 1 \cdot d \mu = \mu E$
+	
+	$\int\limits_{\mathds{E}} 0 \cdot d \mu = 0$
+	
+	Очевидно из определения интеграла ступенчатой функции
+	
+	\item $\mu E = 0, f $-измерима, тогда $\int\limits_{\mathds{E}}f = 0$, даже если $f = \infty$ на $\mathds{E}$
+	
+	\emph{Доказательство:}
+	
+	\begin{enumerate}
+		\item $f $-ступенчатая $\Rightarrow$ ограниченная
+		
+		$f = \sum\limits_{k = 1}^{n}(\lambda_k \cdot \chi_{E_k})$, тогда $\int\limits_\mathds{E} f = \sum \lambda_k \cdot \mu (E \cap E_k)$
+		
+		Но $\mu (E \cap E_k) = 0$ (так как $\mu E = 0$), тогда $\int\limits_\mathds{E} f = 0$
+		
+		\item $f$ - измеримая, $f \geqslant 0$. 
+		
+		$\int\limits_\mathds{E} f = \sup (\int\limits_\mathds{E} g)$, где $0 \leqslant g \leqslant f$, $g$ - ступенчатая
+		
+		Тогда $\int\limits_\mathds{E} f = \sup (0) = 0$
+		
+		\item 
+		$f$ - произвольная измеримая
+		
+		Тогда $\int\limits_\mathds{E} f = \int\limits_{\mathds{E}} f^+ - \int\limits_{\mathds{E}} f^- = 0 - 0 = 0$
+	\end{enumerate}
+
+	\item  
+	\begin{enumerate}
+		\item
+		$\int\limits_{\mathds{E}} -f = - \int\limits_{\mathds{E}} f$
+		
+		\item
+		$\forall c \in \mathds{R}: \int\limits_{\mathds{E}} (c \cdot f) = c \cdot \int\limits_{\mathds{E}} f $
+	\end{enumerate}
+	
+	\emph{Доказательство:}
+	\begin{enumerate}
+		\item
+		$(-f)^+ = f^-$
+		
+		$(-f)^- = f^+$
+		
+		Тогда $\int\limits_{\mathds{E}} -f = \int\limits_{\mathds{E}} (-f)^+ - \int\limits_{\mathds{E}} (-f)^- = \int\limits_{\mathds{E}} f^- - \int\limits_{\mathds{E}} f^+ = -\int\limits_{\mathds{E}} f$
+		
+		\item
+		
+		Пусть $c > 0$. Если $c < 0$, то по предыдущему случаю можем рассматривать для $- c < 0$. Если $c = 0$, то по предыдущей теореме $\int\limits_{\mathds{E}} (0 \cdot f) = \int\limits_{\mathds{E}} 0 = 0 = 0 \cdot \int\limits_{\mathds{E}} f$
+		
+		\begin{enumerate}
+			\item
+			Пусть $f \geqslant 0$
+			
+			$\int\limits_{\mathds{E}} (c \cdot f) = \sup (\int\limits_{\mathds{E}} g)$, где $0 \leqslant g \leqslant c \cdot f$, $g$ - ступенчатая
+			
+			Пусть $g = c \cdot \widetilde{g}$, тогда $\int\limits_{\mathds{E}} (c \cdot f) = \sup (\int\limits_{\mathds{E}} (c \cdot \widetilde{g}))$, где $0 \leqslant c \cdot \widetilde{g} \leqslant c \cdot f$, $\widetilde{g}$ - ступенчатая
+			
+			Тогда $\int\limits_{\mathds{E}} (c \cdot f) = \sup (\int\limits_{\mathds{E}} (c \cdot \widetilde{g})) = \sup (c \cdot \int\limits_{\mathds{E}} \widetilde{g}) = c \cdot \sup (\int\limits_{\mathds{E}} \widetilde{g}) = c \cdot \int\limits_{\mathds{E}} f $
+			
+			\item Если $f$ - произвольная:
+			
+			$\int\limits_{\mathds{E}} (c \cdot f) = \int\limits_{\mathds{E}} (c \cdot f)^+ - \int\limits_{\mathds{E}} (c \cdot f)^- = \int\limits_{\mathds{E}} c \cdot f^+ - \int\limits_{\mathds{E}} c \cdot f^- = c \cdot \int\limits_{\mathds{E}} f^+ - c \cdot \int\limits_{\mathds{E}} f^- = c \cdot (\int\limits_{\mathds{E}} f^+ - \int\limits_{\mathds{E}} f^-) = c \cdot \int\limits_{\mathds{E}} f$
+		\end{enumerate}	
+	\end{enumerate}
+	
+	\item Если существует $\int\limits_{\mathds{E}} f d\mu$, то $|\int\limits_{\mathds{E}} f| \leqslant \int\limits_{\mathds{E}} |f|$
+	
+	\emph{Доказательство:}
+	
+	$-|f| \leqslant f \leqslant |f|$
+	
+	$\int\limits_{\mathds{E}} -|f| \leqslant \int\limits_{\mathds{E}} f \leqslant \int\limits_{\mathds{E}} |f|$
+	
+	$-\int\limits_{\mathds{E}} |f| \leqslant \int\limits_{\mathds{E}} f \leqslant \int\limits_{\mathds{E}} |f|$
+	
+	Тогда $|\int\limits_{\mathds{E}} f| \leqslant \int\limits_{\mathds{E}} |f|$
+	
+	
+	\item $f$ - измеримая на $\mathds{E}$, $\mu \mathds{E} < \infty$
+	
+	$a \leqslant f \leqslant b$, тогда $a \cdot \mu E \leqslant \int\limits_{\mathds{E}} f \leqslant b \cdot \mu E$
+	
+	\emph{Доказательство: }
+	
+	$a \leqslant f \leqslant b \Rightarrow \int\limits_{\mathds{E}}a \leqslant \int\limits_{\mathds{E}} f \leqslant \int\limits_{\mathds{E}} b$
+	
+	$a \cdot \int\limits_{\mathds{E}} 1 \leqslant \int\limits_{\mathds{E}} f \leqslant b \cdot \int\limits_{\mathds{E}} 1$
+	
+	$a \cdot \mu \mathds{E} \leqslant \int\limits_{\mathds{E}} f \leqslant b \cdot \mu \mathds{E}$
+	
+	\emph{Следствие:}
+	
+	Если $f$ - Измеримая и ограниченная на $\mathds{E}, \mu \mathds{E} < \infty$, тогда $f$ - суммируемая на $\mathds{E}$
+	
+	\item $f$ - суммируемая на $\mathds{E} \Rightarrow f$ почти везде конечная на $\mathds{E}$ (то есть $f \in \alpha^0(\mathds{E})$)
+	
+	\emph{Доказательство:}
+	\begin{enumerate}
+		\item Пусть $f \geqslant 0$
+		
+		Пусть $f = +\infty$ на $A$ и пусть $\mu A > 0$
+		
+		Тогда $\forall n \in \mathds{N}: f \geqslant n \cdot \chi_A$
+		
+		Тогда $\forall n \in \mathds{N}: \int\limits_{\mathds{E}} f \geqslant n \cdot \int\limits_{\mathds{E}} \chi_A = n \cdot \mu A \Rightarrow \int\limits_{\mathds{E}} f = + \infty$
+		
+		\item $f$ любого знака
+		
+		Распишем $f = f^+ - f^-$, по предыдущему пункту $f^+, f^-$ конечны почти везде $\Rightarrow f$ тоже конечно почти везде 
+	\end{enumerate}
+	
+\end{enumerate}
 
 \section{Счетная аддитивность интеграла (по множеству)}
 $(X,\mathds{A},\mu)$~--- пространство с мерой, $A = \bigsqcup\limits_{i=1}^{\infty}A_{i} -$ измеримы. $f: X \rightarrow \mathbb{\overline{R}} - $ изм., $f \geqslant 0$
