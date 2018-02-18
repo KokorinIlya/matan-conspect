@@ -1,4 +1,4 @@
-\documentclass[paper=a4, fontsize=15pt]{article}
+\documentclass[paper=a4, fontsize=13.2pt]{article}
 
 \usepackage[russian]{babel}
 \usepackage{scrextend}
@@ -126,7 +126,76 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 \subsection{Для определения (6)}
 
 \section{Счетная аддитивность интеграла (по множеству)}
-Тут будет вторая теорема
+$(X,\mathds{A},\mu)$~--- пространство с мерой, $A = \bigsqcup\limits_{i=1}^{\infty}A_{i} -$ измеримы. $f: X \rightarrow \mathbb{\overline{R}} - $ изм., $f \geqslant 0$
+
+\emph{Тогда:} ${\displaystyle \int\limits_{A}f = \sum\limits_{i=1}^{\infty} \int\limits_{A_{i}}f}$
+
+\emph{Доказательсво:}
+
+\begin{enumerate}
+	\item Для начала докажем это для ступенчатых функций. Пусть $f = \sum\limits_{k} (\lambda_k \cdot \chi_{E_k})$
+	
+ $\int\limits_{A}fd\mu = \sum\limits_{k} (\lambda_k \cdot \mu(E_k \cap A)) =
+ \sum\limits_{k} (\lambda_k \cdot (\sum\limits_{i} \mu(E_k \cap A_i))) =
+ \sum\limits_{i}(\sum\limits_{k}(\lambda_k \cdot \mu(E_k \cap A_i))) = \sum\limits_{i}(\int\limits_{A_i}f)$
+ 
+	\item Докажем, что $\int\limits_{A}f \leqslant \sum\limits_{i} \int\limits_{A_{i}}f$
+	
+	\begin{enumerate}
+		\item Рассмотрим $0 \leqslant g \leqslant f - $ ступенчатая. $\int\limits_{A}g = \sum\limits_{i} \int\limits_{A_i}g \leqslant \sum\limits_{i} \int\limits_{A_{i}}f$
+		 
+		 \item Переходя к $sup$ получаем желаемое
+	\end{enumerate} 
+	
+	\item Теперь докажем, что $\int\limits_{A}f \geqslant \sum\limits_{i} \int\limits_{A_{i}}f$ 
+	\begin{enumerate}
+		\item $A = A_1\sqcup A_2$
+
+		\begin{enumerate}
+			\item Рассмотрим $g_1, g_2\ -$ ступенчатые такие, что $0 \leqslant g_i \leqslant f \cdot \chi_{A_i}$
+			
+			\item Рассмотрим их общее разбиение $E_k:\ g_i = \sum\limits_k (\lambda_k^i \cdot \chi_{E_k})$
+			
+			\item $g_1 + g_2\ - $ ступенчатая и $0 \leqslant g_1 + g_2 \leqslant f \cdot \chi_{A}$
+			
+			\item $\int\limits_{A_1}g_1 + \int\limits_{A_2}g_2 \stackrel{lemma}{=} \int\limits_{A}(g_1 + g_2) \stackrel{iii}{\leqslant} \int\limits_{A}f$
+			
+			\item Поочерёдно переходя к $sup$ по $g_1$ и $g_2$ получаем: $\int\limits_{A_1}f + \int\limits_{A_2}f \leqslant \int\limits_{A}f$ 		
+		\end{enumerate}
+		
+	\item $\forall n \in \mathbb{N}$, что $A = \bigsqcup\limits_{i=1}^{n}A_{i}$ будем последовательно отщеплять последнее множество по $(a)$ 
+	
+	\item $A = \bigsqcup\limits_{i = 1}^{\infty}A_{i}$
+		\begin{enumerate}
+			\item Фиксрируем $n \in \mathbb{N}$
+			
+			\item $A = (\bigsqcup\limits_{i=1}^{n}A_{i}) \sqcup B$, где $B = \bigsqcup\limits_{i=n+1}^{\infty}A_{i}$
+			
+			\item $\int\limits_{A}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f + \int\limits_{B}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f$
+			
+			\item Переходим к $lim$ по $n$
+		\end{enumerate}		
+		
+	\end{enumerate}
+	
+\end{enumerate}
+
+\emph{Следсвие 1:}
+$\ 0 \leqslant f \leqslant g$ - измeримы и  $A \subset B$ - измеримы $\Rightarrow \int\limits_{A}f \leqslant \int\limits_{B}g$
+
+$\int\limits_{B}g \geqslant \int\limits_{B}f = \int\limits_{A}f + \int\limits_{B \setminus A}f \geqslant \int\limits_{A}f$ 
+
+\bigskip
+
+\emph{Следствие 2:}
+$f$ - суммируема на $A \Rightarrow \int\limits_{A}f = \sum\limits_{i} \int\limits_{A_{i}}f$ 
+
+Достаточно рассмотреть срезки $f^+$ и $f^-$ 
+
+\bigskip
+
+\emph{Следствие 3:}
+$f \geqslant 0$ - изм. $\delta: \mathbb{A} \rightarrow \mathbb{\overline{R}}(A\longmapsto \int\limits_{A}fd\mu) \Rightarrow \delta$ - мера
 
 \section{Теорема Леви}
 
