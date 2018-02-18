@@ -421,4 +421,43 @@ $f$ - измерима как предел последователтности 
 	
 \section{Линейность интеграла Лебега}
 
+$f, g \geqslant 0$, измеримые
+
+Тогда $\int\limits_{\mathds{E}} (f + g) = \int\limits_{\mathds{E}} f + \int\limits_{\mathds{E}} g$
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+	\item Пусть $f, g$ - ступенчатые, тогда у них имеется общее разбиение
+	
+	$f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$
+	
+	$g = \sum\limits_{k}(\alpha_k \cdot \chi_{E_k})$
+	
+	$\int\limits_{\mathds{E}} (f + g) = \sum\limits_k (\lambda_k + \alpha_k) \cdot \mu E_k = \sum\limits_k \lambda_k \cdot \mu E_k + \sum\limits_k \alpha_k \cdot \mu E_k = \int\limits_{\mathds{E}} f + \int\limits_{\mathds{E}} g$, что и требовалось доказать
+	
+	\item $f, g \geqslant 0$, измеримые
+	
+	Тогда $\exists h_n: 0 \leqslant h_n \leqslant h_{n + 1} \leqslant f$, $h_n$ ступенчатые
+	
+	$\exists \widetilde{h_n}: 0 \leqslant \widetilde{h_n} \leqslant \widetilde{h_{n + 1}} \leqslant g$, $\widetilde{h_n}$ ступенчатые
+	
+	$\lim\limits_{n \rightarrow +\infty} h_n = f$
+	
+	$\lim\limits_{n \rightarrow +\infty} \widetilde{h_n} = g$
+	
+	$\int\limits_{\mathds{E}} (h_n + \widetilde{h_n}) = \int\limits_{\mathds{E}} h_n + \int\limits_{\mathds{E}} \widetilde{h_n}$
+	
+	$\int\limits_{\mathds{E}} (h_n + \widetilde{h_n}) \rightarrow \int\limits_{\mathds{E}} (f + g)$
+	
+	$\int\limits_{\mathds{E}} h_n \rightarrow \int\limits_{\mathds{E}} f$
+	
+	$\int\limits_{\mathds{E}} \widetilde{h_n} \rightarrow \int\limits_{\mathds{E}} g$
+	
+	Тогда $\int\limits_{\mathds{E}} (f + g) = \int\limits_{\mathds{E}} f + \int\limits_{\mathds{E}} g$, что и требовалось доказать
+	
+	\item 
+	Если $f, g$ - любые измеримые, распишем обе через срезки и докажем для них
+\end{enumerate}
+
 \end{document}
