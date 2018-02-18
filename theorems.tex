@@ -89,7 +89,60 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 
 \section{Теорема Лебега о сходимости почти везде и сходимости по мере}
 
+$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\ 
+$f_n , f : X \rightarrow \overline R$ - п.в. конечны, измеримы \\
+$f_n \rightarrow f$ (поточечно, п.в.)
+
+\emph{Доказательство:}
+\begin{enumerate}
+	\item
+	подменим значения $f_n$ и $f$ на некотором множестве меры $0$ так, чтобы сходимость $f_n \rightarrow f$ была всюду.
+	(Так можно сделать. Действительно, $f_n \rightarrow f$ на $X \setminus e$, $\mu e = 0$ \\
+	$f_n$ - конечно на $X \setminus e_n$,\\
+	$f$ - конечно на $X \setminus e_0$.\\
+	Тогда на $(X \setminus \bigcup\limits_{n=0}^{+\infty}e_n)$ функции конечны и есть сходимость $f_n \rightarrow f$. По свойствам меры $\mu \bigcup\limits_{n=0}^{+\infty}e_n = 0$. Тогда определим на $\bigcup\limits_{n=0}^{+\infty}e_n$ $f_n = f = 0$. Это очевидно даст нам необходимую конечность и поточечную сходимость.
+	)
+	\item (частный случай)
+	$f_n \rightarrow f \equiv 0$. Тогда пусть $\forall x f_{n}(x)$ - монотонно (по $n$). $|f_{n}(x)|$ - убывает с ростом $n$ и $X(|f_{n}| \geq \epsilon) \supset X(|f_{n+1}| \geq \epsilon)$. А также $\bigcap\limits_{n=0}^{+\infty}X(|f_{n}|\geq\epsilon) = \emptyset$.\\
+	$$\begin{cases}
+   		$$\mu X < +\infty$$\\
+   		$$\ldots\supset E_{n}\supset E_{n+1}\supset\ldots$$
+ 	\end{cases}$$ $ \Rightarrow \mu E_{n}\rightarrow\mu\cup E_{n}$ - Th о непрерывности меры сверху.\\
+ 	$\Rightarrow\mu X(|f_{n}\geq\epsilon|) \rightarrow \mu\emptyset = 0$
+ 	\item (общий случай)
+ 	$f_n \rightarrow f$. Рассмотрим $\phi_{n}(x) := \sup_{k\geq n}|f_{k}(x) - f(x)|$. Заметим свойства $\phi$:\\
+ 	$$\begin{cases}
+   		$$\phi_{n}(x) \rightarrow 0$$\\
+   		$$\phi_{n} \downarrow_n$$
+ 	\end{cases}$$
+ 	$X(|f_{n} - f|\geq\epsilon) \subset X(|\phi_{n}\geq\epsilon|) \Rightarrow $ по монотонности меры имеем $\mu X(|f_{n} - f|\geq\epsilon) \leq \mu X(\phi_{n}\geq\epsilon) \stackrel{part.case}{\longrightarrow} 0$, ч.т.д.
+\end{enumerate}
+
+
 \section{Теорема Рисса о сходимости по мере и сходимости почти везде}
+
+$(X, a, \mu)$ - пространство с мерой\\ 
+$f_n , f : X \rightarrow R$ - п.в. конечны, измеримы \\
+$f_n  \stackrel{\mu}{\Rightarrow} f$.\\
+Тогда $\exists n_{k}\uparrow $ : $f_{n_{k}} \rightarrow f$ п.в.
+
+\emph{Доказательство:}
+$\forall k \mu X(|f_n - f| \geq \frac{1}{k}) \stackrel{n\rightarrow+\infty}{\rightarrow} 0$\\
+Тогда $\exists n_{k} : \forall n \geq n_{k} \mu X(|f_n - f| \geq \frac{1}{k}) < \frac{1}{2k}$ (можно считать $n_1 < n_2 < \ldots$)\\
+Проверим $f_{n_k} \rightarrow f$ п.в. :
+	$E_k := \bigcap\limits{j=k}^{+\infty}X(|f_{n_j} - f|\geq\frac{1}{j})$\\
+	$E_1 \supset E_2 \supset E_3 \supset \ldots$\\
+	$E_0 := \bigcap\limits{k\in N}E_k$.\\
+	$\mu E_k \geq \sum_{j=k}^{+\infty}\mu X(|f_{n_j}-f|\geq\frac{1}{j}) \geq \sum_{j=k}^{+\infty}\frac{1}{2^j} = \frac{1}{2^(k-1)}$ - конечно $\Rightarrow \mu E_k \rightarrow \mu E_0 \Rightarrow \mu E_0 = 0$ (т.к. $\mu E_k \rightarrow 0$).\\
+	Рассмотрим $X\not\in E_0$, т.е. если $X\not\in E_0$, то $\exists k : X\not\in E_k$, тогда $\forall j\geq k |f_n(x) - f(x)| < \frac{1}{j}$ при $n \geq n_j$, т.е. $f_{n_k} \rightarrow f$, ч.т.д.
+\emph{Следствие:}
+$f_n \Rightarrow f $ $ |f_n| \leq g$ п.в.
+\emph{Док-во:}
+Рассмотрим последовательность $f_{n_k}$ где $f_{n_k} \rightarrow f$ п.в. и вдоль нее применим Th о двух городовых.
+$$\begin{cases}
+   	$$f_{n_k}(x) \rightarrow f(x)  \forall x \in X\setminus e_1$$\\
+   	$$|f_n(x)| \leq g(x)  \forall x \in X \setminus e_2$$
+\end{cases}$$ $\Rightarrow |f| \leq g$ на $(X\setminus e_1)\setminus e_2$
 
 \section{Простейшие свойства интеграла Лебега}
 \subsection{Для определения (5)}
