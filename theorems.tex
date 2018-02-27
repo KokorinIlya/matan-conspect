@@ -456,4 +456,63 @@ $f, g \geqslant 0$, измеримые
 	Если $f, g$ - любые измеримые, распишем обе через срезки и докажем для них
 \end{enumerate}
 
+\section{Теорема об интегрировании плоложительных рядов}
+$u_n(x) \geq 0$ \textit{почти всюду} на $\mathds{E}$, тогда
+$\int\limits_{\mathds{E}} (\sum\limits_{n=1}^{+\infty}u_n(x))d\mu(x) = 
+\sum\limits_{n=1}^{+\infty} \int\limits_{\mathds{E}} u_n(x)d\mu(x)$ 
+
+\underline{Доказательство:} \\
+$S_N(x) = \sum\limits_{n=1}^{N}u_n(x)$; $S(x) = \sum\limits_{n=1}^{+\infty}u_n(x)$
+\begin{enumerate}
+	\item $S_N$ - возрастает к $ S $ при почти всех x $\xRightarrow{\text{Т. Леви}} \int\limits_{\mathds{E}}S_N \xrightarrow[N \rightarrow +\infty] {}  \int\limits_{\mathds{E}}S = \int\limits_{\mathds{E}}\sum\limits_{n=1}^{+\infty}u_n(x)$
+	\item С другой стороны $\int\limits_{\mathds{E}}S_N = \int\limits_{\mathds{E}} \sum\limits_{n=1}^{N}u_n = \sum\limits_{n=1}^{N}\int\limits_{\mathds{E}}u_n(x)d\mu \xrightarrow[N \rightarrow +\infty] {} \sum\limits_{n=1}^{+\infty}\int\limits_{\mathds{E}}u_n(x)d\mu$
+	\item Найденные пределы совпадают в силу единственности предела последовательности, что и требовалось доказать.
+\end{enumerate}
+
+\section{Теорема о произведении мер}
+$<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
+$\alpha \times \beta = \{A\times B \subset \mathds{X} \times \mathds{Y} : A \in \alpha, B \in \beta \}$ \\
+$m_0(A \times B) = \mu A \cdot \nu B$
+\\\\
+Тогда: 
+\begin{enumerate}
+	\item $m_0$ - мера на полукольце $\alpha \times \beta$
+	\item $\mu$, $\nu$ - $\sigma$-конечны $\Rightarrow$ $m_0$ - $\sigma$-конечна\\
+\end{enumerate}
+
+\underline{Доказательство:} \\
+\begin{enumerate}
+	\item Неотрицательность $m_0$ очевидна. Необходимо доказать счетную аддитивность\\
+	Пусть $P = \bigsqcup\limits_{i=1}^{\infty}P_{k}$, где $P \in \alpha \times \beta$ \\
+	$P = A \times B$; \ $P_k = A_k \times B_k$ \\
+	Заметим, что:
+	\begin{itemize}
+		\item $\chi_P(x, y) = \sum\chi_{P_k}(x, y)$, в силу дизъюнктности $P_k$ ((x, y) входит максимум в одно множество из всех $P_k$)
+		\item $\chi_{A \times B}(x, y) = \chi_A(x) \cdot \chi_B(y)$, так как (x, y) $\in A\times B \Leftrightarrow x \in A$ И $y \in B$
+	\end{itemize}
+Воспользовавшись вышесказанным получим:\\
+$\chi_{P}(x, y) = \chi_{A\times B}(x, y) = \chi_A(x) \cdot \chi_B(y)$\\
+$\chi_{P}(x, y) = \sum\chi_{P_k}(x, y) = \sum\chi_{A_k \times B_k}(x, y) = \sum\chi_{A_k}(x) \cdot \chi{B_k}(y)$
+
+Имеем следующее равенство:\\
+$\chi_A(x) \cdot \chi_B(y) = \sum\chi_{A_k}(x) \cdot \chi{B_k}(y)$
+
+Проинтегрируем его по мере $\mu$ по x, затем по мере $\nu$ по y, получим:
+
+$\mu A \cdot \nu B = \sum \mu A_k \cdot \nu B_k$, то есть $m_0(P) = \sum m_0(P_k)$, что и требовалось доказать.
+\item $\mu$, $\nu$ - $\sigma$-конечны $\Rightarrow$ 
+$X = \bigcup\limits_{k=1}^{\infty} A_k$, где $\mu A_k < +\infty$;\  
+$Y = \bigcup\limits_{k=1}^{\infty} B_k$, где $\nu B_k < +\infty$ 
+
+$X \times Y = \bigcup\limits_{i, j} (A_i \times B_j)$ 
+
+$m_0(A_i \times B_j) = \mu A_i \cdot \nu B_j < +\infty$, так как $\mu A_i < +\infty$ и $\nu B_j < +\infty$
+
+все $(A_i \times B_j) \in \alpha \times \beta$ по определению
+
+Что и требовалось доказать. 
+\end{enumerate}
+
+
+
 \end{document}
