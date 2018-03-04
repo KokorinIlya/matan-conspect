@@ -37,12 +37,12 @@ $ (X,\mathds{A},\mu)$  - пространство с мерой, и $f_n, f: X \
 Говорим, что $f_n \rightarrow f(x)$ почти везде, если $\{x: f_n(x) \not \rightarrow f(x)\}$ измеримо и имеет меру $0$.
 
 \section{Сходимость по мере}
-$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\ 
+$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
 $f_n , f : X \rightarrow \overline R$ - п.в. конечны\\
 Говорят, что $f_n$ сходится к $f$ по мере $\mu$ (при $n \rightarrow +\infty$) (обозначается $f_n\stackrel{\mu}{\Rightarrow}f$) если $\forall\epsilon > 0$ $\mu(X(|f_n - f| > \epsilon))\stackrel{n\rightarrow+\infty}{\rightarrow} 0$
 
 \section{Теорема Егорова о сходимости почти везде и почти равномерной сходимости}
-$(X, a, \mu)$ - пространство с мерой\\ 
+$(X, a, \mu)$ - пространство с мерой\\
 $f_n , f : X \rightarrow R$ - п.в. конечны, измеримы \\
 $f_n \rightarrow f$.\\
 Тогда эта сходимость ``почти равномерная''
@@ -84,6 +84,7 @@ $f -$ измерима, $E \in \mathds{A}$
 $$\int\limits_{\mathds{E}}f d\mu := \int\limits_{\mathds{X}}f \cdot \chi(E) d\mu$$
 
 $f$ суммируемая на $E$, если $\int\limits_{\mathds{X}}f^+ \chi(E)$ и $\int\limits_{\mathds{X}}f^- \chi(E)$ конечны
+
 \section{Произведение мер}
 $<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
 $\mu$, $\nu$ - $\sigma$-конечные меры\\
@@ -94,20 +95,37 @@ $m = \mu \times \nu$ - обозначение \\
 $<\mathds{X} \times \mathds{Y}, \alpha \otimes \beta, \mu \times \nu>$ - произведение пространств с мерой
 
 \section{Теорема Фубини}
-$(X,\mathds{A},\mu)$, $(Y,\mathds{B},\nu)$~--- пространства с мерой. $\mu,\nu$~--- $\sigma$-конечные полные меры.
+$<\mathds{X}, \mathds{A}, \mu>$, $<\mathds{Y}, \mathds{B}, \nu>$ - пространство с мерой,
 
-$m = \mu \times \nu$ (произведение мер).
+$\mu$, $\nu$ --- $\sigma$-конечные и полные,
 
-$f$~--- суммируемая функция на $X \times Y$ (по мере $m$). Обозначим: $f_x(y) = f(x, y)$, $f^y(x) = f(x, y)$.
+$m = \mu \times \nu$,
 
-Тогда:
-\begin{enumerate}
-    \item При почти всех $x$ $f_x$ суммируема.\\
-          При почти всех $y$ $f^y$ суммируема.
-    \item $\phi(x) = \int_Y f_x~d\nu$ суммируема.\\
-          $\psi(y) = \int_X f^y~d\mu$ суммируема.
-    \item $$\int_{X \times Y} f~dm = \int_X \phi(x)~d\mu = \int_X(\int_Y f(x,y) d\nu(y))d\mu(x)$$
-\end{enumerate}
+$f$ --- суммируемая на $\mathds{X} \times \mathds{Y}$ по $m$.
+
+\textbf{Тогда:}
+\begin{itemize}
+\item
+при <<почти всех>> $x$ функция $f_x \in \mathds{L}(\mathds{Y},\nu)$, то есть суммируема на $\mathds{Y}$ по $\nu$
+
+при <<почти всех>> $y$ функция $f^y \in \mathds{L}(\mathds{X},\mu)$
+
+\item
+$$x \mapsto \phi(x) \mid \phi(x) = \int\limits_{\mathds{Y}}f_x d\nu \in \mathds{L}(\mathds{X},\mu)$$
+
+$$x \mapsto \psi(x) \mid \psi(x) = \int\limits_{\mathds{X}}f^y d\mu \in \mathds{L}(\mathds{Y},\nu)$$
+
+Это есть эти функции суммируемы в некотором контексте ($\mathds{X},\mu$ и $\mathds{Y},\nu$ соответсвено)
+
+\item
+$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm
+= \int\limits_{\mathds{X}}\phi(x) d\mu
+= \int\limits_{\mathds{X}} (\int\limits_{\mathds{Y}} f d\nu(y)) d\mu(x)$$
+
+$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm
+= \int\limits_{\mathds{Y}}\psi(x) d\nu
+= \int\limits_{\mathds{Y}} (\int\limits_{\mathds{X}} f d\mu(x)) d\nu(y)$$
+\end{itemize}
 
 \section{Образ меры при отображении}
 $(X, \mathds{A}, \mu)$~--- пространство с мерой, $(Y, \mathds{B}, \_)$~--- пространство с $\sigma$-алгеброй.
