@@ -456,11 +456,64 @@ $f, g \geqslant 0$, измеримые
 	Если $f, g$ - любые измеримые, распишем обе через срезки и докажем для них
 \end{enumerate}
 
-\section{Теорема об интегрировании положительных рядов.}
-\textbf{TODO}
-\section{Теорема о произведении мер.}
-\textbf{TODO}
-\section{Абсолютная непрерывность интеграла.}
+\section{Теорема об интегрировании плоложительных рядов}
+$u_n(x) \geq 0$ \textit{почти всюду} на $\mathds{E}$, тогда
+$\int\limits_{\mathds{E}} (\sum\limits_{n=1}^{+\infty}u_n(x))d\mu(x) =
+\sum\limits_{n=1}^{+\infty} \int\limits_{\mathds{E}} u_n(x)d\mu(x)$
+
+\underline{Доказательство:} \\
+$S_N(x) = \sum\limits_{n=1}^{N}u_n(x)$; $S(x) = \sum\limits_{n=1}^{+\infty}u_n(x)$
+\begin{enumerate}
+	\item $S_N$ - возрастает к $ S $ при почти всех x $\xRightarrow{\text{Т. Леви}} \int\limits_{\mathds{E}}S_N \xrightarrow[N \rightarrow +\infty] {}  \int\limits_{\mathds{E}}S = \int\limits_{\mathds{E}}\sum\limits_{n=1}^{+\infty}u_n(x)$
+	\item С другой стороны $\int\limits_{\mathds{E}}S_N = \int\limits_{\mathds{E}} \sum\limits_{n=1}^{N}u_n = \sum\limits_{n=1}^{N}\int\limits_{\mathds{E}}u_n(x)d\mu \xrightarrow[N \rightarrow +\infty] {} \sum\limits_{n=1}^{+\infty}\int\limits_{\mathds{E}}u_n(x)d\mu$
+	\item Найденные пределы совпадают в силу единственности предела последовательности, что и требовалось доказать.
+\end{enumerate}
+
+\section{Теорема о произведении мер}
+$<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
+$\alpha \times \beta = \{A\times B \subset \mathds{X} \times \mathds{Y} : A \in \alpha, B \in \beta \}$ \\
+$m_0(A \times B) = \mu A \cdot \nu B$
+\\\\
+Тогда:
+\begin{enumerate}
+	\item $m_0$ - мера на полукольце $\alpha \times \beta$
+	\item $\mu$, $\nu$ - $\sigma$-конечны $\Rightarrow$ $m_0$ - $\sigma$-конечна\\
+\end{enumerate}
+
+\underline{Доказательство:} \\
+\begin{enumerate}
+	\item Неотрицательность $m_0$ очевидна. Необходимо доказать счетную аддитивность\\
+	Пусть $P = \bigsqcup\limits_{i=1}^{\infty}P_{k}$, где $P \in \alpha \times \beta$ \\
+	$P = A \times B$; \ $P_k = A_k \times B_k$ \\
+	Заметим, что:
+	\begin{itemize}
+		\item $\chi_P(x, y) = \sum\chi_{P_k}(x, y)$, в силу дизъюнктности $P_k$ ((x, y) входит максимум в одно множество из всех $P_k$)
+		\item $\chi_{A \times B}(x, y) = \chi_A(x) \cdot \chi_B(y)$, так как (x, y) $\in A\times B \Leftrightarrow x \in A$ И $y \in B$
+	\end{itemize}
+Воспользовавшись вышесказанным получим:\\
+$\chi_{P}(x, y) = \chi_{A\times B}(x, y) = \chi_A(x) \cdot \chi_B(y)$\\
+$\chi_{P}(x, y) = \sum\chi_{P_k}(x, y) = \sum\chi_{A_k \times B_k}(x, y) = \sum\chi_{A_k}(x) \cdot \chi{B_k}(y)$
+
+Имеем следующее равенство:\\
+$\chi_A(x) \cdot \chi_B(y) = \sum\chi_{A_k}(x) \cdot \chi{B_k}(y)$
+
+Проинтегрируем его по мере $\mu$ по x, затем по мере $\nu$ по y, получим:
+
+$\mu A \cdot \nu B = \sum \mu A_k \cdot \nu B_k$, то есть $m_0(P) = \sum m_0(P_k)$, что и требовалось доказать.
+\item $\mu$, $\nu$ - $\sigma$-конечны $\Rightarrow$
+$X = \bigcup\limits_{k=1}^{\infty} A_k$, где $\mu A_k < +\infty$;\
+$Y = \bigcup\limits_{k=1}^{\infty} B_k$, где $\nu B_k < +\infty$
+
+$X \times Y = \bigcup\limits_{i, j} (A_i \times B_j)$
+
+$m_0(A_i \times B_j) = \mu A_i \cdot \nu B_j < +\infty$, так как $\mu A_i < +\infty$ и $\nu B_j < +\infty$
+
+все $(A_i \times B_j) \in \alpha \times \beta$ по определению
+
+Что и требовалось доказать.
+\end{enumerate}
+
+\section{Абсолютная непрерывность интеграла}
 \textbf{TODO}
 \section{Теорема Лебега о мажорированной сходимости для случая сходимости по мере.}
 
@@ -476,7 +529,7 @@ $\exists g : \mathds{X} \rightarrow \overline{\mathds{R}}$ такая, что:
 \begin{itemize}
 \item
 $\forall n$,  для <<почти всеx>> $x$ ~ $|f_n(x)| \leq g(x)$ ($g$ -- называется мажорантой)
-\item	
+\item
 $g$ - суммируемая
 \end{itemize}
 
@@ -492,57 +545,57 @@ $g$ - суммируемая
 \begin{enumerate}
 	\item $f_n$ -- суммируема, так как существует мажоранта $g$
 	\item $f$ -- суммируема по теореме Рисса ($ f_n{_k} \rightarrow f $ почти везде, $ |f_n{_k}| \leq g$, тогда $|f| \leq g$ почти везде)
-	\item <<уж тем более>>: 
-	
+	\item <<уж тем более>>:
+
 	$ |\int\limits_{\mathbb{X}} f_n - \int\limits_{\mathbb{X}} f| \leq \int\limits_{\mathbb{X}} |f_n - f| $
-	
+
 	Допустим, что $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$ уже доказано.
-	
+
 	Тогда <<уж тем более>> очевидно.
-	
-	\item Докажем основное утверждение: 
-	
-	Разберем два случая: 
+
+	\item Докажем основное утверждение:
+
+	Разберем два случая:
 	\begin{enumerate}
 		\item $ \mu \mathbb{X} < \infty $
 		Фиксируем $ \epsilon \ge 0 $ ~ $ X_n := X(|f_n - f| \geq \epsilon) $
-		
+
 		$ \mu X \rightarrow 0 $ (так как $ f_n \Rightarrow f $)
-	
-		$ \int\limits_{\mathbb{X}} |f_n - f| = 
-		\int\limits_{X_n} |f_n - f| + \int\limits_{X_n^c} |f_n - f| \leq 
+
+		$ \int\limits_{\mathbb{X}} |f_n - f| =
+		\int\limits_{X_n} |f_n - f| + \int\limits_{X_n^c} |f_n - f| \leq
 		\int\limits_{X_n} 2g + \int\limits_{X_n^c} \epsilon < \epsilon + \epsilon \mu \mathbb{X} $ (прим. $ \int\limits_{X_n} 2g \rightarrow 0 $ по след. к т. об абс. сходимости )
-	
+
 		\item $ \mu \mathbb{X} = \infty $
-	
-		Докажем <<Антиабсолютную непрерывность>> для $ g $: 
-		
-		$ \forall \epsilon ~ \exists A \subset \mathbb{X} \mid \mu A$ - конеч. 
+
+		Докажем <<Антиабсолютную непрерывность>> для $ g $:
+
+		$ \forall \epsilon ~ \exists A \subset \mathbb{X} \mid \mu A$ - конеч.
 		$ \int\limits_{X\backslash A} g < \epsilon $
-		
-		\textit{доказательство:} 
-		
+
+		\textit{доказательство:}
+
 		$ \int\limits_{\mathbb{X}} = \sup ( \int\limits_{\mathbb{X}} g_k \mid 0 \leq g_k \leq g) $ ($ g_k $ -- ступен.)
-		
+
 		$ \exists g_n ~ \int\limits_{\mathbb{X}} g - \int\limits_{\mathbb{X}} g_n < \epsilon $
-	
+
 		$ A:= supp\ g_n $ ($ supp\ f := $ замыкание \{$ x \mid f(x) \neq 0$ \})
-		
+
 		$ A =  \bigcup\limits_{k \mid \alpha_k \neq 0} E_k $
-		
+
 		$ g = \sum\limits_{kon} \alpha_k \mathcal{X}_{E_k} $ ($ X = \bigsqcup E_k $)
-		
+
 		$ \int\limits_{\mathbb{X}} g_n  = \sum \alpha_k \mu E_k  < +\infty $ ($ \mu A $ - конеч.)
-		
-		$ \int\limits_{\mathbb{X\backslash A}} g = 
-		\int\limits_{\mathbb{X\backslash A}} g - g_n \leq 
-		\int\limits_{\mathbb{X}} g - g_n < \epsilon $ 
-	
-		Теперь докажем основное утверждение: 
-		
-		 $ \int\limits_{\mathbb{X}} |f_n - f| = 
-		 \int\limits_{\mathbb{A}} |f_n - f| + \int\limits_{\mathbb{X\backslash A}} |f_n - f| \leq 
-		 \int\limits_{\mathbb{A}} |f_n - f| + 2\epsilon < 3 \epsilon $ 
+
+		$ \int\limits_{\mathbb{X\backslash A}} g =
+		\int\limits_{\mathbb{X\backslash A}} g - g_n \leq
+		\int\limits_{\mathbb{X}} g - g_n < \epsilon $
+
+		Теперь докажем основное утверждение:
+
+		 $ \int\limits_{\mathbb{X}} |f_n - f| =
+		 \int\limits_{\mathbb{A}} |f_n - f| + \int\limits_{\mathbb{X\backslash A}} |f_n - f| \leq
+		 \int\limits_{\mathbb{A}} |f_n - f| + 2\epsilon < 3 \epsilon $
 		 ($  \int\limits_{\mathbb{A}} |f_n - f| \rightarrow 0$  по п. (a))
 	\end{enumerate}
 \end{enumerate}
@@ -569,27 +622,27 @@ $g$ - суммируемая
     \item $\int\limits_{\mathds{X}} f_n \rightarrow \int\limits_{\mathds{X}} f$ (<<уж тем более>>)
 \end{itemize}
 
-\emph{Доказательство:} 
+\emph{Доказательство:}
 
 \begin{enumerate}
 	\item <<уж тем более>> см. пред. теорему.
-	
-	\item Докажем основное утверждение: 
-	
-	$ h_n(x) := \sup(|f_n - f|, |f_{n+1} - f|, \dots) $ 
-	
+
+	\item Докажем основное утверждение:
+
+	$ h_n(x) := \sup(|f_n - f|, |f_{n+1} - f|, \dots) $
+
 	Заметим, что при фикс. $ x $ выпол. $ 0 \leq h_n \leq 2g $ почти везде
-	
-	$ \lim\limits_{n \rightarrow +\infty} h_n = 
+
+	$ \lim\limits_{n \rightarrow +\infty} h_n =
 	\varlimsup\limits_{n \rightarrow +\infty} |f_n - f| = 0 $ почти везде
-	 
-	$ 2g - h_n \uparrow , ~ 2g - h_n \rightarrow 2g$ почти везде 
-	
-	$ \int\limits_{\mathds{X}}(2g - h_n) d\mu \rightarrow \int\limits_{\mathds{X}} 2g $ 
+
+	$ 2g - h_n \uparrow , ~ 2g - h_n \rightarrow 2g$ почти везде
+
+	$ \int\limits_{\mathds{X}}(2g - h_n) d\mu \rightarrow \int\limits_{\mathds{X}} 2g $
 	(по т. Леви)
-	
+
 	$ \int\limits_{\mathds{X}} 2g - \int\limits_{\mathds{X}} h \Rightarrow \int\limits_{\mathds{X}} h_n \rightarrow 0 $
-	
+
 	$ \int\limits_{\mathds{X}} |f_n - f| \leq \int\limits_{\mathds{X}} h_n \rightarrow 0 $
 \end{enumerate}
 
@@ -626,9 +679,9 @@ $ f_n, f \geq 0$ -- измер.
 
 $ f_n \stackrel{\mu}{\Rightarrow} f$
 
-$ Пусть \exists C ~ \forall n  \int\limits_{\mathbb{X}} f_n \leq C $ 
+$ Пусть \exists C ~ \forall n  \int\limits_{\mathbb{X}} f_n \leq C $
 
-\emph{Тогда:} 
+\emph{Тогда:}
 \begin{itemize}
 	\item $ \int\limits_{\mathbb{X}}  f \leq C $
 \end{itemize}
@@ -649,14 +702,13 @@ $ f_n \geq 0 $ -- измер.
 
 \emph{Доказательство:}
 
-$ \exists n_k \mid \int\limits_{\mathbb{X}} f_{n_k} \underrightarrow{k \rightarrow +\infty} 
+$ \exists n_k \mid \int\limits_{\mathbb{X}} f_{n_k} \underrightarrow{k \rightarrow +\infty}
 \varliminf\limits_{n \rightarrow +\infty} \int\limits_{\mathbb{X}} f_n $
 
 Рассмотрим $ g_{n_k} $ такое, что $ g_{n_k} \uparrow $ и $ g_{n_k} \rightarrow \varliminf f $
- 
+
 Применяем теорему Леви к нер-ву $ \int\limits_{\mathbb{X}} g_{n_k} \leq \int\limits_{\mathbb{X}} f_{n_k}$
 
 $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}} f_n $
-
 
 \end{document}

@@ -37,12 +37,12 @@ $ (X,\mathds{A},\mu)$  - пространство с мерой, и $f_n, f: X \
 Говорим, что $f_n \rightarrow f(x)$ почти везде, если $\{x: f_n(x) \not \rightarrow f(x)\}$ измеримо и имеет меру $0$.
 
 \section{Сходимость по мере}
-$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\ 
+$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
 $f_n , f : X \rightarrow \overline R$ - п.в. конечны\\
 Говорят, что $f_n$ сходится к $f$ по мере $\mu$ (при $n \rightarrow +\infty$) (обозначается $f_n\stackrel{\mu}{\Rightarrow}f$) если $\forall\epsilon > 0$ $\mu(X(|f_n - f| > \epsilon))\stackrel{n\rightarrow+\infty}{\rightarrow} 0$
 
 \section{Теорема Егорова о сходимости почти везде и почти равномерной сходимости}
-$(X, a, \mu)$ - пространство с мерой\\ 
+$(X, a, \mu)$ - пространство с мерой\\
 $f_n , f : X \rightarrow R$ - п.в. конечны, измеримы \\
 $f_n \rightarrow f$.\\
 Тогда эта сходимость ``почти равномерная''
@@ -86,19 +86,26 @@ $$\int\limits_{\mathds{E}}f d\mu := \int\limits_{\mathds{X}}f \cdot \chi(E) d\mu
 $f$ суммируемая на $E$, если $\int\limits_{\mathds{X}}f^+ \chi(E)$ и $\int\limits_{\mathds{X}}f^- \chi(E)$ конечны
 
 \section{Произведение мер}
+$<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
+$\mu$, $\nu$ - $\sigma$-конечные меры\\
+$\alpha \times \beta = \{A\times B \subset \mathds{X} \times \mathds{Y} : A \in \alpha, B \in \beta \}$ \\
+$m_0 : \alpha \times \beta \rightarrow \overline R$\\ $m_0(A \times B) = \mu A \cdot \nu B$ \\\\
+$m$ - называется произведением мер $\mu$ и $\nu$, если $m$ - мера, которая ялвяется Лебеговским продолжением $m_0$ с полукольца $\alpha \times \beta$ на некоторую $\sigma$-алгебру $\alpha \otimes \beta$.\\
+$m = \mu \times \nu$ - обозначение \\
+$<\mathds{X} \times \mathds{Y}, \alpha \otimes \beta, \mu \times \nu>$ - произведение пространств с мерой
 
 \section{Теорема Фубини}
 $<\mathds{X}, \mathds{A}, \mu>$, $<\mathds{Y}, \mathds{B}, \nu>$ - пространство с мерой,
 
 $\mu$, $\nu$ --- $\sigma$-конечные и полные,
 
-$m = \mu \times \nu$,  
+$m = \mu \times \nu$,
 
 $f$ --- суммируемая на $\mathds{X} \times \mathds{Y}$ по $m$.
 
-\textbf{Тогда:} 
+\textbf{Тогда:}
 \begin{itemize}
-\item 
+\item
 при <<почти всех>> $x$ функция $f_x \in \mathds{L}(\mathds{Y},\nu)$, то есть суммируема на $\mathds{Y}$ по $\nu$
 
 при <<почти всех>> $y$ функция $f^y \in \mathds{L}(\mathds{X},\mu)$
@@ -110,13 +117,59 @@ $$x \mapsto \psi(x) \mid \psi(x) = \int\limits_{\mathds{X}}f^y d\mu \in \mathds{
 
 Это есть эти функции суммируемы в некотором контексте ($\mathds{X},\mu$ и $\mathds{Y},\nu$ соответсвено)
 
-\item 
-$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm 
-= \int\limits_{\mathds{X}}\phi(x) d\mu 
+\item
+$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm
+= \int\limits_{\mathds{X}}\phi(x) d\mu
 = \int\limits_{\mathds{X}} (\int\limits_{\mathds{Y}} f d\nu(y)) d\mu(x)$$
 
-$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm 
-= \int\limits_{\mathds{Y}}\psi(x) d\nu 
+$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm
+= \int\limits_{\mathds{Y}}\psi(x) d\nu
 = \int\limits_{\mathds{Y}} (\int\limits_{\mathds{X}} f d\mu(x)) d\nu(y)$$
 \end{itemize}
+
+\section{Образ меры при отображении}
+$(X, \mathds{A}, \mu)$~--- пространство с мерой, $(Y, \mathds{B}, \_)$~--- пространство с $\sigma$-алгеброй.
+
+$\Phi: X \to Y$, $\Phi^{-1}(\mathds{B}) \subset \mathds{A}$ (прообраз любого множества из $\mathds{B}$ лежит в $\mathds{A}$).
+
+Пусть для $E \in \mathds{B}$ $\nu(E) = \mu(\Phi^{-1})$.
+
+$\nu$ является мерой на $Y$ и называется образом меры $\mu$ при отображении $\Phi$.
+
+\section{Взвешенный образ меры}
+$(X, \mathds{A}, \mu)$~--- пространство с мерой, $(Y, \mathds{B}, \_)$~--- пространство с $\sigma$-алгеброй.
+
+$\Phi: X \to Y$, $\Phi^{-1}(\mathds{B}) \subset \mathds{A}$ (прообраз любого множества из $\mathds{B}$ лежит в $\mathds{A}$).
+
+$\omega: X \to \overline{\mathds{R}}$, $\omega \geq 0$~--- измеримая.
+
+Пусть для $E \in \mathds{B}$ $\nu(E) = \int_{\Phi^{-1}(E)} \omega~d\mu$.
+
+$\nu$ является мерой на $Y$ и называется взвешенным образом меры $\mu$.
+
+При $\omega \equiv 1$ взвешенный образ меры является обычным образом меры.
+
+\section{Плотность одной меры по отношению к другой}
+$(X, \mathds{A}, \mu)$~--- пространство с мерой.
+
+$\omega: X \to \overline{\mathds{R}}$, $\omega \geq 0$~--- измеримая.
+
+$\nu(E) = \int_E \omega(x)~d\mu$. $\nu$~--- мера на $X$.
+
+$\omega$ называется плотностью $\nu$ относительно $\mu$.
+
+\section{Заряд, множество положительности}
+\subsection{Заряд}
+$(X, \mathds{A}, \_)$~--- пространство с $\sigma$-алгеброй.
+
+$\phi: \mathds{A} \to \mathds{R}$ (конечная, не обязательно неотрицательная).
+
+$\phi$ счётно аддитивна.
+
+Тогда $\phi$~--- заряд.
+
+\subsection{Множество положительности}
+$A \subset X$~--- множество положительности, если
+$\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.
+
 \end{document}
