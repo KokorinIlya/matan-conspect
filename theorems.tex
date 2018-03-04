@@ -70,8 +70,8 @@ $f, g$ --- измеримые функции. Тогда $f + g$ -- измери
 \emph{Доказательство:}
 
 \begin{enumerate}
-	\item $E(f < a) = E'(f < a) \cup e(f < a), e:=E \setminus E', \lambda_m(e) = 0$. 
-	\item $ E'(f < a)$ открыто в $E'$, так как f непрерывна. Поэтому $E' = G \cap E' \Rightarrow$, где $G$ ~--- открытое в $E$ множество.  Значит, $E'(f<a)$ ~--- измеримо по Лебегу, так как оно является борелевским. 
+	\item $E(f < a) = E'(f < a) \cup e(f < a), e:=E \setminus E', \lambda_m(e) = 0$.
+	\item $ E'(f < a)$ открыто в $E'$, так как f непрерывна. Поэтому $E' = G \cap E' \Rightarrow$, где $G$ ~--- открытое в $E$ множество.  Значит, $E'(f<a)$ ~--- измеримо по Лебегу, так как оно является борелевским.
 	\item Но и $e(f<a)$ измеримо, так $\lambda_m(e) = 0$, следовательно $E(f < a)$ измеримо как объединение измеримых множеств
 \end{enumerate}
 
@@ -85,7 +85,7 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 
 \section{Теорема Лебега о сходимости почти везде и сходимости по мере}
 
-$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\ 
+$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
 $f_n , f : X \rightarrow \overline R$ - п.в. конечны, измеримы \\
 $f_n \rightarrow f$ (поточечно, п.в.)
 
@@ -101,15 +101,15 @@ $f_n \rightarrow f$ (поточечно, п.в.)
 	\item (частный случай)
 	$f_n \rightarrow f \equiv 0$. Тогда пусть $\forall x f_{n}(x)$ - монотонно (по $n$). $|f_{n}(x)|$ - убывает с ростом $n$ и $X(|f_{n}| \geq \epsilon) \supset X(|f_{n+1}| \geq \epsilon)$. А также $\bigcap\limits_{n=0}^{+\infty}X(|f_{n}|\geq\epsilon) = \emptyset$.\\
 	$$\begin{cases}
-   		$$\mu X < +\infty$$\\
-   		$$\ldots\supset E_{n}\supset E_{n+1}\supset\ldots$$
+   		$$\mu X < +\infty $$\\
+   		$$\ldots\supset E_{n}\supset E_{n+1}\supset\ldots $$
  	\end{cases}$$ $ \Rightarrow \mu E_{n}\rightarrow\mu\cup E_{n}$ - Th о непрерывности меры сверху.\\
  	$\Rightarrow\mu X(|f_{n}\geq\epsilon|) \rightarrow \mu\emptyset = 0$
  	\item (общий случай)
  	$f_n \rightarrow f$. Рассмотрим $\phi_{n}(x) := \sup_{k\geq n}|f_{k}(x) - f(x)|$. Заметим свойства $\phi$:\\
  	$$\begin{cases}
-   		$$\phi_{n}(x) \rightarrow 0$$\\
-   		$$\phi_{n} \downarrow_n$$
+   		$$\phi_{n}(x) \rightarrow 0 $$\\
+   		$$\phi_{n} \downarrow_n $$
  	\end{cases}$$
  	$X(|f_{n} - f|\geq\epsilon) \subset X(|\phi_{n}\geq\epsilon|) \Rightarrow $ по монотонности меры имеем $\mu X(|f_{n} - f|\geq\epsilon) \leq \mu X(\phi_{n}\geq\epsilon) \stackrel{part.case}{\longrightarrow} 0$, ч.т.д.
 \end{enumerate}
@@ -117,13 +117,13 @@ $f_n \rightarrow f$ (поточечно, п.в.)
 
 \section{Теорема Рисса о сходимости по мере и сходимости почти везде}
 
-$(X, a, \mu)$ - пространство с мерой\\ 
+$(X, a, \mu)$ - пространство с мерой\\
 $f_n , f : X \rightarrow R$ - п.в. конечны, измеримы \\
 $f_n  \stackrel{\mu}{\Rightarrow} f$.\\
 Тогда $\exists n_{k}\uparrow $ : $f_{n_{k}} \rightarrow f$ п.в.
 
 \emph{Доказательство:}
-$\forall k \mu X(|f_n - f| \geq \frac{1}{k}) \stackrel{n\rightarrow+\infty}{\rightarrow} 0$\\
+$\forall k ~ \mu X(|f_n - f| \geq \frac{1}{k}) \stackrel{n\rightarrow+\infty}{\rightarrow} 0$\\
 Тогда $\exists n_{k} : \forall n \geq n_{k} \mu X(|f_n - f| \geq \frac{1}{k}) < \frac{1}{2k}$ (можно считать $n_1 < n_2 < \ldots$)\\
 Проверим $f_{n_k} \rightarrow f$ п.в. :
 	$E_k := \bigcap\limits{j=k}^{+\infty}X(|f_{n_j} - f|\geq\frac{1}{j})$\\
@@ -144,31 +144,31 @@ $$\begin{cases}
 \subsection{Для определения (5)}
 \begin{enumerate}
 	\item $\int\limits_{\mathds{X}}f$ не зависит от представления $f$ как ступенчатой функции, то есть если $f$ реализуется как $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$ и как $f = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$, интегралы по этим функциям равны
-	
+
 	\emph{Доказательство:}
-	
+
 	Выпишем общее разбиение для этих двух разбиений
-	
+
 	Пусть $F_{ij} = E_i \cap G_j$
-	
+
 	Тогда $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k}) = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l}) = \sum\limits_{i, j}(\lambda_i (= \alpha_j) \cdot \chi_{F_{i, j}})$
-	
+
 	$\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) = \sum\limits_i (\lambda_i \cdot \sum\limits_j (\mu F_{i, j})) = \sum\limits_i (\lambda_i \cdot \mu E_i) = \int f$ для первого разбиения
-	
-	Аналогично для второго разбиения получаем 
-	
+
+	Аналогично для второго разбиения получаем
+
 	$\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) = \sum\limits_j (\alpha_i \cdot \sum\limits_i (\mu F_{i, j})) = \sum\limits_j (\lambda_j \cdot \mu G_i) = \int f$ для второго разбиения, что и требовалось доказать
-	
+
 	\item $f, g$ -измеримые ступенчатые функции, $f \leqslant g$, тогда $\int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
-	
+
 	\emph{Доказательство:}
-	
+
 	Пусть $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$, $g = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$
-	
+
 	Аналогично доказательству предыдущей теоремы, строим общее ступенчатое разбиение
-	
+
 	Пусть $F_{ij} = E_i \cap G_j$
-	
+
 	Тогда $\int f = \sum\limits_{i, j}(\lambda_i \cdot \mu F_{i, j}) \leqslant \sum\limits_j(\alpha_j \cdot \mu F_{i, j}) = \int g$, что и требовалось доказать
 \end{enumerate}
 
@@ -177,131 +177,131 @@ $$\begin{cases}
 \begin{enumerate}
 	\item Монотонность
 	$f \leqslant g \Rightarrow \int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
-	
+
 	\emph{Доказательство:}
 	\begin{enumerate}
 		\item $f, g \geqslant 0$, тогда доказательство тривиально (по свойствам супремума)
 		\item $\int\limits_{\mathds{X}} f = \int\limits_{\mathds{X}} f^+ - \int\limits_{\mathds{X}} f^-$
-		
+
 		$\int\limits_{\mathds{X}} g = \int\limits_{\mathds{X}} g^+ - \int\limits_{\mathds{X}} g^-$
-		
+
 		Из того, что $\int\limits_{\mathds{X}} f^+ \leqslant \int\limits_{\mathds{X}} g^+$, а $\int\limits_{\mathds{X}} f^- \geqslant \int\limits_{\mathds{X}} g^-$ следует, что $\int\limits_{\mathds{X}} f \leqslant \int\limits_{\mathds{X}} g$
 	\end{enumerate}
 
-	\item 
+	\item
 	$\int\limits_{\mathds{E}} 1 \cdot d \mu = \mu E$
-	
+
 	$\int\limits_{\mathds{E}} 0 \cdot d \mu = 0$
-	
+
 	Очевидно из определения интеграла ступенчатой функции
-	
+
 	\item $\mu E = 0, f $-измерима, тогда $\int\limits_{\mathds{E}}f = 0$, даже если $f = \infty$ на $\mathds{E}$
-	
+
 	\emph{Доказательство:}
-	
+
 	\begin{enumerate}
 		\item $f $-ступенчатая $\Rightarrow$ ограниченная
-		
+
 		$f = \sum\limits_{k = 1}^{n}(\lambda_k \cdot \chi_{E_k})$, тогда $\int\limits_\mathds{E} f = \sum \lambda_k \cdot \mu (E \cap E_k)$
-		
+
 		Но $\mu (E \cap E_k) = 0$ (так как $\mu E = 0$), тогда $\int\limits_\mathds{E} f = 0$
-		
-		\item $f$ - измеримая, $f \geqslant 0$. 
-		
+
+		\item $f$ - измеримая, $f \geqslant 0$.
+
 		$\int\limits_\mathds{E} f = \sup (\int\limits_\mathds{E} g)$, где $0 \leqslant g \leqslant f$, $g$ - ступенчатая
-		
+
 		Тогда $\int\limits_\mathds{E} f = \sup (0) = 0$
-		
-		\item 
+
+		\item
 		$f$ - произвольная измеримая
-		
+
 		Тогда $\int\limits_\mathds{E} f = \int\limits_{\mathds{E}} f^+ - \int\limits_{\mathds{E}} f^- = 0 - 0 = 0$
 	\end{enumerate}
 
-	\item  
+	\item
 	\begin{enumerate}
 		\item
 		$\int\limits_{\mathds{E}} -f = - \int\limits_{\mathds{E}} f$
-		
+
 		\item
 		$\forall c \in \mathds{R}: \int\limits_{\mathds{E}} (c \cdot f) = c \cdot \int\limits_{\mathds{E}} f $
 	\end{enumerate}
-	
+
 	\emph{Доказательство:}
 	\begin{enumerate}
 		\item
 		$(-f)^+ = f^-$
-		
+
 		$(-f)^- = f^+$
-		
+
 		Тогда $\int\limits_{\mathds{E}} -f = \int\limits_{\mathds{E}} (-f)^+ - \int\limits_{\mathds{E}} (-f)^- = \int\limits_{\mathds{E}} f^- - \int\limits_{\mathds{E}} f^+ = -\int\limits_{\mathds{E}} f$
-		
+
 		\item
-		
+
 		Пусть $c > 0$. Если $c < 0$, то по предыдущему случаю можем рассматривать для $- c < 0$. Если $c = 0$, то по предыдущей теореме $\int\limits_{\mathds{E}} (0 \cdot f) = \int\limits_{\mathds{E}} 0 = 0 = 0 \cdot \int\limits_{\mathds{E}} f$
-		
+
 		\begin{enumerate}
 			\item
 			Пусть $f \geqslant 0$
-			
+
 			$\int\limits_{\mathds{E}} (c \cdot f) = \sup (\int\limits_{\mathds{E}} g)$, где $0 \leqslant g \leqslant c \cdot f$, $g$ - ступенчатая
-			
+
 			Пусть $g = c \cdot \widetilde{g}$, тогда $\int\limits_{\mathds{E}} (c \cdot f) = \sup (\int\limits_{\mathds{E}} (c \cdot \widetilde{g}))$, где $0 \leqslant c \cdot \widetilde{g} \leqslant c \cdot f$, $\widetilde{g}$ - ступенчатая
-			
+
 			Тогда $\int\limits_{\mathds{E}} (c \cdot f) = \sup (\int\limits_{\mathds{E}} (c \cdot \widetilde{g})) = \sup (c \cdot \int\limits_{\mathds{E}} \widetilde{g}) = c \cdot \sup (\int\limits_{\mathds{E}} \widetilde{g}) = c \cdot \int\limits_{\mathds{E}} f $
-			
+
 			\item Если $f$ - произвольная:
-			
+
 			$\int\limits_{\mathds{E}} (c \cdot f) = \int\limits_{\mathds{E}} (c \cdot f)^+ - \int\limits_{\mathds{E}} (c \cdot f)^- = \int\limits_{\mathds{E}} c \cdot f^+ - \int\limits_{\mathds{E}} c \cdot f^- = c \cdot \int\limits_{\mathds{E}} f^+ - c \cdot \int\limits_{\mathds{E}} f^- = c \cdot (\int\limits_{\mathds{E}} f^+ - \int\limits_{\mathds{E}} f^-) = c \cdot \int\limits_{\mathds{E}} f$
-		\end{enumerate}	
+		\end{enumerate}
 	\end{enumerate}
-	
+
 	\item Если существует $\int\limits_{\mathds{E}} f d\mu$, то $|\int\limits_{\mathds{E}} f| \leqslant \int\limits_{\mathds{E}} |f|$
-	
+
 	\emph{Доказательство:}
-	
+
 	$-|f| \leqslant f \leqslant |f|$
-	
+
 	$\int\limits_{\mathds{E}} -|f| \leqslant \int\limits_{\mathds{E}} f \leqslant \int\limits_{\mathds{E}} |f|$
-	
+
 	$-\int\limits_{\mathds{E}} |f| \leqslant \int\limits_{\mathds{E}} f \leqslant \int\limits_{\mathds{E}} |f|$
-	
+
 	Тогда $|\int\limits_{\mathds{E}} f| \leqslant \int\limits_{\mathds{E}} |f|$
-	
-	
+
+
 	\item $f$ - измеримая на $\mathds{E}$, $\mu \mathds{E} < \infty$
-	
+
 	$a \leqslant f \leqslant b$, тогда $a \cdot \mu E \leqslant \int\limits_{\mathds{E}} f \leqslant b \cdot \mu E$
-	
+
 	\emph{Доказательство: }
-	
+
 	$a \leqslant f \leqslant b \Rightarrow \int\limits_{\mathds{E}}a \leqslant \int\limits_{\mathds{E}} f \leqslant \int\limits_{\mathds{E}} b$
-	
+
 	$a \cdot \int\limits_{\mathds{E}} 1 \leqslant \int\limits_{\mathds{E}} f \leqslant b \cdot \int\limits_{\mathds{E}} 1$
-	
+
 	$a \cdot \mu \mathds{E} \leqslant \int\limits_{\mathds{E}} f \leqslant b \cdot \mu \mathds{E}$
-	
+
 	\emph{Следствие:}
-	
+
 	Если $f$ - Измеримая и ограниченная на $\mathds{E}, \mu \mathds{E} < \infty$, тогда $f$ - суммируемая на $\mathds{E}$
-	
+
 	\item $f$ - суммируемая на $\mathds{E} \Rightarrow f$ почти везде конечная на $\mathds{E}$ (то есть $f \in \alpha^0(\mathds{E})$)
-	
+
 	\emph{Доказательство:}
 	\begin{enumerate}
 		\item Пусть $f \geqslant 0$
-		
+
 		Пусть $f = +\infty$ на $A$ и пусть $\mu A > 0$
-		
+
 		Тогда $\forall n \in \mathds{N}: f \geqslant n \cdot \chi_A$
-		
+
 		Тогда $\forall n \in \mathds{N}: \int\limits_{\mathds{E}} f \geqslant n \cdot \int\limits_{\mathds{E}} \chi_A = n \cdot \mu A \Rightarrow \int\limits_{\mathds{E}} f = + \infty$
-		
+
 		\item $f$ любого знака
-		
-		Распишем $f = f^+ - f^-$, по предыдущему пункту $f^+, f^-$ конечны почти везде $\Rightarrow f$ тоже конечно почти везде 
+
+		Распишем $f = f^+ - f^-$, по предыдущему пункту $f^+, f^-$ конечны почти везде $\Rightarrow f$ тоже конечно почти везде
 	\end{enumerate}
-	
+
 \end{enumerate}
 
 \section{Счетная аддитивность интеграла (по множеству)}
@@ -309,67 +309,67 @@ $(X,\mathds{A},\mu)$~--- пространство с мерой, $A = \bigsqcup\
 
 \emph{Тогда:} ${\displaystyle \int\limits_{A}f = \sum\limits_{i=1}^{\infty} \int\limits_{A_{i}}f}$
 
-\emph{Доказательсво:}
+\emph{Доказательство:}
 
 \begin{enumerate}
 	\item Для начала докажем это для ступенчатых функций. Пусть $f = \sum\limits_{k} (\lambda_k \cdot \chi_{E_k})$
-	
+
  $\int\limits_{A}fd\mu = \sum\limits_{k} (\lambda_k \cdot \mu(E_k \cap A)) =
  \sum\limits_{k} (\lambda_k \cdot (\sum\limits_{i} \mu(E_k \cap A_i))) =
  \sum\limits_{i}(\sum\limits_{k}(\lambda_k \cdot \mu(E_k \cap A_i))) = \sum\limits_{i}(\int\limits_{A_i}f)$
- 
+
 	\item Докажем, что $\int\limits_{A}f \leqslant \sum\limits_{i} \int\limits_{A_{i}}f$
-	
+
 	\begin{enumerate}
 		\item Рассмотрим $0 \leqslant g \leqslant f - $ ступенчатая. $\int\limits_{A}g = \sum\limits_{i} \int\limits_{A_i}g \leqslant \sum\limits_{i} \int\limits_{A_{i}}f$
-		 
+
 		 \item Переходя к $sup$ получаем желаемое
-	\end{enumerate} 
-	
-	\item Теперь докажем, что $\int\limits_{A}f \geqslant \sum\limits_{i} \int\limits_{A_{i}}f$ 
+	\end{enumerate}
+
+	\item Теперь докажем, что $\int\limits_{A}f \geqslant \sum\limits_{i} \int\limits_{A_{i}}f$
 	\begin{enumerate}
 		\item $A = A_1\sqcup A_2$
 
 		\begin{enumerate}
 			\item Рассмотрим $g_1, g_2\ -$ ступенчатые такие, что $0 \leqslant g_i \leqslant f \cdot \chi_{A_i}$
-			
+
 			\item Рассмотрим их общее разбиение $E_k:\ g_i = \sum\limits_k (\lambda_k^i \cdot \chi_{E_k})$
-			
+
 			\item $g_1 + g_2\ - $ ступенчатая и $0 \leqslant g_1 + g_2 \leqslant f \cdot \chi_{A}$
-			
+
 			\item $\int\limits_{A_1}g_1 + \int\limits_{A_2}g_2 \stackrel{lemma}{=} \int\limits_{A}(g_1 + g_2) \stackrel{iii}{\leqslant} \int\limits_{A}f$
-			
-			\item Поочерёдно переходя к $sup$ по $g_1$ и $g_2$ получаем: $\int\limits_{A_1}f + \int\limits_{A_2}f \leqslant \int\limits_{A}f$ 		
+
+			\item Поочерёдно переходя к $sup$ по $g_1$ и $g_2$ получаем: $\int\limits_{A_1}f + \int\limits_{A_2}f \leqslant \int\limits_{A}f$
 		\end{enumerate}
-		
-	\item $\forall n \in \mathbb{N}$, что $A = \bigsqcup\limits_{i=1}^{n}A_{i}$ будем последовательно отщеплять последнее множество по $(a)$ 
-	
+
+	\item $\forall n \in \mathbb{N}$, что $A = \bigsqcup\limits_{i=1}^{n}A_{i}$ будем последовательно отщеплять последнее множество по $(a)$
+
 	\item $A = \bigsqcup\limits_{i = 1}^{\infty}A_{i}$
 		\begin{enumerate}
 			\item Фиксрируем $n \in \mathbb{N}$
-			
+
 			\item $A = (\bigsqcup\limits_{i=1}^{n}A_{i}) \sqcup B$, где $B = \bigsqcup\limits_{i=n+1}^{\infty}A_{i}$
-			
+
 			\item $\int\limits_{A}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f + \int\limits_{B}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f$
-			
+
 			\item Переходим к $lim$ по $n$
-		\end{enumerate}		
-		
+		\end{enumerate}
+
 	\end{enumerate}
-	
+
 \end{enumerate}
 
 \emph{Следсвие 1:}
 $\ 0 \leqslant f \leqslant g$ - измeримы и  $A \subset B$ - измеримы $\Rightarrow \int\limits_{A}f \leqslant \int\limits_{B}g$
 
-$\int\limits_{B}g \geqslant \int\limits_{B}f = \int\limits_{A}f + \int\limits_{B \setminus A}f \geqslant \int\limits_{A}f$ 
+$\int\limits_{B}g \geqslant \int\limits_{B}f = \int\limits_{A}f + \int\limits_{B \setminus A}f \geqslant \int\limits_{A}f$
 
 \bigskip
 
 \emph{Следствие 2:}
-$f$ - суммируема на $A \Rightarrow \int\limits_{A}f = \sum\limits_{i} \int\limits_{A_{i}}f$ 
+$f$ - суммируема на $A \Rightarrow \int\limits_{A}f = \sum\limits_{i} \int\limits_{A_{i}}f$
 
-Достаточно рассмотреть срезки $f^+$ и $f^-$ 
+Достаточно рассмотреть срезки $f^+$ и $f^-$
 
 \bigskip
 
@@ -378,7 +378,7 @@ $f \geqslant 0$ - изм. $\delta: \mathbb{A} \rightarrow \mathbb{\overline{R}}(
 
 \section{Теорема Леви}
 $(X,\mathds{A},\mu),\ f_n \geqslant 0$ - изм.
- 
+
 $f_1(x) \leqslant ...\leqslant f_n(x) \leqslant f_{n+1}(x) \leqslant ...$ при почти всех $x$
 
 $f(x) = \lim\limits_{n \rightarrow \infty}f_n(x)$ при почти всех $x$ (считаем, что при остальных $x: f \equiv 0$)
@@ -391,30 +391,30 @@ $f(x) = \lim\limits_{n \rightarrow \infty}f_n(x)$ при почти всех $x$
 
 $N.B. \int\limits_{X}f_n \leqslant \int\limits_{X}f_{n+1} \Rightarrow \exists \lim$
 
-$f$ - измерима как предел последователтности измеримых функций
+$f$ - измерима как предел последовательности измеримых функций
 
 \begin{enumerate}
 	\item $\leqslant$
-	
+
 	Очевидно $f_n \leqslant f$ при п.в $x \Rightarrow \int\limits_{X}f_n \leqslant \int\limits_{X}f$. Делаем предельный переход по $n$
-	
+
 	\item $\geqslant$
 		\begin{enumerate}
 			\item Логичная редукция: $\lim\limits_{n \rightarrow \infty} \int\limits_{X}f_n(x) \geqslant \int\limits_{x}g$, где $0 \leqslant g \leqslant f$ - ступенчатая
-			
+
 			\item Наглая редукция: $\forall c \in (0,1): \lim\int\limits_{X}f_n(x) \geqslant c \cdot \int\limits_{X}g$
 				\begin{enumerate}
 					\item $E_n = \{x\ |\ f_n(x) \geqslant c \cdot g\}$. Очевидно $E_1 \subset ... \subset E_n \subset E_{n + 1} \subset ...$
-					
+
 					\item $\bigcup\limits_{n=1}^{\infty}E_n = X$ т.к. $c < 1$
-					
+
 					\item $\int\limits_{X}f_n \geqslant \int\limits_{E_n}f_n \geqslant \int\limits_{E_n}g \Rightarrow \lim \int\limits_{X}f_n \geqslant c \cdot \lim \int\limits_{E_n}g = c \cdot \int\limits_{X}g$
-					
+
 					\item Последний знак равно обусловлен тем, что интеграл неотрицательной и измеримой функции по множеству - мера (см. следствие 3 предыдущей теоремы), и мы используем неперрывность меры снизу
 				\end{enumerate}
 		\end{enumerate}
-\end{enumerate}			
-	
+\end{enumerate}
+
 \section{Линейность интеграла Лебега}
 
 $f, g \geqslant 0$, измеримые
@@ -425,35 +425,238 @@ $f, g \geqslant 0$, измеримые
 
 \begin{enumerate}
 	\item Пусть $f, g$ - ступенчатые, тогда у них имеется общее разбиение
-	
+
 	$f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$
-	
+
 	$g = \sum\limits_{k}(\alpha_k \cdot \chi_{E_k})$
-	
+
 	$\int\limits_{\mathds{E}} (f + g) = \sum\limits_k (\lambda_k + \alpha_k) \cdot \mu E_k = \sum\limits_k \lambda_k \cdot \mu E_k + \sum\limits_k \alpha_k \cdot \mu E_k = \int\limits_{\mathds{E}} f + \int\limits_{\mathds{E}} g$, что и требовалось доказать
-	
+
 	\item $f, g \geqslant 0$, измеримые
-	
+
 	Тогда $\exists h_n: 0 \leqslant h_n \leqslant h_{n + 1} \leqslant f$, $h_n$ ступенчатые
-	
+
 	$\exists \widetilde{h_n}: 0 \leqslant \widetilde{h_n} \leqslant \widetilde{h_{n + 1}} \leqslant g$, $\widetilde{h_n}$ ступенчатые
-	
+
 	$\lim\limits_{n \rightarrow +\infty} h_n = f$
-	
+
 	$\lim\limits_{n \rightarrow +\infty} \widetilde{h_n} = g$
-	
+
 	$\int\limits_{\mathds{E}} (h_n + \widetilde{h_n}) = \int\limits_{\mathds{E}} h_n + \int\limits_{\mathds{E}} \widetilde{h_n}$
-	
+
 	$\int\limits_{\mathds{E}} (h_n + \widetilde{h_n}) \rightarrow \int\limits_{\mathds{E}} (f + g)$
-	
+
 	$\int\limits_{\mathds{E}} h_n \rightarrow \int\limits_{\mathds{E}} f$
-	
+
 	$\int\limits_{\mathds{E}} \widetilde{h_n} \rightarrow \int\limits_{\mathds{E}} g$
-	
+
 	Тогда $\int\limits_{\mathds{E}} (f + g) = \int\limits_{\mathds{E}} f + \int\limits_{\mathds{E}} g$, что и требовалось доказать
-	
-	\item 
+
+	\item
 	Если $f, g$ - любые измеримые, распишем обе через срезки и докажем для них
 \end{enumerate}
+
+\section{Теорема об интегрировании положительных рядов.}
+\textbf{TODO}
+\section{Теорема о произведении мер.}
+\textbf{TODO}
+\section{Абсолютная непрерывность интеграла.}
+\textbf{TODO}
+\section{Теорема Лебега о мажорированной сходимости для случая сходимости по мере.}
+
+\begin{flushleft}
+
+$<\mathds{X}, \mathds{A}, \mu>$ -- пространство с мерой,
+
+$f_n, f$ -- измеримы,
+
+$f_n\stackrel{\mu}{\Rightarrow}f$ (сходится по мере),
+
+$\exists g : \mathds{X} \rightarrow \overline{\mathds{R}}$ такая, что:
+\begin{itemize}
+\item
+$\forall n$,  для <<почти всеx>> $x$ ~ $|f_n(x)| \leq g(x)$ ($g$ -- называется мажорантой)
+\item	
+$g$ - суммируемая
+\end{itemize}
+
+\emph{\textbf{Тогда:}}
+\begin{itemize}
+    \item $f_n, f$ -- суммируемы
+    \item $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$
+    \item $\int\limits_{\mathds{X}} f_n \rightarrow \int\limits_{\mathds{X}} f$ (<<уж тем более>>)
+\end{itemize}
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+	\item $f_n$ -- суммируема, так как существует мажоранта $g$
+	\item $f$ -- суммируема по теореме Рисса ($ f_n{_k} \rightarrow f $ почти везде, $ |f_n{_k}| \leq g$, тогда $|f| \leq g$ почти везде)
+	\item <<уж тем более>>: 
+	
+	$ |\int\limits_{\mathbb{X}} f_n - \int\limits_{\mathbb{X}} f| \leq \int\limits_{\mathbb{X}} |f_n - f| $
+	
+	Допустим, что $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$ уже доказано.
+	
+	Тогда <<уж тем более>> очевидно.
+	
+	\item Докажем основное утверждение: 
+	
+	Разберем два случая: 
+	\begin{enumerate}
+		\item $ \mu \mathbb{X} < \infty $
+		Фиксируем $ \epsilon \ge 0 $ ~ $ X_n := X(|f_n - f| \geq \epsilon) $
+		
+		$ \mu X \rightarrow 0 $ (так как $ f_n \Rightarrow f $)
+	
+		$ \int\limits_{\mathbb{X}} |f_n - f| = 
+		\int\limits_{X_n} |f_n - f| + \int\limits_{X_n^c} |f_n - f| \leq 
+		\int\limits_{X_n} 2g + \int\limits_{X_n^c} \epsilon < \epsilon + \epsilon \mu \mathbb{X} $ (прим. $ \int\limits_{X_n} 2g \rightarrow 0 $ по след. к т. об абс. сходимости )
+	
+		\item $ \mu \mathbb{X} = \infty $
+	
+		Докажем <<Антиабсолютную непрерывность>> для $ g $: 
+		
+		$ \forall \epsilon ~ \exists A \subset \mathbb{X} \mid \mu A$ - конеч. 
+		$ \int\limits_{X\backslash A} g < \epsilon $
+		
+		\textit{доказательство:} 
+		
+		$ \int\limits_{\mathbb{X}} = \sup ( \int\limits_{\mathbb{X}} g_k \mid 0 \leq g_k \leq g) $ ($ g_k $ -- ступен.)
+		
+		$ \exists g_n ~ \int\limits_{\mathbb{X}} g - \int\limits_{\mathbb{X}} g_n < \epsilon $
+	
+		$ A:= supp\ g_n $ ($ supp\ f := $ замыкание \{$ x \mid f(x) \neq 0$ \})
+		
+		$ A =  \bigcup\limits_{k \mid \alpha_k \neq 0} E_k $
+		
+		$ g = \sum\limits_{kon} \alpha_k \mathcal{X}_{E_k} $ ($ X = \bigsqcup E_k $)
+		
+		$ \int\limits_{\mathbb{X}} g_n  = \sum \alpha_k \mu E_k  < +\infty $ ($ \mu A $ - конеч.)
+		
+		$ \int\limits_{\mathbb{X\backslash A}} g = 
+		\int\limits_{\mathbb{X\backslash A}} g - g_n \leq 
+		\int\limits_{\mathbb{X}} g - g_n < \epsilon $ 
+	
+		Теперь докажем основное утверждение: 
+		
+		 $ \int\limits_{\mathbb{X}} |f_n - f| = 
+		 \int\limits_{\mathbb{A}} |f_n - f| + \int\limits_{\mathbb{X\backslash A}} |f_n - f| \leq 
+		 \int\limits_{\mathbb{A}} |f_n - f| + 2\epsilon < 3 \epsilon $ 
+		 ($  \int\limits_{\mathbb{A}} |f_n - f| \rightarrow 0$  по п. (a))
+	\end{enumerate}
+\end{enumerate}
+\end{flushleft}
+\section{Теорема Лебега о мажорированной сходимости для случая сходимости почти везде.}
+$<\mathds{X}, \mathds{A}, \mu>$ -- пространство с мерой,
+
+$f_n, f$ -- измеримы,
+
+$f_n\stackrel{\mu}{\Rightarrow}f$ \textbf{почти везде},
+
+$\exists g \mid \mathds{X} \rightarrow \overline{\mathds{R}}$ такая, что:
+\begin{itemize}
+\item
+$\forall n$,  для <<почти всеx>>$x ~ |f_n(x)| \leq g(x)$ ($g$ -- называется мажорантой)
+\item
+$g$ - суммируемая
+\end{itemize}
+
+\emph{\textbf{Тогда:}}
+\begin{itemize}
+    \item $f_n, f$ -- суммируемы
+    \item $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$
+    \item $\int\limits_{\mathds{X}} f_n \rightarrow \int\limits_{\mathds{X}} f$ (<<уж тем более>>)
+\end{itemize}
+
+\emph{Доказательство:} 
+
+\begin{enumerate}
+	\item <<уж тем более>> см. пред. теорему.
+	
+	\item Докажем основное утверждение: 
+	
+	$ h_n(x) := \sup(|f_n - f|, |f_{n+1} - f|, \dots) $ 
+	
+	Заметим, что при фикс. $ x $ выпол. $ 0 \leq h_n \leq 2g $ почти везде
+	
+	$ \lim\limits_{n \rightarrow +\infty} h_n = 
+	\varlimsup\limits_{n \rightarrow +\infty} |f_n - f| = 0 $ почти везде
+	 
+	$ 2g - h_n \uparrow , ~ 2g - h_n \rightarrow 2g$ почти везде 
+	
+	$ \int\limits_{\mathds{X}}(2g - h_n) d\mu \rightarrow \int\limits_{\mathds{X}} 2g $ 
+	(по т. Леви)
+	
+	$ \int\limits_{\mathds{X}} 2g - \int\limits_{\mathds{X}} h \Rightarrow \int\limits_{\mathds{X}} h_n \rightarrow 0 $
+	
+	$ \int\limits_{\mathds{X}} |f_n - f| \leq \int\limits_{\mathds{X}} h_n \rightarrow 0 $
+\end{enumerate}
+
+\section{Теорема Фату. Следствия.}
+$<\mathbb{X}, \mathbb{A}, \mu>$ -- пространство с мерой
+
+$f_n, f$ -- измеримы,
+
+$f_n \geq 0$
+
+$f_n\stackrel{\mu}{\Rightarrow}f$ <<почти везде>>,
+
+$\exists C > 0 ~ \forall n ~ \int\limits_{\mathbb{X}} f_n d\mu \leq C$
+
+\textbf{\emph{Тогда:}}
+\begin{itemize}
+\item $\int\limits_{\mathbb{X}}f \leq C$
+\end{itemize}
+
+\emph{Доказательство:}
+
+$ g_n := \inf(f_n, f_{n+1}, \dots ) $ ~ ($ g_n \leq g_{n+1} \leq \dots $)
+
+$ \lim g_n = \varliminf(f_n) = $ \textit{почти везде} $ = \lim f_n  = f$ ($ g_n \rightarrow f $ почти везде)
+
+
+$ \int\limits_{\mathbb{X}} g_n \leq \int\limits_{\mathbb{X}} f_n \leq C $
+
+$ \int\limits_{\mathbb{X}} f = $ \textit{по т. Леви} $ = \lim \int\limits_{\mathbb{X}} g_n \leq C$
+
+\subsection{Следствие 1}
+
+$ f_n, f \geq 0$ -- измер.
+
+$ f_n \stackrel{\mu}{\Rightarrow} f$
+
+$ Пусть \exists C ~ \forall n  \int\limits_{\mathbb{X}} f_n \leq C $ 
+
+\emph{Тогда:} 
+\begin{itemize}
+	\item $ \int\limits_{\mathbb{X}}  f \leq C $
+\end{itemize}
+
+\emph{Доказательство:}
+
+$ \exists f_{n_k} \rightarrow f $ почти везде
+
+\subsection{Следствие 2}
+
+$ f_n \geq 0 $ -- измер.
+
+\emph{Тогда:}
+
+\begin{itemize}
+	\item $ \int\limits_{\mathbb{X}} \underline{lim}( f_n ) \geq \underline{lim}( \int\limits_{\mathbb{X}} f_n ) $
+\end{itemize}
+
+\emph{Доказательство:}
+
+$ \exists n_k \mid \int\limits_{\mathbb{X}} f_{n_k} \underrightarrow{k \rightarrow +\infty} 
+\varliminf\limits_{n \rightarrow +\infty} \int\limits_{\mathbb{X}} f_n $
+
+Рассмотрим $ g_{n_k} $ такое, что $ g_{n_k} \uparrow $ и $ g_{n_k} \rightarrow \varliminf f $
+ 
+Применяем теорему Леви к нер-ву $ \int\limits_{\mathbb{X}} g_{n_k} \leq \int\limits_{\mathbb{X}} f_{n_k}$
+
+$ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}} f_n $
+
 
 \end{document}

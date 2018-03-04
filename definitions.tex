@@ -85,4 +85,38 @@ $$\int\limits_{\mathds{E}}f d\mu := \int\limits_{\mathds{X}}f \cdot \chi(E) d\mu
 
 $f$ суммируемая на $E$, если $\int\limits_{\mathds{X}}f^+ \chi(E)$ и $\int\limits_{\mathds{X}}f^- \chi(E)$ конечны
 
+\section{Произведение мер}
+
+\section{Теорема Фубини}
+$<\mathds{X}, \mathds{A}, \mu>$, $<\mathds{Y}, \mathds{B}, \nu>$ - пространство с мерой,
+
+$\mu$, $\nu$ --- $\sigma$-конечные и полные,
+
+$m = \mu \times \nu$,  
+
+$f$ --- суммируемая на $\mathds{X} \times \mathds{Y}$ по $m$.
+
+\textbf{Тогда:} 
+\begin{itemize}
+\item 
+при <<почти всех>> $x$ функция $f_x \in \mathds{L}(\mathds{Y},\nu)$, то есть суммируема на $\mathds{Y}$ по $\nu$
+
+при <<почти всех>> $y$ функция $f^y \in \mathds{L}(\mathds{X},\mu)$
+
+\item
+$$x \mapsto \phi(x) \mid \phi(x) = \int\limits_{\mathds{Y}}f_x d\nu \in \mathds{L}(\mathds{X},\mu)$$
+
+$$x \mapsto \psi(x) \mid \psi(x) = \int\limits_{\mathds{X}}f^y d\mu \in \mathds{L}(\mathds{Y},\nu)$$
+
+Это есть эти функции суммируемы в некотором контексте ($\mathds{X},\mu$ и $\mathds{Y},\nu$ соответсвено)
+
+\item 
+$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm 
+= \int\limits_{\mathds{X}}\phi(x) d\mu 
+= \int\limits_{\mathds{X}} (\int\limits_{\mathds{Y}} f d\nu(y)) d\mu(x)$$
+
+$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm 
+= \int\limits_{\mathds{Y}}\psi(x) d\nu 
+= \int\limits_{\mathds{Y}} (\int\limits_{\mathds{X}} f d\mu(x)) d\nu(y)$$
+\end{itemize}
 \end{document}
