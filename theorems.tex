@@ -513,6 +513,26 @@ $m_0(A_i \times B_j) = \mu A_i \cdot \nu B_j < +\infty$, так как $\mu A_i 
 Что и требовалось доказать. 
 \end{enumerate}
 
+\section{Абсолютная непрерывность интеграла}
+$<\mathds{X}, \alpha, \mu>$ - пространство с мерой\\
+$f : X \to \overline{\mathds{R}}$ - суммируема\\\\
+Тогда $\forall \epsilon > 0 ~ \exists \delta > 0 : ~ \forall E - \text{измеримое} ~ \mu E < \delta ~ |\int\limits_{E}f d\mu| < \epsilon$
 
-
+\underline{Доказательство:} \\
+$X_n := X(|f| \geq n)$\\
+$X_n \subset X_{n+1} \subset ...$\\
+$\mu(\cap X_n) = 0$, т.к. f -- суммируема
+\begin{enumerate}
+	\item Мера : ($A \mapsto \int\limits_{A}|f|$) непрерывна сверху, т.е.
+	$\forall ~ \epsilon ~ \exists ~ n_{\epsilon} ~ \int\limits_{X_{n_{\epsilon}}}|f| < \epsilon / 2$
+	\item Зафиксируем $\epsilon$ в доказываемом утверждении, возьмем $\delta := \frac{\epsilon / 2}{n_{\epsilon}}$
+	\item $|\int\limits_{E}f d\mu| \leq \int\limits_{E} |f| = \int\limits_{E \cap X_{n_{\epsilon}}}|f| ~+~ \int\limits_{E \cap X_{n_{\epsilon}}^c}|f| \overset{*}{\leq} \int\limits_{X_{n_{\epsilon}}}|f| ~+~ n_{\epsilon} \cdot \mu (E \cap X_{n_{\epsilon}}^c) \overset{**}{<} \epsilon / 2 + n_\epsilon \cdot \mu E < \epsilon / 2 + n_\epsilon \cdot \frac{\epsilon / 2}{n_{\epsilon}} < \epsilon$ \\
+	* - В первом слагаемом увеличили множество, во втором посмотрели на определние $X_n$, взяли дополнение, воспользовались 6-м простейшим свойством интеграла\\
+	** - Воспользовались непрерывностью сверху
+\end{enumerate}
+	\subsection{Следствие}
+	f - суммируема\\
+	$e_n$ - измеримые множества\\
+	
+	$\mu e_n \rightarrow 0 \Rightarrow \int\limits_{e_n}f \rightarrow 0$
 \end{document}
