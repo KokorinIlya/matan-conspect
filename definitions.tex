@@ -132,7 +132,7 @@ $(X, \mathds{A}, \mu)$~--- пространство с мерой, $(Y, \mathds{
 
 $\Phi: X \to Y$, $\Phi^{-1}(\mathds{B}) \subset \mathds{A}$ (прообраз любого множества из $\mathds{B}$ лежит в $\mathds{A}$).
 
-Пусть для $E \in \mathds{B}$ $\nu(E) = \mu(\Phi^{-1})$.
+Пусть для $\forall E \in \mathds{B}$ $\nu(E) = \mu(\Phi^{-1}(E))$.
 
 $\nu$ является мерой на $Y$ и называется образом меры $\mu$ при отображении $\Phi$.
 
@@ -143,7 +143,7 @@ $\Phi: X \to Y$, $\Phi^{-1}(\mathds{B}) \subset \mathds{A}$ (прообраз л
 
 $\omega: X \to \overline{\mathds{R}}$, $\omega \geq 0$~--- измеримая.
 
-Пусть для $E \in \mathds{B}$ $\nu(E) = \int_{\Phi^{-1}(E)} \omega~d\mu$.
+Пусть для $E \in \mathds{B}$ $\nu(E) = \int\limits_{\Phi^{-1}(E)} \omega~d\mu$.
 
 $\nu$ является мерой на $Y$ и называется взвешенным образом меры $\mu$.
 
@@ -170,6 +170,5 @@ $\phi$ счётно аддитивна.
 
 \subsection{Множество положительности}
 $A \subset X$~--- множество положительности, если
-$\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.
-
+$\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.e
 \end{document}
