@@ -903,17 +903,83 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 				\end{itemize}
 			\end{enumerate}
 		\end{itemize}
+    
 
 \section{Лемма об оценке мер образов кубов из окрестности точки дифференцируемости}
-\textbf{TODO: Лев и Вадим}
+\textbf{TODO: Илья}
 \section{Лемма <<Вариации на тему регулярности меры лебега>>}
-\textbf{TODO: Лев и Вадим}
+\textbf{TODO: Илья}
 \section{Теорема о преобразовании меры при диффеоморфизме}
-\textbf{TODO: Лев и Вадим}
+\textbf{TODO: Илья}
 \section{Теорема о гладкой замене переменной в интеграле Лебега}
-\textbf{TODO: Лев и Вадим}
-\section{Принцип Кавальери}
-\textbf{TODO: Лев и Вадим}
+\textbf{TODO: Илья}
+
+\section{Теорема Фубини}
+	$(X, \alpha, \mu)$ и $(Y, \beta, \nu)$ - пространства с мерами, причем $\mu , \nu$ --- $\sigma$-конечны\\
+	на $X \times Y$ есть $\alpha \otimes \beta$, причем $m(A \times B) = \mu A \cdot \nu B$ --- произведение мер --- $\sigma$-конечная мера на $\alpha \times \beta$\\
+	$(X \times Y), \alpha \otimes \beta, m$ --- произведение пр-в с мерой\\
+	Обозначение : $C \subset X \times Y, x \in X$ тогда $C_x = {y : (x, y) \in C}$ --- Сечение I рода\\
+	$C_y = {x : (x, y) \in C}$ --- Сечение II рода\\
+
+
+\section{Теорема (принцип Кавальери)}
+	$(X, \alpha, \mu)$ и $(Y, \beta, \nu)$ - пространства с мерами, причем $\mu , \nu$ --- $\sigma$-конечные и полные\\
+	$m = \mu \times \nu$, $C \in \alpha\times\beta$, тогда:\\
+	\begin{enumerate}
+		\item
+		При п.в. $x$ $C_x$ - измеримо ($\nu$-измеримо), т.е. $C_x \in \beta$ 
+		\item
+		Функция $x \rightarrow \nu C_x$ --- измеримая (в широком смысле) на $X$\\ \\
+		NB: $\phi$ --- измерима в широком смысле, если она задана при п.в. x, и $\exists f : X \rightarrow R'$ - измеримая и $\phi = f$ п.в. При этом $\int_X \phi = \int_X f$ (по опр.)
+		\item
+		$m C = \int_X \nu(C_x) \cdot d\mu(x)$
+	\end{enumerate}
+	\emph{Доказательство: } 
+		Рассмотрим $D$ --- совокупность все множеств, для которых утв. теоремы верно.\\
+		$\rho = \alpha\otimes\beta$ --- п/к изм. пр-ков.\\
+		\begin{enumerate}
+			\item
+				$\rho \subset D$\\
+				$C = A \times B$. то есть$\forall x C_x = {\emptyset if x \not\in A, B if x \in A}$\\
+				($\mu A  < +\infty, \nu B < +\infty$)\\
+				$x \rightarrow \nu(C_x)$, функция $\nu(B) \cdot \Xi_A(x)$ --- изм.\\
+				$\int_X \nu(C_x)d\mu = \nu B \int_X \Xi_A(x)d\mu(x) = \nu B \cdot \mu A = m C$
+			\item
+				$E_i \in D, E_i - dis \Rightarrow E := \sqcup E_i \in D$\\
+				при п.в. $x$ $(E_i)_x$ --- измеримы\\
+				при п.в. $x$ все $(E_i)_x$ --- измеримы, $E_x = \sqcup (E_i)_x$ --- изм.\\
+				$\nu E_x = \sum \nu (E_i)_x$ ($\nu (E_i)_x$ --- изм. как функция от $x$) $\Rightarrow$ функция $ x \rightarrow \nu E_x$ --- измерима\\
+				$\int_X \nu E_x d\mu(x) = \sum_{i}\int\nu(E_i)_x d\mu(x) = \sum_{i}m E_i = m E$
+			\item
+				$E_i \in D$, $E_1 \sup E_2 \sup \ldots ; m E_i < +\infty$. Тогда $E := \cap E_i \in D$\\
+				$\int_X\nu(E_i)_x d\mu = m E_i < +\infty(*)$\\
+				функция $x \rightarrow \nu(E_i)_x$ --- суммируема $\Rightarrow$ п.в. конечна.\\
+				при всех $x$ $(E_i)_x \downarrow E_x$, т.е. $(E_1)_x \sup (E_2)_x \sup \ldots $ и $\cap(E_i)_x = E_x$\\
+				при п.в. $x$ $\nu(E_i)_X$ --- конечны (для таких $x$).\\
+				Тогда $E_x$ --- измерима и $\lim \nu(E_i)_x = \nu E_x$ по непр-ти меры $\nu$ сверху.\\
+				(Th. Лебега) $|\nu(E_i)_x| \leq \nu(E_1)_x$ --- сумм. $\Rightarrow$ функция $x \rightarrow \nu E_x$ --- изм.\\
+				$\int_X\nu E_x d\mu = \lim\int_X\nu(E_i)_x d\mu = \lim m E_i = m E$ (нерп. сверху меры $m$). Этот предельный переход корректен как раз по теореме Лебега ($f_n \rightarrow f$ п.в. $g$ : $|f_n| \leq g$ --- сумм. Тогда $\int f_n \rightarrow \int f$).\\
+				NB: мы доказали про пересечения и про объединения (пусть пересечения убывающие, а объединения --- дизъюнктные, но это лечится). Поэтому $\cap_j(\cup_i A_{i, j}) \in D$, если $A_{i,j} \in \rho$ ($\rho \subset D$).
+			\item
+				$m E = 0 \Rightarrow E \in D$\\
+				$\exists H \in D, H$ имеет вид $\cap(\cup A_{i, j})$, где все $A_{i,j} \in \rho$ \\
+				$E \subset H , m H = 0$ из п.5 т. о продолжении (ЧТО?! поясните плез)\\
+				$0 = m H = \int_X\nu H_x d\mu(x) \Rightarrow \nu H_x ~ 0$ ($ = 0$ при п.в. $x$).\\
+				$E_x \subset H_x \Rightarrow E_x$ --- $\nu$-изм. (из полноты $\nu$) и $\nu E_x = 0$ п.в. $x$\\
+				$\int_X \nu E_x d\mu = 0 = m E$
+			\item
+				$C$ --- неизм, $m C < +\infty$. Тогда $C \in D$.\\
+				$C = H \setminus e$, где $m e = 0$, H --- вида $\cap(\cup A_{i, j})$.\\
+				$C_x = H_x \setminus e_x$ --- изм. при п.в. $x$\\
+				$\nu e_x = 0$ п.в.$x$ (проверено в п.4)\\
+				$\nu C_x = \nu H_x = \nu e_x$ --- изм. п.в.$x$\\
+				$\int_X\nu C_x = \int_X\nu H_x - \int_X\nu e_x = \int\nu H_x = m H = m C$.
+			\item
+				$C$ --- $m$-изм. произвольное\\
+				$X = \sqcup X_k, Y = \sqcup Y_n$ ($\mu X_k$ --- кон, $\nu Y_n$ --- кон.).\\
+				$C = \sqcup_{k,n}(\subset \cap(X_k \times Y_n)) \in D$ (по п.2) (т.к. $\subset \cap(X_k \times Y_n) \in D$ по п.5)
+		\end{enumerate}
+	
 
 \section{Теорема Тонелли}
 \textbf{TODO: Денис}
@@ -995,5 +1061,5 @@ $ f_n \in L_p(\mathbb{X}, \mu)$
 
 \section{Полнота $L^p$}
 \textbf{TODO: Паша}
-		
+
 \end{document}
