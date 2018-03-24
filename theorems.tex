@@ -903,6 +903,16 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 				\end{itemize}
 			\end{enumerate}
 		\end{itemize}
+    
+
+\section{Лемма об оценке мер образов кубов из окрестности точки дифференцируемости}
+\textbf{TODO: Илья}
+\section{Лемма <<Вариации на тему регулярности меры лебега>>}
+\textbf{TODO: Илья}
+\section{Теорема о преобразовании меры при диффеоморфизме}
+\textbf{TODO: Илья}
+\section{Теорема о гладкой замене переменной в интеграле Лебега}
+\textbf{TODO: Илья}
 
 \section{Теорема Фубини}
 	$(X, \alpha, \mu)$ и $(Y, \beta, \nu)$ - пространства с мерами, причем $\mu , \nu$ --- $\sigma$-конечны\\
@@ -910,6 +920,8 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 	$(X \times Y), \alpha \otimes \beta, m$ --- произведение пр-в с мерой\\
 	Обозначение : $C \subset X \times Y, x \in X$ тогда $C_x = {y : (x, y) \in C}$ --- Сечение I рода\\
 	$C_y = {x : (x, y) \in C}$ --- Сечение II рода\\
+
+
 \section{Теорема (принцип Кавальери)}
 	$(X, \alpha, \mu)$ и $(Y, \beta, \nu)$ - пространства с мерами, причем $\mu , \nu$ --- $\sigma$-конечные и полные\\
 	$m = \mu \times \nu$, $C \in \alpha\times\beta$, тогда:\\
@@ -968,4 +980,86 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 				$C = \sqcup_{k,n}(\subset \cap(X_k \times Y_n)) \in D$ (по п.2) (т.к. $\subset \cap(X_k \times Y_n) \in D$ по п.5)
 		\end{enumerate}
 	
+
+\section{Теорема Тонелли}
+\textbf{TODO: Денис}
+\section{Формула для Бета-функции}
+\textbf{TODO: Денис}
+\section{Объем шара в $\mathbb R^m$}
+\textbf{TODO: Денис}
+\section{Теорема о вложении пространств $L^p$}
+
+$ \mu E < +\infty ~ 1 \leq s < r \leq + \infty$
+
+\textbf{\emph{Тогда:}} 
+
+\begin{enumerate}
+	\item $ L_r(E, \mu)  \subset \L_s(E, \mu)$
+	\item $ \forall f - $ измеримы $ ~ ||f||_s \leq \mu E^{1/s - 1/r} ||f||_r$
+\end{enumerate}
+ 
+\textbf{\emph{Доказательство:}}
+
+\begin{itemize}
+	\item 2 => 1 (Это очевидно: достаточно рассмотреть неравенство из пункта 2. Из него следует, что $ ||f||_s < ||f||_r $. см. опред. $ L_p $)
+	
+	\item Рассмотрим два случая: 
+	\begin{enumerate}
+		\item $ r = + \infty $ (очев.)
+		$$ ||f||_s \leq (\int |f|^s * 1)^{1/s} \leq ((esssup|f|)^s \int 1 d\mu)^{1/s} = ||f||_{\infty} * \mu E^{1/s} $$ (последнее по опред. $ esssup $) 
+		
+		\item $ r < + \infty $
+		
+		$$ (||f||_s)^{s} = \int |f|^s * 1 d\mu  \leq 
+		(\int |f|^r)^\frac{s}{r} * (\int 1^\frac{r}{r - s})^\frac{(r - s )}{r} = 
+		(||f||_r)^s * \mu E^{1 - \frac{s}{r}} $$ (существенный шаг: применить неравество Гельдера)
+	\end{enumerate}
+\end{itemize} 
+  
+\section{Теорема о сходимости в $L_p$ и по мере}
+$ 1 \leq p < +\infty $
+
+$ f_n \in L_p(\mathbb{X}, \mu)$
+
+\textbf{\emph{Тогда:}}
+
+\begin{enumerate}
+	
+	
+	\item \begin{itemize}
+		\item $ f \in L_p $
+		\item $ f_n \rightarrow f $ в $ L_p $
+	\end{itemize} 
+	\textbf{Тогда:} $ f_n \stackrel{\mu}{\Rightarrow} f $ (по мере)
+		
+	\item \begin{itemize}
+		\item $ f_n \stackrel{\mu}{\Rightarrow} f $ (либо если $ f_n \rightarrow f $  почти везде)
+		\item $ |f_n| \leq g $ почти при всех $ n ~ , ~ g \in L_p $
+	\end{itemize} 
+	\textbf{Тогда:} $ f_n \rightarrow f $ в $ L_p $
+\end{enumerate}
+
+\textbf{\emph{Доказательство:}}
+
+\begin{enumerate}
+	\item $$ X_n(\epsilon) := X(|f_n \rightarrow f| \geq \epsilon) $$
+	
+	$$ \mu X_n(\epsilon) = \int\limits_{X_n} (\frac{f_n - f}{\epsilon})^p  = 
+	\frac{1}{\epsilon^p} \int\limits_{X_n} |f_n - f|^p \leq 
+	\frac{1}{\epsilon^p} \int\limits_{X} |f_n - f|^p = 
+	\frac{1}{\epsilon^p} (||f_n - f||_p)^p \stackrel{n \rightarrow \infty}{\rightarrow} 0$$
+	
+	\item $ f_n \stackrel{\mu}{\Rightarrow} f $ Тогда $ \exists n_k \mid f_{n_k} \rightarrow f $ почти везде. 
+	
+	Тогда $ |f| \leq g $ п. в. 
+	
+	$ |f_n - f|^p \leq (2g)^p $ -- сумм. функции т. к. $ g \in L_p $
+	
+	$ ||f_n - f||_p = \int\limits_{X} |f_n - f|^p d\mu \stackrel{n \rightarrow \infty}{\rightarrow} 0 $ (по теореме Лебега)
+	
+\end{enumerate}
+
+\section{Полнота $L^p$}
+\textbf{TODO: Паша}
+
 \end{document}

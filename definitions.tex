@@ -174,17 +174,21 @@ $\phi$ счётно аддитивна.
 $A \subset X$~--- множество положительности, если
 $\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.e
 
-\section{Ряды Фурье}
+\section{Сферические координаты в $ R^3 $ и в $ R^m $, их Якобианы}
+\textbf{TODO: Лев и Вадим}
 
-\subsection{Интегрирование $C$-значных функций}
-TODO
+\section{Интегральные неравества Гельдера и Минковского}
 \subsection{Нер. Гельдера}
 $(x, \alpha, \mu), f, g : E \subset X \rightarrow C$ ($E$ - изм.) --- заданы п.в, измеримы\\
 $p, q > 1 : \frac{1}{p} + \frac{1}{q} = 1$. Тогда $\int_E |fg|d\mu \leq (\int_E |f|^p d\mu)^\frac{1}{p} \cdot (\int_E |g|^q d\mu)^\frac{1}{q}$
 \subsection{Нер. Минковского}
 $(x, \alpha, \mu), f, g $ --- заданы п.в, измеримы\\
 $1 \leq p \leq +\infty$. Тогда $(\int_E |f + g|d\mu )^\frac{1}{p} \leq (\int_E |f|^p d\mu)^\frac{1}{p} \cdot (\int_E |g|^p d\mu)^\frac{1}{p}$
-\subsection{Пространство $L_p$}
+
+\section{Интеграл комплекснозначныйх функции}
+\textbf{TODO: Лев и Вадим}
+
+\section{Пространство $L_p(E,\mu)$}
 $1 \leq p \leq +\infty, (x, \alpha, \mu), E \subset \alpha$\\
 $L_p'(E, \mu) =$ {f : п.в. $E \rightarrow C$, изм., $\int_E |f|^p d\mu < +\infty$}\\
 Это линейное пространство (по нер-ву Минковского и линейности пространства измеримых функций).\\
@@ -194,7 +198,13 @@ $f ~ g$, если $f = g$ п.в.\\
 $L_p'(E, \mu) /_~ =: L_p(E, \mu)$ - лин. норм. пр-во с нормой $||f|| = ()\int_E |f|^p)^\frac{1}{p}$.\\
 NB: Его элементы --- классы эквивалентности обычных функций. Будем называть их тоже функциями. Они не умеют вычислять значение в точке (т.к. можно всегда подменить значение на любое другое и получить представителя все того же класса эквивалентности), но зато их можно интегрировать!
 NB2: также иногда будем обозначать $||f||_p$ за норму $f$ в пространстве $L_p$.
-\subsection{Существенный супремум}
+
+\section{Пространство $L_{\infty}(E,\mu)$}
+$L_\infty(E, \mu) =$ {f : п.в. $E \rightarrow C$ (или $R$), изм., $\esssup_E |f| \leq +\infty$}.\\
+NB: $||f||_\infty = \esssup_E |f|$.\\
+NB: Новый вид нер-ва Гельдера : $||fg||_1 \leq ||f||_p ||g||_q$ (причем можно брать $p = +\infty, q = 1$ или наоборот).
+
+\section{Существенный супремум}
 $f : $ п.в. $E \rightarrow R'$. Тогда $\esssup_{x \in E} f(x) = \inf {A \in R : f(x) \leq A (almost all x)}$. В этом определении $A$ - существенная верхняя граница. 
 \subsubsection{Свойства}
 \begin{enumerate}
@@ -205,8 +215,5 @@ $f : $ п.в. $E \rightarrow R'$. Тогда $\esssup_{x \in E} f(x) = \inf {A \
 	\item
 	$\int_E |fg|d\mu \leq \esssup_E |g| \cdot \int_E |f|d\mu$.
 \end{enumerate}
-\subsection{$L_\infty$}
-$L_\infty(E, \mu) =$ {f : п.в. $E \rightarrow C$ (или $R$), изм., $\esssup_E |f| \leq +\infty$}.\\
-NB: $||f||_\infty = \esssup_E |f|$.\\
-NB: Новый вид нер-ва Гельдера : $||fg||_1 \leq ||f||_p ||g||_q$ (причем можно брать $p = +\infty, q = 1$ или наоборот).
+
 \end{document}
