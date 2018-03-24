@@ -115,7 +115,7 @@ $f$ --- суммируемая на $\mathds{X} \times \mathds{Y}$ по $m$.
 \item
 $$x \mapsto \phi(x) \mid \phi(x) = \int\limits_{\mathds{Y}}f_x d\nu \in \mathds{L}(\mathds{X},\mu)$$
 
-$$x \mapsto \psi(x) \mid \psi(x) = \int\limits_{\mathds{X}}f^y d\mu \in \mathds{L}(\mathds{Y},\nu)$$
+$$y \mapsto \psi(y) \mid \psi(y) = \int\limits_{\mathds{X}}f^y d\mu \in \mathds{L}(\mathds{Y},\nu)$$
 
 Это есть эти функции суммируемы в некотором контексте ($\mathds{X},\mu$ и $\mathds{Y},\nu$ соответсвено)
 
@@ -175,45 +175,83 @@ $A \subset X$~--- множество положительности, если
 $\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.e
 
 \section{Сферические координаты в $ R^3 $ и в $ R^m $, их Якобианы}
-\textbf{TODO: Лев и Вадим}
+$x_1 = r \cdot \cos \phi_1$
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ 
+$1 \leq i \leq m-2: \phi_i \in [0,\pi]$
+
+$x_2 = r \cdot \sin \phi_1 \cdot \cos \phi_2$
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $
+$i=m-1: \phi_i \in [0,2\pi]$
+
+$x_3 = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdot \cos \phi_3$\\
+.\\
+.\\
+.\\
+$x_{m-2} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-3} \cdot \cos \phi_{n-2}$
+
+$x_{m-1} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-2} \cdot \cos \phi_{n-1}$
+
+
+$x_{m} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-2} \cdot \sin \phi_{n-1}$\\
+
+$\mathcal{J} = r^{n-1} \cdot (\sin \phi_1)^{n-2} \cdot (\sin \phi_2)^{n-3} \cdots
+\cdot (\sin \phi_{n-2})^{1} \cdot (\sin \phi_{n-1})^{0}$
+
+Что тут происходит идейно. Сначала мы проецируем наш $m$-мерный вектор на нормаль к $(m-1)$-мерной гиперплоскости. Потом рассматриваем проекцию на эту гиперплоскость и в ней рекурсивно повторяем процедуру пока не дойдём до нашего любимого $\mathbb{R}^2$. Уже в нём рассматривем обычные полярные координаты(отсюда и другие ограничения на размер угла).
 
 \section{Интегральные неравества Гельдера и Минковского}
-\subsection{Нер. Гельдера}
-$(x, \alpha, \mu), f, g : E \subset X \rightarrow C$ ($E$ - изм.) --- заданы п.в, измеримы\\
-$p, q > 1 : \frac{1}{p} + \frac{1}{q} = 1$. Тогда $\int_E |fg|d\mu \leq (\int_E |f|^p d\mu)^\frac{1}{p} \cdot (\int_E |g|^q d\mu)^\frac{1}{q}$
-\subsection{Нер. Минковского}
-$(x, \alpha, \mu), f, g $ --- заданы п.в, измеримы\\
-$1 \leq p \leq +\infty$. Тогда $(\int_E |f + g|d\mu )^\frac{1}{p} \leq (\int_E |f|^p d\mu)^\frac{1}{p} \cdot (\int_E |g|^p d\mu)^\frac{1}{p}$
+\subsection{Нераветсво Гельдера}
+$(X, \mathds{A}, \mu)\ f, g : E \subset X \rightarrow C$ ($E$ - изм.) --- заданы п.в, измеримы\\
+$p, q > 1 : \frac{1}{p} + \frac{1}{q} = 1$. 
+\emph{Тогда:}
+ ${\displaystyle \int\limits_E |fg|d\mu \leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p} \cdot \left(\int\limits_E |g|^q d\mu)\right)^\frac{1}{q}}$
+\subsection{Нераверство Минковского}
+$(X, \mathds{A}, \mu)\ f, g $ --- заданы п.в, измеримы\\
+$1 \leq p < +\infty$. 
+\emph{Тогда:}
+${\displaystyle \left(\int\limits_E |f + g|^p d\mu \right)^\frac{1}{p} 
+\leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p} 
+\cdot \left(\int\limits_E |g|^p d\mu\right)^\frac{1}{p}}$
 
 \section{Интеграл комплекснозначныйх функции}
 \textbf{TODO: Лев и Вадим}
 
-\section{Пространство $L_p(E,\mu)$}
-$1 \leq p \leq +\infty, (x, \alpha, \mu), E \subset \alpha$\\
-$L_p'(E, \mu) =$ {f : п.в. $E \rightarrow C$, изм., $\int_E |f|^p d\mu < +\infty$}\\
+\section{Пространство $L_p(E,\mu),\ 1 \leq p < +\infty$}
+$(X, \mathds{A}, \mu)\, E \subset \mathds{A}$\\
+$L_p'(E, \mu) = \{$ f : п.в. $E \rightarrow \mathbb{C}$, изм., ${\displaystyle \int\limits_E |f|^p d\mu < +\infty} \}$\\
 Это линейное пространство (по нер-ву Минковского и линейности пространства измеримых функций).\\
-У этого пространства есть дефект - если определить норму как $||f|| = ()\int_E |f|^p)^\frac{1}{p}$, то будет сразу много нулей пространства (ненулевые функции, которые п.в. равны 0 будут давать норму 0).
+У этого пространства есть дефект - если определить норму как $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$, то будет сразу много нулей пространства (ненулевые функции, которые п.в. равны 0 будут давать норму 0).
 Поэтому перейдем к фактор-множеству функций по отношению эквивалентности:\\
-$f ~ g$, если $f = g$ п.в.\\
-$L_p'(E, \mu) /_~ =: L_p(E, \mu)$ - лин. норм. пр-во с нормой $||f|| = ()\int_E |f|^p)^\frac{1}{p}$.\\
-NB: Его элементы --- классы эквивалентности обычных функций. Будем называть их тоже функциями. Они не умеют вычислять значение в точке (т.к. можно всегда подменить значение на любое другое и получить представителя все того же класса эквивалентности), но зато их можно интегрировать!
-NB2: также иногда будем обозначать $||f||_p$ за норму $f$ в пространстве $L_p$.
+$f \sim g$, если $f = g$ п.в.\\
+$ L_p(E, \mu) := L_p'(E, \mu) /_{\sim}$ - лин. норм. пр-во с нормой $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$.\\
+
+\emph{NB1}: Его элементы --- классы эквивалентности обычных функций. Будем называть их тоже функциями. Они не умеют вычислять значение в точке (т.к. можно всегда подменить значение на любое другое и получить представителя все того же класса эквивалентности), но зато их можно интегрировать!\\
+
+\emph{NB2}: также иногда будем обозначать $||f||_p$ за норму $f$ в пространстве $L_p$.
 
 \section{Пространство $L_{\infty}(E,\mu)$}
-$L_\infty(E, \mu) =$ {f : п.в. $E \rightarrow C$ (или $R$), изм., $\esssup_E |f| \leq +\infty$}.\\
-NB: $||f||_\infty = \esssup_E |f|$.\\
-NB: Новый вид нер-ва Гельдера : $||fg||_1 \leq ||f||_p ||g||_q$ (причем можно брать $p = +\infty, q = 1$ или наоборот).
+$L_\infty(E, \mu) =\{$ f : п.в. $E \rightarrow \mathbb{C},\ \esssup\limits_E |f| < +\infty \}$\\
+\emph{NB1}: $||f||_\infty = \esssup\limits_E |f|$.\\
+
+\emph{NB2}: Новый вид нер-ва Гельдера : $||f \cdot g||_1 \leq ||f||_p \cdot ||g||_q$ (причем можно брать $p = +\infty, q = 1$ или наоборот).
 
 \section{Существенный супремум}
-$f : $ п.в. $E \rightarrow R'$. Тогда $\esssup_{x \in E} f(x) = \inf {A \in R : f(x) \leq A (almost all x)}$. В этом определении $A$ - существенная верхняя граница. 
-\subsubsection{Свойства}
+$(X, \mathds{A}, \mu), E \subset X - $ изм., $f : $ п.в. $E \rightarrow \overline{\mathbb{R}}$.\\
+
+\emph{Тогда}: $\esssup\limits_{x \in E} f(x) = \inf \{A \in R : f(x) \leq A$ п.в. $x \}$. 
+
+В этом определении $A$ - существенная верхняя граница. 
+
+\emph{Свойства}:
 \begin{enumerate}
 	\item
-	$\esssup_E f \leq \sup_E f$
+	$\esssup\limits_E f \leq \sup\limits_E f$
+	
 	\item
-	$f(x) \leq \esssup_E f$ при п.в. $x \in E$.
+	$f(x) \leq \esssup\limits_E f$ при п.в. $x \in E$.
+	
 	\item
-	$\int_E |fg|d\mu \leq \esssup_E |g| \cdot \int_E |f|d\mu$.
+	$\int\limits_E |fg|d\mu \leq \esssup\limits_E |g| \cdot \int\limits_E |f|d\mu$.
 \end{enumerate}
 
 \end{document}
