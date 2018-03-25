@@ -1061,6 +1061,58 @@ $ f_n \in L_p(\mathbb{X}, \mu)$
 \end{enumerate}
 
 \section{Полнота $L^p$}
-\textbf{TODO: Паша}
+$ L_p(E, \mu) ~ ~ 1 \leq p < \infty $ -- полное 
+
+То есть любая фундаментальная последовательность сходиться по норме $ ||f||_p $.
+
+$$ \forall \epsilon > 0 ~ \exists N ~ \forall n, k ~ ||f_n - f_k|| < \epsilon \Rightarrow \exists f \mid ~ ||f_n - f|| \rightarrow 0 $$
+
+
+\textbf{\emph{Доказательство:}}
+
+\begin{enumerate}
+	\item Построим $ f $.
+	
+	Рассмотрим фундаментальную последовательность $ f_n $.
+	
+	$ \exists N_1 $ при $ n = n_1 ~ k > N_1 ~ ||f_{n_1} - f_k|| < \frac{1}{2}$
+	
+	$ \exists N_2 $ при $ n = n_2 ~ k > N_2, N_1 ~ ||f_{n_2} - f_k|| < \frac{1}{4}$
+	
+	\dots
+	
+	Тогда: $ \sum_{k = 1}^{\infty} || f_{n_{k+1}} - f_{n_k} || < 1$
+	
+	$ f = \lim\limits_{k \rightarrow \infty} f_{n_k}$
+	 
+	Докажем, это функция $ f $ корректно задана: 
+	\begin{itemize}
+		\item 
+		$ S_N (x) := \sum_{k = 1}^{N}|f_{n_{k+1}} - f_{n_k}|$
+		
+		$ ||S_N||_p \leq \sum_{k = 1}^{N} || f_{n_{k+1}} - f_{n_k} || < 1$
+		
+		Тогда по Теореме Фату: $ ||S||_p \leq 1 $
+		
+		Тогда $ |S|^p $ -- суммируема 
+		
+		Тогда $ S(x) $ конечна при п. в. $ x $  и ряд $ \sum f_{n_{k + 1}} - f_{n_k} $ абс. сход., а значит  и просто сходиться при п. в. $ x $
+		
+		$ f:= f_{n_1} +  \sum f_{n_{k + 1}} - f_{n_k} $ т. е. $ f = $ п. в. $ \lim\limits_{k \rightarrow \infty} f_{n_k} $
+	\end{itemize}
+	
+	\item Проверим, что $ f_n \rightarrow f $ в $ L_p $ 
+	
+	Т. к. $ f_n $ -- фунд., то $ \forall \epsilon > 0 ~ \exists N ~ \forall n, n_k > N ~ ~ ||f_n - f_{n_k} || < \epsilon \Rightarrow 
+	|| f_n  - f_{n_k} ||^p  = \int\limits_{E} |f_n  - f_{n_k}|^p d\mu < \epsilon^p $ 
+
+	Тогда по теореме Фату: $ \int\limits_{E} |f - f_n|^p \leq \epsilon^p$
+	
+	Тогда $ \forall \epsilon > 0 ~ \exists N ~ \forall n > N ~ || f - f_n ||_p < \epsilon $
+	
+	
+\end{enumerate}
+
+\textbf{\emph{Замечание:}} $ L_{\infty} $ -- полное (упражнение)
 
 \end{document}
