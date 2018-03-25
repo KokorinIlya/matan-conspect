@@ -15,7 +15,11 @@
 \usepackage{amssymb}
 \usepackage{cmap}
 \usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{amssymb}
 
+
+\graphicspath{{pictures/}}
 
 \parindent=0cm
 
@@ -906,9 +910,115 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
     
 
 \section{Лемма об оценке мер образов кубов из окрестности точки дифференцируемости}
-\textbf{TODO: Илья}
-\section{Лемма <<Вариации на тему регулярности меры лебега>>}
-\textbf{TODO: Илья}
+$\Phi: O \subset \mathds{R}^m \rightarrow \mathds{R}^m$
+
+$a \in O, \Phi \in C^1(O)$
+
+Возьмём $c > |\Phi^{'}(a)| \neq 0$
+
+тогда $\exists \delta > 0: \forall$ кубической ячейки $Q, Q \subset B(a, \delta), a \in Q$ выполняется
+
+$\lambda \Phi(Q) < c \cdot \lambda Q$
+
+\emph{Доказательство}
+
+$\Phi(Q)$ измеримо, так как образ измеримого множества при гладком отображении измерим
+
+$L := \Phi^{'}(a), L$ обратимо, так как $|L| \neq 0$.
+
+$\Phi(x) = \Phi(a) + L(x - a) + o(x - a)$
+
+$a + L^{-1} (\Phi(x) - \Phi(a) = x + o(x - a)$
+
+Можем писать о малое, так как растяжение произошло не более чем в $|L^{-1}|$ раз, а $|L| \neq 0$
+
+Пусть $\Psi(x) := a + L^{-1} (\Phi(x) - \Phi(a)$
+
+$\forall \epsilon > 0 \exists B(a, \delta)$, такой, что при $x \in B(a, \delta) |\Psi(x) - x| < \dfrac{\epsilon}{\sqrt{m}} |x - a|$ (так как $\Psi(x)$ это почти $x$, только плюс $o(a - x)$)
+
+$a \in Q \subset B(a, \delta)$, где $Q$ - ку со стороной $h$
+
+$x \in Q$, тогда $|a - x| < \sqrt{m} \cdot h$ (так как диагональ $m$-мерного куба со стороной $h$ равна $\sqrt{m} \cdot h$)
+
+Тогда $|\Psi(x) - x| < \epsilon h$
+
+При $x, y \in Q$, $i \in \{1...m\}$
+
+$|\Psi(x)_i - \Psi(y)_i| \leqslant |\Psi(x)_i - x_i| + |\Psi(y)_i - y_i| + |x_i - y_i| \leqslant |\Psi(x) - x| + |\Psi(y) - y| + h < (1 + 2 \epsilon)h$
+
+$\Psi(Q) \subset$ кубу со стороной $(1 + 2 \epsilon) h$
+
+$\lambda(\Psi(Q)) < (1 + 2 \epsilon)^m \lambda Q$
+
+$\Phi$ выражается через $\Psi$ через сдвиги и линейные преобразования. Тогда
+
+$\lambda(\Phi(Q)) = |det L| \cdot \lambda \Psi(Q) \leqslant |det L| \cdot (1 + 2 \epsilon)^m \cdot \lambda Q$
+
+Возьмём $\epsilon$ так, чтобы $|det L| \cdot (1 + 2 \epsilon)^m$ было меньше $c$. Тогда при таком $\epsilon$  
+
+$\lambda(\Phi(Q)) < c \cdot \lambda Q$
+
+\section{Лемма <<Вариации на тему регулярности меры Лебега>>}
+$f: O \subset \mathds{R}^m \rightarrow \mathds{R}^m$
+
+$A \subset O$, $A$ - открыто.
+
+$A \subset Q$(кубическая ячейка) $\subset \overline Q \subset O$, то есть граница $A$ не лежит на границе $O$.
+
+Тогда $$\inf_{A \subset G \subset O, G - open ~ set} (\lambda G \cdot \sup_G(f)) = \lambda A \cdot \sup_A f$$
+
+\emph{Доказательство}
+
+Докажем, что левая часть $\geqslant$ и $\leqslant$ правой
+
+$\geqslant$ очевидно, так как правая часть - нижняя граница для всего, встречающегося под $\inf$
+
+Докажем $\leqslant$
+
+\begin{enumerate}
+	\item $\lambda A = 0$. Тогда правая часть $ = 0$. 
+	
+	$A \subset \overline{Q} \Rightarrow \sup f < + \infty$
+	
+	$\overline{Q}$ - компакт, $\alpha := dist(\overline{Q}, \partial O) > 0$
+	
+	Для множества $G: A \subset G \subset \dfrac{\alpha}{2}-$окрестности ячейки $Q$
+	
+	Назовём $Q_1$ кубическую ячейку, которая больше $Q$ и у которой каждая сторона отстоит на $\dfrac{\alpha}{2 \sqrt{m}}$ от соответствующей стороны $Q$.
+	
+	\includegraphics[scale=1]{Th21Pic1.png}
+	
+	$A \subset G \subset Int(Q_1)$
+	
+	$\sup_G f \leqslant \sup_{\overline{Q_1}} f < + \infty$
+	
+	При этом $\lambda G$ может быть выбрана сколь угодно близко к $\lambda A = 0$ по регулярности меры Лебега.
+	
+	\item $\lambda A > 0, \sup_A f < c$
+	
+	Возьмём $c_1$:
+	
+	$\sup_A f < c_1 < c$
+	
+	Выберем $\epsilon$ так чтобы
+	
+	$\epsilon \cdot c_1 < \lambda A \cdot (c - c_1) ~~~~ \textbf{(*)}$
+	
+	$G_{\epsilon}$ - такое множество, что $A \subset G_{\epsilon}, G_{\epsilon}-$открытое, $\lambda(G_{\epsilon} \setminus A) < \epsilon$
+	
+	$G_1 := f^{-1}((- \infty; c_1)) \cap G_{\epsilon} - $ открытое
+	
+	$\lambda(G_1 \setminus A) < \epsilon$
+	
+	$\lambda G_1 \cdot \sup_{G_1} f \leqslant (\lambda A + \epsilon) \cdot c_1 < \lambda A \cdot c$ (из $\textbf{(*)}$)
+	
+	(так как $G \subset f^{-1}(- \infty; c_1)$, то есть $f$ на $G_1$ не больше $c_1$) 
+	
+	$\inf(\lambda G \cdot_G f) < \lambda A \cdot c$
+	
+	Переходя к $\inf$ по $c$, получаем что требовалось
+\end{enumerate}
+
 \section{Теорема о преобразовании меры при диффеоморфизме}
 \textbf{TODO: Илья}
 \section{Теорема о гладкой замене переменной в интеграле Лебега}
