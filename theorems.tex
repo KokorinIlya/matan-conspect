@@ -916,11 +916,66 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 \textbf{TODO: Лев и Вадим}
 
 \section{Теорема Тонелли}
-\textbf{TODO: Денис}
+$<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
+$\mu$, $\nu$ - $\sigma$-конечны, полные \\
+$m = \mu \times \nu$ \\
+$f: \mathds{X} \times \mathds{Y} \rightarrow \overline{R}$, $f \geq 0$, f - измерима относительно m \\
+\emph{Тогда:}
+\begin{enumerate}
+	\item при \textit{почти всех} $x \in X$ $f_x$ - измерима на $\mathds{Y}$, \\
+	 где $f_x : \mathds{Y} \rightarrow \overline{R}$, $f_x(y) = f(x, y)$ \\
+	 (симметричное утверждение верно для y)
+	 \item Функция $x \mapsto \phi(x) = \int\limits_{\mathds{Y}}f_x d\nu = \int\limits_{\mathds{Y}}f(x, y) d\nu(y) $ - $\text{измерима}^{\text{*}}$ на $\mathds{X}$ \\
+	 (симметричное утверждение верно для y)
+	 \item $\int\limits_{\mathds{X} \times \mathds{Y}}f(x, y)dm = \int\limits_{\mathds{X}}\phi(x)d\mu = \int\limits_{\mathds{X}}(\int\limits_{\mathds{Y}} f(x, y)d\nu(y))d\mu(x) = \int\limits_{\mathds{Y}}(\int\limits_{\mathds{X}}f(x,y)d\mu(x))d\nu(y)$
+\end{enumerate}
+\emph{Доказательство:} \\
+Докажем в 3 пункта, постепенно ослабляя ограничения на функцию f
+\begin{enumerate}
+	\item Пусть $C \subset \mathds{X} \times \mathds{Y}$ - измеримо относительно m, $f = \chi_C$
+	\begin{enumerate}
+		\item $f_x(y) = \chi_{C_x}(y)$, где $C_x$ - сечение по x \\
+		$C_x$ - измеримо при \textit{почти всех} x, так как это одномерное сечение, таким образом $f_x$ - измеримо, при \textit{почти всех} x.
+		\item $\phi(x) = \int\limits_{\mathds{Y}}f_xd\nu = \nu C_x$ - по принципу Кавальери это $\text{измеримая}^{\text{*}}$ функция.
+		\item $\int\limits_{\mathds{X}}\phi(x)d\mu = \int\limits_{\mathds{X}}\nu C_x d \mu \overset{\text{Кавальери}}{=} mc \overset{\text{опр.инт}}{=} \int\limits_{\mathds{X} \times \mathds{Y}}\chi_C dm = \int\limits_{\mathds{X} \times \mathds{Y}}f(x, y) dm$
+	\end{enumerate}
+	\item Пусть f - ступенчатая, $f \geq 0$, $f = \sum\limits_{\text{кон}}a_k \chi_{C_k}$ \\
+	\begin{enumerate}
+		\item $f_x = \sum a_k \chi_{(C_k)_x}$ - измерима при почти всех x \\
+		\item $\phi(x) = \sum a_k \nu(C_k)_x$ - $\text{измерима}^{\text{*}}$ как конечная сумма 	измеримых\\
+		\item $\int\limits_{\mathds{X}}\phi(x) = \int\limits_{\mathds{X}}\sum\limits_{\text{кон}}a_k \nu (C_k)_x d \mu =  
+		\sum\limits_{\text{кон}}\int\limits_{\mathds{X}}a_k \nu (C_k)_x d \mu =
+		\sum a_k m C_k = \int\limits_{\mathds{X} \times \mathds{Y}}f dm$		
+	\end{enumerate}
+	\item Пусть f - измеримая, $f \geq 0$ \\
+	$f = \lim\limits_{n \rightarrow +\infty}g_n$, где $g_n \geq 0$ - ступенчатая, $g_n$ - монотонно возрастает к f (из Теоремы об апроксимации измеримой функции ступенчатыми)
+	\begin{enumerate}
+		\item $f_x = \lim\limits_{n \rightarrow +\infty}(g_n)_x \Rightarrow f_x$ - измерима при \textit{почти всех} x.
+		\item $\phi(x) = \int\limits_{\mathds{Y}}f_xd\nu \overset{\text{т.Леви}}{=} \lim \int\limits_{\mathds{Y}}(g_n)_xd\nu$ \\
+		$\phi_n(x) := \int\limits_{\mathds{Y}}(g_n)_xd\nu$ - измерима по пункту 1 \\
+		$0 \leq (g_n)_x - \text{возрастает}$, тогда $\phi(x)$ - измерима, $\phi_n(x) \leq \phi_{n+1}(x) \leq ...$ и $\phi_n(x) \rightarrow \phi(x)$
+		\item $\int\limits_{\mathds{X}}\phi(x)d\mu \overset{\text{т.Леви}}{=} \lim\limits_{n \rightarrow +\infty}\int\phi_n(x)d\mu \overset{\text{п.2}}{=}\lim\limits_{n \rightarrow +\infty}\int\limits_{\mathds{X} \times \mathds{Y}}g_ndm \overset{\text{т.Леви}}{=} \int fdm$
+	\end{enumerate}
+\end{enumerate}
+
 \section{Формула для Бета-функции}
-\textbf{TODO: Денис}
+$B(s, t) = \int\limits_{0}^{1}x^{s-1}(1-x)^{t-1}$, где s и t > 0 - Бета-функция \\
+$\Gamma(s) = \int\limits_{0}^{+\infty}x^{s-1}e^{-x}dx$, где s > 0, тогда $B(s, t) = \frac{\Gamma(s)\Gamma(t)}{\Gamma(s+t)}$ \\
+\emph{Доказательство:}\\
+$\Gamma(s)\Gamma(t) = \int\limits_{0}^{+\infty}x^{s-1}e^{-x}(\int\limits_{0}^{+\infty}y^{t-1}e^{-y}dy)dx = 
+\begin{bmatrix}y \rightarrow u \\ y = u - x \end{bmatrix} =
+\int\limits_{0}^{+\infty}x^{s-1}(\int\limits_{x}^{+\infty}(u-x)^{t-1}e^{-u}du)dx=\\ 
+= \int\limits_{\begin{matrix}x \geq 0 \\ u \geq x \end{matrix}}...=$ меняем порядок интегрирования\\
+$= \int\limits_{0}^{+\infty}du\int\limits_{0}^{u}dx (x^{s-1}(u-x)^{t-1}e^{-u})
+= \begin{bmatrix} x \rightarrow v =\\ x = uv \end{bmatrix}
+= \int\limits_{0}^{+\infty}e^{-u}(\int\limits_{0}^{1}u^{s-1}v^{s-t}u^{t-1}(1-v)^{t-1}udv)du =\\
+= \int\limits_{0}^{+\infty}u^{s+t-1}e^{-u}(\int\limits_{0}^{1}v^{s-1}(1-v)^{t-1}dv)du = B(s,t)\Gamma(s+t)$, чтд.
 \section{Объем шара в $\mathbb R^m$}
-\textbf{TODO: Денис}
+$B(0, R) \subset R^m$ \\
+$\lambda_m(B(0, R)) = \int\limits_{B(0, R)}1d\lambda_m = \int \mathcal{J} = \int\limits_{0}^{R}dr\int\limits_{0}^{\pi}d\phi_1...\int\limits_{0}^{\pi}d\phi_{m-2} \int\limits_{0}^{2\pi}d\phi_{m-1}r^{m-1}(sin\phi_1)^{m-2}... (sin\phi_{m-2}) =\rightarrow\\
+\int\limits_{0}^{\pi}(sin\phi_k)^{m-2-(k+1)} = B({\frac{m-k}{2}}; \frac{1}{2}) = \frac{\Gamma(\frac{m-k}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{m-k}{2}+\frac{1}{2})}\\
+\rightarrow= \frac{R^m}{m} \frac{\Gamma(\frac{m-1}{2}) \Gamma(\frac{1}{2})}{\Gamma(\frac{m}{2})} \frac{\Gamma(\frac{m-2}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{m-1}{2})} ... \frac{\Gamma(1) \Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})} 2\pi =\\
+= \frac{\pi R^m}{\frac{m}{2}} \frac{\Gamma(\frac{1}{2})^{m-2}}{\Gamma(\frac{m}{2})} = \frac{\pi^{\frac{m}{2}}}{\Gamma(\frac{m}{2}+1)}R^m$
 \section{Теорема о вложении пространств $L^p$}
 
 $ \mu E < +\infty ~ 1 \leq s < r \leq + \infty$
