@@ -1280,4 +1280,42 @@ $$ \forall \epsilon > 0 ~ \exists N ~ \forall n, k ~ ||f_n - f_k|| < \epsilon \R
 
 \textbf{\emph{Замечание:}} $ L_{\infty} $ -- полное (упражнение)
 
+\section{Лемма Урысона}
+
+\section{Плотность в $L^p$ непрерывных финитных функций}
+
+\section{Теорема о непрерывности сдвига}
+
+\section{Теорема об интеграле с функцией распределения}
+
+\section{Теорема о свойствах сходимости в гильбертовом пространстве}
+\begin{enumerate}
+	\item $x_n \rightarrow x, y_n \rightarrow y \Rightarrow <x_n, y_n> \rightarrow <x, y>$
+	
+	\item $\sum x_k$ сходится, тогда $\forall y: \sum <x_k, y> = <\sum x_k, y>$
+	
+	\item $\sum x_k$ - ортогональный ряд, тогда $\sum x_k$ - сх $\Leftrightarrow \sum |x_k|^2$ сходится, при этом $|\sum x_k|^2 = \sum |x_k|^2$
+	
+\end{enumerate}
+
+\emph{Доказательство}
+
+\begin{enumerate}
+	\item $|<x_k, y_k> - <x, y>| = |<x_k, y_k> - <x_k, y> + <x_k, y> - <x, y>| \leqslant |<x_k, y_k - y>| + |<x_k - x, y>| \leqslant |x_k| \cdot |y_k - y| + |x_k - x| \cdot |y| \rightarrow 0$ (так как огр $\cdot$ б.м. +  б.м. $\cdot$ огр $\rightarrow$ 0)
+	
+	\item $S_n = \sum\limits_{k = 1}^{n} x_k$
+	
+	$<\sum\limits_{k = 1}^n x_k, y> = \sum\limits_{k = 1}^n <x_k, y>$
+	
+	Устремляя $n$ к $\infty$ получаем требуемое равенство
+	
+	\item Обозначим $C_n := \sum\limits_{k = 1}^n |x_k|^2$
+	
+	 $|S_n|^2 = <\sum\limits_{k = 1}^n x_k, \sum\limits_{j = 1}^n x_j> = \sum\limits_{k, j}^n <x_k, x_j> = \sum\limits_{k = 1}^n <x_k, x_k>$ (так как $k \neq j \Rightarrow <x_k, x_j> = 0$) $= \sum\limits_{k = 1}^n |x_k|^2 = C_n$
+	 
+	 Аналогично, $|S_n - S_m|^2 = |C_n - C_m|$
+	 
+	 Тогда $C_n, S_n$ фунадментальны одновременно $\Rightarrow$ сходятся одновременно при устремлении $n$ к $\infty$
+\end{enumerate}
+
 \end{document}
