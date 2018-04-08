@@ -1306,6 +1306,15 @@ $$ \forall \epsilon > 0 ~ \exists N ~ \forall n, k ~ ||f_n - f_k|| < \epsilon \R
 \section{Теорема о непрерывности сдвига}
 
 \section{Теорема об интеграле с функцией распределения}
+$(\mathbb{R}, B, X)$ \\
+$f:\mathbb{R}\rightarrow\mathbb{R}, f \ge 0,$ изм. по Борелю, п.в. конечн.\\
+$h: X \rightarrow \overline{\mathbb{R}}$ с функцией распределения $H(t)$\\ 
+$\mu_H$ -- мера Бореля-Стильтеса (мера Лебега-Стильтеса на $B$)\\
+
+\emph{Тогда} $\int\limits_X f(h(x))d\mu(x) = \int\limits_{\mathbb{R}}f(t)d\mu_{H}(t)$
+
+\emph{Доказательство}: 
+Следует из теоремы о вычислении интеграла по взвешенному образу меры.
 
 \section{Теорема о свойствах сходимости в гильбертовом пространстве}
 \begin{enumerate}
