@@ -17,7 +17,8 @@
 \usepackage{hyperref}
 \usepackage{graphics}
 \usepackage{amssymb}
-
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 
 \graphicspath{{pictures/}}
 
@@ -1376,6 +1377,44 @@ $\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \
 
 \end{enumerate}
 
+\section{Теорема о свойствах частичных сумм ряда Фурье. Неравенство Бесселя}
 
+$\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \in \mathds{H}, n \in \mathbb{N}$
+
+$S_n = \sum\limits_{k=1}^{n} c_k(x)e_k,\ \pazocal{L} = Lin(e_1, e_2, ...) \subset \mathds{H}$
+
+\emph{Тогда:}
+
+\begin{enumerate}
+
+	\item $S_n$ {{---}} орт. проекция $x$ на пр-во $\pazocal{L}$. Иными словами $x = S_n + z,\ z \bot \pazocal{L}$
+	
+	\item $S_n$ {{---}} наилучшее приблежение $x$ в $\pazocal{L}\ (||x - S_n|| = \min\limits_{y \in \pazocal{L}} ||x - y||)$	
+
+	\item $||S_n|| \leqslant ||x||$
+
+\end{enumerate}
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+
+	\item
+	\begin{enumerate}
+		\item $z = x - S_n$
+		
+		\item $z \bot \pazocal{L} \Leftrightarrow \forall k = 1, 2 ...n : z \bot e_k$
+		
+		\item $<z, e_k> = <x, e_k> - <S_n, e_k> = c_k ||e_k||^2 - c_k ||e_k||^2 = 0$
+	\end{enumerate}
+	
+	\item $||x - y||^2 = ||S_n + z - y||^2 = ||(S_n - y) + z||^2 = ||S_n - y||^2 + ||z||^2 \geqslant$ $\geqslant ||z||^2 = ||x - S_n||^2$
+	
+	\item $||x||^2 = ||S_n||^2 + ||z||^2 \geqslant ||S_n||^2$
+\end{enumerate}
+
+\emph{Cледствие:} Неравенство Бесселя\\
+
+$\forall \{e_k\}$ {{--}} О.С. $:\sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 \leqslant ||x||^2$
 
 \end{document}
