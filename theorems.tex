@@ -1418,11 +1418,11 @@ $S_n = \sum\limits_{k=1}^{n} c_k(x)e_k,\ \pazocal{L} = Lin(e_1, e_2, ...) \subse
 $\forall \{e_k\}$ {{--}} О.С. $:\sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 \leqslant ||x||^2$
 
 \section{Теорема Рисса -- Фишера о сумме ряда Фурье. Равенство Парсеваля}
-$\{e_k\}$ -- орт. сист. в $\pazocal{H}$, $x \in \pazocal{H}$\\
+$\{e_k\}$ -- орт. сист. в $\mathds{H}$, $x \in \mathds{H}$\\
 
 \emph{Тогда}:
 \begin{enumerate}
-	\item Ряд Фурье $\sum\limits_{k=1}^{+\infty} c_k(x) e_k$ сх-ся в $\pazocal{H}$
+	\item Ряд Фурье $\sum\limits_{k=1}^{+\infty} c_k(x) e_k$ сх-ся в $\mathds{H}$
 	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k$
 	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k \Leftrightarrow \sum\limits_{k=1}^{+\infty} \vert c_k \vert^2 \|e_k\|^2=\|x\|^2$
 \end{enumerate}
@@ -1442,19 +1442,21 @@ $\{e_k\}$ -- орт. сист. в $\pazocal{H}$, $x \in \pazocal{H}$\\
 		$\|x\|^2=\|\sum c_k e_k\|^2 + \|z\|^2 = \sum \vert c_k \vert^2 \|e_k\|^2 + \|z\|^2 = \|x\|^2 + \|z\|^2 \Rightarrow z = 0$
 \end{enumerate}
 
-$\mathbf{TODO}$ Замечания.
+\iffalse
+$\mathbf{TODO}$ Замечания. Не уверен, нужны ли они
+\fi
 
 \section{Теорема о характеристике базиса}
 
-$\{e_k\}$ -- орт. сист. в $\pazocal{H}$\\
+$\{e_k\}$ -- орт. сист. в $\mathds{H}$\\
 
 \emph{Тогда} эквивалентны следующие утверждения:
 \begin{enumerate}
 	\item $e_1$ -- базис
-	\item $\forall x, y \in \mathcal{H} \quad \langle x, y \rangle = \sum c_k(x)\overline{c_k(y)}\|e_k\|^2$ (обобщенное уравнение замкнутости)
+	\item $\forall x, y \in \mathds{H} \quad \langle x, y \rangle = \sum c_k(x)\overline{c_k(y)}\|e_k\|^2$ (обобщенное уравнение замкнутости)
 	\item $\{e_k\}$ - замкн.
 	\item $\{e_k\}$ - полн.
-	\item $Lin(e_1, e_2, \mathellipsis)$ - плотна в $\mathscr{H}$ 
+	\item $Lin(e_1, e_2, \mathellipsis)$ - плотна в $\mathds{H}$ 
 \end{enumerate}
 
 \emph{Доказательство:}
@@ -1477,12 +1479,12 @@ $\|x_0\|^2=\sum \vert c_k(x_0) \vert^2 \|e_k\|^2 = 0$ (см. п. 2 из опр.)
 $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow(\text{т. Рисса-Фишера (2)}) \  \forall k \ z \bot e_k \Rightarrow(\text{из полноты}) \ z = 0$ (см. п. 1 из опр.) 
 
 \subsection{\texorpdfstring{$4 \Rightarrow 5$}{TEXT}}
-Пусть $Cl Lin(e_1, e_2, \mathellipsis) \ne \pazocal{H}$, $x \in \pazocal{H} \smallsetminus Cl Lin(e_1, e_2, \mathellipsis)$\\
+Пусть $Cl Lin(e_1, e_2, \mathellipsis) \ne \mathds{H}$, $x \in \mathds{H} \smallsetminus Cl Lin(e_1, e_2, \mathellipsis)$\\
 из т. Рисса-Фишера (2): $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k \Rightarrow x =\sum\limits_{k=1}^{+\infty} c_k e_k \Rightarrow x \in Cl Lin(e_1, e_2, \mathellipsis)$\\
 Противоречие.
 
 \subsection{\texorpdfstring{$5 \Rightarrow 4$}{TEXT}}
-$\forall k \ x_0 \bot e_k \Rightarrow x_0 \bot Lin(e_1, e_2, \mathellipsis) \Rightarrow x_0 \bot Cl Lin(e_1, e_2, \mathellipsis)( = \pazocal{H}) \Rightarrow x_0 \bot x_0 \Rightarrow \|x_0\|^2 = 0 \Rightarrow x_0 = 0$
+$\forall k \ x_0 \bot e_k \Rightarrow x_0 \bot Lin(e_1, e_2, \mathellipsis) \Rightarrow x_0 \bot Cl Lin(e_1, e_2, \mathellipsis)( = \mathds{H}) \Rightarrow x_0 \bot x_0 \Rightarrow \|x_0\|^2 = 0 \Rightarrow x_0 = 0$
 
 \section{Лемма о вычислении коэффициентов тригонометрического ряда}
 
@@ -1498,6 +1500,21 @@ $c_k = \frac{1}{2\pi}\int\limits_{-\pi}^{\pi}f(x)e^{-ikx}\ dx \quad k = 0, 1, 2,
 
 
 \emph{Доказательство:}
-$\mathbf{TODO}$
+
+$S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_n$)
+
+При $n \ge k:$
+
+\begin{enumerate}
+	\item 
+		$\int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx = \int\limits_{-\pi}^{\pi} a_k \cos^2 kx dx = \pi a_k$ 
+		\iffalse
+		 (Так как $\int\limits_{-\pi}^{\pi} \cos kx \cos lx = 0$ в $l_2$) 
+		 \fi 
+	\item
+		$\vert \int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx - \int\limits_{-\pi}^{\pi} f(x) \cos kx dx \vert \le \int\limits_{-\pi}{\pi} \vert S_n(x)-f(X) \vert \cdot \vert \cos kx \vert \le \int\limits_{-\pi}^{\pi} \vert S_n(x) - f(x) \vert \rightarrow 0$
+\end{enumerate}
+
+Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
 \end{document}
