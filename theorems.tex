@@ -17,7 +17,8 @@
 \usepackage{hyperref}
 \usepackage{graphics}
 \usepackage{amssymb}
-
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 
 \graphicspath{{pictures/}}
 
@@ -1309,8 +1310,13 @@ $$ \forall \epsilon > 0 ~ \exists N ~ \forall n, k ~ ||f_n - f_k|| < \epsilon \R
 $(\mathbb{R}, B, X)$ \\
 $f:\mathbb{R}\rightarrow\mathbb{R}, f \ge 0,$ изм. по Борелю, п.в. конечн.\\
 $h: X \rightarrow \overline{\mathbb{R}}$ с функцией распределения $H(t)$\\ 
-$\mu_H$ -- мера Бореля-Стильтеса (мера Лебега-Стильтеса на $B$)\\
+
+
  
+
+$\mu_H$ -- мера Бореля-Стилтьеса (мера Лебега-Стилтьеса на $B$)\\
+
+
 \emph{Тогда} $\int\limits_X f(h(x))d\mu(x) = \int\limits_{\mathbb{R}}f(t)d\mu_{H}(t)$
 
 \emph{Доказательство}: 
@@ -1345,5 +1351,175 @@ $\mu_H$ -- мера Бореля-Стильтеса (мера Лебега-Ст�
 	 
 	 Тогда $C_n, S_n$ фунадментальны одновременно $\Rightarrow$ сходятся одновременно при устремлении $n$ к $\infty$
 \end{enumerate}
+
+\section{Теорема о коэффициентах разложения по ортогональной системе}
+
+$\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \in \mathds{H}, x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
+
+\emph{Тогда:}
+\begin{enumerate}
+
+	\item $\{e_k\}$ {{---}} Л.Н.З.
+	
+	\item $c_k = \dfrac{<x, e_k>}{||e_k||^2}$
+	
+	\item $c_k \cdot e_k$ {{---}} проекция $x$ на прямую $\{te_k, t \in \mathbb{R}(\mathbb{C})\}$\\ 
+	Иными словами $x = c_k \cdot e_k + z$, где $z \bot e_k$
+
+\end{enumerate}
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+
+	\item Пусть $\sum\limits_{k=1}^{N} \alpha_k e_k = 0$. Умножим скалярно на $e_m\ (1 \leqslant m \leqslant N)$\\ \\
+	Получим: $\alpha_m ||e_m||^2 = 0 \Rightarrow \alpha_m = 0 \Rightarrow$ комб. тривиальная $\Rightarrow$ Л.Н.З.
+	
+	\item $<x, e_m> = \sum\limits_{k=1}^{+\infty} <c_k e_k, e_m> = c_m \cdot ||e_m||^2$ (верно в силу сходимости ряда)
+	
+	\item $x = c_k \cdot e_k + z\ ?\ z \bot e_k\ $ Докажем это:\\
+	$<z, e_k> = <x - c_k e_k, e_k> = c_k \cdot ||e_k||^2 - c_k\cdot ||e_k||^2 = 0$
+
+\end{enumerate}
+
+\section{Теорема о свойствах частичных сумм ряда Фурье. Неравенство Бесселя}
+
+$\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \in \mathds{H}, n \in \mathbb{N}$
+
+$S_n = \sum\limits_{k=1}^{n} c_k(x)e_k,\ \pazocal{L} = Lin(e_1, e_2, ...) \subset \mathds{H}$
+
+\emph{Тогда:}
+
+\begin{enumerate}
+
+	\item $S_n$ {{---}} орт. проекция $x$ на пр-во $\pazocal{L}$. Иными словами $x = S_n + z,\ z \bot \pazocal{L}$
+	
+	\item $S_n$ {{---}} наилучшее приближение $x$ в $\pazocal{L}\ (||x - S_n|| = \min\limits_{y \in \pazocal{L}} ||x - y||)$	
+
+	\item $||S_n|| \leqslant ||x||$
+
+\end{enumerate}
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+
+	\item
+	\begin{enumerate}
+		\item $z = x - S_n$
+		
+		\item $z \bot \pazocal{L} \Leftrightarrow \forall k = 1, 2 ...n : z \bot e_k$
+		
+		\item $<z, e_k> = <x, e_k> - <S_n, e_k> = c_k ||e_k||^2 - c_k ||e_k||^2 = 0$
+	\end{enumerate}
+	
+	\item $||x - y||^2 = ||S_n + z - y||^2 = ||(S_n - y) + z||^2 = ||S_n - y||^2 + ||z||^2 \geqslant$ $\geqslant ||z||^2 = ||x - S_n||^2$
+	
+	\item $||x||^2 = ||S_n||^2 + ||z||^2 \geqslant ||S_n||^2$
+\end{enumerate}
+
+\emph{Cледствие:} Неравенство Бесселя\\
+
+$\forall \{e_k\}$ {{--}} О.С. $:\sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 \leqslant ||x||^2$
+
+\section{Теорема Рисса -- Фишера о сумме ряда Фурье. Равенство Парсеваля}
+$\{e_k\}$ -- орт. сист. в $\mathds{H}$, $x \in \mathds{H}$\\
+
+\emph{Тогда}:
+\begin{enumerate}
+	\item Ряд Фурье $\sum\limits_{k=1}^{+\infty} c_k(x) e_k$ сх-ся в $\mathds{H}$
+	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k$
+	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k \Leftrightarrow \sum\limits_{k=1}^{+\infty} \vert c_k \vert^2 \|e_k\|^2=\|x\|^2$
+\end{enumerate}
+
+\emph{Доказательство:}
+\begin{enumerate}
+	\item 
+	Ряд Фурье -- ортогональный ряд\\
+	его сходимость $\Leftrightarrow$ сходимости $\sum\limits_{k=1}^{+\infty} \vert c_k \vert^2 \|e_k\|^2$\\
+	$\sum\limits_{k=1}^{+\infty} \vert c_k \vert^2 \|e_k\|^2 \le \|x\|^2$ по неравенству Бесселя
+	\item 
+	$\langle z, e_k \rangle = \langle x - \sum c_i e_i, e_k \rangle = \langle x, e_k \rangle - \sum\limits_{i = 1}^{+\infty}  \langle c_i(x) e_i ,e_k \rangle = 0$	
+	\item 
+	$\Rightarrow$ - утв. 3 теоремы о св-вах сх-ти в гильбертовом пр-ве\\
+	$\Leftarrow$
+		Из п. 2 ряд ортог.\\ 
+		$\|x\|^2=\|\sum c_k e_k\|^2 + \|z\|^2 = \sum \vert c_k \vert^2 \|e_k\|^2 + \|z\|^2 = \|x\|^2 + \|z\|^2 \Rightarrow z = 0$
+\end{enumerate}
+
+\iffalse
+$\mathbf{TODO}$ Замечания. Не уверен, нужны ли они
+\fi
+
+\section{Теорема о характеристике базиса}
+
+$\{e_k\}$ -- орт. сист. в $\mathds{H}$\\
+
+\emph{Тогда} эквивалентны следующие утверждения:
+\begin{enumerate}
+	\item $e_1$ -- базис
+	\item $\forall x, y \in \mathds{H} \quad \langle x, y \rangle = \sum c_k(x)\overline{c_k(y)}\|e_k\|^2$ (обобщенное уравнение замкнутости)
+	\item $\{e_k\}$ - замкн.
+	\item $\{e_k\}$ - полн.
+	\item $Lin(e_1, e_2, \mathellipsis)$ - плотна в $\mathds{H}$ 
+\end{enumerate}
+
+\emph{Доказательство:}
+
+\subsection{\texorpdfstring{$1 \Rightarrow 2$}{TEXT}}
+$x=\sum c_k(x) e_k$ -- единственно (из геом. соображений: $c_k e_k$ -- проекция)\\
+$\langle e_k, y \rangle = \overline{\langle y, e_k \rangle} = \overline{c_k(y)}\|e_k\|^2$\\
+$\langle x, y \rangle = \sum c_k(x) \langle e_k, y \rangle = \sum c_k(x)\overline{c_k(y)}\|e_k\|^2$
+
+\subsection{\texorpdfstring{$2 \Rightarrow 3$}{TEXT}}
+$y:=x$\\
+$\|x\|^2=\sum \vert c_k(x) \vert ^2 \|e_k\|^2$ (см. п. 3 из опр.)
+
+\subsection{\texorpdfstring{$3 \Rightarrow 4$}{TEXT}}
+Пусть $\forall k \quad x_0 \bot e_k$\\
+$c_k(x_0)=\frac{\langle x_0, e_k \rangle}{\|e_k\|^2}=0$\\
+$\|x_0\|^2=\sum \vert c_k(x_0) \vert^2 \|e_k\|^2 = 0$ (см. п. 2 из опр.)
+
+\subsection{\texorpdfstring{$4 \Rightarrow 1$}{TEXT}}
+$x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow(\text{т. Рисса-Фишера (2)}) \  \forall k \ z \bot e_k \Rightarrow(\text{из полноты}) \ z = 0$ (см. п. 1 из опр.) 
+
+\subsection{\texorpdfstring{$4 \Rightarrow 5$}{TEXT}}
+Пусть $Cl Lin(e_1, e_2, \mathellipsis) \ne \mathds{H}$, $x \in \mathds{H} \smallsetminus Cl Lin(e_1, e_2, \mathellipsis)$\\
+из т. Рисса-Фишера (2): $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k \Rightarrow x =\sum\limits_{k=1}^{+\infty} c_k e_k \Rightarrow x \in Cl Lin(e_1, e_2, \mathellipsis)$\\
+Противоречие.
+
+\subsection{\texorpdfstring{$5 \Rightarrow 4$}{TEXT}}
+$\forall k \ x_0 \bot e_k \Rightarrow x_0 \bot Lin(e_1, e_2, \mathellipsis) \Rightarrow x_0 \bot Cl Lin(e_1, e_2, \mathellipsis)( = \mathds{H}) \Rightarrow x_0 \bot x_0 \Rightarrow \|x_0\|^2 = 0 \Rightarrow x_0 = 0$
+
+\section{Лемма о вычислении коэффициентов тригонометрического ряда}
+
+Пусть $S_n \rightarrow f$ в $L_1(-\pi, \pi]$\\ 
+
+\emph{Тогда}:
+
+$a_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)coskx\ dx \quad k = 0, 1, 2, \mathellipsis$
+
+$b_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)sinkx\ dx \quad k = 0, 1, 2, \mathellipsis$
+
+$c_k = \frac{1}{2\pi}\int\limits_{-\pi}^{\pi}f(x)e^{-ikx}\ dx \quad k = 0, 1, 2, \mathellipsis$
+
+
+\emph{Доказательство:}
+
+$S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_n$)
+
+При $n \ge k:$
+
+\begin{enumerate}
+	\item 
+		$\int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx = \int\limits_{-\pi}^{\pi} a_k \cos^2 kx dx = \pi a_k$ 
+		\iffalse
+		 (Так как $\int\limits_{-\pi}^{\pi} \cos kx \cos lx = 0$ в $l_2$) 
+		 \fi 
+	\item
+		$\vert \int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx - \int\limits_{-\pi}^{\pi} f(x) \cos kx dx \vert \le \int\limits_{-\pi}{\pi} \vert S_n(x)-f(X) \vert \cdot \vert \cos kx \vert \le \int\limits_{-\pi}^{\pi} \vert S_n(x) - f(x) \vert \rightarrow 0$
+\end{enumerate}
+
+Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
 \end{document}
