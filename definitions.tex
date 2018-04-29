@@ -407,4 +407,33 @@
 	\section{Ядро Фейера} 
 	
 	$$ \Phi_n(t) = \frac{1}{n+1} \sum_{k = 0}^{n} D_k(t) $$
+	
+	\section{Несобственный интеграл по мере}
+	
+	$$ \int_{a}^{\rightarrow b} f d\lambda_1 = \lim\limits_{B \rightarrow b\_0} \int_{a}^{B} f d\lambda_1 $$
+	
+	где $ f $ - локально суммируемая (т. е. $ \forall [a, B] \subset [a. b) ~ f $ -- сумм. на $ [a, B] $)
+	
+	\section{$ L_{loc} $}
+	
+	$ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
+	
+	$ (\mathbb{X}, \mathbb{A}, \mu) $ -- простр. с мерой
+	
+	$ \mathbb{Y} $ -- метр. простр. (или метризуемое)
+	
+	$ \forall y ~ f^y(x) = f(x, y) $ -- сумм. на $ \mathbb{X} $
+	
+	f удовлетворяет $ L_{loc} $ ($ f \in (L_{loc}) $) если:
+	\begin{itemize}
+		\item  $ \exists g : \mathbb{X} \rightarrow \overline{\mathbb{R}} $ -- сумм.
+		\item $ \exists U(a) ~ \forall y \in \dot{U} (a) ~ \text{при п. в.} ~ x \in \mathbb{X} ~ |f(x, y)| \leq g(x)$
+	\end{itemize}
+	
+	\section{Свертка}
+	
+	$$ (f \ast K)(x) = \int_{-\pi}^{\pi} f(x-t)K(t) dt$$ 
+	
+	где $ f, K \in L_1([-\pi, \pi]) $
+	 
 \end{document}
