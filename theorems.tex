@@ -1522,4 +1522,114 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 
 Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
+\section{О локальной суммируемости.}
+$$ \int_{a}^{\rightarrow b} f \text{ -- абс. сх} \Longleftrightarrow f \text{ -- сумм.}$$
+
+\emph{Доказательство:} TODO
+
+\section{Теорема 1}
+$ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
+
+$ (\mathbb{X}, \mathbb{A}, \mu) $ -- простр. с мерой
+
+$ \mathbb{Y} $ -- метр. простр. (или метризуемое)
+
+$ \forall y ~ f^y(x) = f(x, y) $ -- сумм. на $ \mathbb{X} $
+
+\bigskip
+
+$ \mu X < +\infty $; $ f(x,y) \underset{y \rightarrow a}{\rightrightarrows} \phi(x) $
+
+\emph{Тогда:}
+
+\begin{itemize}
+	\item $ \phi $ -- сумм.
+	\item $ \int\limits_{X} f(x, y) d\mu (x) \underset{y \rightarrow a}{\longrightarrow} \int\limits_{X} \phi(x) d\mu(x) $
+\end{itemize}
+
+\emph{Доказательство:} TODO
+
+\section{Лебега о мажорированой сходимости (переформулировка для текущего контекста)}
+
+$ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
+
+$ (\mathbb{X}, \mathbb{A}, \mu) $ -- простр. с мерой
+
+$ \mathbb{Y} $ -- метр. простр. (или метризуемое)
+
+$ \forall y ~ f^y(x) = f(x, y) $ -- сумм. на $ \mathbb{X} $
+
+$ a \in \mathbb{Y} $
+\bigskip
+
+$ \phi := \lim\limits_{y \rightarrow a} f(x, y) $ -- задана при п. в. $ x $
+
+$ f(x,y) $ удовлетворяет условию $ L_{loc} $ в точке $ a $ и мажорантой $ g $
+
+
+\emph{Тогда:}
+
+\begin{itemize}
+	\item $ \phi $ -- сумм.
+	\item $ \int\limits_{X} f(x, y) d\mu (x) \underset{y \rightarrow a}{\longrightarrow} \int\limits_{X} \phi(x) d\mu(x) $
+\end{itemize}
+
+\emph{Доказательство:} TODO
+
+\section{Теорема 2}
+
+$ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
+
+$ (\mathbb{X}, \mathbb{A}, \mu) $ -- простр. с мерой
+
+$ \mathbb{Y} $ -- метр. простр. (или метризуемое)
+
+$ \forall y ~ f^y(x) = f(x, y) $ -- сумм. на $ \mathbb{X} $
+
+\bigskip
+
+$ \mathbb{Y} \subset \mathbb{R} $ -- промежуток
+
+при п. в. $ x ~~ \forall y ~ \exists f_y'(x, y)$
+
+$ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \mathbb{Y}$
+
+\emph{Тогда:}
+\begin{itemize}
+	\item $ I(y) = \int\limits_{X} f(x, y) d\mu(x) $ -- дифф. в точке $ a $
+	\item $ I'(y) = \int\limits_{X} f_y'(x, a) d\mu(x) $
+\end{itemize}
+
+\emph{Доказательство:} TODO
+
+\section{Свойства свертки}
+
+\begin{enumerate}
+	\item Свертка -- корректно заданная функция из $ L_1([-\pi, \pi]) $
+	\item Коммутативность: $ f \ast K = K \ast f$
+	\item $ c_k(f \ast K) = 2\pi c_k(f) c_k(K) $ ($ c_k $ -- коэф. ряда фурье)
+	\item
+		$ f \in L^p $; $ K \in L^q $
+
+		$ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
+
+		\emph{Тогда:}
+		\begin{itemize}
+			\item $ f \ast K $ -- непр. на $ [-\pi, \pi] $
+			\item $ ||f \ast K||_{\infty} \leqslant ||K||_q ||f||_p $
+		\end{itemize}
+	\item
+		$ f \in L^p $; $ K \in L_1( [-\pi, \pi]) $
+
+		$ 1 \leqslant p \leqslant +\infty $
+
+		\emph{Тогда:}
+		\begin{itemize}
+			\item $ f \ast K \in L([-\pi, \pi]) $
+			\item $ ||f \ast K||_{p} \leqslant ||K||_1 ||f||_p $
+		\end{itemize}
+\end{enumerate}
+
+\emph{Доказательство:} TODO
+
 \end{document}
