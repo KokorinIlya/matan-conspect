@@ -1522,6 +1522,16 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 
 Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
+\section{Теорема Римана--Лебега}
+$E \subset \mathds{R}^1$ -- измеримо\\ $f \in L_1(E, \lambda), ~ \lambda \text{- мера Лебега}$ \\
+\emph{Тогда:} $$\int\limits_{E}f(x)e^{ikx}dx \xrightarrow[k \to +\infty]{} 0$$ и $$\int\limits_{E}f(x)cos(kx)dx \xrightarrow[k \to +\infty]{} 0$$
+\emph{Доказательство:} \\
+Пусть $f \equiv 0$ вне $E$, тогда можно считать, что $f \in L^1(\mathds{R}^1)$ \\
+$\int\limits_{\mathds{R}}f(t)e^{ikt \overset{t=\tau + \frac{\pi}{k}}{=}} \int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{i k \tau + i\pi} = -\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau}$ \\
+$\int\limits_{\mathds{R}}f(t)e^{ikt} = \frac{1}{2}\int\limits_{\mathds{R}}f(t)e^{ikt} - \frac{1}{2}\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau} = \frac{1}{2}\int\limits_{\mathds{R}}(f(t) - f(t + \frac{\pi}{k}))$ \\
+$|\int\limits_{\mathds{R}}f(t)e^{ikt}| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t) - f(t + \frac{\pi}{k})|dt \xrightarrow[k \to +\infty]{}0$,\\по непрерывности сдвига, то есть:\\$||f-f_{\tau}||_1 \xrightarrow[\tau\to 0]{}0$
+\\\\
+Сходимость второго интеграла очевидна из $cos(kx) = \frac{e^{ikx} - e^{-ikx}}{2}$
 \section{Формула Грина}
 $D \subset \mathds{R}^2$ -- компакт, связное, одновясвязное, ориентировано\\$\delta D-C^2\text{-гладкая кривая, тоже ориентировано}$\\
 $D$ и $\delta D$ ориентированы согласовано \\
