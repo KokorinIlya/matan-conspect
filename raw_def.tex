@@ -1,0 +1,242 @@
+\documentclass[paper=a4, fontsize=17pt]{article}
+
+\usepackage[russian]{babel}
+\usepackage{scrextend}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,bindingoffset=0cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{amssymb}
+\usepackage{cmap}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\DeclareMathOperator*{\esssup}{ess\, sup}
+
+
+\parindent=0cm
+
+\title{Определения по матану, семестр 4}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Интегральные неравества Гельдера и Минковского}
+	\subsection{Нераветсво Гельдера}
+	$(X, \mathds{A}, \mu)\ f, g : E \subset X \rightarrow C$ ($E$ - изм.) --- заданы п.в, измеримы\\
+	$p, q > 1 : \frac{1}{p} + \frac{1}{q} = 1$. 
+	\emph{Тогда:}
+	${\displaystyle \int\limits_E |fg|d\mu \leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p} \cdot \left(\int\limits_E |g|^q d\mu)\right)^\frac{1}{q}}$
+	\subsection{Нераверство Минковского}
+	$(X, \mathds{A}, \mu)\ f, g $ --- заданы п.в, измеримы\\
+	$1 \leq p < +\infty$. 
+	\emph{Тогда:}
+	${\displaystyle \left(\int\limits_E |f + g|^p d\mu \right)^\frac{1}{p} 
+		\leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p} 
+		+ \left(\int\limits_E |g|^p d\mu\right)^\frac{1}{p}}$
+	
+	\section{Интеграл комплекснозначных функции}
+	$ (X, \mathbb{A}, \mu) $, $ f : \mathbb{X} \rightarrow \mathbb{C} $
+	
+	Назовем $ f $ - измеримой(суммирируемой), если $ Re f, ~ Im f $ -- изм.(сумм.)
+	
+	Тогда \emph{интегралом} такой функции назовем:
+	$$ \int_E f d\mu = \int_E Re f + i\int_E Im f $$
+	
+	\section{Пространство $L_p(E,\mu),\ 1 \leq p < +\infty$}
+	$(X, \mathds{A}, \mu)\, E \in \mathds{A}$\\
+	$L_p'(E, \mu) = \{$ f : п.в. $E \rightarrow \mathbb{C}$, изм., $ \int\limits_E |f|^p d\mu < +\infty \}$\\
+	Это линейное пространство (по нер-ву Минковского и линейности пространства измеримых функций).\\
+	У этого пространства есть дефект - если определить норму как $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$, то будет сразу много нулей пространства (ненулевые функции, которые п.в. равны 0 будут давать норму 0).
+	Поэтому перейдем к фактор-множеству функций по отношению эквивалентности:\\
+	$f \sim g$, если $f = g$ п.в.\\
+	$ L_p(E, \mu) := L_p'(E, \mu) /_{\sim}$ - лин. норм. пр-во с нормой $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$.\\
+	
+	\emph{NB1}: Его элементы --- классы эквивалентности обычных функций. Будем называть их тоже функциями. Они не умеют вычислять значение в точке (т.к. можно всегда подменить значение на любое другое и получить представителя все того же класса эквивалентности), но зато их можно интегрировать!\\
+	
+	\emph{NB2}: также иногда будем обозначать $||f||_p$ за норму $f$ в пространстве $L_p$.
+	
+	\section{Пространство $L_{\infty}(E,\mu)$}
+	$L_\infty(E, \mu) =\{$ f : п.в. $E \rightarrow \mathbb{C},\ \esssup\limits_E |f| < +\infty \}$\\
+	\emph{NB1}: $||f||_\infty = \esssup\limits_E |f|$.\\
+	
+	\emph{NB2}: Новый вид нер-ва Гельдера : $||f \cdot g||_1 \leq ||f||_p \cdot ||g||_q$ (причем можно брать $p = +\infty, q = 1$ или наоборот).
+	
+	\section{Существенный супремум}
+	$(X, \mathds{A}, \mu), E \subset X - $ изм., $f : $ п.в. $E \rightarrow \overline{\mathbb{R}}$.\\
+	
+	\emph{Тогда}: $\esssup\limits_{x \in E} f(x) = \inf \{A \in R : f(x) \leq A$ п.в. $x \}$. 
+	
+	В этом определении $A$ - существенная верхняя граница. 
+	
+	\emph{Свойства}:
+	\begin{enumerate}
+		\item
+		$\esssup\limits_E f \leq \sup\limits_E f$
+		
+		\item
+		$f(x) \leq \esssup\limits_E f$ при п.в. $x \in E$.
+		
+		\item
+		$\int\limits_E |fg|d\mu \leq \esssup\limits_E |g| \cdot \int\limits_E |f|d\mu$.
+	\end{enumerate}
+	
+	\section{Фундаментальная последовательность, полное пространство}
+	
+	\section{Плотное множество}
+	
+	\section{Финитная функция}
+
+	\section{Измеримое множество на простой двумерной поверхности в $R^3$}
+	
+	\section{Мера Лебега на простой двумерной поверхности в $R^3$}
+ 
+	\section{Поверхностный интеграл первого рода}
+
+	\section{Кусочно-гладкая поверхность в $R^3$}
+
+	\section{Гильбертово пространство}
+	$\mathds{H}$ - линейное пространство над $\mathds{R}$ или $\mathds{C}$, в котором задано скалярное произведение, и полное относительно соответствуйющей нормы, называется Гильбертовым.
+	
+	\section{Ортогональный ряд}
+	$x_k \in \mathds{H}, \sum x_k$ называется ортогональным рядом, если $\forall k, l: k \neq l: x_k \bot x_l$
+	
+	\section{Сходящийся ряд в Гильбертовом пространстве}
+	$x_n \in \mathds{H}$
+	
+	$\sum x_n$ сходится к $x$, если
+	
+	$S_n := \sum\limits_{k = 1}^n x_k, S_n \rightarrow x$ (то есть $|S_n - x| \rightarrow 0$ - сходимость по мере) 
+	
+	\section{Ортогональное семейство векторов}
+	$\{e_k\} \in \mathds{H}$ - ортогональное семейство векторов, если $\forall k \neq l: e_k \bot e_l, e_k \neq 0, e_l \neq 0$.
+	
+	\section{Ортонормированное семейство векторов}
+	$\{e_k\} \in \mathds{H}$ - ортонормированное семейство векторов, если ${e_k}$ - ортогональное семейство векторов, и $\forall k: |e_k| = 1 $
+	
+	\section{Коффициенты Фурье}
+	$\{e_k\}$ - ортонормированная система в $\mathds{H}, x \in \mathds{H}$.
+	
+	$c_k(x) = \dfrac{<x, e_k>}{|e_k|^2}$ называются коэффициентами Фурье вектора $x$ по ортогональной системе $\{e_k\}$
+	
+	\section{Ряд Фурье в Гильбертовом пространстве}
+	
+	$\sum c_k(x) \cdot e_k$ называется рядом Фурье вектора $x$ по ортогональной системе $\{e_k\}$
+	
+	\section{Базис, полная, замкнутая ОС}
+	
+	$\{e_k\}$ {{---}} ортогональная система в $\mathds{H}$
+	
+	\begin{enumerate}
+		
+		\item $\{e_k\}$ {{---}} \textbf{базис}, если $\forall x \in \mathds{H}:\ \exists c_k$, что $x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
+		
+		\item $\{e_k\}$ {{---}} \textbf{полная} О.С., если $\forall k: z \bot e_k \Rightarrow z = 0$
+		
+		\item $\{e_k\}$ {{---}} \textbf{замкнутая} О.С., если $\forall x \in \mathds{H}: \sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 = ||x||^2$
+		
+	\end{enumerate}
+	
+	\section{Сторона поверхности}
+	
+	Сторона (простой) гладкой двумерной поверхности {{---}} непрерывное поле единичных нормалей. Поверхность, для которой существует сторона, называется двусторонней. Если же стороны не существует, она называется односторонней.
+	
+	
+	\section{Задание стороны поверхности с помощью касательных реперов}
+	
+	$F_1, F_2$ -- два касательных векторных поля к $M$\\
+	$\forall p \in M \quad F_1(p), F_2(p)$ -- Л.Н.З. касательные векторы\\
+	Тогда поле нормалей стороны определяется, как $n := F_1 \times F_2$\\
+	
+	Реп\'{е}р - пара векторов из $F_1 \times F_2$. 
+	
+	\section{Интеграл II рода}
+	
+	$M$ -- простая гладкая двусторонняя двумерная поверхность в $\mathbb{R}^3$\\
+	$n_0$ -- фиксированная сторона (одна из двух)\\
+	$F : M \rightarrow \mathbb{R}^3$ -- векторное поле\\
+	
+	\emph{Тогда} интегралом II рода назовем $\int\limits_{M} \langle F, n_0 \rangle ds$
+	
+	\emph{Замечания}
+	\begin{enumerate}
+		\item Смена стороны эквивалентна смене знака
+		\item Не зависит от параметризации
+		\item 
+		$F=(P, Q, R)$
+		
+		Тогда интеграл имеет вид $\iint P dydz + Q dzdx + R dxdy$
+		
+		\emph{NB:} $Q dxdz = -Q dzdx$
+	\end{enumerate}
+	
+	\section{Ориентация контура, согласованная со стороной поверхности}
+	
+	Ориентация контура согласована со стороной поверхности, если она задает эту сторону.\\
+	
+	\emph{Пояснение}: 
+	Рассмотрим некоторый контур (замкнутую петлю) и точку на нем. Построим два касательных вектора к контуру в этой точке: первый - снаружи от контура (задает направление ''движения'' по петле), второй - внутри контура. Тогда будем называть такую ориентацию согласованной со стороной, если направление векторного произведения первого и второго векторов в точке совпадает с направлением нормали поверхности.
+	
+	\begin{center}
+		\begin{tikzpicture}
+			
+			\draw (2,2) ellipse (3cm and 2cm);
+			\draw[thick,->] (5,2) -- (5,3) node[anchor=south] {1};
+			\draw[thick,->] (5,2) -- (2.4,2) node[anchor=south] {2};
+				
+		\end{tikzpicture}
+	\end{center}
+	
+	\section{Тригонометрический ряд}
+	
+	\begin{itemize}
+		\item $$ \frac{a_0}{2}  + \sum_{k = 1}^{\infty} a_k cos(kx) + b_k sin(kx) $$ 
+		(где $ a_i, b_i $ -- коэффициенты ряда)
+		
+		\item Другая форма:	$$ \sum_{k = \mathbb{Z}} c_k e^{ikx} $$
+		
+		Тогда $ S_n := \sum\limits_{k = -n}^{n} c_k e^{ikx} $
+	\end{itemize}
+	
+	\section{Коэффициенты Фурье функции}
+	
+	\begin{itemize}
+		\item $$ a_k(f) = \frac{1}{\pi} \int\limits_{-\pi}^{\pi} f(x) cos(kx) ~ dx $$
+		
+		\item $$ b_k(f) = \frac{1}{\pi} \int\limits_{-\pi}^{\pi} f(x) sin(kx) ~ dx $$
+		
+		\item $$ c_k(f) = \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} f(x) e^{-ikx} ~ dx $$
+		
+	\end{itemize}
+	
+	\section{Ядро Дирихле}
+	
+	$$ D_n(t) = \frac{1}{\pi}( \frac{1}{2} + \sum_{k = 1}^{n} cos(kt)) $$
+	
+	\section{Ядро Фейера} 
+	
+	$$ \Phi_n(t) = \frac{1}{n+1} \sum_{k = 0}^{n} D_k(t) $$
+	
+	\section{Ротор, дивергенция векторного поля}
+	
+	\section{Соленоидальное векторное поле}
+	
+	\section{Бескоординатное определение ротора и дивергенции}
+	$$ \forall a \forall n_0 : rot(F, a, n_0) = \lim\limits_{r \rightarrow 0} \left( \frac{1}{\pi r^2} \int\limits_{\delta B(a, r)}F_l dl \right)$$
+	 где $F_l$ - проекция F на касательное направление
+	
+	$$ \forall a \forall n_0 : div(F, a) = \lim\limits_{r \rightarrow 0} \left( \frac{1}{\lambda_3(B(a, r))}  \iint\limits_{\delta B(a, r)}<F, n_o>dS \right)$$
+	\section{Свертка}
+	
+	$$ (f \ast K)(x) = \int\limits_{-\pi}^{\pi} f(x-t)K(t) dt$$ 
+	
+	где $ f, K \in L_1([-\pi, \pi]) $
+\end{document}
