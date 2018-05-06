@@ -199,6 +199,27 @@ $f(x) = g(x) $ при $ x \in (x_0 - \delta, x_0 + \delta)$
 Тогда $S_n(f, x_0) - S_n(g, x_0) \xrightarrow[n \to +\infty]{} 0$
 
 \section{Признак Дини. Следствия}
+
+$f \in L^1[-\pi, \pi] \quad x_0 \in [-\pi, \pi] $
+$S \in \mathbb R $ (или $\mathbb C$)
+
+$\int\limits_0^{\pi} \frac{\lvert f(x_0 + t) - 2S + f(x_0 - t) \rvert}{t} dt < +\infty$
+
+\emph{Тогда:} $S_n(f, x_0) \rightarrow S$
+
+\emph{Следствие:}
+$f \in L^1[-\pi, \pi] \quad x_0 \in [-\pi, \pi] $\\
+Существуют 4 конечный предела $\alpha_{\pm} = \lim\limits_{t\rightarrow \pm 0} \frac{f(x_0 + t) - f(x_0 \pm 0)}{t}$
+
+\emph{Тогда:} ряд Фурье сходится в $x_0$ к $S = \frac{1}{2}(f(x_0 + 0) + f(x_0 - 0))$
+
+\emph{Следствие:}
+$f \in L^1[-\pi, \pi] $ - непр. в $x_0$\\
+Существует конечн. $f_{+}'(x_0), f_{-}'(x_0)$ и $\lim\limits_{t\rightarrow \pm 0} \frac{f(x_0 + t) - f(x_0 \pm 0)}{t}$
+
+\emph{Тогда:} $S_n(f,x_0) \rightarrow f(x_0)$
+ 
+
 \section{Корректность определения свертки}
 \section{Свойства свертки функции из $L^p$ с функцией из $L^q$}
 
