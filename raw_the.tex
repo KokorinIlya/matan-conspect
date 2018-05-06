@@ -1,0 +1,181 @@
+\documentclass[paper=a4, fontsize=17pt]{article}
+
+\usepackage[russian]{babel}
+\usepackage{scrextend}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,bindingoffset=0cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{amssymb}
+\usepackage{cmap}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\DeclareMathOperator*{\esssup}{ess\, sup}
+
+
+\parindent=0cm
+
+\title{Определения по матану, семестр 4}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+\section{Теорема о вложении пространств $L^p$}
+
+$ \mu E < +\infty, ~ 1 \leq s < r \leq + \infty$
+
+\textbf{\emph{Тогда:}} 
+
+\begin{enumerate}
+	\item $ L_r(E, \mu)  \subset \L_s(E, \mu)$
+	\item $ \forall f - $ измеримы $ ~ ||f||_s \leq \mu E^{1/s - 1/r} ||f||_r$
+\end{enumerate}	
+
+\section{Теорема о сходимости в $L_p$ и по мере}
+$ 1 \leq p < +\infty, ~$
+$ f_n \in L_p(\mathbb{X}, \mu)$
+
+\textbf{\emph{Тогда:}}
+
+\begin{enumerate}
+	
+	
+	\item \begin{itemize}
+		\item $ f \in L_p $
+		\item $ f_n \rightarrow f $ в $ L_p $
+	\end{itemize} 
+	\textbf{Тогда:} $ f_n \stackrel{\mu}{\Rightarrow} f $ (по мере)
+		
+	\item \begin{itemize}
+		\item $ f_n \stackrel{\mu}{\Rightarrow} f $ (либо если $ f_n \rightarrow f $  почти везде)
+		\item $ |f_n| \leq g $ почти при всех $ n ~ , ~ g \in L_p $
+	\end{itemize} 
+	\textbf{Тогда:} $ f_n \rightarrow f $ в $ L_p $
+\end{enumerate}
+
+\section{Полнота $L_p$}
+$ L_p(E, \mu) ~ ~ 1 \leq p < \infty $ -- полное 
+
+То есть любая фундаментальная последовательность сходиться по норме $ ||f||_p $.
+
+$$ \forall \varepsilon > 0 ~ \exists N ~ \forall n, k ~ ||f_n - f_k|| < \varepsilon \Rightarrow \exists f \mid ~ ||f_n - f|| \rightarrow 0 $$
+
+
+\section{Лемма Урысона}
+
+\section{Плотность в $L_p$ непрерывных финитных функций}
+
+\section{Теорема о непрерывности сдвига}
+
+\section{Теорема об интеграле с функцией распределения}
+$(\mathbb{R}, B, X)$ \\
+$f:\mathbb{R}\rightarrow\mathbb{R}, f \ge 0,$ изм. по Борелю, п.в. конечн.\\
+$h: X \rightarrow \overline{\mathbb{R}}$ с функцией распределения $H(t)$\\ 
+
+
+$\mu_H$ -- мера Бореля-Стилтьеса (мера Лебега-Стилтьеса на $B$)\\
+
+
+\emph{Тогда:} $\int\limits_X f(h(x))~d\mu(x) = \int\limits_{\mathbb{R}}f(t)~d\mu_{H}(t)$
+
+\section{Теорема о свойствах сходимости в гильбертовом пространстве}
+\begin{enumerate}
+	\item $x_n \rightarrow x, y_n \rightarrow y \Rightarrow <x_n, y_n> \rightarrow <x, y>$
+	
+	\item $\sum x_k$ сходится, тогда $\forall y: \sum <x_k, y> = <\sum x_k, y>$
+	
+	\item $\sum x_k$ - ортогональный ряд, тогда $\sum x_k$ - сх $\Leftrightarrow \sum |x_k|^2$ сходится, при этом $|\sum x_k|^2 = \sum |x_k|^2$
+	
+\end{enumerate}
+
+\section{Теорема о коэффициентах разложения по ортогональной системе}
+
+$\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \in \mathds{H}, x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
+
+\emph{Тогда:}
+\begin{enumerate}
+
+	\item $\{e_k\}$ {{---}} Л.Н.З.
+	
+	\item $c_k = \dfrac{<x, e_k>}{||e_k||^2}$
+	
+	\item $c_k \cdot e_k$ {{---}} проекция $x$ на прямую $\{te_k, t \in \mathbb{R}(\mathbb{C})\}$\\ 
+	Иными словами $x = c_k \cdot e_k + z$, где $z \bot e_k$
+
+\end{enumerate}
+
+\section{Теорема о свойствах частичных сумм ряда Фурье. Неравенство Бесселя}
+
+$\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \in \mathds{H}, n \in \mathbb{N}$
+
+$S_n = \sum\limits_{k=1}^{n} c_k(x)e_k,\ \pazocal{L} = Lin(e_1, e_2, ...) \subset \mathds{H}$
+
+\emph{Тогда:}
+
+\begin{enumerate}
+
+	\item $S_n$ {{---}} орт. проекция $x$ на пр-во $\pazocal{L}$. Иными словами $x = S_n + z,\ z \bot \pazocal{L}$
+	
+	\item $S_n$ {{---}} наилучшее приближение $x$ в $\pazocal{L}\ (||x - S_n|| = \min\limits_{y \in \pazocal{L}} ||x - y||)$	
+
+	\item $||S_n|| \leqslant ||x||$
+
+\end{enumerate}
+
+\section{Теорема Рисса -- Фишера о сумме ряда Фурье. Равенство Парсеваля}
+$\{e_k\}$ -- орт. сист. в $\mathds{H}$, $x \in \mathds{H}$\\
+
+\emph{Тогда}:
+\begin{enumerate}
+	\item Ряд Фурье $\sum\limits_{k=1}^{+\infty} c_k(x) e_k$ сх-ся в $\mathds{H}$
+	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k$
+	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k \Leftrightarrow \sum\limits_{k=1}^{+\infty} \vert c_k \vert^2 \|e_k\|^2=\|x\|^2$
+\end{enumerate}
+
+\section{Теорема о характеристике базиса}
+
+$\{e_k\}$ -- орт. сист. в $\mathds{H}$\\
+
+\emph{Тогда} эквивалентны следующие утверждения:
+\begin{enumerate}
+	\item $\{e_k\}$ -- базис
+	\item $\forall x, y \in \mathds{H} \quad \langle x, y \rangle = \sum c_k(x)\overline{c_k(y)}\|e_k\|^2$ (обобщенное уравнение замкнутости)
+	\item $\{e_k\}$ - замкн.
+	\item $\{e_k\}$ - полн.
+	\item $Lin(e_1, e_2, \mathellipsis)$ - плотна в $\mathds{H}$ 
+\end{enumerate}
+
+\section{Лемма о вычислении коэффициентов тригонометрического ряда}
+
+Пусть $S_n \rightarrow f$ в $L_1[-\pi, \pi]$\\ 
+
+\emph{Тогда}:
+
+$a_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)coskx\ dx \quad k = 0, 1, 2, \mathellipsis$
+
+$b_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)sinkx\ dx \quad k = 0, 1, 2, \mathellipsis$
+
+$c_k = \frac{1}{2\pi}\int\limits_{-\pi}^{\pi}f(x)e^{-ikx}\ dx \quad k = 0, 1, 2, \mathellipsis$
+
+\section{Теорема Римана--Лебега}
+\section{Принцип локализации Римана}
+\section{Признак Дини. Следствия}
+\section{Корректность определения свертки}
+\section{Свойства свертки функции из $L^p$ с функцией из $L^q$}
+\section{Формула Грина}
+\section{Формула Стокса}
+\section{Формула Гаусса--Остроградского}
+\section{Соленоидальность бездивергентного векторного поля}
+
+\end{document}
