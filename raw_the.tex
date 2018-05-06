@@ -199,14 +199,49 @@ $f(x) = g(x) $ при $ x \in (x_0 - \delta, x_0 + \delta)$
 Тогда $S_n(f, x_0) - S_n(g, x_0) \xrightarrow[n \to +\infty]{} 0$
 
 \section{Признак Дини. Следствия}
-
-
-
 \section{Корректность определения свертки}
 \section{Свойства свертки функции из $L^p$ с функцией из $L^q$}
+
+
+$f \in L^p \quad k \in L^q[-\pi, \pi] \quad \left(\dfrac{1}{p} + \dfrac{1}{q} = 1 \right) \quad 1 \leqslant p < +\infty$
+
+Тогда $f * k$ - непрерывна на $[-\pi, \pi]$
+
+$\|f * k \|_1 \leqslant \|f\|_p * \|k\|_q$
+
 \section{Формула Грина}
+
+$\mathbb R^2$ — ориент. с помощью нумерации координат.
+
+$D \subset \mathbb R^2$ — компактное, связное, односвязное, с $C^2$-гладкой границей.
+
+$(P, Q)$ — гладкое векторное поле.
+
+Пусть граница $D (\partial D)$ ориентирована согласованно с ориентацией плоскости.
+
+Тогда $\displaystyle\int_{\partial D} P \,dx + Q \,dy = \displaystyle\iint_D \left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right) dx\, dy$
+
 \section{Формула Стокса}
+
+$D \subset \mathbb R^3$ — простая гладкая поверхность в $\mathbb R^3$,
+$\partial D$ — $C^2$-гладкая кривая,
+
+$n_0$ — сторона поверхности; ориентированы согласованно с $\partial D$<br>
+$(P,Q,R)$ — гладкое векторное поле на $D$. Тогда:
+
+$\displaystyle\int_{\partial D} P dx + Q dy + R dz =$
+
+$= \displaystyle\iint_D (R'_y - Q'_z) \;dy dz + (P'_z - R'_x) \;dz dx + (Q'_x - P'_y) \;dx dy$
+
 \section{Формула Гаусса--Остроградского}
+
+$D \subset \mathbb R^3 \quad \partial D$ — ориент. полем внешних нормалей
+
+$(P, Q, R)$ — гл. век. поле в $D$. Тогда
+
+
+ $\displaystyle\iint\limits_{\partial D} P \,dy\,dz + Q \,dz\,dx + R \,dx\,dy = \iiint\limits_D (P'_x + Q'_y + R'_z)\,dx\,dy\,dz$
+
 \section{Соленоидальность бездивергентного векторного поля}
 
 \end{document}
