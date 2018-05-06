@@ -246,8 +246,15 @@
 	$$ \Phi_n(t) = \frac{1}{n+1} \sum_{k = 0}^{n} D_k(t) $$
 	
 	\section{Ротор, дивергенция векторного поля}
+	Пусть $V = (P, Q, R)$ — гладкое векторное поле в некоторой области $E \subset \mathbb R^3$. Тогда: 
+	
+	$\operatorname{rot} V = (R'_y - Q'_z,\; P'_z - R'_x,\; Q'_x - P'_y)$
+	
+	//TODO: Дивергенция
 	
 	\section{Соленоидальное векторное поле}
+	
+	$v = (P, Q, R)$ — соленоидальное, если существует векторный потенциал $B$, т.е. $v = \operatorname{rot} B$.
 	
 	\section{Бескоординатное определение ротора и дивергенции}
 	$$ \forall a \forall n_0 : rot(F, a, n_0) = \lim\limits_{r \rightarrow 0} \left( \frac{1}{\pi r^2} \int\limits_{\delta B(a, r)}F_l dl \right)$$
