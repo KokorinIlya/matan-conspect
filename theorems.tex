@@ -630,7 +630,7 @@ $<\mathds{X}, \mathds{A}, \mu>$ -- пространство с мерой,
 
 $f_n, f$ -- измеримы,
 
-$f_n\stackrel{\mu}{\Rightarrow}f$ \textbf{почти везде},
+$f_n \rightarrow f$ \textbf{почти везде},
 
 $\exists g \mid \mathds{X} \rightarrow \overline{\mathds{R}}$ такая, что:
 \begin{itemize}
@@ -1522,12 +1522,14 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 
 Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
-\section{О локальной суммируемости.}
+\section{О локальной суммируемости. \Large Deprecated}
 $$ \int_{a}^{\rightarrow b} f \text{ -- абс. сх} \Longleftrightarrow f \text{ -- сумм.}$$
 
 \emph{Доказательство:} TODO
 
-\section{Теорема 1}
+\section{Предельный переход под знаком интеграла при наличии равномерной сходимости или $L_{loc}$}
+
+\subsection{При равномерной сходимости}
 $ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
 
 $ (\mathbb{X}, \mathbb{A}, \mu) $ -- простр. с мерой
@@ -1547,20 +1549,39 @@ $ \mu X < +\infty $; $ f(x,y) \underset{y \rightarrow a}{\rightrightarrows} \phi
 	\item $ \int\limits_{X} f(x, y) d\mu (x) \underset{y \rightarrow a}{\longrightarrow} \int\limits_{X} \phi(x) d\mu(x) $
 \end{itemize}
 
-\emph{Доказательство:} TODO
+\emph{Доказательство:} По Гейне: $ y_n \rightarrow a $
 
-\section{Лебега о мажорированой сходимости (переформулировка для текущего контекста)}
+При больших $ n ~ ~ \forall x ~ |f(x, y_n) - \phi(x) | < 1$
+
+$ \Rightarrow | \phi(x) | \leq | f(x, y_n) | + 1 
+  \Rightarrow \int\limits_X | \phi(x) | \leq \int\limits_X|f| + \mu X$
+
+Из этого следует, что $ \phi $ -- суммир.
+
+$$ |\int\limits_X f(x, y_n) d\mu(x) - \int\limits_X \phi | 
+\leq \int\limits_X | f(x, y_n) - \phi(x) | d\mu 
+\leq \sup\limits_{x \in X} | f(x, y_n) - \phi(x)| \mu X $$
+$$\sup\limits_{x \in X} | f(x, y_n) - \phi(x)| \mu X \underset{n \rightarrow +\infty}{\longrightarrow} 0 $$
+
+\subsection{При $L_{loc}$}
+
+\textbf{Определение $ L_{loc} $}
 
 $ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
 
 $ (\mathbb{X}, \mathbb{A}, \mu) $ -- простр. с мерой
 
-$ \mathbb{Y} $ -- метр. простр. (или метризуемое)
+$ \mathbb{Y} $ -- метр. простр. (или метризуемое); $ a \in \mathbb{Y} $
+
 
 $ \forall y ~ f^y(x) = f(x, y) $ -- сумм. на $ \mathbb{X} $
 
-$ a \in \mathbb{Y} $
-\bigskip
+f удовлетворяет $ L_{loc} $ ($ f \in (L_{loc}) $) если:
+\begin{itemize}
+	\item  $ \exists g : \mathbb{X} \rightarrow \overline{\mathbb{R}} $ -- сумм.
+	\item $ \exists U(a) ~ \forall y \in \dot{U} (a) ~ \text{при п. в.} ~ x \in \mathbb{X} ~ |f(x, y)| \leq g(x)$
+\end{itemize}
+\textbf{Формулировка в контексте опредления:}
 
 $ \phi := \lim\limits_{y \rightarrow a} f(x, y) $ -- задана при п. в. $ x $
 
@@ -1574,9 +1595,9 @@ $ f(x,y) $ удовлетворяет условию $ L_{loc} $ в точке $
 	\item $ \int\limits_{X} f(x, y) d\mu (x) \underset{y \rightarrow a}{\longrightarrow} \int\limits_{X} \phi(x) d\mu(x) $
 \end{itemize}
 
-\emph{Доказательство:} TODO
+\emph{Доказательство:} На самом деле это переформулировка Теоремы Лебега о мажорированной сходимости для случая сходимости почти везде. (см теор. № 13)
 
-\section{Теорема 2}
+\section{Признак Лейбница дифференцирования интеграла по параметру}
 
 $ f : \mathbb{X} \times \mathbb{Y} \rightarrow \overline{\mathbb{R}}$
 
@@ -1602,13 +1623,35 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 
 \emph{Доказательство:} TODO
 
+\section{Корректность светки}
+
+\section{Свойства светки функции из $ L^p $ с фукнцией из $ L^q $}
+
+$ f \in L^p $; $ K \in L^q $
+
+$ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
+
+\emph{Тогда:}
+\begin{itemize}
+	\item $ f \ast K $ -- непр. на $ [-\pi, \pi] $
+	\item $ ||f \ast K||_{\infty} \leqslant ||K||_q ||f||_p $
+\end{itemize}
+
+\emph{Доказательство:} Это нер-во Гельдера
+
+$ | \int\limits^\pi_{-\pi} f(x - t) K(t) dt)| \underset{\text{нер-во Гельдера}}{\leq} (\int\limits^\pi_{-\pi} |f(x -t)|^p dt)^{1/p} (\int\limits^\pi_{-\pi} |K(x)|^q dt)^{1/q} = \\
+ = ||K||_q ||f||_p \Rightarrow \sup|f \ast K| \leq ||f||_p ||K||_q \Rightarrow \text{пунк 2}$ 
+
+
+
+
 \section{Свойства свертки}
 
 \begin{enumerate}
 	\item Свертка -- корректно заданная функция из $ L_1([-\pi, \pi]) $
 	\item Коммутативность: $ f \ast K = K \ast f$
 	\item $ c_k(f \ast K) = 2\pi c_k(f) c_k(K) $ ($ c_k $ -- коэф. ряда фурье)
-	\item
+	\item {\bf \Large deprecated}
 		$ f \in L^p $; $ K \in L^q $
 
 		$ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
