@@ -1303,8 +1303,44 @@ $$ \forall \epsilon > 0 ~ \exists N ~ \forall n, k ~ ||f_n - f_k|| < \epsilon \R
 \section{Лемма Урысона}
 
 \section{Плотность в $L^p$ непрерывных финитных функций}
+$(\mathbb{R}^m, \mathbb{A}, \lambda_m)$\\
+
+$E \subset \mathbb{R}^m -$ изм. Тогда множество финитных непрерывных функций плотно в $L_p(E, \lambda_m), p \in [1; +\infty]$\\
+
+\emph{Доказательство}: 
+
+\begin{enumerate}
+	\item  Раскроем определение плотности: $\forall f \in L_p(E, \mu) \ \forall \epsilon > 0 \ \exists \varphi \in C_0(\mathbb{R}^m): ||f - \varphi|_E ||_p < \epsilon$. Таким образом достаточно научиться приближать $f$ и  $\varphi$ ступенчатыми функциями $f_n$: $||f-f_n||_p < \epsilon /2 $ и $||\varphi-f_n||_p < \epsilon /2 $ 
+
+	\item	 TODO!
+	
+\end{enumerate}
+
 
 \section{Теорема о непрерывности сдвига}
+\emph{Обозначения}: 
+
+$f_h := f(x+h)$ \\
+$[0, T] \subset \mathbb{R}.$ Будем считать, что $L_p[0, T] -$ состоит из $T$-периодических функций $\mathbb{R} \rightarrow \overline {\mathbb{R}}$. Отсюда $\int_{0}^{T} f = \int_{a}^{a+T} f.$ \\
+$\widetilde{C}[0, T] = {f \in C[0, T]: f(0) = f(T) }. ||f|| = max_{x\in[0,T]}|f(x)|$ \\
+NB: $f \in \widetilde{C}[0, T] \Rightarrow f -$ рвнм. непрерывна (по т. Кантора)
+
+\emph{Формулировка}: 
+\begin{enumerate}
+	\item $f - $ рвнм. непр. на $\mathbb{R}^m$. Тогда $||f-f_h||_\infty \rightarrow 0$ при $h\rightarrow 0$. 
+	\item $1 \leq p < + \infty \ f \in L_p(\mathbb{R}^m, \lambda_m)$. Тогда $||f-f_h||_p \rightarrow 0$.
+	\item $f \in \widetilde{C}[0, T]$. Тогда $||f-f_h||_+\infty \rightarrow 0$.
+	\item $1 \leq p < + \infty \  f \in L_p[0; T]$. Тогда $||f-f_h||_p \rightarrow 0$.
+\end{enumerate}
+
+\emph{Доказательство}: 
+
+\begin{enumerate}
+	\item 1 и 3 свойства следуют из определения рвнм. непр-ти: 
+		$\forall \epsilon > 0 \ \exists \delta > 0 \  \forall x \in \mathbb{R}^m \ \forall h: |h| < \delta$ верно, что $|f(x) - f(x+h)| < \epsilon$, то есть $||f-f_h||_+\infty < \epsilon$
+		(это для св-ва 1, во втором случае $x$ из $[0,T]$).
+	\item TODO!
+\end{enumerate}
 
 \section{Теорема об интеграле с функцией распределения}
 $(\mathbb{R}, B, X)$ \\
