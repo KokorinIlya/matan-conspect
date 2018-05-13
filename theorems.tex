@@ -1522,4 +1522,62 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 
 Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
+\section{Теорема Римана--Лебега}
+$E \subset \mathds{R}^1$ -- измеримо\\ $f \in L_1(E, \lambda), ~ \lambda \text{- мера Лебега}$ \\
+\emph{Тогда:} $$\int\limits_{E}f(x)e^{ikx}dx \xrightarrow[k \to +\infty]{} 0$$ и $$\int\limits_{E}f(x)cos(kx)dx \xrightarrow[k \to +\infty]{} 0$$
+\emph{Доказательство:} \\
+Пусть $f \equiv 0$ вне $E$, тогда можно считать, что $f \in L^1(\mathds{R}^1)$ \\
+$\int\limits_{\mathds{R}}f(t)e^{ikt \overset{t=\tau + \frac{\pi}{k}}{=}} \int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{i k \tau + i\pi} = -\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau}$ \\
+$\int\limits_{\mathds{R}}f(t)e^{ikt} = \frac{1}{2}\int\limits_{\mathds{R}}f(t)e^{ikt} - \frac{1}{2}\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau} = \frac{1}{2}\int\limits_{\mathds{R}}(f(t) - f(t + \frac{\pi}{k}))$ \\
+$|\int\limits_{\mathds{R}}f(t)e^{ikt}| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t) - f(t + \frac{\pi}{k})|dt \xrightarrow[k \to +\infty]{}0$,\\по непрерывности сдвига, то есть:\\$||f-f_{\tau}||_1 \xrightarrow[\tau\to 0]{}0$
+\\\\
+Сходимость второго интеграла очевидна из $cos(kx) = \frac{e^{ikx} - e^{-ikx}}{2}$
+\section{Формула Грина}
+$D \subset \mathds{R}^2$ -- компакт, связное, одновясвязное, ориентировано\\$\delta D-C^2\text{-гладкая кривая, тоже ориентировано}$\\
+$D$ и $\delta D$ ориентированы согласовано \\
+$P, Q$ -- функции, гладкие в открытой области $O \supset D$ \\
+\emph{Тогда:} $$\iint\limits_{D}(\frac{\delta Q}{\delta x} - \frac{\delta P}{\delta y})dxdy = \int\limits_{\delta D}(P(x,y)dx + Q(x,y))dy$$
+\emph{Доказательство:} \\
+Докажем для областей вида "криволинейный четырехугольник"\ , т.е. \\
+$x \in [a;b]$ \\
+$y \in [\phi_1(x);\phi_2(x)]$, где $\phi_2(x) > \phi_1(x)$ \\
+Представляется в аналогичном виде, относительно y \\\\
+Ориентируем обход нашего четырехугольника против часовой стрелки.\\
+Назовем пути по сторонам $\gamma_1, \gamma_2, \gamma_3, \gamma_4$ начиная с нижней против часовой стрелки соответсвенно. \\
+Из линейности интеграла по векторному полю следует, что для доказательства достаточно проверить: $$-\iint\limits_{D} \frac{\delta P}{\delta y}dxdy = \int\limits_{\delta D}Pdx$$ 
+\begin{enumerate}
+	\item Преобразуем левую часть:\\
+		$-\iint\limits_{D} \frac{\delta P}{\delta y}dxdy = - \int\limits_{a}^bdx\int\limits_{\phi_1(x)}^{\phi_2(x)}P^{'}_ydy = -\int\limits_{a}^bP(x,y)\bigg|_{y=\phi_1(x)}^{y=\phi_2(x)}dx =\\ \int\limits_{a}^bP(x,\phi_1(x))dx - \int\limits_{a}^bP(x,\phi_2(x))$
+	\item Преобразуем правую часть: \\
+		$\int\limits_{\delta D}(Pdx + 0dy) = \int\limits_{\gamma_1}+\int\limits_{\gamma_2}+\int\limits_{\gamma_3}+\int\limits_{\gamma_4} \\ = \int\limits_{a}^bP(x,\phi_1(x))dx + 0 + \int\limits_{b}^aP(x, \phi_2(x))dx + 0 = \\ \int\limits_{a}^bP(x,\phi_1(x))dx - \int\limits_{a}^bP(x,\phi_2(x))$
+\end{enumerate}
+Левая и правая части равны. \\\\
+Если область более сложная - порежем на простые. Зафиксируем направление обхода, посчитаем на каждой. \\
+При фиксированном направлении обхода пути на границах разрезов учитываются дважды с противоположными знаками, то есть в итоге имеем обход границы всей фигуры.\\
+Из компактности и гладкости области следует, что допускается счетное количество разрезов.
+\section{Формула Стокса}
+$\Omega$ -- эллиптическая, гладкая, двусторонняя поверхность, $C^2-$гладкое; $n_0$ -- сторона\\
+$\delta \Omega$ - ориентирована согласовано с $n_0$\\
+$(P,Q,R)$ -- векторное поле на $\Omega$, заданное в $O$ - откр. $: \Omega \subset O\subset \mathds{R}^3$ \\
+\emph{Тогда:} $$\int\limits_{\delta \Omega}(Pdx + Qdy+Rdz) = 
+\iint\limits_{\Omega}((R^{'}_y- Q{'}_z)dydz 
++(P^{'}_z-R^{'}_x)dzdx + (Q^{'}_x-P^{'}_y)dxdy)$$
+\emph{Доказательство:} \\
+Из соображений линейности интеграла по векторному полю достаточно проверить: $$\int\limits_{\delta \Omega}Pdx = \iint\limits_{\Omega}(P^{'}_zdzdx - P^{'}_ydxdy)$$
+	Параметризуем область: $\Omega \leftrightarrow \bigg<
+	\begin{matrix} x(u,v) \\ y(u,v) \\ z(u,v) \end{matrix}
+	\bigg>$ \\
+	Пусть $G$ -- наша область в координатах $(u, v)$, $L$ -- граница $\Omega$ в новых координатах, тогда:\\
+	$\int\limits_{\delta \Omega}Pdx = \int\limits_{L}P(x(u,v),y(u,v), z(u,v))(x^{'}_udu + x^{'}_vdv) = \int\limits_{L}Px^{'}_udu + Px^{'}_vdv \overset{\text{Грин}}{=} \\ \iint\limits_{G}((P(x,y,z)x^{'}_v)^{'}_u - (P(x,y,z)x^{'}_u)^{'}_v)dudv = \\ \iint\limits_{G}(P^{'}_z(z^{'}_ux^{'}_v - z^{'}_vx^{'}_u) - P^{'}_y(y^{'}_vx^{'}_u - y^{'}_ux^{'}_v) )dudv =\\ \iint\limits_{G}P^{'}_z
+	\begin{vmatrix}
+	 z^{'}_u & z^{'}_v \\
+	 x^{'}_u & x^{'}_v
+	\end{vmatrix}dudv
+	- 
+	P^{'}_y
+	\begin{vmatrix}
+	x^{'}_u & x^{'}_v \\
+	y^{'}_u & y^{'}_v
+	\end{vmatrix}dudv = \\ 
+	\iint\limits_{\Omega}(P^{'}_zdzdx - P^{'}_ydxdy)$\\что и требовалось доказать 
 \end{document}

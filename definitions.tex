@@ -377,5 +377,34 @@
 				
 		\end{tikzpicture}
 	\end{center}
+	
+	\section{Тригонометрический ряд}
 
+	\begin{itemize}
+		\item $$ \frac{a_0}{2}  + \sum_{k = 1}^{\infty} a_k coskx + b_k sinkx $$ 
+		(где $ a_i, b_i $ -- коэффициенты ряда)
+		
+		\item Другая форма:	$$ \sum_{k = \mathbb{Z}} c_k e^{ikx} $$
+		
+		Тогда $ S_n := \sum_{k = -N}^{N} c_k e^{ikx} $
+	\end{itemize}
+
+	\section{Коэффициенты Фурье функции}
+
+	\begin{itemize}
+		\item $$ a_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) coskx ~ dx $$
+		
+		\item $$ b_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) sinkx ~ dx $$
+		
+		\item $$ с_k(f) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx} ~ dx $$
+		
+	\end{itemize}
+
+	\section{Ядро Дирихле}
+
+	$$ D_n(t) = \frac{1}{\pi}( \frac{1}{2} + \sum_{k = 1}^{n} coskt) $$
+	
+	\section{Ядро Фейера} 
+	
+	$$ \Phi_n(t) = \frac{1}{n+1} \sum_{k = 0}^{n} D_k(t) $$
 \end{document}
