@@ -1621,7 +1621,18 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 	\item $ I'(y) = \int\limits_{X} f_y'(x, a) d\mu(x) $
 \end{itemize}
 
-\emph{Доказательство:} TODO
+\emph{Доказательство:} 
+
+	$ F(x, h) = \frac{f(x, a + h) - f(x, a)}{h} \rightarrow f'_y(x, a) $
+
+	$ \frac{I(a + h) - I(a)}{h} = \int\limits_X F(x, h) d\mu(x)
+	  \underset{?}{\rightarrow} \int\limits_X f'_y(x, a) d\mu$
+	  
+	  чтобы использовать предельный переход нужно проверить 
+	  $ F(x, h) \in L_{loc} ~ \text{в точке} ~  h = 0 $, т. е. найти локальную мажоранту. (см. теор. о пред. переход. под интегралом)
+	  
+	$ |F(x, h)| \underset{\text{т. Лагранжа}}{=}
+	|f'_y(x, a + \theta h)| \underset{f'_y \in L_{loc} ~ in ~ a}{\leq} g(x) $	  
 
 \section{Корректность светки}
 
@@ -1639,9 +1650,38 @@ $ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
 
 \emph{Доказательство:} Это нер-во Гельдера
 
-$ | \int\limits^\pi_{-\pi} f(x - t) K(t) dt)| \underset{\text{нер-во Гельдера}}{\leq} (\int\limits^\pi_{-\pi} |f(x -t)|^p dt)^{1/p} (\int\limits^\pi_{-\pi} |K(x)|^q dt)^{1/q} = \\
- = ||K||_q ||f||_p \Rightarrow \sup|f \ast K| \leq ||f||_p ||K||_q \Rightarrow \text{пунк 2}$ 
+\begin{itemize}
+\item[\bf п. 2] $ |(f \ast K)(x)| = | \int\limits^\pi_{-\pi} f(x - t) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq} ||K||_q ||f||_p $ 
 
+ $\sup|f \ast K| \leq ||f||_p ||K||_q \Rightarrow \text{пунк 2}$ 
+
+(Причем нер-во Гельдера выполнено и для $ p = \infty $)
+
+\item[\bf п. 1] 
+
+\begin{itemize}
+	\item $ p < +\infty $ 
+	
+	$ |(f \ast K)(x + h) - (f \ast K)(x)| =
+	| \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq}
+	| (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} (\int\limits^\pi_{-\pi} |K(t)|^q dt)^{1/q} = 
+	||K||_q (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} = 
+	||K||_q (\int\limits^\pi_{-\pi} |f(y + h)- f(y)|^p dy)^{1/p} = \\
+	= ||K||_q || f(y + h) - f(y) ||_p \underset{\text{по непр. сдвига}}{\rightarrow} 0
+	$
+	\item $ p = +\infty $
+	
+	$|(f \ast K)(x + h) - (f \ast K)(x)| =
+	 | \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq} \\ 
+	 (\int\limits^\pi_{-\pi} |K|) \cdot \underset{ t = [-\pi, \pi] }{esssup} | f(x + h - t)- f(x - t) | = \\ 
+	 ||K||_1 \cdot \underset{ t = [x + \pi, x - \pi] }{esssup} | f(t + h)- f(t) |
+	 \underset{\text{по непр. сдвига}}{\rightarrow} 0 $
+	 
+\end{itemize}
+
+
+
+\end{itemize}
 
 
 
