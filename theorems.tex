@@ -1616,4 +1616,20 @@ $(P,Q,R)$ -- векторное поле на $\Omega$, заданное в $O$ 
 	y^{'}_u & y^{'}_v
 	\end{vmatrix}dudv = \\ 
 	\iint\limits_{\Omega}(P^{'}_zdzdx - P^{'}_ydxdy)$\\что и требовалось доказать 
+
+\section{Формула Гаусса--Остроградского}
+$V = \{(x,y,z)\in \mathbb{R}^3: (x,y) \in G, f(x, y) \leq z \leq F(x,y)\}, G \subset \mathbb{R}^2, \partial G -$ гладкая кривая в $\mathbb{R}^2, F \in "C'(G)"$ (кавычки означают "включая границу, то есть с более широкой гладкой областью"), $\partial V - $ внешняя сторона, $R: O(V) \rightarrow \mathbb{R}$. Тогда 
+$$\iiint\limits_{V}{\frac {\partial R}{\partial z} \,dx\,dy\,dz = \iint\limits_{\partial V}{R\,dx\,dy}}$$
+\emph{Доказательство:}\\
+$\partial V = \Omega_F \cup \Omega_{cil} \cup \Omega_f$ (границы графика $F,f$ и цилиндра между ними)\\
+
+
+$\iiint\limits_{V}{\frac {\partial R}{\partial z} \,dx\,dy\,dz} 
+= \iint\limits_G\,dx\,dy\int\limits_{f(x,y)}^{F(x,y)} {\frac {\partial R}{\partial z} \,dz} = \\
+= \iint\limits_G{(R(x,y, F(x,y)) - R(x, y, f(x,y)))\,dx\,dy} = $ (см. пример после опр. инт. 2 рода) $\\ 
+= \iint\limits_{\Omega_F}{R\,dx\,dy} - (-\iint\limits_{\Omega_f}{R\,dx\,dy}) + 0  = $ (так как проекция $\Omega_{cil}$ лежит в $\partial G )\\
+= \iint\limits_{\Omega_F}{R\,dx\,dy} + \iint\limits_{\Omega_f}{R\,dx\,dy} + \iint\limits_{\Omega_{cil}}{R\,dx\,dy} = \\
+= \iint\limits_{\partial V}{R\,dx\,dy}$
+
+
 \end{document}
