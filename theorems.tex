@@ -1631,5 +1631,68 @@ $\iiint\limits_{V}{\frac {\partial R}{\partial z} \,dx\,dy\,dz}
 = \iint\limits_{\Omega_F}{R\,dx\,dy} + \iint\limits_{\Omega_f}{R\,dx\,dy} + \iint\limits_{\Omega_{cil}}{R\,dx\,dy} = \\
 = \iint\limits_{\partial V}{R\,dx\,dy}$
 
+\section{Лемма об оценке интеграла ядра Дирихле}
+\begin{enumerate}
+    \item $D_n(t) = \frac{\sin nt}{\pi t} + \frac{1}{2\pi}(\cos nt + h(t)\sin nt)$, где $h(t)$ не зависит от n и $|h(t)| \leq 1$
+        на $[-\pi;\pi]$.
+    \item $\forall x, |x| < 2\pi\ |\int_0^x D_n(t) dt| < 2$
+\end{enumerate}
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item $D_n(t) = \frac{1}{2\pi} \frac{\sin(n+\frac{1}{2})t}{\sin\frac{t}{2}} =
+            \frac{1}{2\pi} \frac{\sin nt \cos \frac{t}{2} + \cos nt \sin \frac{t}{2}}{\sin\frac{t}{2}} =
+            \frac{1}{2\pi}(\frac{\sin nt}{\tg\frac{t}{2}} + \cos nt)$
+        \item Добавим и вычтем $\frac{\sin nt}{\pi t}$:\\
+            $\frac{\sin nt}{\pi t} + \frac{1}{2\pi} (\cos nt + \underbrace{(\frac{1}{\tg \frac{t}{2}} - \frac{1}{\frac{t}{2}})}_{h(t)} \sin nt)$
+        \item Докажем, что $|h(t)| \leq 1$. Найдём знак производной на $[0;\pi]$:\\
+            $h'(t) = -\frac{1}{2\sin^2 \frac{t}{2}} + \frac{2}{t^2} = \frac{4\sin^2\frac{t}{2} - t^2}{2t^2\sin^2 \frac{t}{2}}$.
+            Знаменатель неотрицателен.\\
+            $4\sin^2\frac{t}{2} - t^2 = (2\sin\frac{t}{2} - t)(2\sin\frac{t}{2} + t)$. Вторая скобка $\geq 0$.
+            Первая скобка $\leq 0$, так как $\sin x \leq x$ при $x \geq 0$.
+        \item Знак производной $h(x)$ на $[0;\pi]$ постоянен, значит, $h$ монотонна. $h(0)=0$ (в пределе), $h(\pi)=\frac{2}{\pi} < 1$.\\
+            Значит, $|h(x)| < 1$. Аналогично для $[-\pi;0]$.
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item $D_n$~--- чётная. Считаем, что $x > 0$.
+        \item Пусть $x \in [0;\pi]$.
+        \item $|\int_0^x D_n(t) dt - \int_0^x \frac{\sin nt}{\pi t}dt| = |\int_0^x \frac{1}{2\pi}(\cos nt + h(t)\sin nt)|$
+        (пункт 1)\\
+            $\leq \frac{1}{2\pi}\int_0^x 2 = \frac{x}{\pi} \leq 1$
+        \item $\int_0^x \frac{\sin nt}{\pi t} = \int_0^{nx} \frac{\sin v}{\pi v} dv$ ($v = nt$).\\
+            $0 \leq \int_0^{nx} \frac{\sin v}{\pi v} dv \leq \int_0^\pi \frac{\sin v}{\pi v} dv$.
+            Доказательство методом пристального взгляда на график подынтегральной функции.\\
+            $\int_0^\pi \frac{\sin v}{\pi v} dv \leq \pi \frac{1}{\pi} = 1$
+        \item $|\int_0^x D_n(t) dt - I| \leq 1$, $0 \leq I \leq 1$, значит, $\int_0^x D_n(t) dt \in [-1;2]$.
+        \item Пусть $x \in [\pi;2\pi]$. $\int_0^{2\pi}D_n(t) dt = 1$.\\
+            $\int_0^x = \int_0^{2\pi} - \int_x^{2\pi} = 1 - \int_{x-2\pi}^0 = 1 - \int_0^{2\pi-x} \in [-2;1]$
+    \end{enumerate}
+\end{enumerate}
+
+\section{Теорема об интегрировании ряда Фурье}
+$f \in L_1[-\pi;\pi]$.
+
+Тогда $\forall a, b \in \mathbb{R}$:
+$$\int_a^b f(x)dx = \sum_{k\in\mathbb{Z}} c_k(f) \int_a^b e^{ikx} dx$$
+Сумма по $k \in \mathbb{Z}$ понимается в смысле главного значения ($\lim_{n \to \infty} \sum_{k=-n}^n$).
+
+\emph{Замечание:} Ряд Фурье $f$ может всюду расходиться, но ряд интеграла всегда сходится.
+\\\\
+\emph{Доказательство:}
+
+\begin{enumerate}
+    \item Пусть $-\pi \leq a < b \leq \pi$. Если это не так всегда можно разбить интеграл на такие отрезки в силу периодичности функции.
+    \item Пусть $\chi(x) = \chi[a;b]$ (характеристическая функция отрезка $[a;b]$).
+    \item Рассмотрим частичную сумму ряда интегралов:\\
+        $\sum_{k=-N}^N c_k(f) \underbrace{\int_a^b e^{ikx} dx}_{2\pi c_{-k}(\chi)} =
+        \sum_{k=-N}^N \frac{1}{2\pi} (\int_{-\pi}^\pi f(t) e^{-ikt} dt) 2\pi c_{-k}(\chi)$.\\
+        Сумма конечная, поэтому это равно $\int_{-\pi}^{\pi} f(t) S_N(\chi,t) dt$.
+    \item $S_N(\chi) \to \chi$ везде, кроме $a$ и $b$ (\emph{не шарю почему, помогите})
+    \item $|S_N(\chi,t)| = |\int_{-\pi}^\pi \chi(x)D_N(t-x)dx| = |\int_a^b D_N(t-x)dx| =
+        |\int_0^{t-a}D_N - \int_0^{t-b}D_N| \leq 4$ (по лемме об оценке интеграла $D_N$).
+    \item $\int_{-\pi}^\pi f(t)S_N(\chi,t) dt \to \int_{-\pi}^\pi f(t) \chi(t) dt$ по теореме Лебега о мажорированной сходимости.
+\end{enumerate}
 
 \end{document}
