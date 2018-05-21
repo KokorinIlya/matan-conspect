@@ -1700,36 +1700,36 @@ $$\int_a^b f(x)dx = \sum_{k\in\mathbb{Z}} c_k(f) \int_a^b e^{ikx} dx$$
 \section{Лемма : а.е. Веерштрасса - а.е}
 \begin{enumerate}
     \item ${w_t}$ - а.е. при $t->0$
-    \item $w_t(x) = \int_{R^m} e^{-\pi t^2 |y|^2} e^{-2\pi <x, y>} dy$, т.е $w_t = \^{(V_t)}$, где $V_t(x) = e^{-\pi t^2 |x|^2}$
+    \item $w_t(x) = \int_{R^m} e^{-\pi t^2 |y|^2} e^{-2\pi <x, y>} dy$, т.е $w_t = \hat{(V_t)}$, где $V_t(x) = e^{-\pi t^2 |x|^2}$
 \end{enumerate}
 \emph{Доказательство:}
 \begin{enumerate}
     \item $w_t \geq 0$
     \item $\int_{R^m} w_t(x) dx = \frac{1}{t^m}\int_{-\infty}^{+\infty} dx_1 \int_{-\infty}^{+\infty} dx_2 \dots \int_{-\infty}^{+\infty} e^{-\frac{\pi}{t^2} \sum (x_i)^2} dx_m = \prod_{k=1}^{m} \frac{1}{t} \int_{-\infty}^{+\infty} e^{\frac{-\pi x_k^2}{t^2}} dx_k = 1$, т.к. это интеграл Эйлера-Пуассона с заменой $x := \sqrt\pi x / t$
     \item $\int_{|x| > \delta} w_t \leq e^{\frac{-\delta^2 \pi}{2 t^2}} \frac{1}{t^m} \int_{|x| > \delta} e^{\frac{-\pi |x|^2}{2 t^2}} \leq e^{\frac{-\delta^2 \pi}{2 t^2}} \frac{1}{t^m} \int_{R^m} e^{-\frac{pi |x|^2}{2t^2}}$ . Экспонента $\rightarrow 0$, а интеграл ограничен. Значит $\int_{|x| > \delta} w_t \rightarrow 0$ \\
-    $f_a(x) = e^{-\pi a^2 x^2}, x \in R, a > 0, \^{(f_a)} = \frac{1}{a} f_{\frac{1}{a}}$ (ребята TODOOOO не шарю к чему это тут ????)\\ 
+    $f_a(x) = e^{-\pi a^2 x^2}, x \in R, a > 0, \hat{(f_a)} = \frac{1}{a} f_{\frac{1}{a}}$ (ребята TODOOOO не шарю к чему это тут ????)\\ 
     $\int_{R^m} e^{-\pi t^2 |y|^2} e^{- 2 \pi i <x, y>} dy = \prod_{k=0}^{m-1} \int_{R} e^{-\pi t^2 y_k^2} e^{- 2 \pi i <x_k, y_k>} dy_k = \prod_{k=0}^{m-1} \frac{1}{t} e^{\frac{-\pi x_k^2}{t^2}} = \frac{1}{t^m} e^{\frac{-\pi |x|^2}{t^2}}$  ( и это вообще тут зачем, помогите плиз -_- . Казалось бы это должно доказывать что $w_t * f \rightarrow f$, но я тут этого не вижу явно...)
 
 \end{enumerate}
 
 \section{Теорема (формула обращения)}
 $f \in L^1(R^m)$
-Если $\^{f} \in L^1(R^m)$, то при п.в. x $f(x) = \int_{R^m} \^{f(y)} e^{2\pi i <x, y>} dy$ \\
+Если $\hat{f} \in L^1(R^m)$, то при п.в. x $f(x) = \int_{R^m} \hat{f(y)} e^{2\pi i <x, y>} dy$ \\
 Замечания: \\
 1) П.Ч.: подынт.ф. непр. по x \\
-есть сумм. мажоранта: $|\^{f(y)}| \Rightarrow $ П.Ч. --- непрерывна по x \\
+есть сумм. мажоранта: $|\hat{f(y)}| \Rightarrow $ П.Ч. --- непрерывна по x \\
 2) ПЧ. непр по x и при этом ф-ла вып. п.в. $\Rightarrow$ ф-ла верна в точке непр-сти $f$ \\
-Итого: Если $f \in C(R^m), f \in L^1(R^m), \^{f} \in L^1(R^m)$, то ф-ла обращения вып. при всех $x$.
+Итого: Если $f \in C(R^m), f \in L^1(R^m), \hat{f} \in L^1(R^m)$, то ф-ла обращения вып. при всех $x$.
 \emph{Доказательство:}
 Пусть $w_t(x) = \frac{1}{t^m} e^{\frac{-\pi |x|^2}{t^2}}$, $x \in R^m$ (t > 0) \\
 $f * w_t(x) = \int_{R^m} f(y) w_t(x-y) dy = \int_{R^m} f(y)w_t(y-x)dy$ ($w_t$ - четная) $ = \int_{R^m}f(y+x)w_t(y)$
-$= \int_{R^m} f(x+y) \^{(V_t)} dy = \int_{R^m} \^{(f(y+x))} V_t(y) dy = \int_{R^m} e^{2 \pi i <x, y>} \^{f(y)} V_t(y) dy$\\
-Итак : $f * w_t(x) = \int_{R^m} e^{-pi t^2 |y|^2} e^{2 \pi i <x, y>} \^{f(y)} dy = I$ \\
+$= \int_{R^m} f(x+y) \hat{(V_t)} dy = \int_{R^m} \hat{(f(y+x))} V_t(y) dy = \int_{R^m} e^{2 \pi i <x, y>} \hat{f(y)} V_t(y) dy$\\
+Итак : $f * w_t(x) = \int_{R^m} e^{-pi t^2 |y|^2} e^{2 \pi i <x, y>} \hat{f(y)} dy = I$ \\
 (замечание: т.к. $w_t$ четное, то в интеграле, равном $w_t$ мы можем менять знак перед x и он останется тем же. этим мы и пользовались) \\
-$e^{-pi t^2 |y|^2} e^{2 \pi i <x, y>} \^{f(y)}  \rightarrow e^{2 \pi i <x, y>} \^{f(y)}$ при $t \rightarrow 0$. И есть сумм. мажоранта $|\^{f(y)}|$. Значит интеграл $I$ стремится к $\int_{R^m} e^{2 \pi i <x, y>} \^{f(y)}$\\
+$e^{-pi t^2 |y|^2} e^{2 \pi i <x, y>} \hat{f(y)}  \rightarrow e^{2 \pi i <x, y>} \hat{f(y)}$ при $t \rightarrow 0$. И есть сумм. мажоранта $|\hat{f(y)}|$. Значит интеграл $I$ стремится к $\int_{R^m} e^{2 \pi i <x, y>} \hat{f(y)}$\\
 Берем $t_n \rightarrow 0$\\
 $f*w_t \rightarrow f$ в $L^1 \Rightarrow $\\
 $f*w_{t_n} \Rightarrow f$ (по мере)\\
 $\Rightarrow \exists n_k : f*w_{t_{n_k}} \rightarrow f$ п.в. (т. Рисса) \\
-Поэтому $f(x) = \lim_{t_{n_k} \rightarrow 0} f*f*w_{t_{n_k}} = \Int \dots \rightarrow \int_{R^m} e^{2 \pi i <x, y>} \^{f(y)}$, чтд
+Поэтому $f(x) = \lim_{t_{n_k} \rightarrow 0} f*f*w_{t_{n_k}} = \Int \dots \rightarrow \int_{R^m} e^{2 \pi i <x, y>} \hat{f(y)}$, чтд
 \end{document}
