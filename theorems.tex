@@ -1708,7 +1708,7 @@ $$\int_a^b f(x)dx = \sum_{k\in\mathbb{Z}} c_k(f) \int_a^b e^{ikx} dx$$
     \item $\int_{R^m} w_t(x) dx = \frac{1}{t^m}\int_{-\infty}^{+\infty} dx_1 \int_{-\infty}^{+\infty} dx_2 \dots \int_{-\infty}^{+\infty} e^{-\frac{\pi}{t^2} \sum (x_i)^2} dx_m = \prod_{k=1}^{m} \frac{1}{t} \int_{-\infty}^{+\infty} e^{\frac{-\pi x_k^2}{t^2}} dx_k = 1$, т.к. это интеграл Эйлера-Пуассона с заменой $x := \sqrt\pi x / t$
     \item $\int_{|x| > \delta} w_t \leq e^{\frac{-\delta^2 \pi}{2 t^2}} \frac{1}{t^m} \int_{|x| > \delta} e^{\frac{-\pi |x|^2}{2 t^2}} \leq e^{\frac{-\delta^2 \pi}{2 t^2}} \frac{1}{t^m} \int_{R^m} e^{-\frac{pi |x|^2}{2t^2}}$ . Экспонента $\rightarrow 0$, а интеграл ограничен. Значит $\int_{|x| > \delta} w_t \rightarrow 0$ \\
     $f_a(x) = e^{-\pi a^2 x^2}, x \in R, a > 0, \hat{(f_a)} = \frac{1}{a} f_{\frac{1}{a}}$ (ребята TODOOOO не шарю к чему это тут ????)\\ 
-    $\int_{R^m} e^{-\pi t^2 |y|^2} e^{- 2 \pi i <x, y>} dy = \prod_{k=0}^{m-1} \int_{R} e^{-\pi t^2 y_k^2} e^{- 2 \pi i <x_k, y_k>} dy_k = \prod_{k=0}^{m-1} \frac{1}{t} e^{\frac{-\pi x_k^2}{t^2}} = \frac{1}{t^m} e^{\frac{-\pi |x|^2}{t^2}}$  ( и это вообще тут зачем, помогите плиз -_- . Казалось бы это должно доказывать что $w_t * f \rightarrow f$, но я тут этого не вижу явно...)
+    $\int_{R^m} e^{-\pi t^2 |y|^2} e^{- 2 \pi i <x, y>} dy = \prod_{k=0}^{m-1} \int_{R} e^{-\pi t^2 y_k^2} e^{- 2 \pi i <x_k, y_k>} dy_k = \prod_{k=0}^{m-1} \frac{1}{t} e^{\frac{-\pi x_k^2}{t^2}} = \frac{1}{t^m} e^{\frac{-\pi |x|^2}{t^2}}$  ( и это вообще тут зачем, помогите плиз. Казалось бы это должно доказывать что $w_t * f \rightarrow f$, но я тут этого не вижу явно...)
 
 \end{enumerate}
 
@@ -1731,5 +1731,5 @@ $e^{-pi t^2 |y|^2} e^{2 \pi i <x, y>} \hat{f(y)}  \rightarrow e^{2 \pi i <x, y>}
 $f*w_t \rightarrow f$ в $L^1 \Rightarrow $\\
 $f*w_{t_n} \Rightarrow f$ (по мере)\\
 $\Rightarrow \exists n_k : f*w_{t_{n_k}} \rightarrow f$ п.в. (т. Рисса) \\
-Поэтому $f(x) = \lim_{t_{n_k} \rightarrow 0} f*f*w_{t_{n_k}} = \Int \dots \rightarrow \int_{R^m} e^{2 \pi i <x, y>} \hat{f(y)}$, чтд
+Поэтому $f(x) = \lim_{t_{n_k} \rightarrow 0} f*f*w_{t_{n_k}} = \int \dots \rightarrow \int_{R^m} e^{2 \pi i <x, y>} \hat{f(y)}$, чтд
 \end{document}
