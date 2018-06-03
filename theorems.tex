@@ -18,6 +18,8 @@
 \usepackage{graphics}
 \usepackage{amssymb}
 \usepackage{calrsfs}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 
 \graphicspath{{pictures/}}
@@ -49,6 +51,7 @@ $f: X \rightarrow \overline {\mathds{R}}$ измеримая. Тогда $\exist
 \begin{enumerate}
 	\item Рассмотрим $f = f^+ - f^-. f^+ = max(f, 0), f^- = max(-f, 0)$. Срезки измеримы: $E(f^+  < a) = E(f < a) \cap E(0 < a)$, при этом $f$  и $g \equiv 0$ измеримы ($f^-$ измерима аналогично).
 	\item Срезки измеримы и неотрицательны, тогда по теореме существуют ступенчатые функции $f^+_n \rightarrow f^+, f^-_n \rightarrow f^-$. Тогда и $f^+_n - f^-_n$ это ступенчатая функция, при этом по свойству пределов: $f^+_n - f^-_n \rightarrow f^+ - f^- = f$. Неравенство с модулем верно при правильных эпсилон-неравенствах.
+	\textcolor{red}{Схрена ли}
 \end{enumerate}
 
 Следствие $2$:
@@ -76,8 +79,9 @@ $f, g$ --- измеримые функции. Тогда $f + g$ -- измери
 
 \begin{enumerate}
 	\item $E(f < a) = E'(f < a) \cup e(f < a), e:=E \setminus E', \lambda_m(e) = 0$.
-	\item $ E'(f < a)$ открыто в $E'$, так как f непрерывна. Поэтому $E' = G \cap E' \Rightarrow$, где $G$ ~--- открытое в $E$ множество.  Значит, $E'(f<a)$ ~--- измеримо по Лебегу, так как оно является борелевским.
-	\item Но и $e(f<a)$ измеримо, так $\lambda_m(e) = 0$, следовательно $E(f < a)$ измеримо как объединение измеримых множеств
+	\item $ E'(f < a)$ открыто в $E'$, так как f непрерывна. Поэтому $E' = G \cap F'$ где $G$ ~--- открытое в $\mathds{R}^m$ множество (по теореме об открытости в пространстве и подпространстве).  Значит, $E'(f<a)$ ~--- измеримо по Лебегу, так как оно является борелевским.
+	\item $e(f < a)$ - подмножество $e$, а $\lambda_m(e) = 0$, поэтому $\lambda_m(e(f < a)) = 0 \Rightarrow e(f < a)$ измеримо
+	\item Cледовательно $E(f < a)$ измеримо как объединение измеримых множеств, следовательно, $f$ измерима на $E$.
 \end{enumerate}
 
 Следствие:
@@ -93,6 +97,8 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 $(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
 $f_n , f : X \rightarrow \overline R$ - п.в. конечны, измеримы \\
 $f_n \rightarrow f$ (поточечно, п.в.)
+
+Тогда $f_n\stackrel{\mu}{\Rightarrow}f$
 
 \emph{Доказательство:}
 \begin{enumerate}
