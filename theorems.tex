@@ -114,7 +114,7 @@ $f_n \rightarrow f$ (поточечно, п.в.)
 	$$\begin{cases}
    		$$\mu X < +\infty $$\\
    		$$\ldots\supset E_{n}\supset E_{n+1}\supset\ldots $$
- 	\end{cases}$$ $ \Rightarrow \mu E_{n}\rightarrow\mu\cup E_{n}$ - Th о непрерывности меры сверху.\\
+ 	\end{cases}$$ $ \Rightarrow \mu E_{n}\rightarrow\mu\cap E_{n}$ - Th о непрерывности меры сверху.\\
  	$\Rightarrow\mu X(|f_{n}\geq\epsilon|) \rightarrow \mu\emptyset = 0$
  	\item (общий случай)
  	$f_n \rightarrow f$. Рассмотрим $\phi_{n}(x) := \sup_{k\geq n}|f_{k}(x) - f(x)|$. Заметим свойства $\phi$:\\
@@ -135,12 +135,13 @@ $f_n  \stackrel{\mu}{\Rightarrow} f$.\\
 
 \emph{Доказательство:}
 $\forall k ~ \mu X(|f_n - f| \geq \frac{1}{k}) \stackrel{n\rightarrow+\infty}{\rightarrow} 0$\\
-Тогда $\exists n_{k} : \forall n \geq n_{k} \mu X(|f_n - f| \geq \frac{1}{k}) < \frac{1}{2k}$ (можно считать $n_1 < n_2 < \ldots$)\\
+Тогда $\exists n_{k} : \forall n \geq n_{k}: \mu X(|f_n - f| \geq \frac{1}{k}) < \frac{1}{2k}$ (можно считать $n_1 < n_2 < \ldots$)\\
 Проверим $f_{n_k} \rightarrow f$ п.в. :
-	$E_k := \bigcap\limits{j=k}^{+\infty}X(|f_{n_j} - f|\geq\frac{1}{j})$\\
+
+	$E_k := \bigcup\limits_{j=k}^{+\infty}X(|f_{n_j} - f|\geq\frac{1}{j})$\\
 	$E_1 \supset E_2 \supset E_3 \supset \ldots$\\
-	$E_0 := \bigcap\limits{k\in N}E_k$.\\
-	$\mu E_k \geq \sum_{j=k}^{+\infty}\mu X(|f_{n_j}-f|\geq\frac{1}{j}) \geq \sum_{j=k}^{+\infty}\frac{1}{2^j} = \frac{1}{2^(k-1)}$ - конечно $\Rightarrow \mu E_k \rightarrow \mu E_0 \Rightarrow \mu E_0 = 0$ (т.к. $\mu E_k \rightarrow 0$).\\
+	$E_0 := \bigcap\limits_{k\in N}E_k$.\\
+	$\mu E_k \leq \sum_{j=k}^{+\infty}\mu X(|f_{n_j}-f|\geq\frac{1}{j}) \leq \sum_{j=k}^{+\infty}\frac{1}{2^j} = \frac{2}{2^k} = 2^{1 - k}$ - конечно, убывает $\Rightarrow \mu E_k \rightarrow \mu E_0 \Rightarrow \mu E_0 = 0$ (т.к. $\mu E_k \rightarrow 0$).\\
 	Рассмотрим $X\not\in E_0$, т.е. если $X\not\in E_0$, то $\exists k : X\not\in E_k$, тогда $\forall j\geq k |f_n(x) - f(x)| < \frac{1}{j}$ при $n \geq n_j$, т.е. $f_{n_k} \rightarrow f$, ч.т.д.
 \emph{Следствие:}
 $f_n \Rightarrow f $ $ |f_n| \leq g$ п.в.
