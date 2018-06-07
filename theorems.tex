@@ -1522,11 +1522,6 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 
 Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
 
-\section{О локальной суммируемости. \Large Deprecated}
-$$ \int_{a}^{\rightarrow b} f \text{ -- абс. сх} \Longleftrightarrow f \text{ -- сумм.}$$
-
-\emph{Доказательство:} TODO
-
 \section{Предельный переход под знаком интеграла при наличии равномерной сходимости или $L_{loc}$}
 
 \subsection{При равномерной сходимости}
@@ -1634,9 +1629,41 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 	$ |F(x, h)| \underset{\text{т. Лагранжа}}{=}
 	|f'_y(x, a + \theta h)| \underset{f'_y \in L_{loc} ~ in ~ a}{\leq} g(x) $	  
 
-\section{Корректность светки}
+\section{Корректность свертки}
 
-\section{Свойства светки функции из $ L^p $ с фукнцией из $ L^q $}
+$ f, K \in L_1[-\pi, \pi] $
+
+\emph{Тогда:} $ (f * K)$ -- корректно заданная фукнция из $ L_1[-\pi, \pi] $
+
+\emph{Доказательство:}
+
+\begin{itemize}
+	\item Докажем, что $ g(x, t) = f(x - t)K(t) $ -- измерима
+		\begin{itemize}
+			\item $ K(t) $ -- измерима, как функция из $ L_1 $
+			\item $ \phi(x, t) = f(x - t) $. Это функция принимает одинаковые значения на $ t = x - C $. 
+			
+			Поэтому: $ R^2(\phi < a) = V^{-1}(E_{a'} \times R)$, где $ V(x, t) = (x - t, t) $
+			
+			$ E_{a'} = V(R(f < a)) $ -- измеримо, так как $ f $ -- измеримо.
+			
+			Поэтому $ R^2(\phi < a) $ -- измеримо.
+			\item Поэтому $ g $ -- измерима, как произведение измеримых
+		\end{itemize}
+				
+	\item Проверим, что $ g \in L_1([-\pi, \pi]\times[-\pi, \pi]) $
+		
+		$ \iint\limits_{[-\pi, \pi]} | g | d\lambda^2 = 
+		  \int\limits_{-\pi}^{\pi} (|K(t)  \int\limits_{-\pi}^{\pi} | f(x-t)| dx |) dt =
+		  ||f||_1 ||K||_1 < +\infty $
+	\item По теореме Фубини $ \int\limits_{-\pi}^{\pi} g(x, t) dt $ -- суммируемая при в п. в. x
+		
+	\item Тогда свертка лежит в $ L_1[-\pi, \pi] $
+	
+	
+\end{itemize}
+
+\section{Свойства свертки функции из $ L^p $ с фукнцией из $ L^q $}
 
 $ f \in L^p $; $ K \in L^q $
 
@@ -1657,50 +1684,34 @@ $ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
 
 (Причем нер-во Гельдера выполнено и для $ p = \infty $)
 
-\item[\bf п. 1] 
+\item[\bf п. 1]
 
-\begin{itemize}
-	\item $ p < +\infty $ 
-	
-	$ |(f \ast K)(x + h) - (f \ast K)(x)| =
-	| \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq}
-	| (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} (\int\limits^\pi_{-\pi} |K(t)|^q dt)^{1/q} = 
-	||K||_q (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} = 
-	||K||_q (\int\limits^\pi_{-\pi} |f(y + h)- f(y)|^p dy)^{1/p} = \\
-	= ||K||_q || f(y + h) - f(y) ||_p \underset{\text{по непр. сдвига}}{\rightarrow} 0
-	$
-	\item $ p = +\infty $
-	
-	$|(f \ast K)(x + h) - (f \ast K)(x)| =
-	 | \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq} \\ 
-	 (\int\limits^\pi_{-\pi} |K|) \cdot \underset{ t = [-\pi, \pi] }{esssup} | f(x + h - t)- f(x - t) | = \\ 
-	 ||K||_1 \cdot \underset{ t = [x + \pi, x - \pi] }{esssup} | f(t + h)- f(t) |
-	 \underset{\text{по непр. сдвига}}{\rightarrow} 0 $
-	 
+	\begin{itemize}
+		\item $ p < +\infty $
+
+		$ |(f \ast K)(x + h) - (f \ast K)(x)| =
+		| \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq}
+		| (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} (\int\limits^\pi_{-\pi} |K(t)|^q dt)^{1/q} =
+		||K||_q (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} =
+		||K||_q (\int\limits^\pi_{-\pi} |f(y + h)- f(y)|^p dy)^{1/p} = \\
+		= ||K||_q || f(y + h) - f(y) ||_p \underset{\text{по непр. сдвига}}{\rightarrow} 0
+		$
+		\item $ p = +\infty $
+
+		$|(f \ast K)(x + h) - (f \ast K)(x)| =
+		 | \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq} \\
+		 (\int\limits^\pi_{-\pi} |K|) \cdot \underset{ t = [-\pi, \pi] }{esssup} | f(x + h - t)- f(x - t) | = \\
+		 ||K||_1 \cdot \underset{ t = [x + \pi, x - \pi] }{esssup} | f(t + h)- f(t) |
+		 \underset{\text{по непр. сдвига}}{\rightarrow} 0 $
+
+	\end{itemize}
 \end{itemize}
 
-
-
-\end{itemize}
-
-
-
-\section{Свойства свертки}
+\section{Свойства свертки.  \Large Deprecated}
 
 \begin{enumerate}
-	\item Свертка -- корректно заданная функция из $ L_1([-\pi, \pi]) $
 	\item Коммутативность: $ f \ast K = K \ast f$
 	\item $ c_k(f \ast K) = 2\pi c_k(f) c_k(K) $ ($ c_k $ -- коэф. ряда фурье)
-	\item {\bf \Large deprecated}
-		$ f \in L^p $; $ K \in L^q $
-
-		$ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
-
-		\emph{Тогда:}
-		\begin{itemize}
-			\item $ f \ast K $ -- непр. на $ [-\pi, \pi] $
-			\item $ ||f \ast K||_{\infty} \leqslant ||K||_q ||f||_p $
-		\end{itemize}
 	\item
 		$ f \in L^p $; $ K \in L_1( [-\pi, \pi]) $
 
@@ -1714,5 +1725,11 @@ $ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
 \end{enumerate}
 
 \emph{Доказательство:} TODO
+
+\section{О локальной суммируемости. \Large Deprecated}
+$$ \int_{a}^{\rightarrow b} f \text{ -- абс. сх} \Longleftrightarrow f \text{ -- сумм.}$$
+
+\emph{Доказательство:} TODO
+
 
 \end{document}
