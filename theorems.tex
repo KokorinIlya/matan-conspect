@@ -42,6 +42,8 @@ $f$~--- измеримая функция на $X$, $\forall x\ f(x) \geq 0$. Т
     \item $f_n(x)$ поточечно сходится к $f(x)$.
 \end{enumerate}
 
+\textcolor{red}{А где доказательство теоремы?}
+
 Следствие $1$:
 
 $f: X \rightarrow \overline {\mathds{R}}$ измеримая. Тогда $\exists$ ступенчатая $f_n: \forall x:  lim f_n(x) = f(x)$ и $|f_n(x)| \leq |f(x)|$.
@@ -73,13 +75,15 @@ $f, g$ --- измеримые функции. Тогда $f + g$ -- измери
 
 \section{Измеримость монотонной функции}
 
-Пусть $E \subset R^m$~--- измеримое по Лебегу, $E' \subset E, \lambda_m (E \setminus E') = 0, f: E \rightarrow \mathds{R}.$ Пусть сужение $f: E' \rightarrow R$ непрерывно. Тогда $f$ измерима на $E$.
+Пусть $E \subset \mathds{R}^m$~--- измеримое по Лебегу, $E' \subset E, \lambda_m (E \setminus E') = 0, f: E \rightarrow \mathds{R}.$ Пусть сужение $f: E' \rightarrow \mathds{R}$ непрерывно. Тогда $f$ измерима на $E$.
 
 \emph{Доказательство:}
 
 \begin{enumerate}
 	\item $E(f < a) = E'(f < a) \cup e(f < a), e:=E \setminus E', \lambda_m(e) = 0$.
-	\item $ E'(f < a)$ открыто в $E'$, так как f непрерывна. Поэтому $E' = G \cap F'$ где $G$ ~--- открытое в $\mathds{R}^m$ множество (по теореме об открытости в пространстве и подпространстве).  Значит, $E'(f<a)$ ~--- измеримо по Лебегу, так как оно является борелевским.\textcolor{red}{Вроде, у нас не было борелевского множества, была борелевская сигма-алгебра. Да и вообще не оч понятно, что тут написано}
+	\item $E'(f < a)$ открыто в $E'$, так как $f$ непрерывна (прообраз открытого множества открыт). $E'(f<a) = E' \cap F$,
+        где $F$ открыто в $\mathds{R}^m$ (теорема об открытых множествах в пространстве и подпространстве).
+        $F$ измеримо, поскольку открытые множества измеримы. $E'$ измеримо. Поэтому $E'(f<a)$ измеримо как пересечение измеримых.
 	\item $e(f < a)$ - подмножество $e$, а $\lambda_m(e) = 0$, поэтому $\lambda_m(e(f < a)) = 0 \Rightarrow e(f < a)$ измеримо
 	\item Cледовательно $E(f < a)$ измеримо как объединение измеримых множеств, следовательно, $f$ измерима на $E$.
 \end{enumerate}
@@ -90,12 +94,12 @@ $f: <a, b> \rightarrow \mathds{R}$ монотонна. Тогда $f$ измер
 
 \emph{Доказательство:}
 
-Множество разрывов монотонной функции НБЧС множество, поэтому можно воспользоваться доказанной теоремой.
+Множество разрывов монотонной функции не более чем счётно, поэтому можно воспользоваться доказанной теоремой.
 
 \section{Теорема Лебега о сходимости почти везде и сходимости по мере}
 
-$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
-$f_n , f : X \rightarrow \overline R$ - п.в. конечны, измеримы \\
+$(X, \mathds{A}, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
+$f_n , f : X \rightarrow \overline{\mathds{R}}$ - п.в. конечны, измеримы \\
 $f_n \rightarrow f$ (поточечно, п.в.)
 
 Тогда $f_n\stackrel{\mu}{\Rightarrow}f$
@@ -122,40 +126,41 @@ $f_n \rightarrow f$ (поточечно, п.в.)
    		$$\phi_{n}(x) \rightarrow 0 $$\\
    		$$\phi_{n} \downarrow_n $$
  	\end{cases}$$
- 	$X(|f_{n} - f|\geq\epsilon) \subset X(|\phi_{n}\geq\epsilon|) \Rightarrow $ по монотонности меры имеем $\mu X(|f_{n} - f|\geq\epsilon) \leq \mu X(\phi_{n}\geq\epsilon) \stackrel{part.case}{\longrightarrow} 0$, ч.т.д.
+ 	$X(|f_{n} - f|\geq\epsilon) \subset X(\phi_{n}\geq\epsilon) \Rightarrow $ по монотонности меры имеем $\mu X(|f_{n} - f|\geq\epsilon) \leq \mu X(\phi_{n}\geq\epsilon) \stackrel{part.case}{\longrightarrow} 0$, ч.т.д.
 \end{enumerate}
 
 
 \section{Теорема Рисса о сходимости по мере и сходимости почти везде}
 
-$(X, a, \mu)$ - пространство с мерой\\
-$f_n , f : X \rightarrow R$ - п.в. конечны, измеримы \\
+$(X, \mathds{A}, \mu)$ - пространство с мерой\\
+$f_n , f : X \rightarrow \overline{\mathds{R}}$ - п.в. конечны, измеримы \\
 $f_n  \stackrel{\mu}{\Rightarrow} f$.\\
 Тогда $\exists n_{k}\uparrow $ : $f_{n_{k}} \rightarrow f$ п.в.
 
 \emph{Доказательство:}
 $\forall k ~ \mu X(|f_n - f| \geq \frac{1}{k}) \stackrel{n\rightarrow+\infty}{\rightarrow} 0$\\
-Тогда $\exists n_{k} : \forall n \geq n_{k}: \mu X(|f_n - f| \geq \frac{1}{k}) < \frac{1}{2k}$ (можно считать $n_1 < n_2 < \ldots$)\\
+Тогда $\exists n_{k} : \forall n \geq n_{k}: \mu X(|f_n - f| \geq \frac{1}{k}) < \frac{1}{2^k}$ (можно считать $n_1 < n_2 < \ldots$)\\
 Проверим $f_{n_k} \rightarrow f$ п.в. :
 
 	$E_k := \bigcup\limits_{j=k}^{+\infty}X(|f_{n_j} - f|\geq\frac{1}{j})$\\
 	$E_1 \supset E_2 \supset E_3 \supset \ldots$\\
 	$E_0 := \bigcap\limits_{k\in N}E_k$.\\
 	$\mu E_k \leq \sum_{j=k}^{+\infty}\mu X(|f_{n_j}-f|\geq\frac{1}{j}) \leq \sum_{j=k}^{+\infty}\frac{1}{2^j} = \frac{2}{2^k} = 2^{1 - k}$ - конечно, убывает $\Rightarrow \mu E_k \rightarrow \mu E_0 \Rightarrow \mu E_0 = 0$ (т.к. $\mu E_k \rightarrow 0$).\\
-	Рассмотрим $X\not\in E_0$, т.е. если $X\not\in E_0$, то $\exists k : X\not\in E_k$, тогда $\forall j\geq k |f_n(x) - f(x)| < \frac{1}{j}$ при $n \geq n_j$, т.е. $f_{n_k} \rightarrow f$, ч.т.д.
+	Рассмотрим $x\not\in E_0$, т.е. $\exists k : x\not\in E_k$. Тогда $\forall j\geq k\ |f_n(x) - f(x)| < \frac{1}{j}$ при $n \geq n_j$, т.е. $f_{n_k} \rightarrow f$, ч.т.д.
+\\\\
 \emph{Следствие:}
-$f_n \Rightarrow f $ $ |f_n| \leq g$ п.в.
-\emph{Док-во:}
+Если $f_n \Rightarrow f$ и $|f_n| \leq g$ п.в., то $|f| \leq g$ п.в.\\
+\emph{Доказательство:}
 Рассмотрим последовательность $f_{n_k}$ где $f_{n_k} \rightarrow f$ п.в. и вдоль нее применим Th о двух городовых.
 $$\begin{cases}
-   	$$f_{n_k}(x) \rightarrow f(x)  \forall x \in X\setminus e_1$$\\
-   	$$|f_n(x)| \leq g(x)  \forall x \in X \setminus e_2$$
+   	$$f_{n_k}(x) \rightarrow f(x)\  \forall x \in X\setminus e_1$$\\
+   	$$|f_n(x)| \leq g(x)\  \forall x \in X \setminus e_2$$
 \end{cases}$$ $\Rightarrow |f| \leq g$ на $(X\setminus e_1)\setminus e_2$
 
 \section{Простейшие свойства интеграла Лебега}
-\subsection{Для определения (5)}
+\subsection{Для определения (5), ступенчатые функции}
 \begin{enumerate}
-	\item $\int\limits_{\mathds{X}}f$ не зависит от представления $f$ как ступенчатой функции, то есть если $f$ реализуется как $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$ и как $f = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$, интегралы по этим функциям равны
+	\item $\int\limits_{\mathds{X}}f$ не зависит от представления $f$ как ступенчатой функции, то есть если $f$ реализуется как $f = \sum\limits_{k}(\lambda_k \cdot \chi_{E_k})$ и как $f = \sum\limits_{l}(\alpha_l \cdot \chi_{G_l})$, то интегралы по этим функциям равны
 
 	\emph{Доказательство:}
 
@@ -250,7 +255,7 @@ $$\begin{cases}
 
 		\item
 
-		Пусть $c > 0$. Если $c < 0$, то по предыдущему случаю можем рассматривать для $- c < 0$. Если $c = 0$, то по предыдущей теореме $\int\limits_{\mathds{E}} (0 \cdot f) = \int\limits_{\mathds{E}} 0 = 0 = 0 \cdot \int\limits_{\mathds{E}} f$
+		Пусть $c > 0$. Если $c < 0$, то по предыдущему случаю можем рассматривать для $- c < 0$. Если $c = 0$, то по пункту 2 $\int\limits_{\mathds{E}} (0 \cdot f) = \int\limits_{\mathds{E}} 0 = 0 = 0 \cdot \int\limits_{\mathds{E}} f$
 
 		\begin{enumerate}
 			\item
@@ -358,11 +363,11 @@ $(X,\mathds{A},\mu)$~--- пространство с мерой, $A = \bigsqcup\
 
 	\item $A = \bigsqcup\limits_{i = 1}^{\infty}A_{i}$
 		\begin{enumerate}
-			\item Фиксрируем $n \in \mathbb{N}$
+			\item Фиксируем $n \in \mathbb{N}$
 
 			\item $A = (\bigsqcup\limits_{i=1}^{n}A_{i}) \sqcup B$, где $B = \bigsqcup\limits_{i=n+1}^{\infty}A_{i}$
 
-			\item $\int\limits_{A}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f + \int\limits_{B}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f$
+			\item $\int\limits_{A}f = \sum\limits_{i=1}^{n} \int\limits_{A_i}f + \int\limits_{B}f \geqslant \sum\limits_{i=1}^{n} \int\limits_{A_i}f$ (равенство, поскольку мы рассматриваем $A$ как конечное объединение $A_1,\dots,A_n$ и $B$).
 
 			\item Переходим к $lim$ по $n$
 		\end{enumerate}
