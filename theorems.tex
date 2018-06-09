@@ -476,7 +476,7 @@ $f, g \geqslant 0$, измеримые
 	Если $f, g$ - любые измеримые, распишем обе через срезки и докажем для них
 \end{enumerate}
 
-\section{Теорема об интегрировании плоложительных рядов}
+\section{Теорема об интегрировании положительных рядов}
 $u_n(x) \geq 0$ \textit{почти всюду} на $\mathds{E}$, тогда
 $\int\limits_{\mathds{E}} (\sum\limits_{n=1}^{+\infty}u_n(x))d\mu(x) =
 \sum\limits_{n=1}^{+\infty} \int\limits_{\mathds{E}} u_n(x)d\mu(x)$
@@ -490,20 +490,20 @@ $S_N(x) = \sum\limits_{n=1}^{N}u_n(x)$; $S(x) = \sum\limits_{n=1}^{+\infty}u_n(x
 \end{enumerate}
 
 \section{Теорема о произведении мер}
-$<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
-$\alpha \times \beta = \{A\times B \subset \mathds{X} \times \mathds{Y} : A \in \alpha, B \in \beta \}$ \\
+$<X, \mathds{A}, \mu>$, $<Y, \mathds{B}, \nu>$ - пространства с мерой\\
+$\mathds{A} \times \mathds{B} = \{A\times B \subset X \times Y : A \in \mathds{A}, B \in \mathds{B} \}$ \\
 $m_0(A \times B) = \mu A \cdot \nu B$
 \\\\
 Тогда:
 \begin{enumerate}
-	\item $m_0$ - мера на полукольце $\alpha \times \beta$
+	\item $m_0$ - мера на полукольце $\mathds{A} \times \mathds{B}$
 	\item $\mu$, $\nu$ - $\sigma$-конечны $\Rightarrow$ $m_0$ - $\sigma$-конечна\\
 \end{enumerate}
 
 \underline{Доказательство:} \\
 \begin{enumerate}
 	\item Неотрицательность $m_0$ очевидна. Необходимо доказать счетную аддитивность\\
-	Пусть $P = \bigsqcup\limits_{i=1}^{\infty}P_{k}$, где $P \in \alpha \times \beta$ \\
+	Пусть $P = \bigsqcup\limits_{i=1}^{\infty}P_{k}$, где $P \in \mathds{A} \times \mathds{B}$ \\
 	$P = A \times B$; \ $P_k = A_k \times B_k$ \\
 	Заметим, что:
 	\begin{itemize}
@@ -528,47 +528,47 @@ $X \times Y = \bigcup\limits_{i, j} (A_i \times B_j)$
 
 $m_0(A_i \times B_j) = \mu A_i \cdot \nu B_j < +\infty$, так как $\mu A_i < +\infty$ и $\nu B_j < +\infty$
 
-все $(A_i \times B_j) \in \alpha \times \beta$ по определению
+все $(A_i \times B_j) \in \mathds{A} \times \mathds{B}$ по определению
 
 Что и требовалось доказать.
 \end{enumerate}
 
 \section{Абсолютная непрерывность интеграла}
-$<\mathds{X}, \alpha, \mu>$ - пространство с мерой\\
+$<X, \mathds{A}, \mu>$ - пространство с мерой\\
 $f : X \to \overline{\mathds{R}}$ - суммируема\\\\
 Тогда $\forall \epsilon > 0 ~ \exists \delta > 0 : ~ \forall E - \text{измеримое} ~ \mu E < \delta ~ |\int\limits_{E}f d\mu| < \epsilon$
 
 \underline{Доказательство:} \\
 $X_n := X(|f| \geq n)$\\
 $X_n \supset X_{n+1} \supset ...$\\
-$\mu(\cap X_n) = 0$, т.к. f -- суммируема
+$\mu(\cap X_n) = 0$, т.к. f~--- суммируема и потому почти везде конечна.
 \begin{enumerate}
-	\item Мера : ($A \mapsto \int\limits_{A}|f|$) непрерывна сверху, т.е.
-	$\forall ~ \epsilon ~ \exists ~ n_{\epsilon} ~ \int\limits_{X_{n_{\epsilon}}}|f| < \epsilon / 2$
+	\item Мера : ($A \mapsto \int\limits_{A}|f|$) также равна $0$ на $\cap X_n$. По непрерывности сверху:
+	$\forall \epsilon > 0 ~ \exists ~ n_{\epsilon} ~ \int\limits_{X_{n_{\epsilon}}}|f| < \epsilon / 2$
 	\item Зафиксируем $\epsilon$ в доказываемом утверждении, возьмем $\delta := \frac{\epsilon / 2}{n_{\epsilon}}$
 	\item $|\int\limits_{E}f d\mu| \leq \int\limits_{E} |f| = \int\limits_{E \cap X_{n_{\epsilon}}}|f| ~+~ \int\limits_{E \cap X_{n_{\epsilon}}^c}|f| \overset{*}{\leq} \int\limits_{X_{n_{\epsilon}}}|f| ~+~ n_{\epsilon} \cdot \mu (E \cap X_{n_{\epsilon}}^c) \overset{**}{<} \epsilon / 2 + n_\epsilon \cdot \mu E < \epsilon / 2 + n_\epsilon \cdot \frac{\epsilon / 2}{n_{\epsilon}} < \epsilon$ \\
 	* - В первом слагаемом увеличили множество, во втором посмотрели на определние $X_n$, взяли дополнение, воспользовались 6-м простейшим свойством интеграла\\
 	** - Воспользовались непрерывностью сверху
 \end{enumerate}
 	\subsection{Следствие}
-	f - суммируема\\
-	$e_n$ - измеримые множества\\
+	$f$~--- суммируема\\
+	$e_n$--- измеримые множества\\
 
-	$\mu e_n \rightarrow 0 \Rightarrow \int\limits_{e_n}f \rightarrow 0$
+	Тогда если $\mu e_n \rightarrow 0$, то $\int\limits_{e_n}f \rightarrow 0$
 \section{Теорема Лебега о мажорированной сходимости для случая сходимости по мере.}
 
 \begin{flushleft}
 
-$<\mathds{X}, \mathds{A}, \mu>$ -- пространство с мерой,
+$<X, \mathds{A}, \mu>$ -- пространство с мерой,
 
 $f_n, f$ -- измеримы,
 
 $f_n\stackrel{\mu}{\Rightarrow}f$ (сходится по мере),
 
-$\exists g : \mathds{X} \rightarrow \overline{\mathds{R}}$ такая, что:
+$\exists g : X \rightarrow \overline{\mathds{R}}$ такая, что:
 \begin{itemize}
 \item
-$\forall n$,  для <<почти всеx>> $x$ ~ $|f_n(x)| \leq g(x)$ ($g$ -- называется мажорантой)
+$\forall n$,  для <<почти всеx>> $x$ ~ $|f_n(x)| \leq g(x)$ ($g$ называется мажорантой)
 \item
 $g$ - суммируемая
 \end{itemize}
@@ -576,21 +576,25 @@ $g$ - суммируемая
 \emph{\textbf{Тогда:}}
 \begin{itemize}
     \item $f_n, f$ -- суммируемы
-    \item $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$
-    \item $\int\limits_{\mathds{X}} f_n \rightarrow \int\limits_{\mathds{X}} f$ (<<уж тем более>>)
+    \item $\int\limits_{X} |f_n - f| d\mu \rightarrow 0$
+    \item $\int\limits_{X} f_n \rightarrow \int\limits_{X} f$ (<<уж тем более>>)
 \end{itemize}
 
 \emph{Доказательство:}
 
 \begin{enumerate}
-	\item $f_n$ -- суммируема, так как существует мажоранта $g$ 
-	\textcolor{red}{Почему?} 
-	\item $f$ -- суммируема по теореме Рисса ($ f_n{_k} \rightarrow f $ почти везде, $ |f_n{_k}| \leq g$, тогда $|f| \leq g$ почти везде)
+	\item $f_n$ -- суммируема, так как существует мажоранта $g$:\\
+    \begin{enumerate}
+        \item $|f_n| \leq g$, поэтому $\int\limits_X|f_n| \leq \int\limits_X g$.
+        \item $g$ суммируема и положительна $\Rightarrow$ $\int\limits_X g < +\infty$ $\Rightarrow$ $\int\limits_X|f_n| < +\infty$
+        $\Rightarrow$ $f_n$ суммируема.
+    \end{enumerate}
+	\item $f$ -- суммируема по теореме Рисса ($f_{n_k} \rightarrow f $ почти везде, $ |f_{n_k}| \leq g$, тогда $|f| \leq g$ почти везде)
 	\item <<уж тем более>>:
 
 	$ |\int\limits_{\mathbb{X}} f_n - \int\limits_{\mathbb{X}} f| \leq \int\limits_{\mathbb{X}} |f_n - f| $
 
-	Допустим, что $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$ уже доказано.
+	Допустим, что $\int\limits_{X} |f_n - f| d\mu \rightarrow 0$ уже доказано.
 
 	Тогда <<уж тем более>> очевидно.
 
@@ -598,75 +602,74 @@ $g$ - суммируемая
 
 	Разберем два случая:
 	\begin{enumerate}
-		\item $ \mu \mathbb{X} < \infty $
+		\item $ \mu X < \infty $
 		Фиксируем $ \epsilon \ge 0 $ ~ $ X_n := X(|f_n - f| \geq \epsilon) $
 
 		$ \mu X_n \rightarrow 0 $ (так как $ f_n \Rightarrow f $)
 
-		$ \int\limits_{\mathbb{X}} |f_n - f| =
+		$ \int\limits_{X} |f_n - f| =
 		\int\limits_{X_n} |f_n - f| + \int\limits_{X_n^c} |f_n - f| \leq
-		\int\limits_{X_n} 2g + \int\limits_{X_n^c} \epsilon < \epsilon + \epsilon \mu \mathbb{X} $ (прим. $ \int\limits_{X_n} 2g \rightarrow 0 $ по след. к т. об абс. сходимости )
+		\int\limits_{X_n} 2g + \int\limits_{X_n^c} \epsilon < \epsilon + \epsilon \mu X $ (прим. $ \int\limits_{X_n} 2g \rightarrow 0 $ по след. к т. об абс. сходимости )
 
-		\item $ \mu \mathbb{X} = \infty $
+		\item $ \mu X = \infty $
 
 		Докажем <<Антиабсолютную непрерывность>> для $ g $:
 
-		$ \forall \epsilon ~ \exists A \subset \mathbb{X} \mid \mu A$ - конеч.
+		$ \forall \epsilon ~ \exists A \subset X: \mu A$~--- конечно,
 		$ \int\limits_{X\backslash A} g < \epsilon $
 
 		\textit{доказательство:}
 
-		$ \int\limits_{\mathbb{X}} = \sup ( \int\limits_{\mathbb{X}} g_k \mid 0 \leq g_k \leq g) $ ($ g_k $ -- ступен.)
+		$ \int\limits_X g = \sup \{ \int\limits_{X} g_k \mid 0 \leq g_k \leq g \} $ ($ g_k $ -- ступен.)
 
-		$ \exists g_n ~ \int\limits_{\mathbb{X}} g - \int\limits_{\mathbb{X}} g_n < \epsilon $
+		$ \exists g_n: \int\limits_{X} g - \int\limits_{X} g_n < \epsilon $
 
 		$ A:= supp\ g_n $ ($ supp\ f := $ замыкание \{$ x \mid f(x) \neq 0$ \})
+        \textcolor{red}{Слово <<замыкание>> выглядит лишним}
 
-		$ A =  \bigcup\limits_{k \mid \alpha_k \neq 0} E_k $
+		$ A =  \bigcup\limits_{k \mid \alpha_k \neq 0} E_k $ (где $g_n=\sum\limits_{\text{конечная}} \alpha_k \chi_{E_k}$)
 
-		$ g = \sum\limits_{kon} \alpha_k \mathcal{X}_{E_k} $ ($ X = \bigsqcup E_k $)
+		$ \int\limits_{X} g_n  = \sum \alpha_k \mu E_k  < +\infty $ ($ \mu A $ - конеч.)
 
-		$ \int\limits_{\mathbb{X}} g_n  = \sum \alpha_k \mu E_k  < +\infty $ ($ \mu A $ - конеч.)
-
-		$ \int\limits_{\mathbb{X\backslash A}} g =
-		\int\limits_{\mathbb{X\backslash A}} g - g_n \leq
-		\int\limits_{\mathbb{X}} g - g_n < \epsilon $
+		$ \int\limits_{X\backslash A} g =
+		\int\limits_{X\backslash A} (g - g_n) \leq
+		\int\limits_{X} (g - g_n) < \epsilon $
 
 		Теперь докажем основное утверждение:
 
-		 $ \int\limits_{\mathbb{X}} |f_n - f| =
-		 \int\limits_{\mathbb{A}} |f_n - f| + \int\limits_{\mathbb{X\backslash A}} |f_n - f| \leq
-		 \int\limits_{\mathbb{A}} |f_n - f| + 2\epsilon < 3 \epsilon $
-		 ($  \int\limits_{\mathbb{A}} |f_n - f| \rightarrow 0$  по п. (a))
+		 $ \int\limits_{X} |f_n - f| =
+		 \int\limits_{A} |f_n - f| + \int\limits_{X\backslash A} |f_n - f| \leq
+		 \int\limits_{A} |f_n - f| + 2\epsilon < 3 \epsilon $
+		 ($  \int\limits_{A} |f_n - f| \rightarrow 0$  по п. (a))
 	\end{enumerate}
 \end{enumerate}
 \end{flushleft}
 \section{Теорема Лебега о мажорированной сходимости для случая сходимости почти везде.}
-$<\mathds{X}, \mathds{A}, \mu>$ -- пространство с мерой,
+$<X, \mathds{A}, \mu>$ -- пространство с мерой,
 
 $f_n, f$ -- измеримы,
 
 $f_n \rightarrow f$ \textbf{почти везде},
 
-$\exists g \mid \mathds{X} \rightarrow \overline{\mathds{R}}$ такая, что:
+$\exists g : X \rightarrow \overline{\mathds{R}}$ такая, что:
 \begin{itemize}
 \item
-$\forall n$,  для <<почти всеx>>$x ~ |f_n(x)| \leq g(x)$ ($g$ -- называется мажорантой)
+$\forall n$,  для <<почти всеx>> $x ~ |f_n(x)| \leq g(x)$ ($g$ называется мажорантой)
 \item
 $g$ - суммируемая
 \end{itemize}
 
 \emph{\textbf{Тогда:}}
 \begin{itemize}
-    \item $f_n, f$ -- суммируемы
-    \item $\int\limits_{\mathds{X}} |f_n - f| d\mu \rightarrow 0$
-    \item $\int\limits_{\mathds{X}} f_n \rightarrow \int\limits_{\mathds{X}} f$ (<<уж тем более>>)
+    \item $f_n, f$~--- суммируемы
+    \item $\int\limits_{X} |f_n - f| d\mu \rightarrow 0$
+    \item $\int\limits_{X} f_n \rightarrow \int\limits_{X} f$ (<<уж тем более>>)
 \end{itemize}
 
 \emph{Доказательство:}
 
 \begin{enumerate}
-	\item <<уж тем более>> см. пред. теорему.
+	\item Суммируемость и <<уж тем более>> см. пред. теорему.
 
 	\item Докажем основное утверждение:
 
@@ -679,12 +682,12 @@ $g$ - суммируемая
 
 	$ 2g - h_n \uparrow , ~ 2g - h_n \rightarrow 2g$ почти везде
 
-	$ \int\limits_{\mathds{X}}(2g - h_n) d\mu \rightarrow \int\limits_{\mathds{X}} 2g $
+	$ \int\limits_{X}(2g - h_n) d\mu \rightarrow \int\limits_{X} 2g $
 	(по т. Леви)
 
-	$ \int\limits_{\mathds{X}} 2g - \int\limits_{\mathds{X}} h \Rightarrow \int\limits_{\mathds{X}} h_n \rightarrow 0 $\textcolor{red}{Что тут вообще написано?}
+	$ \int\limits_{X} 2g - \int\limits_{X} h \to \int\limits_{X} 2g$, значит, $\int\limits_{X} h_n \rightarrow 0 $
 
-	$ \int\limits_{\mathds{X}} |f_n - f| \leq \int\limits_{\mathds{X}} h_n \rightarrow 0 $
+	$ \int\limits_{X} |f_n - f| \leq \int\limits_{X} h_n \rightarrow 0 $
 \end{enumerate}
 
 \section{Теорема Фату. Следствия.}
