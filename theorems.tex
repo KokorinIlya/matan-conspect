@@ -413,21 +413,24 @@ $f$ - измерима как предел последовательности 
 \begin{enumerate}
 	\item $\leqslant$
 
-	Очевидно $f_n \leqslant f$ при п.в $x \Rightarrow \int\limits_{X}f_n \leqslant \int\limits_{X}f$. Делаем предельный переход по $n$
+	Очевидно: $f_n \leqslant f$ при п.в $x \Rightarrow \int\limits_{X}f_n \leqslant \int\limits_{X}f$. Делаем предельный переход по $n$.
 
 	\item $\geqslant$
 		\begin{enumerate}
-			\item Логичная редукция: $\lim\limits_{n \rightarrow \infty} \int\limits_{X}f_n(x) \geqslant \int\limits_{x}g$, где $0 \leqslant g \leqslant f$ - ступенчатая
+			\item Логичная редукция: хочется доказать, что $\lim\limits_{n \rightarrow \infty} \int\limits_{X}f_n(x) \geqslant \int\limits_{X}g$, где $0 \leqslant g \leqslant f$, $g$ ступенчатая.
 
-			\item Наглая редукция: $\forall c \in (0,1): \lim\int\limits_{X}f_n(x) \geqslant c \cdot \int\limits_{X}g$
+			\item Наглая редукция: докажем, что $\forall c \in (0,1): \lim\int\limits_{X}f_n(x) \geqslant c \cdot \int\limits_{X}g$
 				\begin{enumerate}
 					\item $E_n = \{x\ |\ f_n(x) \geqslant c \cdot g\}$. Очевидно $E_1 \subset ... \subset E_n \subset E_{n + 1} \subset ...$
 
 					\item $\bigcup\limits_{n=1}^{\infty}E_n = X$ т.к. $c < 1$
 
-					\item $\int\limits_{X}f_n \geqslant \int\limits_{E_n}f_n \geqslant \int\limits_{E_n}g$ \textcolor{red}{Это неправда, $E_n$ определялаьсь не так} $\Rightarrow \lim \int\limits_{X}f_n \geqslant c \cdot \lim \int\limits_{E_n}g = c \cdot \int\limits_{X}g$
+					\item $\int\limits_{X}f_n \geqslant \int\limits_{E_n}f_n \geqslant \int\limits_{E_n}c \cdot g$ (по определению $E_n$)\\
+                    $\Rightarrow \lim \int\limits_{X}f_n \geqslant c \cdot \lim \int\limits_{E_n}g = c \cdot \int\limits_{X}g$
 
 					\item Последний знак равно обусловлен тем, что интеграл неотрицательной и измеримой функции по множеству - мера (см. следствие 3 предыдущей теоремы), и мы используем неперрывность меры снизу
+
+                    \item Устремляем $c$ к $1$.
 				\end{enumerate}
 		\end{enumerate}
 \end{enumerate}
