@@ -692,31 +692,29 @@ $g$ - суммируемая
 \end{enumerate}
 
 \section{Теорема Фату. Следствия.}
-$<\mathbb{X}, \mathbb{A}, \mu>$ -- пространство с мерой
+$<X, \mathds{A}, \mu>$ -- пространство с мерой
 
 $f_n, f$ -- измеримы,
 
 $f_n \geq 0$
 
-$f_n\stackrel{\mu}{\Rightarrow}f$ <<почти везде>>,
+$f_n\stackrel{\mu}{\Rightarrow}f$ <<почти везде>>, \textcolor{red}{что значит сходиться по мере почти везде?}
 
-$\exists C > 0 ~ \forall n ~ \int\limits_{\mathbb{X}} f_n d\mu \leq C$
+$\exists C > 0 ~ \forall n ~ \int\limits_{X} f_n d\mu \leq C$
 
 \textbf{\emph{Тогда:}}
-\begin{itemize}
-\item $\int\limits_{\mathbb{X}}f \leq C$
-\end{itemize}
+$\int\limits_{X}f \leq C$
 
 \emph{Доказательство:}
 
 $ g_n := \inf(f_n, f_{n+1}, \dots ) $ ~ ($ g_n \leq g_{n+1} \leq \dots $)
 
-$ \lim g_n = \varliminf(f_n) = $ \textit{почти везде} $ = \lim f_n  = f$ ($ g_n \rightarrow f $ почти везде)
+$ \lim g_n = \varliminf(f_n) \overset{\textit{почти везде}}{=} \lim f_n  = f$ ($ g_n \rightarrow f $ почти везде)
 
 
-$ \int\limits_{\mathbb{X}} g_n \leq \int\limits_{\mathbb{X}} f_n \leq C $
+$ \int\limits_{X} g_n \leq \int\limits_{\mathbb{X}} f_n \leq C $
 
-$ \int\limits_{\mathbb{X}} f = $ \textit{по т. Леви} $ = \lim \int\limits_{\mathbb{X}} g_n \leq C$
+$ \int\limits_{X} f = $ \textit{по т. Леви} $ = \lim \int\limits_{X} g_n \leq C$
 
 \subsection{Следствие 1}
 
@@ -724,11 +722,11 @@ $ f_n, f \geq 0$ -- измер.
 
 $ f_n \stackrel{\mu}{\Rightarrow} f$
 
-$ Пусть \exists C ~ \forall n  \int\limits_{\mathbb{X}} f_n \leq C $
+$ Пусть \exists C ~ \forall n  \int\limits_{X} f_n \leq C $
 
 \emph{Тогда:}
 \begin{itemize}
-	\item $ \int\limits_{\mathbb{X}}  f \leq C $
+	\item $ \int\limits_{X}  f \leq C $
 \end{itemize}
 
 \emph{Доказательство:}
@@ -742,31 +740,32 @@ $ f_n \geq 0 $ -- измер.
 \emph{Тогда:}
 
 \begin{itemize}
-	\item $ \int\limits_{\mathbb{X}} \underline{lim}( f_n ) \geq \underline{lim}( \int\limits_{\mathbb{X}} f_n ) $
+	\item $ \int\limits_{X} \underline{lim}( f_n ) \geq \underline{lim}( \int\limits_{X} f_n ) $
 \end{itemize}
 
 \emph{Доказательство:}
 
-$ \exists n_k \mid \int\limits_{\mathbb{X}} f_{n_k} \underrightarrow{k \rightarrow +\infty}
-\varliminf\limits_{n \rightarrow +\infty} \int\limits_{\mathbb{X}} f_n $
+$ \exists n_k \mid \int\limits_{X} f_{n_k} \underrightarrow{k \rightarrow +\infty}
+\varliminf\limits_{n \rightarrow +\infty} \int\limits_{X} f_n $
 
 Рассмотрим $ g_{n_k} $ такое, что $ g_{n_k} \uparrow $ и $ g_{n_k} \rightarrow \varliminf f $
 
-Применяем теорему Леви к нер-ву $ \int\limits_{\mathbb{X}} g_{n_k} \leq \int\limits_{\mathbb{X}} f_{n_k}$
+Применяем теорему Леви к нер-ву $ \int\limits_{X} g_{n_k} \leq \int\limits_{X} f_{n_k}$
 
-$ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}} f_n $
+$ \int\limits_{X} \varliminf f \leq \varliminf \int\limits_{X} f_n $
 
 \section{Теорема о вычислении интеграла по взвешенному образу меры}
 	\subsection{Лемма}
 		Пусть у нас есть $<X, \mathbb{A}, \mu>$ и $<Y, \mathbb{B}, \_>$ и $\Phi: X\rightarrow Y$
 
-		Пусть  $\Phi^{-1}(B) \subset \mathbb{A}$\textit{(Кохась сказал, что это легко, и вроде это следует из предыдущих теорем)}
+		Пусть  $\Phi^{-1}(\mathbb{B}) \subset \mathbb{A}$ \textit{(Кохась сказал, что это легко, и вроде это следует из предыдущих теорем)}
+        \textcolor{red}{эта запись про Кохася тут вообще к чему?}
 
-		Для $\forall E \subset B$ и $\nu(E):=\mu(\Phi^{-1}(E))$
+		Пусть для $E \in \mathbb{B}$ $\nu(E):=\mu(\Phi^{-1}(E))$
 
 		\emph{Тогда:}
 
-		 $\nu$ - мера на $B$, $\nu(E) = \int\limits_{\Phi^{-1}(E)}d\nu$
+		 $\nu$~--- мера на $(Y, \mathbb{B})$, $\nu(E) = \int\limits_{\Phi^{-1}(E)} 1 \cdot d\nu$
 
 		\emph{Доказательство:}
 
@@ -775,49 +774,53 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 			$\nu(\bigsqcup E_i) = \mu(\Phi^{-1}(\bigsqcup E_i)) = \mu(\bigsqcup \Phi^{-1}(E_i) = \sum \mu \Phi^{-1}(E_i) = \sum \nu E_i$
 
 	\subsection{Следствие}
-	Из этого следует что f - измерима относительно $B \Rightarrow f\odot \Phi $ --- измерима относительно $\Gamma$
+	Из этого следует, что если $f$~--- измеримая функция в $Y$ (относительно $\nu$), то $f\circ \Phi$ измерима относительно $\mu$.
+
+    \textcolor{red}{Раньше тут какая-то лажа была написана}
 
 	\subsection {Teорема}
-		Есть пространства $<X, \mathbb{A}, \mu>$ и $(Y, \mathbb{B}, \nu)$.
+		Есть пространства $<X, \mathbb{A}, \mu>$ и $<Y, \mathbb{B}, \nu>$.
 
-		$\Phi: X\rightarrow Y; w \geq 0$ --- измеримо\\ $\nu$ - взвешенный образ $\mu$
+		$\Phi: X\rightarrow Y$
+        $w \geq 0$~--- измеримая, $\nu$~--- взвешенный образ $\mu$ ($w$~--- плотность)
 
 		\emph{Тогда:}\\
-		 Для $\forall f \geq 0$ - измеримо на Y, $f\odot \Phi$ - измерима(относительно $\mu$)
+		 Для $\forall f \geq 0$~--- измерима на $Y$, $f\circ \Phi$ - измерима (относительно $\mu$)
 
 		$\int_{Y}f d\nu = \int_{X} f(\Phi(x)) * \omega(x) d\mu(x)$
 
-		\emph{Замечание:} Тоже верно для f - сумм.
+		\emph{Замечание:} То же верно, если $f$ суммируема.
 
-		\emph{Доказательство:} \\
+		\emph{Доказательство:}
 
 			\begin{itemize}
-				\item $f\odot \Phi$ - измерима(из леммы)
-				\item Возьмем в качестве $f = \chi_{E} , E\in B$ \\
-				$(f\odot \Phi)(x) = \chi_{\Phi^{-1}(E)}$ - определение взвешенного образа меры \\
-				$\nu(E) = \int\limits_{\Phi^{-1}(E)}\omega d\mu$ - доказали первый пункт
+				\item $f\circ \Phi$ - измерима (из леммы)
+				\item Возьмем $f = \chi_{E} , E\in \mathds{B}$ \\
+				$(f\circ \Phi)(x) = \chi_{\Phi^{-1}(E)}$~--- определение взвешенного образа меры \\
+				$\nu(E) = \int\limits_{\Phi^{-1}(E)}\omega d\mu$~--- доказали первый пункт
 				\item
 				\begin{itemize}
-					\item f - ступенчатая $\Rightarrow f = \sum \alpha_k * \chi_{E_k}$
-					\item $\int\limits_{Y} \sum \alpha_k * \chi_{E_k} d\mu = \sum \alpha_k \chi_{E_k} d\nu = /* first case */ = \sum \alpha_k \int\limits_X \chi_{E_k}(\Phi(x))*\omega(x)dx = \int\limits_X \sum \alpha_k \chi_{E_k}(\Phi(x)) * \omega(x) d\mu(x) = \int f \odot \Phi * \omega d\mu$
+					\item f~--- ступенчатая $\Rightarrow f = \sum \alpha_k * \chi_{E_k}$
+					\item $\int\limits_{Y} \sum \alpha_k * \chi_{E_k} d\mu = \sum \alpha_k \chi_{E_k} d\nu = /* first case */ = \sum \alpha_k \int\limits_X \chi_{E_k}(\Phi(x))*\omega(x)dx = \int\limits_X \sum \alpha_k \chi_{E_k}(\Phi(x)) * \omega(x) d\mu(x) = \int f \circ \Phi * \omega d\mu$
 				\end{itemize}
 			\end{itemize}
+        \textcolor{red}{А дальше что?}
 \section{Критерий плотности}
 	Есть пространство $<X, \mathbb{A}, \mu>$ \\
-	$\nu$ - еще одна мера \\
-	$\omega \geq 0$ - измерима на Х
+	$\nu$~--- еще одна мера. \\
+	$\omega \geq 0$~--- измерима на $X$.
 
 	\emph{Тогда:}
 
-	$\omega$ - плотность $\nu$ относительно $\mu$ $\Longleftrightarrow$ Для любого $A\in\mathbb{A}:\mu A * inf(\omega) \leq \nu(A) \leq \mu A * sup_A(\omega)$
+	$\omega$~--- плотность $\nu$ относительно $\mu$ $\Longleftrightarrow$ Для любого $A\in\mathbb{A}:\mu A \cdot \inf_A(\omega) \leq \nu(A) \leq \mu A \cdot \sup_A(\omega)$
 
 	\emph{Доказательство:}
 	 	\begin{itemize}
-	 		\item $\Rightarrow$ - очевидно из стандартного свойства интеграла
+	 		\item $\Rightarrow$: очевидно из стандартного свойства интеграла
 	 		\item $\Leftarrow$\par
 	 		\begin{itemize}
 	 			\item
-	 			Достаточно доказать, что $\omega > 0$(когда $\omega = 0$, отсюда следуется что интеграл = 0 из оценок, что $\nu(E) = 0$)
+	 			Достаточно доказать, что $\omega > 0$ (когда $\omega = 0$, отсюда следуется что интеграл = 0 из оценок, что $\nu(E) = 0$)
 	 			\item
 	 			Давайте брать такие $A \subset X(\omega > 0)$, тогда $\nu A = \int\limits_A \omega(x) d\mu$
 	 			\item
@@ -839,12 +842,12 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 
 \section{Лемма о единственности плотности}
 	$f, g \in L(x)$. \\
-	Пусть $\forall A$ - измерима и $\int\limits_A f = \int\limits_A g$.
+	Пусть $\forall A$~--- измеримо: $\int\limits_A f = \int\limits_A g$.
 
 	\emph{Тогда: } \\
 		$f = g$ почти везде \\
 	\emph{Следствие: } \\
-		Плостность $\nu$ относительно $\mu$ определена однозначно с точностью до $\mu$ почти везде.
+		Плостность $\nu$ относительно $\mu$ определена однозначно с точностью до $\mu$-почти везде.
 
 	\emph{Доказательство: }
 
@@ -855,29 +858,28 @@ $ \int\limits_{\mathbb{X}} \varliminf f \leq \varliminf \int\limits_{\mathbb{X}}
 			$\int\limits_{A_+} |h| = \int\limits_{A_+} h = 0$ \par
 			$\int\limits_{A_-} |h| = -\int\limits_{A_-} h = 0$
 			\item
-			Пусть $X = A_+ \sqcup A_-$. Тогда $\int\limits_X |h| = \int\limits_{A_+} |h| + \int\limits_{A_-} |h| = 0 \Rightarrow h = 0$ почти везде.
+			$X = A_+ \sqcup A_-$. Тогда $\int\limits_X |h| = \int\limits_{A_+} |h| + \int\limits_{A_-} |h| = 0 \Rightarrow h = 0$ почти везде.
 		\end{itemize}
 \section{Лемма о множестве положительности}
-	Пусть пространство $<X, \mathbb{A}>$ и $\phi$ - заряд\\
-	\emph{Тогда: }\\
-		$\forall A\in \mathbb{A} \exists B \subset A : \phi(B) \leq \phi(A)$, где B - множество положительности \\
-	\emph{Доказательство: } \\
-
+	Пусть есть пространство $<X, \mathbb{A}>$ и $\phi$~--- заряд.\\
+	\emph{Тогда:}\\
+		$\forall A\in \mathbb{A}\ \exists B \subset A : \phi(B) \geq \phi(A)$ и B~--- множество положительности \\
+	\emph{Доказательство: }
 		\begin{itemize}
-			\item Пусть $(\phi(A) \geq 0) \&\& (B = \emptyset) \rightarrow \phi(A) \geq 0$
-			\item E - множество $\epsilon$ - положительности(МеП), если  $\forall C \subset E$ - измеримого $ \phi(C) \geq -\epsilon$
-			\item \textbf{Утверждение: }Пусть E - МеП. Тогда для любого измеримого $C \subset E$ выполнено $\phi(C) \geq \phi(A)$
+			\item Если $\phi(A) \leq 0$, возьмём $B = \emptyset$. Далее $\phi(A) > 0$.
+			\item $E$~--- множество $\epsilon$-положительности (М$\epsilon$П), если  $\forall C \subset E$, $C$ измеримо: $\phi(C) \geq -\epsilon$
+			\item \textbf{Утверждение:} $\forall \epsilon>0$ $A$ содержит М$\epsilon$П $C$, такое что $\phi(C) \geq \phi(A)$.
 			\begin{enumerate}
-				\item Если A - МеП $\Rightarrow C = A$
-				\item Пусть A - не МеП. Тогда существеут $c_1 \subset A : \phi(C_1) < -\epsilon$ и $\phi(A) = \phi(A_1) + \phi(C)$
-
-				Тогда $A_1 = A - C_1$ и $\phi(A_1) > \phi(A)$
-				\item $A_1$ - МеП $\Rightarrow$ хорошо
-				\item Иначе повторяем тоже самое с $C_2$ и так далее пока не будет хорошо
-				\item Процесс конечен так как все $C_i$ дизьюнктны и $\phi(\bigsqcup C_i) \neq -\infty.$
+				\item Если A~--- М$\epsilon$П, то $C = A$
+				\item Пусть A~--- не М$\epsilon$П. Тогда существеут $C_1 \subset A : \phi(C_1) < -\epsilon$.\\
+                Пусть $A_1 = A \setminus C$. $\phi(A_1) > \phi(A)$\\
+                \item Если $A_1$~--- М$\epsilon$П, то это и есть искомое $C$. Иначе продолжим строить так $A_2,A_3,\dots$ и $C_2,\dots$.
+				\item Процесс конечен, так как все $C_i$ дизьюнктны, $\phi(C_i) < -\epsilon$, но $\phi(\bigsqcup C_i)$ конечно по определению заряда.
 			\end{enumerate}
-			\item Построим B: $C_1$ - множество 1 положительности. $C_2 - 1/2$. Тогда $B = \cap C_i$ - МеП
+			\item Построим $B$: $C_1$ - множество $1$-положительности в $A$. $C_2$~--- множество $\frac{1}{2}$-положительности в $C_1$, и т. д.
+                Тогда $B = \bigcap C_i$~--- М$\epsilon$П для любого $\epsilon$, значит, это МП.
 			\item $\phi(B) = \lim\limits_{i \rightarrow \infty} \phi(C_i) \geq \phi(A)$
+                \textcolor{red}{Это какая-то пародия на непрерывность меры, только для зарядов?}
 		\end{itemize}
 \section{Теорема Радона---Никодима}
 	Пусть есть пространство $(X, \mathbb{A}, \mu)$ \\
