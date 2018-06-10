@@ -190,14 +190,14 @@
     $r \geq 0$
 
     $\vdots$\\
-	$x_{m-2} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-3} \cdot \cos \phi_{n-2}$
+	$x_{m-2} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{m-3} \cdot \cos \phi_{m-2}$
 
-	$x_{m-1} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-2} \cdot \cos \phi_{n-1}$
+	$x_{m-1} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{m-2} \cdot \cos \phi_{m-1}$
 
 
-	$x_{m} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-2} \cdot \sin \phi_{n-1}$\\
+	$x_{m} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{m-2} \cdot \sin \phi_{m-1}$\\
 
-	$\mathcal{J} = r^{n-1} \cdot (\sin \phi_1)^{n-2} \cdot (\sin \phi_2)^{n-3} \cdots (\sin \phi_{n-2})^{1} \cdot (\sin \phi_{n-1})^{0}$
+	$\mathcal{J} = r^{m-1} \cdot (\sin \phi_1)^{m-2} \cdot (\sin \phi_2)^{m-3} \cdots (\sin \phi_{m-2})^{1} \cdot (\sin \phi_{m-1})^{0}$
 
 	Что тут происходит идейно. Сначала мы проецируем наш $m$-мерный вектор на нормаль к $(m-1)$-мерной гиперплоскости. Потом рассматриваем проекцию на эту гиперплоскость и в ней рекурсивно повторяем процедуру, пока не дойдём до нашего любимого $\mathds{R}^2$. Уже в нём рассматривем обычные полярные координаты (отсюда и другие ограничения на размер угла).
 
@@ -437,7 +437,7 @@
 
 		\item $$ b_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin kx ~ dx $$
 
-		\item $$ с_k(f) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx} ~ dx $$
+		\item $$ c_k(f) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx} ~ dx $$
 
 	\end{itemize}
 
@@ -454,7 +454,7 @@
 	\section{Ротор, дивергенция векторного поля}
     $F = (P, Q, R)$~--- векторное поле в $\mathds{R}^3$.
 
-	$(P, Q, R) \rightarrow (R'_y - Q'_z, P'_z - R'_x, Q'_x - P'_y)$. Такое преобразование называется ротором или вихрем. Обозначается как $rot\ F$.
+	$ rot\ F = (R'_y - Q'_z, P'_z - R'_x, Q'_x - P'_y) $ -- ротор, вихрь
 
 	$div\ F = P'_x + Q'_y + R'_z$. Многомерный случай определяется аналогично.
 
@@ -462,29 +462,56 @@
 	Векторное поле $A$~--- соленоидальное, если $\exists$ векторное поле $B: rot\ B = A$. Тогда $B$ называется векторным потенциалом поля $A$.
 
 	\section{Бескоординатное определение ротора и дивергенции}
-	$rot\ F$~--- это такое векторное поле, что $\forall a \ \forall n_0 (rot F(a))_{n_0} = \lim_{r\to 0} \frac{1}{\pi r^2} \int_{\partial B_r} F_ldl$
-\\
+	$rot\ F$~--- это такое векторное поле, что $\forall a \ \forall n_0 (rot F(a))_{n_0} = \lim\limits_{r\to 0} \frac{1}{\pi r^2} \int\limits_{\partial B_r} F_ldl$
+		
+	где $ B_r $ -- круговой контур, $ n_0 $ -- нормаль контура, $ F_l $ -- проекция на касательное направление контура. 
 
-	$div F(a) = \lim_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iiint_{B(a,r)} div F_l \,dx\,dy\,dz = \\ \lim_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iint_{\partial B(a,r)} <F, n_0>\,dS$
+	Пояснение: $ \frac{1}{\pi r^2} \int\limits_{\partial B_r} F_ldl =  \frac{1}{\pi r^2} \iint\limits_{B_r} \langle rot\ F, n_0 \rangle dS \underset{r \approx 0}{\approx} rot F(a)$
+	
+
+
+	$div F(a) = \lim\limits_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iiint\limits_{B(a,r)} div F \,dx\,dy\,dz = \lim\limits_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iint\limits_{\partial B(a,r)} \langle F, n_0 \rangle dS$
 
 	\section{Свертка}
+	$ f, K \in L_1[-\pi, \pi]$  -- пеорид.
 
 	$$ (f \ast K)(x) = \int_{-\pi}^{\pi} f(x-t)K(t) dt$$
 
-	где $ f, K \in L_1([-\pi, \pi])$.
-
-\section{Аппроксимативная единица. TODO}
-	{\color{red} \textbf{TODO}}
-\section{Усиленная аппроксимативная единица. TODO}
-	{\color{red} \textbf{TODO}}
-\section{Метод суммирования средними арифметическими. TODO}
-	{\color{red} \textbf{TODO}}
-\section{Суммы Фейера. TODO}
-	{\color{red} \textbf{TODO}}
-\section{Преобразование Фурье. TODO}
-	{\color{red} \textbf{TODO}}
-\section{Свертка в $L^1(\mathds{R}^m)$. TODO}
-	{\color{red} \textbf{TODO}}
+\section{Аппроксимативная единица. (а. е.)}
+	
+	Пояснения: нужна 1-ца по свертке, но это не совсем функция, поэтому зададим как предел послед.
+	
+	$ D \subset R, h_0 $ -- придельная точка $ D $ в $ \overline{R} $, 
+	тогда $ \{K_h\}_{n \in D}$ -- а. е. если:
+	\begin{itemize}
+		\item[AE1: ] $ \forall h \in D ~~ K_h \in L_1[-\pi, \pi] ~ \int\limits_{-\pi}^{\pi} K_h = 1 $
+		\item[AE2: ] $ \exists M ~ \forall h ~ \int\limits_{-\pi}^{\pi} |K_h| \leq M $
+		\item[AE3: ] $ \forall \delta \in (0, \pi) ~  \int\limits_{E_\delta} | K_h | 
+		\underset{h \rightarrow h_0}{\rightarrow} 0  $
+	\end{itemize}
+	
+\section{Усиленная аппроксимативная единица.}
+	
+	Изменяем свойство AE3, на AE3': 
+	
+	$ \forall h ~ K_h \in L_\infty[-\pi, \pi]; ~ \forall \delta \in (0, \pi) ~ ~ \esssup\limits_{t \in E_\delta} |K_h(t)| \underset{h \rightarrow h_0}{\rightarrow} 0 $
+	
+\section{Метод суммирования средними арифметическими}
+	Предел $ \{\sigma_n\} $ (см. ниже) -- сумма ряда Фурье методом сред. ариф.
+\section{Суммы Фейера.}
+	$ \sigma_n = \frac{1}{n + 1} \sum\limits_{k=0}^{n} S_k(f(x)) = \int\limits_{-\pi}^{\pi} f(x + t) \Phi_n(t) dt$
+	
+	где $ S_i $ -- частичные суммы ряда Фурье
+\section{Преобразование Фурье.}
+	$ f \in L_1(R^m); y \in R^m$
+	
+	$  \hat{f}(y) := \int\limits_{R^m} f(x)e^{-2\pi i \langle y, x \rangle} d\lambda_m(x) $
+\section{Свертка в $L^1(\mathds{R}^m)$.}
+	
+	$ f, g \in L_1(R^m) $
+	
+	$$ f \ast g ~ (x) = \int_{R^m} f(x - t) g(t) d\lambda_m(x)$$
+	
 \section{Интеграл Фурье, частичный интеграл Фурье. TODO}
 	{\color{red} \textbf{TODO}}
 
