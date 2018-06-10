@@ -1583,6 +1583,9 @@ $E \subset \mathds{R}^1$ -- измеримо\\ $f \in L_1(E, \lambda), ~ \lambda
 \emph{Тогда:} $$\int\limits_{E}f(x)e^{ikx}dx \xrightarrow[k \to +\infty]{} 0$$ и $$\int\limits_{E}f(x)cos(kx)dx \xrightarrow[k \to +\infty]{} 0$$
 \emph{Доказательство:} \\
 Пусть $f \equiv 0$ вне $E$, тогда можно считать, что $f \in L^1(\mathds{R}^1)$ \\
+
+Обозначим $e(x) = cos(x)$, или $sin(x)$, или $e^{ix}$, в зависимости от ситуации. Заметим, что $e(t + \pi) = -e(t)$
+
 $\int\limits_{\mathds{R}}f(t)e^{ikt \overset{t=\tau + \frac{\pi}{k}}{=}} \int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{i k \tau + i\pi} = -\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau}$ \\
 $\int\limits_{\mathds{R}}f(t)e^{ikt} = \frac{1}{2}\int\limits_{\mathds{R}}f(t)e^{ikt} - \frac{1}{2}\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau} = \frac{1}{2}\int\limits_{\mathds{R}}(f(t) - f(t + \frac{\pi}{k}))$ \\
 $|\int\limits_{\mathds{R}}f(t)e^{ikt}| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t) - f(t + \frac{\pi}{k})|dt \xrightarrow[k \to +\infty]{}0$,\\по непрерывности сдвига, то есть:\\$||f-f_{\tau}||_1 \xrightarrow[\tau\to 0]{}0$
