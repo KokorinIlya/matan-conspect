@@ -1571,11 +1571,9 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 \begin{enumerate}
 	\item
 		$\int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx = \int\limits_{-\pi}^{\pi} a_k \cos^2 kx dx = \pi a_k$
-		\iffalse
-		 (Так как $\int\limits_{-\pi}^{\pi} \cos kx \cos lx = 0$ в $l_2$)
-		 \fi
+		(в силу ортогональности триг системы)
 	\item
-		$\vert \int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx - \int\limits_{-\pi}^{\pi} f(x) \cos kx dx \vert \le \int\limits_{-\pi}{\pi} \vert S_n(x)-f(X) \vert \cdot \vert \cos kx \vert \le \int\limits_{-\pi}^{\pi} \vert S_n(x) - f(x) \vert \rightarrow 0$
+		$\vert \int\limits_{-\pi}^{\pi} S_n(x) \cos kx dx - \int\limits_{-\pi}^{\pi} f(x) \cos kx dx \vert \le \int\limits_{-\pi}^{\pi} \vert S_n(x)-f(X) \vert \cdot \vert \cos kx \vert \le \int\limits_{-\pi}^{\pi} \vert S_n(x) - f(x) \vert \rightarrow 0$
 \end{enumerate}
 
 Из 1 и 2 следует равенство для $a_k$. Аналогично доказывается и для других.
