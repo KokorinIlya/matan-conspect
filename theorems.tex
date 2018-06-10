@@ -1589,13 +1589,7 @@ $E \subset \mathds{R}^1$ -- измеримо\\ $f \in L_1(E, \lambda), ~ \lambda
 $\int\limits_{\mathds{R}}f(t)e(kt)  {\overset{t=\tau + \frac{\pi}{k}}{=}} \int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e(k \cdot (\tau + \frac{\pi}{k})) = -\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e(k \tau)$ \\
 $\int\limits_{\mathds{R}}f(t)e(kt) = \frac{1}{2}\int\limits_{\mathds{R}}f(t)e(kt) - \frac{1}{2}\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e(kt) = \frac{1}{2}\int\limits_{\mathds{R}}(f(t) - f(t + \frac{\pi}{k})) e(kt)$ \\
 
-$|\int\limits_{\mathds{R}}f(t)e(kt)| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t) - f(t + \frac{\pi}{k})|dt$ (так как $|e(kt)| \leq 1$)$ \xrightarrow[k \to +\infty]{}0$,\\по непрерывности сдвига\\\\
-
-$\int\limits_{\mathds{R}}f(t)e^{ikt \overset{t=\tau + \frac{\pi}{k}}{=}} \int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{i k \tau + i\pi} = -\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau}$ \\
-$\int\limits_{\mathds{R}}f(t)e^{ikt} = \frac{1}{2}\int\limits_{\mathds{R}}f(t)e^{ikt} - \frac{1}{2}\int\limits_{\mathds{R}}f(\tau + \frac{\pi}{k})e^{ik\tau} = \frac{1}{2}\int\limits_{\mathds{R}}(f(t) - f(t + \frac{\pi}{k}))$ \\
-$|\int\limits_{\mathds{R}}f(t)e^{ikt}| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t) - f(t + \frac{\pi}{k})|dt \xrightarrow[k \to +\infty]{}0$,\\по непрерывности сдвига, то есть:\\$||f-f_{\tau}||_1 \xrightarrow[\tau\to 0]{}0$
-\\\\
-Сходимость второго интеграла очевидна из $cos(kx) = \frac{e^{ikx} - e^{-ikx}}{2}$
+$|\int\limits_{\mathds{R}}f(t)e(kt)| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t) - f(t + \frac{\pi}{k})|dt$ (так как $|e(kt)| \leq 1$)$ \xrightarrow[k \to +\infty]{}0$,\\по непрерывности сдвига
 
 \section{Принцип локализации Римана. TODO}
 
