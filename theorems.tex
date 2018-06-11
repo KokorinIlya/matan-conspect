@@ -1359,15 +1359,15 @@ $E \subset \mathbb{R}^m -$ изм. Тогда множество финитны�
 \emph{Обозначения}:
 
 $f_h := f(x+h)$ \\
-$[0, T] \subset \mathbb{R}.$ Будем считать, что $L_p[0, T] -$ состоит из $T$-периодических функций $\mathbb{R} \rightarrow \overline {\mathbb{R}}$. Отсюда $\int_{0}^{T} f = \int_{a}^{a+T} f.$ \\
+$[0, T] \subset \mathbb{R}$. Будем считать, что $L_p[0, T]$ состоит из $T$-периодических функций $\mathbb{R} \rightarrow \overline {\mathbb{R}}$. Отсюда $\int_{0}^{T} f = \int_{a}^{a+T} f.$ \\
 $\widetilde{C}[0, T] = {f \in C[0, T]: f(0) = f(T) }. ||f|| = max_{x\in[0,T]}|f(x)|$ \\
-NB: $f \in \widetilde{C}[0, T] \Rightarrow f -$ рвнм. непрерывна (по т. Кантора)
+NB: $f \in \widetilde{C}[0, T] \Rightarrow f$ равномерно непрерывна (по т. Кантора).
 
 \emph{Формулировка}:
 \begin{enumerate}
 	\item $f - $ рвнм. непр. на $\mathbb{R}^m$. Тогда $||f-f_h||_\infty \rightarrow 0$ при $h\rightarrow 0$.
 	\item $1 \leq p < + \infty \ f \in L_p(\mathbb{R}^m, \lambda_m)$. Тогда $||f-f_h||_p \rightarrow 0$.
-	\item $f \in \widetilde{C}[0, T]$. Тогда $||f-f_h||_+\infty \rightarrow 0$.
+	\item $f \in \widetilde{C}[0, T]$. Тогда $||f-f_h||_\infty \rightarrow 0$.
 	\item $1 \leq p < + \infty \  f \in L_p[0; T]$. Тогда $||f-f_h||_p \rightarrow 0$.
 \end{enumerate}
 
@@ -1375,7 +1375,7 @@ NB: $f \in \widetilde{C}[0, T] \Rightarrow f -$ рвнм. непрерывна (
 
 \begin{enumerate}
 	\item 1 и 3 свойства следуют из определения рвнм. непр-ти:
-		$\forall \epsilon > 0 \ \exists \delta > 0 \  \forall x \in \mathbb{R}^m \ \forall h: |h| < \delta$ верно, что $|f(x) - f(x+h)| < \epsilon$, то есть $||f-f_h||_+\infty < \epsilon$
+		$\forall \epsilon > 0 \ \exists \delta > 0 \  \forall x \in \mathbb{R}^m \ \forall h: |h| < \delta$ верно, что $|f(x) - f(x+h)| < \epsilon$, то есть $||f-f_h||_\infty < \epsilon$
 		(это для св-ва 1, во втором случае $x$ из $[0,T]$).
 	\item \textcolor{red}{TODO!}
 \end{enumerate}
@@ -1398,9 +1398,9 @@ $\mu_H$ -- мера Бореля-Стилтьеса (мера Лебега-Ст�
 
 \section{Теорема о свойствах сходимости в гильбертовом пространстве}
 \begin{enumerate}
-	\item $x_n \rightarrow x, y_n \rightarrow y \Rightarrow <x_n, y_n> \rightarrow <x, y>$
+	\item $x_n \rightarrow x, y_n \rightarrow y \Rightarrow \langle x_n, y_n \rangle \rightarrow \langle x, y \rangle$
 
-	\item $\sum x_k$ сходится, тогда $\forall y: \sum <x_k, y> = <\sum x_k, y>$
+	\item $\sum x_k$ сходится, тогда $\forall y: \sum \langle x_k, y \rangle = \langle \sum x_k, y \rangle$
 
 	\item $\sum x_k$ - ортогональный ряд, тогда $\sum x_k$ - сх $\Leftrightarrow \sum |x_k|^2$ сходится, при этом $|\sum x_k|^2 = \sum |x_k|^2$
 
@@ -1409,17 +1409,17 @@ $\mu_H$ -- мера Бореля-Стилтьеса (мера Лебега-Ст�
 \emph{Доказательство}
 
 \begin{enumerate}
-	\item $|<x_k, y_k> - <x, y>| = |<x_k, y_k> - <x_k, y> + <x_k, y> - <x, y>| \leqslant |<x_k, y_k - y>| + |<x_k - x, y>| \leqslant |x_k| \cdot |y_k - y| + |x_k - x| \cdot |y| \rightarrow 0$ (так как огр $\cdot$ б.м. +  б.м. $\cdot$ огр $\rightarrow$ 0)
+	\item $|\langle x_k, y_k \rangle - \langle x, y \rangle| = |\langle x_k, y_k \rangle - \langle x_k, y\rangle  + \langle x_k, y\rangle  - \langle x, y\rangle | \leqslant |\langle x_k, y_k - y\rangle | + |\langle x_k - x, y\rangle | \leqslant |x_k| \cdot |y_k - y| + |x_k - x| \cdot |y| \rightarrow 0$ (так как огр $\cdot$ б.м. +  б.м. $\cdot$ огр $\rightarrow$ 0)
 
 	\item $S_n = \sum\limits_{k = 1}^{n} x_k$
 
-	$<\sum\limits_{k = 1}^n x_k, y> = \sum\limits_{k = 1}^n <x_k, y>$
+	$\langle \sum\limits_{k = 1}^n x_k, y\rangle  = \sum\limits_{k = 1}^n \langle x_k, y\rangle $
 
-	Устремляя $n$ к $\infty$ получаем требуемое равенство
+	Устремляя $n$ к $\infty$, получаем требуемое равенство
 
 	\item Обозначим $C_n := \sum\limits_{k = 1}^n |x_k|^2$
 
-	 $|S_n|^2 = <\sum\limits_{k = 1}^n x_k, \sum\limits_{j = 1}^n x_j> = \sum\limits_{k, j}^n <x_k, x_j> = \sum\limits_{k = 1}^n <x_k, x_k>$ (так как $k \neq j \Rightarrow <x_k, x_j> = 0$) $= \sum\limits_{k = 1}^n |x_k|^2 = C_n$
+	 $|S_n|^2 = \langle \sum\limits_{k = 1}^n x_k, \sum\limits_{j = 1}^n x_j\rangle  = \sum\limits_{k, j}^n \langle x_k, x_j\rangle  = \sum\limits_{k = 1}^n \langle x_k, x_k\rangle $ (так как $k \neq j \Rightarrow \langle x_k, x_j\rangle  = 0$) $= \sum\limits_{k = 1}^n |x_k|^2 = C_n$
 
 	 Аналогично, $||S_n|^2 - |S_m|^2| = |C_n - C_m|$
 
@@ -1435,10 +1435,10 @@ $\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \
 
 	\item $\{e_k\}$ {{---}} Л.Н.З.
 
-	\item $c_k = \dfrac{<x, e_k>}{||e_k||^2}$
+	\item $c_k = \dfrac{\langle x, e_k \rangle}{||e_k||^2}$
 
-	\item $c_k \cdot e_k$ {{---}} проекция $x$ на прямую $\{te_k, t \in \mathbb{R}(\mathbb{C})\}$\\
-	Иными словами $x = c_k \cdot e_k + z$, где $z \bot e_k$
+	\item $c_k \cdot e_k$ {{---}} проекция $x$ на прямую $\{te_k \mid t \in \mathbb{R}\ (\text{или}\ \mathbb{C})\}$\\
+	Иными словами, $x = c_k \cdot e_k + z$, где $z \bot e_k$
 
 \end{enumerate}
 
@@ -1449,10 +1449,10 @@ $\{e_k\}$ {{---}} ортогональная система в $\mathds{H},\ x \
 	\item Пусть $\sum\limits_{k=1}^{N} \alpha_k e_k = 0$. Умножим скалярно на $e_m\ (1 \leqslant m \leqslant N)$\\ \\
 	Получим: $\alpha_m ||e_m||^2 = 0 \Rightarrow \alpha_m = 0 \Rightarrow$ комб. тривиальная $\Rightarrow$ Л.Н.З.
 
-	\item $<x, e_m> = \sum\limits_{k=1}^{+\infty} <c_k e_k, e_m> = c_m \cdot ||e_m||^2$ (верно в силу сходимости ряда)
+	\item $\langle x, e_m \rangle = \sum\limits_{k=1}^{+\infty} \langle c_k e_k, e_m \rangle = c_m \cdot ||e_m||^2$ (верно в силу сходимости ряда)
 
-	\item $x = c_k \cdot e_k + z\ ?\ z \bot e_k\ $ Докажем это:\\
-	$<z, e_k> = <x - c_k e_k, e_k> = c_k \cdot ||e_k||^2 - c_k\cdot ||e_k||^2 = 0$
+	\item $x = c_k \cdot e_k + z$. Доказать: $z \bot e_k$.\\
+	$\langle z, e_k \rangle = \langle x - c_k e_k, e_k \rangle = c_k \cdot ||e_k||^2 - c_k\cdot ||e_k||^2 = 0$
 
 \end{enumerate}
 
