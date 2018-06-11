@@ -878,53 +878,54 @@ $ \int\limits_{X} \varliminf f \leq \varliminf \int\limits_{X} f_n $
 			\item $\phi(B) = \lim\limits_{i \rightarrow \infty} \phi(C_i) \geq \phi(A)$
                 \textcolor{red}{Это какая-то пародия на непрерывность меры, только для зарядов?}
 		\end{itemize}
-\section{Теорема Радона---Никодима}
-	Пусть есть пространство $(X, \mathbb{A}, \mu)$ \\
-	$\nu$ - мера из $\mathbb{A}$ \\
-	Обе меры конечные и $\nu \prec \mu$. \\
+\section{Теорема Радона-Никодима}
+	Пусть есть пространство $(X, \mathbb{A}, \mu)$. \\
+	$\nu$~--- мера на $\mathbb{A}$. \\
+	Обе меры конечные и $\nu \prec \mu$ (абсолютная непрерывность меры: если $\mu E = 0$, то $\nu E = 0$). \\
 	\emph{Тогда: } \\
-		$\exists! f: X->R^{\infty}$ (c точн до почти везде), которая является плотностью $\nu$ относительно $\mu$ и при этом $(f - \mu)$ суммируема
+		$\exists! f: X \rightarrow \overline{\mathds{R}}$ (c точностью до почти везде), которая является плотностью $\nu$ относительно $\mu$ и при этом $f$ суммируема по $\mu$.
 
-	\emph{Доказательство: }
+	\emph{Доказательство:}
 		\begin{itemize}
-			\item единственность - из леммы
-			\item строим кандидата на роль f. $P = \{p(x) \geq 0, изм| \forall E :  \int\limits_E p*d\mu \leq \nu(E)\}$
+			\item единственность~--- из леммы
+			\item строим кандидата на роль $f$. $P = \{p(x) | p \geq 0, \text{изм.},\ \forall E \in \mathbb{A} : \int\limits_E p \cdot d\mu \leq \nu(E)\}$
 			\begin{enumerate}
 				\item
 				$P \neq \emptyset$ и $0 \in P$
 				\item
-				$p1, p2 \in P \Rightarrow h = max(p_1, p_2) \in P$
+				$p_1, p_2 \in P \Rightarrow h = max(p_1, p_2) \in P$
 
 				$\forall E \int\limits_E h d\mu = \int\limits_{E(p_1 \geq p_2)} h d\mu + \int\limits_{E(p_1 < p_2)} h d\mu =
-				\int\limits_{E(p_1 \geq p_2)} p1 + \int\limits_{E(p_1 < p_2)} p_2 \leq \nu(E(p_1 \geq p_w)) + \nu(E(p_1 < p_2)) = \nu E$
+				\int\limits_{E(p_1 \geq p_2)} p_1 + \int\limits_{E(p_1 < p_2)} p_2 \leq \nu(E(p_1 \geq p_2)) + \nu(E(p_1 < p_2)) = \nu E$
 
 				По индукции $max(p_1...p_n)\in P$
 				\item
-				$I = sup\{\int\limits_X p d\mu | p \in P\}$
+				$I = \sup\limits_{p \in P} \int\limits_X p d\mu$
 
-				$\exists$ последовательсность $f_1 \leq f_2 \leq ... \in P : \int\limits_X f_n \rightarrow I$
+				$\exists$ последовательсность $f_1 \leq f_2 \leq \dots \in P : \int\limits_X f_n d\mu \rightarrow I$
 				\item
-				Рассмотрим $p_1, p_2 ... : \int\limits_X p_n \rightarrow I$, а также $f_n = max(p_1 ... p_n) \in P$
+				Рассмотрим $p_1, p_2, \dots : \int\limits_X p_n \rightarrow I$, а также $f_n = max(p_1 \dots p_n) \in P$
 				\item
-				Из предыдущих двух получаем, что $f = \lim f_n$ и $\int\limits_E = /* th Levi */ = \lim \int\limits_E f_n \leq \nu E$, а следовательно $\int\limits_X f = lim \int\limits_X f_n = I \leq \nu(X)$
+				$f := \lim f_n$. Тогда $\int\limits_E f d\mu \overset{\text{т. Леви}}{=} \lim \int\limits_E f_n d\mu \leq \nu E$, а следовательно $\int\limits_X f = lim \int\limits_X f_n = I \leq \nu(X)$
 				\item
-				Отлично, проверим, что f - плотность $\nu$ относительно $\mu$.
-				\begin{itemize}
+				Отлично, проверим, что f~--- плотность $\nu$ относительно $\mu$.
+				\begin{enumerate}
 					\item
-					Докажем, что это не так: $\exists E_0 : \nu E_0 > \int\limits_{E_0} f d\mu$
+					Предположим, что это не так: $\exists E_0 : \nu E_0 > \int\limits_{E_0} f d\mu$
 					\item
-					$\mu E_0 > 0$(иначе интеграл равено нулю и мера равна нулю из абстрактной непрерывности)
+					$\mu E_0 > 0$ (иначе интеграл равено нулю и мера $\nu$ равна нулю из абсолютной непрерывности)
 					\item
-					Тогда $\mu E_0$ - конечна. Возьмем $a > 0 : \nu E_0 - \int\limits_{E_0} f d\mu > a * \mu E_0$
+					Возьмем $a > 0 : \nu E_0 - \int\limits_{E_0} f d\mu > a \cdot \mu E_0$
 					\item
-					Тут недостаточно термина мер, поэтому рассмотрим заряд $\phi(E) = \nu E - \int\limits_E f d\mu - a * \mu E$
+					Рассмотрим заряд $\phi(E) = \nu E - \int\limits_E f d\mu - a \cdot \mu E$ (это законно, потому что меры конечные)
 					\item
-					Пусть $\phi(E_0) > 0$. Возьмем МП $B \subset E_0 : \phi(B) \geq \phi(E_0) > 0$. Тогда $\nu(B) = \phi(B) + \int\limits_B f * d\mu + a * \mu B \geq \phi(B) > 0$
+					$\phi(E_0) > 0$ (пункт \textbf{c}). Возьмем МП $B \subset E_0 : \phi(B) \geq \phi(E_0) > 0$. Тогда $\nu(B) = \phi(B) + \int\limits_B f \cdot d\mu + a \cdot \mu B \geq \phi(B) > 0$
 					\item
-					Проверим, что $f + a * \chi_B \in P$. Тогда по определению $\int\limits_E(f + a * \chi_B)d\mu = \int\limits_{E \diagdown B} F * d\mu + \int\limits_{E \cap B} f * d\mu + a * \mu(B \cap E) = /* E \leftrightarrow E \cap B */ = \int\limits_{E \diagdown B} f + \nu(E \cap b) - \phi (E \cap B) \leq /* def\_class\_P\_and\_f \in P */ \leq \nu(E \diagdown B) + \nu(E \cap B) - \phi(E \cap B) = \nu E - \phi(E \cap B) \leq /* \phi \geq 0 */ \leq \nu E$
+					Проверим, что $f + a \cdot \chi_B \in P$.
+                    По определению: $\int\limits_E(f + a \cdot \chi_B)d\mu = \int\limits_{E \setminus B} f \cdot d\mu + \int\limits_{E \cap B} f \cdot d\mu + a \cdot \mu(B \cap E) = \int\limits_{E \setminus B} f + \nu(E \cap B) - \phi (E \cap B) \overset{f \in P}{\leq} \nu(E \setminus B) + \nu(E \cap B) - \phi(E \cap B) = \nu E - \phi(E \cap B) \overset{\phi \geq 0}{\leq} \nu E$
 					\item
-					Проверим, что $\int_X f + a * \chi_B = I  + a * \mu B > I$, что противоречит определению I
-				\end{itemize}
+					$\int_X f + a \cdot \chi_B = I  + a \cdot \mu B > I$, что противоречит определению $I$.
+				\end{enumerate}
 			\end{enumerate}
 		\end{itemize}
 
