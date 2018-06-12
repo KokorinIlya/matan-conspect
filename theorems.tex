@@ -799,10 +799,10 @@ $ \int\limits_{X} \varliminf f \leq \varliminf \int\limits_{X} f_n $
 				\item
 				\begin{itemize}
 					\item f~--- ступенчатая $\Rightarrow f = \sum \alpha_k * \chi_{E_k}$
-					\item $\int\limits_{Y} \sum \alpha_k * \chi_{E_k} d\mu = \sum \alpha_k \chi_{E_k} d\nu = /* first case */ = \sum \alpha_k \int\limits_X \chi_{E_k}(\Phi(x))*\omega(x)dx = \int\limits_X \sum \alpha_k \chi_{E_k}(\Phi(x)) * \omega(x) d\mu(x) = \int f \circ \Phi * \omega d\mu$
+					\item $\int\limits_{Y} \sum \alpha_k * \chi_{E_k} d\nu = \sum \int\limits_{Y} \alpha_k \chi_{E_k} d\nu \overset{\textit{первый случай}}{=} \sum \alpha_k \int\limits_X \chi_{E_k}(\Phi(x))*\omega(x)dx = \int\limits_X \sum \alpha_k \chi_{E_k}(\Phi(x)) * \omega(x) d\mu(x) = \int f \circ \Phi * \omega d\mu$
 				\end{itemize}
+				\item Если $f$ - произвольная неотрицательная, то будем строить возрастающую последовательность ступенчатых, поточечно сходящихся к $f$. Тогда $\int_{Y}f_n d\nu = \int_{X} f_n(\Phi(x)) * \omega(x) d\mu(x)$. По теореме Леви делаем переход под знаком интеграла и всё доказываем.
 			\end{itemize}
-        \textcolor{red}{А дальше что?}
 \section{Критерий плотности}
 	Есть пространство $<X, \mathbb{A}, \mu>$ \\
 	$\nu$~--- еще одна мера. \\
