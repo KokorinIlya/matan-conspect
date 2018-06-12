@@ -1485,7 +1485,7 @@ $S_n = \sum\limits_{k=1}^{n} c_k(x)e_k,\ \pazocal{L} = Lin(e_1, e_2, \ldots e_n)
 
 		\item $z \bot \pazocal{L} \Leftrightarrow \forall k = 1, 2 ...n : z \bot e_k$
 
-		\item $<z, e_k> = <x, e_k> - <S_n, e_k> = c_k ||e_k||^2 - c_k ||e_k||^2 = 0$
+		\item $\langle z, e_k \rangle = \langle x, e_k \rangle - \langle S_n, e_k \rangle = c_k ||e_k||^2 - c_k ||e_k||^2 = 0$
 	\end{enumerate}
 
 	\item $||x - y||^2 = ||S_n + z - y||^2 = ||(S_n - y) + z||^2 = ||S_n - y||^2 + ||z||^2 \geqslant$ $\geqslant ||z||^2 = ||x - S_n||^2$
@@ -1502,7 +1502,7 @@ $\{e_k\}$ -- орт. сист. в $\mathds{H}$, $x \in \mathds{H}$\\
 
 \emph{Тогда}:
 \begin{enumerate}
-	\item Ряд Фурье $\sum\limits_{k=1}^{+\infty} c_k(x) e_k$ сх-ся в $\mathds{H}$
+	\item Ряд Фурье $\sum\limits_{k=1}^{+\infty} c_k(x) e_k$ сходится в $\mathds{H}$
 	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k$
 	\item $x =\sum\limits_{k=1}^{+\infty} c_k e_k \Leftrightarrow \sum\limits_{k=1}^{+\infty} \vert c_k \vert^2 \|e_k\|^2=\|x\|^2$
 \end{enumerate}
@@ -1528,15 +1528,15 @@ $\mathbf{TODO}$ Замечания. Не уверен, нужны ли они
 
 \section{Теорема о характеристике базиса}
 
-$\{e_k\}$ -- орт. сист. в $\mathds{H}$\\
+$\{e_k\}$~--- ортогональная система в $\mathds{H}$\\
 
 \emph{Тогда} эквивалентны следующие утверждения:
 \begin{enumerate}
-	\item $e_1$ -- базис
+	\item $\{e_1\}$~--- базис.
 	\item $\forall x, y \in \mathds{H} \quad \langle x, y \rangle = \sum c_k(x)\overline{c_k(y)}\|e_k\|^2$ (обобщенное уравнение замкнутости)
-	\item $\{e_k\}$ - замкн.
-	\item $\{e_k\}$ - полн.
-	\item $Lin(e_1, e_2, \mathellipsis)$ - плотна в $\mathds{H}$
+	\item $\{e_k\}$~--- замкнутая система.
+	\item $\{e_k\}$~--- полная система.
+	\item $Lin(e_1, e_2, \mathellipsis)$~--- плотна в $\mathds{H}$
 \end{enumerate}
 
 \emph{Доказательство:}
@@ -1559,7 +1559,7 @@ $\|x_0\|^2=\sum \vert c_k(x_0) \vert^2 \|e_k\|^2 = 0$ (см. п. 2 из опр.)
 $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow(\text{т. Рисса-Фишера (2)}) \  \forall k \ z \bot e_k \Rightarrow(\text{из полноты}) \ z = 0$ (см. п. 1 из опр.)
 
 \subsection{\texorpdfstring{$4 \Rightarrow 5$}{TEXT}}
-Пусть $Cl Lin(e_1, e_2, \mathellipsis) \ne \mathds{H}$, $x \in \mathds{H} \smallsetminus Cl Lin(e_1, e_2, \mathellipsis)$\\
+Пусть $Cl Lin(e_1, e_2, \mathellipsis) \ne \mathds{H}$, $x \in \mathds{H} \setminus Cl Lin(e_1, e_2, \mathellipsis)$\\
 из т. Рисса-Фишера (2): $x =\sum\limits_{k=1}^{+\infty} c_k e_k + z \Rightarrow \forall k \ z \bot e_k \Rightarrow x =\sum\limits_{k=1}^{+\infty} c_k e_k \Rightarrow x \in Cl Lin(e_1, e_2, \mathellipsis)$\\
 Противоречие.
 
@@ -1572,9 +1572,9 @@ $\forall k \ x_0 \bot e_k \Rightarrow x_0 \bot Lin(e_1, e_2, \mathellipsis) \Rig
 
 \emph{Тогда}:
 
-$a_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)coskx\ dx \quad k = 0, 1, 2, \mathellipsis$
+$a_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos kx\ dx \quad k = 0, 1, 2, \mathellipsis$
 
-$b_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)sinkx\ dx \quad k = 0, 1, 2, \mathellipsis$
+$b_k = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin kx\ dx \quad k = 0, 1, 2, \mathellipsis$
 
 $c_k = \frac{1}{2\pi}\int\limits_{-\pi}^{\pi}f(x)e^{-ikx}\ dx \quad k = 0, 1, 2, \mathellipsis$
 
