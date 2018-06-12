@@ -1196,7 +1196,7 @@ $= \int\limits_{0}^{+\infty}du\int\limits_{0}^{u}dx (x^{s-1}(u-x)^{t-1}e^{-u})
 $B(0, R) \subset \mathbb{R}^m$ \\
 $\lambda_m(B(0, R)) = \int\limits_{B(0, R)}1d\lambda_m = \int \mathcal{J} = \\
 = \int\limits_{0}^{R}dr\int\limits_{0}^{\pi}d\phi_1\dots\int\limits_{0}^{\pi}d\phi_{m-2} \int\limits_{0}^{2\pi}d\phi_{m-1} \cdot r^{m-1}(\sin\phi_1)^{m-2} \dots (\sin\phi_{m-2}) =\rightarrow\\
-\int\limits_{0}^{\pi}(\sin\phi_k)^{m-2-(k+1)} = B({\frac{m-k}{2}}; \frac{1}{2}) = \frac{\Gamma(\frac{m-k}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{m-k}{2}+\frac{1}{2})}\\
+\int\limits_{0}^{\pi}(\sin\phi_k)^{m-2-(k+1)} = B({\frac{m-k}{2}}; \frac{1}{2}) = \frac{\Gamma(\frac{m-k}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{m-k}{2}+\frac{1}{2})} $\textcolor{red}{почему так? надо бы поподробней расписать}$\\
 \rightarrow= \frac{R^m}{m} \frac{\Gamma(\frac{m-1}{2}) \Gamma(\frac{1}{2})}{\Gamma(\frac{m}{2})} \frac{\Gamma(\frac{m-2}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{m-1}{2})} \cdots \frac{\Gamma(1) \Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})} 2\pi =\\
 = \frac{\pi R^m}{\frac{m}{2}} \frac{\Gamma(\frac{1}{2})^{m-2}}{\Gamma(\frac{m}{2})} = \frac{\pi^{\frac{m}{2}}}{\Gamma(\frac{m}{2}+1)}R^m$
 
@@ -1382,20 +1382,21 @@ NB: $f \in \widetilde{C}[0, T] \Rightarrow f$ равномерно непрер�
 \end{enumerate}
 
 \section{Теорема об интеграле с функцией распределения}
+\textcolor{red}{Что тут вообще написано? Как вообще определено пространство?}
+
+
 $(\mathbb{R}, B, X)$ \\
 $f:\mathbb{R}\rightarrow\mathbb{R}, f \ge 0,$ изм. по Борелю, п.в. конечн.\\
 $h: X \rightarrow \overline{\mathbb{R}}$ с функцией распределения $H(t)$\\
 
-
-
-
 $\mu_H$ -- мера Бореля-Стилтьеса (мера Лебега-Стилтьеса на $B$)\\
-
 
 \emph{Тогда} $\int\limits_X f(h(x))d\mu(x) = \int\limits_{\mathbb{R}}f(t)d\mu_{H}(t)$
 
 \emph{Доказательство}:
 Следует из теоремы о вычислении интеграла по взвешенному образу меры.
+
+\textcolor{red}{Почему её можно тут применить?}
 
 \section{Теорема о свойствах сходимости в гильбертовом пространстве}
 \begin{enumerate}
