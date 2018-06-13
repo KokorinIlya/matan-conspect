@@ -1934,8 +1934,58 @@ $$\int_a^b f(x)dx = \sum_{k\in\mathbb{Z}} c_k(f) \int_a^b e^{ikx} dx$$
     \item $\int_{-\pi}^\pi f(t)S_N(\chi,t) dt \to \int_{-\pi}^\pi f(t) \chi(t) dt$ по теореме Лебега о мажорированной сходимости.
 \end{enumerate}
 
+
 \section{Лемма о сходимости сумм Фурье в смысле обобщенных функций. TODO}
+$f \in L_1[-\pi;\pi]$
+
+\emph{Тогда} $\forall u \in \widetilde{\mathbb{C}}^{\infty}$
+$$\int\limits_{-\pi}^\pi S_n(f, x) u(x) dx \rightarrow \int\limits_{-\pi}^\pi f(x) u(x) dx$$
+
+\emph{Доказательство:} // TODO - нужно больше пояснений
+
+\begin{enumerate}
+	\item $f \ast u$ - непр. и гладкая (т.к. $u \in L_{\infty}[-\pi, \pi]$) \\
+	$((f \ast u)(x))'=(\int\limits_{-\pi}^\pi f(t) u(x-t) dt)'_x=\int\limits_{-\pi}^\pi f(t) u'(x-t) dt$ \\
+	$\frac d {dt} (\int\limits_X f(x, t) d\nu(x))=\int\limits_X f'_x(x,t)d\nu(x)$\\
+	$L_{loc}(t_0) :\quad \exists u(t_0) : \lvert f'_t(x,t)\rvert \le g(x), g(x)$ - сумм. при $x \in X, t \in u(t_0)$
+	$\lvert f(t)u'(x-t) \rvert \le \max \lvert u'(y) \rvert \cdot \lvert f(t) \rvert, y \in [-\pi, \pi]$
+	
+	\item 
+	$\underline{u}(x) := u(-x)$\\
+	$\int\limits_{-\pi}^\pi e^{ikx} u(x) dx = \int\limits_{-\pi}^\pi e^{-ikx} u(-x) dx = 2\pi c_k(\underline{u})$\\
+	Так как сумма конечная, $\int\limits_{-\pi}^\pi S_n(f, x) u(x) dx = \sum\limits_{k = -n}^n(c_k(f)\int\limits_{-\pi}^\pi e^{ikx} u(x) dx) = 2\pi\sum\limits_{k = -n}^{n} c_k(f) c_k(\underline{u}) = \sum\limits_{k = -n}^{n} (f \ast \underline{u}) e^{ikx} \biggr\vert_{x = 0} \rightarrow (f' \ast \underline{u})(0) = \int\limits_{-\pi}^{\pi} f(t) \underline{u} (0 - t) dt = \int\limits_{-\pi}^{\pi} f(t) u(t) dt$
+\end{enumerate}
+
+\emph{Определение:} $f$ -- обобщенная функция, если задан непрерывный функционал $\mathbb{C}^\infty \rightarrow \mathbb{R}$.
+
+\emph{Определение:} $f, f_n$ -- последовательность обобщенных функций: $f_n \rightarrow f$, если $\forall u \in \mathbb{C}^\infty \quad \int\limits_{-\pi}^{\pi} f_n u \rightarrow \int\limits_{-\pi}^{\pi} f u$.
+
 \section{Следствие о преоборазовании Фурье финитных функций. TODO}
+(Следствие из теоремы ``56. Преобразование Фурье и дифференцирование``.)
+\begin{enumerate}
+	\item $f \in L_1(\mathbb{R}^m)$ -- финитная (= 0 вне некоторой окрестности).\\
+	\emph{Тогда} $\widehat{f} \in \mathbb{C}^{\infty}(\mathbb{R}^m)$
+	
+	\item $f \in \mathbb{C}_0^\infty(\mathbb{R}^m)$\\
+	\emph{Тогда} $\forall p > 0 \quad \lvert y \rvert ^ p \widehat{f}(y)$ -- сумм.
+\end{enumerate}
+
+\emph{Доказательство:}
+
+\begin{enumerate}
+	\item Из финитности следует $\forall p \quad \lvert x \rvert ^ p f(x)$ -- сумм.\\
+	$\dfrac{\partial \widehat{f}}{\partial y} = -2\pi i \widehat{(x_k f)}$\\
+	$\dfrac{\partial^2 \widehat{f}}{\partial y_k \partial y_l} = -2\pi i \dfrac{\partial}{\partial y_l} \widehat{(x_k f)} = -2\pi i (-2\pi i) \widehat{(x_l x_k f)}$\\ 
+	\dots
+	\item из п.1 теоремы (56) следует:
+	\begin{enumerate}
+		\item $\widehat{(\dfrac{\partial f}{\partial x_k})} = 2\pi i y_k \widehat{f}(y)$
+		\item $\forall \alpha$ -- мультииндексы:\\
+		$\widehat{(\dfrac{\partial^{\lvert\alpha\rvert} f}{\partial x^\alpha})} = (2\pi i)^{\lvert\alpha\rvert} y^\alpha \widehat{f}(y)$
+	\end{enumerate}
+	
+	$\widehat{(\dfrac{\partial}{\partial x_l} \cdot \dfrac{\partial f}{\partial x_k})} = 2\pi i y_l \widehat{\dfrac{\partial f}{\partial x_k}}(y)$ // TODO - тут вроде надо будет пояснить, почему левая часть ограничена
+\end{enumerate}
 \section{Лемма "о ядре Дирихле". Следствие. TODO}
 \section{Теорема о равносходимости ряда Фурье и интеграла Фурье. TODO}
 \section{Признак Дирихле--Жордана. TODO}
