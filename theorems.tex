@@ -1935,7 +1935,7 @@ $$\int_a^b f(x)dx = \sum_{k\in\mathbb{Z}} c_k(f) \int_a^b e^{ikx} dx$$
 \end{enumerate}
 
 
-\section{Лемма о сходимости сумм Фурье в смысле обобщенных функций. TODO}
+\section{Лемма о сходимости сумм Фурье в смысле обобщенных функций}
 $f \in L_1[-\pi;\pi]$
 
 \emph{Тогда} $\forall u \in \widetilde{\mathbb{C}}^{\infty}$
@@ -1960,7 +1960,7 @@ $$\int\limits_{-\pi}^\pi S_n(f, x) u(x) dx \rightarrow \int\limits_{-\pi}^\pi f(
 
 \emph{Определение:} $f, f_n$ -- последовательность обобщенных функций: $f_n \rightarrow f$, если $\forall u \in \mathbb{C}^\infty \quad \int\limits_{-\pi}^{\pi} f_n u \rightarrow \int\limits_{-\pi}^{\pi} f u$.
 
-\section{Следствие о преоборазовании Фурье финитных функций. TODO}
+\section{Следствие о преоборазовании Фурье финитных функций}
 (Следствие из теоремы ``56. Преобразование Фурье и дифференцирование``.)
 \begin{enumerate}
 	\item $f \in L_1(\mathbb{R}^m)$ -- финитная (= 0 вне некоторой окрестности).\\
@@ -1987,7 +1987,28 @@ $$\int\limits_{-\pi}^\pi S_n(f, x) u(x) dx \rightarrow \int\limits_{-\pi}^\pi f(
 	$\widehat{(\dfrac{\partial}{\partial x_l} \cdot \dfrac{\partial f}{\partial x_k})} = 2\pi i y_l \widehat{\dfrac{\partial f}{\partial x_k}}(y)$ // TODO - тут вроде надо будет пояснить, почему левая часть ограничена
 \end{enumerate}
 \section{Лемма "о ядре Дирихле". Следствие. TODO}
-\section{Теорема о равносходимости ряда Фурье и интеграла Фурье. TODO}
+\section{Теорема о равносходимости ряда Фурье и интеграла Фурье}
+
+Если: 
+\begin{enumerate}
+	\item $f \in L^{1}(R)$
+	\item $f_{0} \in L^{1}[-\pi; \pi]$
+	\item $f = f_{0}$ в $U(x)$, где $x \in R$
+\end{enumerate} 
+Тогда в точке $x$: сходимость интеграла Фурье $\Leftrightarrow$ сходимость ряда Фурье и в случае сходимости $\int_{-\infty}^{\infty}\hat f(y)e^{2\pi i x y}dy=\sum_{n=-\infty}^{\infty}c_n(f_0)e^{i\pi x}$
+
+Доказательство:
+
+Проверим: $I_A(f,x) - S_{[2\pi A]}(f, x) \rightarrow 0 при A \rightarrow \infty$
+\begin{enumerate}
+	\item $I_A(f,x)=\int_{-\delta}^{\delta}f(x - t)\frac{\sin (2\pi A t)}{\pi t}dt + o(1), A\rightarrow\infty$
+	\item $S_n(f,x)=\int_{-\delta}^{\delta}f(x - t)\frac{\sin(n t)}{\pi t}dt$
+\end{enumerate}
+$2 \pi A = n$ - целое, тогда проверять и ничего
+$2 \pi A$ - нецелое. $n = [2\pi A]$
+$|I_A(f,x) - I_{\frac{n}{2\pi}}(f,x)| = |\int_{-A}^{A} - \int_{-\frac{\pi}{2n}}^{\frac{\pi}{2n}}| \leq \int_{A - \frac{1}{2\pi}}^{A} + \int_{-A}^{-A + \frac{1}{2\pi}} \leq 2 * \frac{1}{2\pi} \max_{|y| > A - \frac{1}{2\pi}|\hat f(y)|} \rightarrow 0$, как суммируемая функция.
+	
+\end{document}
 \section{Признак Дирихле--Жордана. TODO}
 \section{Лемма к теореме о формуле обращения. TODO}
 \section{Формула обращения преобразования Фурье. TODO}
