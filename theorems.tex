@@ -735,23 +735,20 @@ $ f_n \geq 0 $ -- измер.
 \emph{Тогда:}
 
 \begin{itemize}
-	\item $ \int\limits_{X} \underline{lim}( f_n ) \geq \underline{lim}( \int\limits_{X} f_n ) $
+	\item $ \int\limits_{X} \varliminf f_n  \leq \varliminf \int\limits_{X} f_n $
 \end{itemize}
 
 \emph{Доказательство:}
 
-$ \exists n_k \mid \int\limits_{X} f_{n_k} \underrightarrow{k \rightarrow +\infty}
-\varliminf\limits_{n \rightarrow +\infty} \int\limits_{X} f_n $
+$ g_n := \inf(f_n, f_{n+1}, \dots ) $ ~ ($ g_n \leq g_{n+1} \leq \dots $)
 
-Рассмотрим $ g_{n_k} $ такое, что $ g_{n_k} \uparrow $ и $ g_{n_k} \rightarrow \varliminf f $
+$ g := \lim g_n = \varliminf f_n $
 
-Применяем теорему Леви к нер-ву $ \int\limits_{X} g_{n_k} \leq \int\limits_{X} f_{n_k}$
+$\int\limits_X g_n \leq \int\limits_X f_n$ по монотонности интеграла. Перейдём к нижнему пределу по $n$:
 
-$ \int\limits_{X} \varliminf f \leq \varliminf \int\limits_{X} f_n $
+$\varliminf \int\limits_X g_n \leq \varliminf \int\limits_X f_n$
 
-\textcolor{red}{Выглядит как какой-то бред, откуда вообще взялась $g$ и оценка на неё?}
-
-\textcolor{red}{Серьёзно, полное говно написано}
+$\int\limits_X g \overset{\text{т. Леви}}{=} \lim \int\limits_X g_n = \varliminf \int\limits_X g_n$
 
 \section{Теорема о вычислении интеграла по взвешенному образу меры}
 	\subsection{Лемма}
