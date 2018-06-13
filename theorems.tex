@@ -1863,7 +1863,28 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 	$ |F(x, h)| \underset{\text{т. Лагранжа}}{=}
 	|f'_y(x, a + \theta h)| \underset{f'_y \in L_{loc} ~ in ~ a}{\leq} g(x) $
 
-\section{Теорема о свойствах аппроксимативной единицы. TODO}
+\section{Теорема о свойствах аппроксимативной единицы}
+\begin{enumerate}
+    \item $f \in \widetilde{C}[-\pi, \pi] \Rightarrow (f * K_h) \Rightarrow f (h \rightarrow h_0)$, где
+    свертка $(f* K)(x) = \int_{-\pi}^{\pi} f(x-t)K(t)dt$
+    \item $f \in L^1 [-\pi, \pi] \Rightarrow ||(f * K_h) - f||_1 \rightarrow 0 (h \rightarrow h_0)$
+    \item $K_h$ - усил. апрокс ед.
+\end{enumerate}
+\emph{Доказательство:}
+	\begin{enumerate}
+		\item $(f*K)(x) - f(x) =  \int_{-\pi}^{\pi} (f(x-t)-f(x))K_h(t)dt = $ (f рнепр., т.к. f непр на компакте $[-\pi, \pi]$  $\leq \int_{-\pi}^{\pi} |(f(x-t)-f(x))K_h(t)|dt = \int_{E_{\delta}} + \int_{(-\delta, \delta)} = I_1 + I_2$
+
+		Заметим, что $I_1 \leq 2 ||f||_{\infty}\int_{E_{\delta}}|K_h| < \frac{\epsilon}{2}$, т.к. f - огр, и по 3 св_ву а.е. интеграл стремится к 0
+
+		Заметим, что $I_2 \leq \frac{\epsilon}{2 M} \int_{(-\delta, \delta)}|K_h|dt < \frac{\epsilon}{2}$, т.к. по непрерывности : $\forall \epsilon > 0 \exists \delta : |f(x) - f(x - \delta)| < \epsilon' = \frac{\epsilon}{2 M}$
+
+		\item $||(f * K_h(x)) - f||_1 = \int_{-\pi}^{\pi} |\int_{-\pi}^{\pi} f(x-t)-f(x)K_h(t)dt|dx \leq \int_{-\pi}^{\pi}\int_{-\pi}^{\pi}|f(x-t)-f(x)||K_h(t)|dtdx = ||K_h||_1 \int_{-\pi}^{\pi}g(-t)\frac{K(t)}{||K_h||_1}dt$, где $g(t) = \int_{-\pi}^{\pi}|f(x-t)-f(x)|dx$
+
+		$\frac{|K_h|}{||K_h||}$ - а.е. $\Rightarrow \int_{-\pi}^{\pi}g(-t)\frac{|K|}{||K_h||}dt \rightarrow g(0) = 0 (h \rightarrow h_0)$. Замечание: последний пределльный переход верен из свойства (1) выше, т.к. $K*g \Rightarrow g$, а $K*g = \int_{-\pi}^{\pi}g(x-t)K(t)dt$ для любого $x$, в нашем случае в интеграле $g(-t)$, то есть взято $x = 0$
+
+		\item = TODO(``not implemented'')
+
+	\end{enumerate}
 \section{Теорема Фейера. TODO} 
 \section{Свойства преобразования Фурье: непрерывность, ограниченность, сдвиг. TODO}
 \section{Преобразование Фурье свертки. TODO}
