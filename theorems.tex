@@ -853,6 +853,10 @@ $\int\limits_X g \overset{\text{т. Леви}}{=} \lim \int\limits_X g_n = \varl
 			$\int\limits_{A_-} |h| = -\int\limits_{A_-} h = 0$
 			\item
 			$X = A_+ \sqcup A_-$. Тогда $\int\limits_X |h| = \int\limits_{A_+} |h| + \int\limits_{A_-} |h| = 0 \Rightarrow h = 0$ почти везде.
+			
+			Почему? Ну потому что $\forall \epsilon > 0 : h > 0$ на $X_{\epsilon}$ меры $0$ (иначе интеграл не $0$)
+			
+			То есть $|h| > \frac{1}{k}$ на $X_k$ меры $0$. Используем непрерывность сверху ($X_1 \supset X_2 \supset \ldots $), поэтому $|h| > 0$ на $X_0$ меры $0$, поэтому $h = 0$ пв
 		\end{itemize}
 \section{Лемма о множестве положительности}
 	Пусть есть пространство $<X, \mathbb{A}>$ и $\phi$~--- заряд.\\
@@ -1874,7 +1878,7 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 	\begin{enumerate}
 		\item $(f*K)(x) - f(x) =  \int_{-\pi}^{\pi} (f(x-t)-f(x))K_h(t)dt = $ (f рнепр., т.к. f непр на компакте $[-\pi, \pi]$  $\leq \int_{-\pi}^{\pi} |(f(x-t)-f(x))K_h(t)|dt = \int_{E_{\delta}} + \int_{(-\delta, \delta)} = I_1 + I_2$
 
-		Заметим, что $I_1 \leq 2 ||f||_{\infty}\int_{E_{\delta}}|K_h| < \frac{\epsilon}{2}$, т.к. f - огр, и по 3 свойству а.е. интеграл стремится к 0
+		Заметим, что $I_1 \leq 2 ||f||_{\infty}\int_{E_{\delta}}|K_h| < \frac{\epsilon}{2}$, т.к. f - огр, и по 3  а.е. интеграл стремится к 0
 
 		Заметим, что $I_2 \leq \frac{\epsilon}{2 M} \int_{(-\delta, \delta)}|K_h|dt < \frac{\epsilon}{2}$, т.к. по непрерывности : $\forall \epsilon > 0 \exists \delta : |f(x) - f(x - \delta)| < \epsilon' = \frac{\epsilon}{2 M}$
 
