@@ -1712,8 +1712,9 @@ $ 1 \leqslant p \leqslant +\infty $; $ \frac{1}{p} + \frac{1}{q} = 1 $
 		| \int\limits^\pi_{-\pi} (f(x + h - t)- f(x - t)) K(t) dt| \underset{\text{нер-во Гельдера}}{\leq}
 		| (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} (\int\limits^\pi_{-\pi} |K(t)|^q dt)^{1/q} =
 		||K||_q (\int\limits^\pi_{-\pi} |f(x + h - t)- f(x - t)|^p dt)^{1/p} =
-		||K||_q (\int\limits^\pi_{-\pi} |f(y + h)- f(y)|^p dy)^{1/p} = \\
-		= ||K||_q || f(y + h) - f(y) ||_p \underset{\text{по непр. сдвига}}{\rightarrow} 0
+		||K||_q (\int\limits^\pi_{-\pi} |f(y + h)- f(y)|^p dy)^{1/p} =$ \\
+		\textcolor{red}{Это неправда, почему границы интегрирования не сменились?}
+		$= ||K||_q || f(y + h) - f(y) ||_p \underset{\text{по непр. сдвига}}{\rightarrow} 0
 		$
 		\item $ p = +\infty $
 
