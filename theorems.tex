@@ -1739,7 +1739,7 @@ $y \in [\phi_1(x);\phi_2(x)]$, где $\phi_2(x) > \phi_1(x)$ \\
 Представляется в аналогичном виде, относительно y \\\\
 Ориентируем обход нашего четырехугольника против часовой стрелки.\\
 Назовем пути по сторонам $\gamma_1, \gamma_2, \gamma_3, \gamma_4$ начиная с нижней против часовой стрелки соответсвенно. \\
-Из линейности интеграла по векторному полю следует, что для доказательства достаточно проверить: $$-\iint\limits_{D} \frac{\delta P}{\delta y}dxdy = \int\limits_{\delta D}Pdx$$
+Из линейности интеграла по векторному полю следует, что для доказательства достаточно проверить: $$-\iint\limits_{D} \frac{\delta P}{\delta y}dxdy = \int\limits_{\delta D}Pdx$$ \textcolor{red}{Почему второе проверять не нужно?}
 \begin{enumerate}
 	\item Преобразуем левую часть:\\
 		$-\iint\limits_{D} \frac{\delta P}{\delta y}dxdy = - \int\limits_{a}^bdx\int\limits_{\phi_1(x)}^{\phi_2(x)}P^{'}_ydy = -\int\limits_{a}^bP(x,y)\bigg|_{y=\phi_1(x)}^{y=\phi_2(x)}dx =\\ \int\limits_{a}^bP(x,\phi_1(x))dx - \int\limits_{a}^bP(x,\phi_2(x))$
