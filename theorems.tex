@@ -1061,6 +1061,20 @@ $\lambda(\Phi(A)) = \int_A |\det \Phi' (x)| d \lambda(x)$
 
 Докажем правую часть
 
+\begin{enumerate}
+	\item $A$ - кубическая ячейка, $A \subset \overline{A} \subset O$
+	
+	Пусть это неверно, тогда $\exists Q: \sup_{x \in Q} J(x) \cdot \lambda Q < \nu Q$. Возьмём $c:  \sup_{x \in Q} J(x) < c$, тогда $c \cdot \lambda Q < \nu Q$. Разобьём $Q$ на $2^m$ кубических ячеек, сторона каждой из которых в 2 раза меньше стороны исходной, тогда $\exists Q_1: c \cdot \lambda Q_1 < \nu Q_1$. Аналогично делим $Q_1$, по индукции строим вложенную последовательсность таких ячеек. $\forall n: c \cdot \lambda Q_n < \nu Q_n (*)$
+	
+	Рассмотрим $a = \bigcap Q_n$, при этом $J(a) = |def \Phi'(a)| < c$. Тогда по лемме $\exists B(a, \delta):$ при $Q_n \subset B(a, \delta): \lambda \Phi(Q_n) < c \cdot \lambda Q_n$ - противоречие с (*).
+	
+	\item $A$ - открытое множество. Тогда $A = \bigsqcup A_i$.
+	
+	Тогда $\nu A = \sum \nu A_i \leqslant \sum \sup_{A_i} J \cdot  \lambda A_i \leqslant \sum \sup_{A} J \cdot \lambda A_i = \sup_{A} J \cdot \sum \lambda A_i = \sup_{A} J \cdot  \lambda A$ 
+	\textcolor{red}{Почему можно так разбить?}
+	
+\end{enumerate}
+
 \section{Теорема о гладкой замене переменной в интеграле Лебега}
 $\Phi: O \subset \mathds{R}^m \rightarrow \mathds{R}^m$ - диффеоморфизм
 
