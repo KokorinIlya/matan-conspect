@@ -1047,7 +1047,19 @@ $\Phi: O \subset \mathds{R}^m \rightarrow \mathds{R}^m$ - Диффеоморфи
 
 $\lambda(\Phi(A)) = \int_A |\det \Phi' (x)| d \lambda(x)$
 
-\textcolor{red}{\textbf{TODO: Илья}}
+\emph{Доказательство:}
+
+Пусть $\nu A = \lambda(\Phi(A))$, проверим, что $|\det \Phi' (x)|$ - плотность $\nu$ относительно $\lambda$.
+
+Обозначим $J(x) = |\det \Phi' (x)|$
+
+Проверим $\forall A: \inf_{x \in A} J(x) \cdot \lambda A \leqslant \nu A \leqslant \sup_{x \in A} J(x) \cdot \lambda A$
+
+Достаточно проверить только правую, так как левая эквивалентна $\lambda A \leqslant (\inf_{x \in A} J_{\Phi}(x))^{-1} \nu A$, а $(\inf_{x \in A} J_{\Phi}(x))^{-1} = \sup_{x \in A} (J_{\Phi}(x))^{-1} = \sup_{y \in A'} J_{\Phi^{-1}}(y)$ (где $A' = \Phi(A), A = \Phi^{-1}(A')$)
+
+Тогда $\lambda(\Phi^{-1}(A')) \leqslant \sup_{y \in A'} J_{\Phi^{-1}}(y) \cdot \lambda A'$ экваивалентно правому неравенству, но для $\Phi^{-1}$
+
+Докажем правую часть
 
 \section{Теорема о гладкой замене переменной в интеграле Лебега}
 $\Phi: O \subset \mathds{R}^m \rightarrow \mathds{R}^m$ - диффеоморфизм
