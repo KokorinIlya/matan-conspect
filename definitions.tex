@@ -341,10 +341,10 @@
 	$S_n := \sum\limits_{k = 1}^n x_k$, $S_n \rightarrow x$ (то есть, $|S_n - x| \rightarrow 0$~--- сходимость по норме).
 
 	\section{Ортогональное семейство векторов}
-	$\{e_k\} \in \mathds{H}$ - ортогональное семейство векторов, если $\forall k \neq l: e_k \bot e_l$, $\forall k: e_k \neq 0$.
+	$\{e_k\} \in \mathds{H}$ - ортогональное семейство векторов, если $\forall k \neq l ~ e_k \bot e_l$, $\forall k\ e_k \neq 0$.
 
 	\section{Ортонормированное семейство векторов}
-	$\{e_k\} \in \mathds{H}$ - ортонормированное семейство векторов, если ${e_k}$~--- ортогональное семейство векторов, и $\forall k: |e_k| = 1$.
+	$\{e_k\} \in \mathds{H}$ - ортонормированное семейство векторов, если ${e_k}$~--- ортогональное семейство векторов, и $\forall k ~ |e_k| = 1$.
 
 	\section{Коффициенты Фурье}
 	$\{e_k\}$ - ортогональное семейство векторов в $\mathds{H}, x \in \mathds{H}$.
@@ -361,11 +361,11 @@
 
 	\begin{enumerate}
 
-		\item $\{e_k\}$~--- \textbf{базис}, если $\forall x \in \mathds{H}:\ \exists c_k$, что $x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
+		\item $\{e_k\}$~--- \textbf{базис}, если $\forall x \in \mathds{H}\ \exists c_k$, что $x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
 
-		\item $\{e_k\}$~--- \textbf{полная} О.С., если $(\forall k: z \bot e_k) \Rightarrow z = 0$.
+		\item $\{e_k\}$~--- \textbf{полная} О.С., если $(\forall k ~ z \bot e_k) \Rightarrow z = 0$.
 
-		\item $\{e_k\}$~--- \textbf{замкнутая} О.С., если $\forall x \in \mathds{H}: \sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 = ||x||^2$.
+		\item $\{e_k\}$~--- \textbf{замкнутая} О.С., если $\forall x \in \mathds{H} ~ \sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 = ||x||^2$.
 
 	\end{enumerate}
 
@@ -483,7 +483,7 @@
 	Пояснения: нужна 1-ца по свертке, но это не совсем функция, поэтому зададим её как предел последовательности.
 	
 	$ D \subset R, h_0 $ -- предельная точка $ D $ в $ \overline{R} $, 
-	тогда $ \{K_h\}_{n \in D}$ -- а. е. если:
+	тогда $ \{K_h\}_{h \in D}$ -- а. е. если:
 	\begin{itemize}
 		\item[AE1: ] $ \forall h \in D ~~ K_h \in L_1[-\pi, \pi] ~ \int\limits_{-\pi}^{\pi} K_h = 1 $
 		\item[AE2: ] $ \exists M ~ \forall h ~ \int\limits_{-\pi}^{\pi} |K_h| \leq M $
