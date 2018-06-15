@@ -1666,6 +1666,57 @@ $ S_n(h, x) \rightrightarrows 0 $ при $ {x \in [a, b], n \to +\infty} $
 
 \section{Признак Дини. Следствия. TODO.}
 
+$ f \in L_1[-\pi, \pi] $\\
+$ x_0 \in R $\\
+$ S \in R $
+
+(*) $ \int\limits_{0}^{\pi} \frac{|f(x_0 + t) - 2S + f(x_0 - t)|}{t} dt $ сходится
+
+\emph{Тогда:}
+
+$ S_n(f, x_0) \to S $
+
+\emph{Доказательство:}
+
+$ D_n(t) = \frac{sin((n + \frac{1}{2})t)}{2\pi sin(\frac{t}{2})} $\\
+$ \phi(t) = f(x_0 + t) - 2S + f(x_0 - t) $\\
+$ S_n(f, x_0) - S = \int\limits_{-\pi}^{\pi} (f(x_0 + t) - S) D_n(t) dt$\\
+$ = \int\limits_{0}^{\pi} (f(x_0 + t) - S) D_n(t) dt + \int\limits_{-\pi}^{0} (f(x_0 + t) - S) D_n(t) dt $\\
+$ = \int\limits_{0}^{\pi} \phi(t) D_n(t) dt $\\
+$ h_2 = \frac{1}{2} \phi(t), t \in [0, \pi] $\\
+$ h_2 = 0, t \in [-\pi, 0] $\\
+$ h_1 = \frac{1}{2} \phi(t) ctg(\frac{t}{2}), t \in [0, \pi] $\\
+$ h_1 = 0, t \in [-\pi, 0] $\\
+Покажем что $ h_1 $ суммируема \\
+$ \int\limits_{-\pi}^{\pi} |h_1(t)| dt \leq $
+$ \frac{1}{2} \int\limits_{-\pi}^{\pi} |\phi(t)| dt \leq $
+$ \frac{1}{2} \int\limits_{-\pi}^{\pi} (|f(x_0 + t)| + 2|S| + |f(x_0 - t)|) dt \leq +\infty $\\
+Покажем что $ h_2 $ суммируема \\
+$ |ctg(\frac{t}{2})| < \frac{2}{|t|}, t \in [-\pi, \pi] $\\
+$ \frac{1}{2} \int\limits_{0}^{\pi} |\phi(t)| |ctg(\frac{t}{2})| dt \leq $
+$ \int\limits_{0}^{\pi} \frac{|\phi(t)|}{t} dt \leq +\infty $ т.к. (*)\\
+Тогда \\
+$ b_n(h_1) + a_n(h_2) \xrightarrow[n \to +\infty]{} 0 $ (по теореме Римана - Лебега)\\
+
+\emph{Следствие1:}
+
+$ \exists $ 4 предела\\
+$ \lim_{t \to \pm 0} \frac{f(x_0 + t) - f(x_0 \pm 0)}{t} $
+
+\emph{Тогда:}
+
+Ряд фурье сходится в $ x_0 $ как $ \frac{f(x_0 + 0) + f(x_0 - 0)}{2} $\\
+
+\emph{Следствие2:}
+
+$ f \in L_1[-\pi, \pi] $\\
+$ f $ непрерывна в  $ x_0 $\\
+$ \exists $ конечные $ f_{+}'(x_0), f_{-}'(x_0) $
+
+\emph{Тогда:}
+
+$ S_n(f, x_0) \to f(x_0) $
+
 \section{Корректность свертки}
 
 $ f, K \in L_1[-\pi, \pi] $
