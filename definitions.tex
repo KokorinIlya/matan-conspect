@@ -28,407 +28,518 @@
 	\maketitle
 	\tableofcontents
 	\newpage
-	
+
 	\section{Свойство, выполняющееся почти везде}
-	$ (X,\mathds{A},\mu)$  - пространство с мерой, и $\omega (x)$  -- утверждение, зависящее от точки $x$.
-	
+	$<X,\mathds{A},\mu>$  - пространство с мерой, и $\omega (x)$  -- утверждение, зависящее от точки $x$.
+
 	$E := \{x: \omega(x) $ --- ложно\} и $\mu E$ = 0. Тогда говорят, что $\omega (x)$ верно при почти всех (п.в.) $x$.
-	
+
 	\section{Сходимость почти везде}
-	$ (X,\mathds{A},\mu)$  - пространство с мерой, и $f_n, f: X \rightarrow \overline{\mathds{R}}.$
-	
+	$<X,\mathds{A},\mu>$  - пространство с мерой, и $f_n, f: X \rightarrow \overline{\mathds{R}}.$
+
 	Говорим, что $f_n \rightarrow f(x)$ почти везде, если $\{x: f_n(x) \not \rightarrow f(x)\}$ измеримо и имеет меру $0$.
-	
+
 	\section{Сходимость по мере}
-	$(X, a, \mu)$ - пространство с мерой, $\mu \cdot X < +\infty$ \\
-	$f_n , f : X \rightarrow \overline R$ - п.в. конечны, измеримы\\
+	$<X, \mathds{A}, \mu>$ - пространство с мерой \\
+	$f_n , f : X \rightarrow \overline{\mathds{R}}$ - п.в. конечны, измеримы\\
 	Говорят, что $f_n$ сходится к $f$ по мере $\mu$ (при $n \rightarrow +\infty$) (обозначается $f_n\stackrel{\mu}{\Rightarrow}f$) если $\forall\epsilon > 0$ $\mu(X(|f_n - f| > \epsilon))\stackrel{n\rightarrow+\infty}{\rightarrow} 0$
-	
+
 	\section{Теорема Егорова о сходимости почти везде и почти равномерной сходимости}
-	$(X, a, \mu)$ - пространство с мерой\\
-	$f_n , f : X \rightarrow R$ - п.в. конечны, измеримы \\
-	$f_n \rightarrow f$.\\
-	Тогда эта сходимость ``почти равномерная''
-	
+	$<X, \mathds{A}, \mu>$ - пространство с мерой, $\mu(X) < + \infty$\\
+	$f_n , f : X \rightarrow \mathds{R}$ - п.в. конечны, измеримы \\
+	$f_n \rightarrow f$ почти всюду. \\
+	Тогда $\forall \epsilon > 0\ \exists X_{\epsilon} \subset X, \mu(X \setminus X_{\epsilon}) < \epsilon$, $f_n$ равномерно сходится к $f$ на $X_{\epsilon}$
+
 	\section{Интеграл ступенчатой функции}
-	$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
-	
-	$f = \sum\limits_{k = 1}^{n}(\lambda_k \cdot \chi_{E_k})$ - ступенчатая функция, $E_k$ - измеримые дизъюнктные множества, $f \geqslant 0$
-	
-	Интегралом ступенчатой функции $f$ на множестве $\mathds{X}$ назовём $$\int\limits_\mathds{X} f d\mu := \sum\limits_{k = 0}^{n} \lambda_k \cdot \mu E_k$$
-	
-	Будем считать, что $[0 \cdot \infty = 0]$
-	
+	$<X, \mathds{A}, \mu>$ - пространство с мерой.
+
+	$f = \sum\limits_{k = 1}^{n}(\lambda_k \cdot \chi_{E_k})$ - ступенчатая функция, $E_k$ - измеримые дизъюнктные множества, $f \geqslant 0$.
+
+	Интегралом ступенчатой функции $f$ на множестве $X$ назовём $$\int\limits_X f d\mu := \sum\limits_{k = 1}^{n} \lambda_k \cdot \mu E_k$$
+
+	Будем считать, что $[0 \cdot \infty = 0]$.
+
 	\section{Интеграл неотрицательной измеримой функции}
-	$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
-	
-	$f$ - измеримо, $f \geqslant 0$, её интегралом на множестве $\mathds{X}$ назовём
-	
-	$$\int\limits_{\mathds{X}} f d\mu := sup (\int\limits_{\mathds{X}} g)$$
-	
-	, где $0 \leqslant g \leqslant f, g - $ступенчатая
-	
+	$<X, \mathds{A}, \mu>$ - пространство с мерой.
+
+	$f$ - измеримо, $f \geqslant 0$, её интегралом на множестве $X$ назовём
+
+	$$\int\limits_{X} f d\mu := sup (\int\limits_X g d\mu)$$
+
+	по всем $g$: $0 \leqslant g \leqslant f, g - $ступенчатая.
+
 	\section{Суммируемая функция}
-	$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
-	
-	$f - $измерима, $\int\limits_{\mathds{X}}f^+$ или $\int\limits_{\mathds{X}}f^-$ конечен (хотя бы один из них).
-	
-	Тогда интегралом $f$ на $\mathds{X}$ назовём $$\int\limits_{\mathds{X}}f d\mu := \int\limits_{\mathds{X}}f^+ - \int\limits_{\mathds{X}}f^+$$
-	
-	Тогда если конечен $\int\limits_{\mathds{X}} f,$ (то есть конечны интегралы по обеим срезкам), то $f$ называют суммируемой
-	
+	$<X, \mathds{A}, \mu>$ - пространство с мерой.
+
+	$f - $измерима, $\int\limits_{X}f^+$ или $\int\limits_{X}f^-$ конечен (хотя бы один из них).
+
+	Тогда интегралом $f$ на $X$ назовём $$\int\limits_{X}f d\mu := \int\limits_{X}f^+ - \int\limits_{X}f^-$$
+
+	Если конечен $\int\limits_{X} f$ (то есть конечны интегралы по обеим срезкам), то $f$ называют суммируемой.
+
 	\section{Интеграл суммируемой функции}
-	$<\mathds{X}, \mathds{A}, \mu>$ - пространство с мерой
-	
-	$f -$ измерима, $E \in \mathds{A}$
-	
+	$<X, \mathds{A}, \mu>$ - пространство с мерой.
+
+	$f -$ измерима, $E \in \mathds{A}$.
+
 	Тогда интегралом $f$ на множестве $E$ назовём
-	
-	$$\int\limits_{\mathds{E}}f d\mu := \int\limits_{\mathds{X}}f \cdot \chi(E) d\mu$$
-	
-	$f$ суммируемая на $E$, если $\int\limits_{\mathds{X}}f^+ \chi(E)$ и $\int\limits_{\mathds{X}}f^- \chi(E)$ конечны
-	
+
+	$$\int\limits_{\mathds{E}}f d\mu := \int\limits_{X}f \cdot \chi(E) d\mu$$
+
+	$f$ суммируемая на $E$, если $\int\limits_{X}f^+ \chi(E)$ и $\int\limits_{X}f^- \chi(E)$ конечны.
+
 	\section{Произведение мер}
-	$<\mathds{X}, \alpha, \mu>$, $<\mathds{Y}, \beta, \nu>$ - пространства с мерой\\
-	$\mu$, $\nu$ - $\sigma$-конечные меры\\
-	$\alpha \times \beta = \{A\times B \subset \mathds{X} \times \mathds{Y} : A \in \alpha, B \in \beta \}$ \\
-	$m_0 : \alpha \times \beta \rightarrow \overline R$\\ $m_0(A \times B) = \mu A \cdot \nu B$ \\\\
-	$m$ - называется произведением мер $\mu$ и $\nu$, если $m$ - мера, которая ялвяется Лебеговским продолжением $m_0$ с полукольца $\alpha \times \beta$ на некоторую $\sigma$-алгебру $\alpha \otimes \beta$.\\
-	$m = \mu \times \nu$ - обозначение \\
-	$<\mathds{X} \times \mathds{Y}, \alpha \otimes \beta, \mu \times \nu>$ - произведение пространств с мерой
-	
+	$<X, \mathds{A}, \mu>$, $<Y, \mathds{B}, \nu>$ - пространства с мерой.\\
+	$\mu$, $\nu$ - $\sigma$-конечные меры.\\
+	$\mathds{A} \times \mathds{B} = \{A\times B \subset X \times Y : A \in \mathds{A}, B \in \mathds{B} \}$ \\
+	$m_0 : \mathds{A} \times \mathds{B} \rightarrow \overline{\mathds{R}}$\\ $m_0(A \times B) = \mu A \cdot \nu B$
+
+	$m$ - называется произведением мер $\mu$ и $\nu$, если $m$ - мера, которая ялвяется Лебеговским продолжением $m_0$ с полукольца $\mathds{A} \times \mathds{B}$ на некоторую $\sigma$-алгебру $\mathds{A} \otimes \mathds{B}$.\\
+	$m = \mu \times \nu$ - обозначение. \\
+	$<X \times Y, \mathds{A} \otimes \mathds{B}, \mu \times \nu>$ - произведение пространств с мерой.
+
 	\section{Теорема Фубини}
-	$<\mathds{X}, \mathds{A}, \mu>$, $<\mathds{Y}, \mathds{B}, \nu>$ - пространство с мерой,
-	
+	$<X, \mathds{A}, \mu>$, $<Y, \mathds{B}, \nu>$ - пространства с мерой,
+
 	$\mu$, $\nu$ --- $\sigma$-конечные и полные,
-	
+
 	$m = \mu \times \nu$,
-	
-	$f$ --- суммируемая на $\mathds{X} \times \mathds{Y}$ по $m$.
-	
+
+	$f$ --- суммируемая на $X \times Y$ по $m$.
+
 	\textbf{Тогда:}
 	\begin{itemize}
 		\item
-		при <<почти всех>> $x$ функция $f_x \in \mathds{L}(\mathds{Y},\nu)$, то есть суммируема на $\mathds{Y}$ по $\nu$
-		
-		при <<почти всех>> $y$ функция $f^y \in \mathds{L}(\mathds{X},\mu)$
-		
+		при почти всех $x$ функция $f_x \in L(Y,\nu)$, то есть суммируема на $Y$ по $\nu$
+
+		при почти всех $y$ функция $f^y \in L(X,\mu)$
+
 		\item
-		$$x \mapsto \phi(x) \mid \phi(x) = \int\limits_{\mathds{Y}}f_x d\nu \in \mathds{L}(\mathds{X},\mu)$$
-		
-		$$y \mapsto \psi(y) \mid \psi(y) = \int\limits_{\mathds{X}}f^y d\mu \in \mathds{L}(\mathds{Y},\nu)$$
-		
-		Это есть эти функции суммируемы в некотором контексте ($\mathds{X},\mu$ и $\mathds{Y},\nu$ соответсвено)
-		
+		$$x \mapsto \phi(x) \mid \phi(x) = \int\limits_{Y}f_x d\nu \in L(X,\mu)$$
+
+		$$y \mapsto \psi(y) \mid \psi(y) = \int\limits_{X}f^y d\mu \in L(Y,\nu)$$
+
+		Эти функции суммируемы (по $\mu$ в $X$ и по $\nu$ в $Y$ соответствено).
+
 		\item
-		$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm
-		= \int\limits_{\mathds{X}}\phi(x) d\mu
-		= \int\limits_{\mathds{X}} (\int\limits_{\mathds{Y}} f d\nu(y)) d\mu(x)$$
-		
-		$$\int\limits_{\mathds{X} \times \mathds{Y}} f dm
-		= \int\limits_{\mathds{Y}}\psi(x) d\nu
-		= \int\limits_{\mathds{Y}} (\int\limits_{\mathds{X}} f d\mu(x)) d\nu(y)$$
+		$$\int\limits_{X \times Y} f dm
+		= \int\limits_{X}\phi(x) d\mu
+		= \int\limits_{X} (\int\limits_{Y} f d\nu) d\mu$$
+
+		$$\int\limits_{X \times Y} f dm
+		= \int\limits_{Y}\psi(y) d\nu
+		= \int\limits_{Y} (\int\limits_{X} f d\mu) d\nu$$
 	\end{itemize}
-	
+
 	\section{Образ меры при отображении}
-	$(X, \mathds{A}, \mu)$~--- пространство с мерой, $(Y, \mathds{B}, \_)$~--- пространство с $\sigma$-алгеброй.
-	
+	$<X, \mathds{A}, \mu>$~--- пространство с мерой, $<Y, \mathds{B}, \_>$~--- пространство с $\sigma$-алгеброй.
+
 	$\Phi: X \to Y$, $\Phi^{-1}(\mathds{B}) \subset \mathds{A}$ (прообраз любого множества из $\mathds{B}$ лежит в $\mathds{A}$).
-	
+
 	Пусть для $\forall E \in \mathds{B}$ $\nu(E) = \mu(\Phi^{-1}(E))$.
-	
+
 	$\nu$ является мерой на $Y$ и называется образом меры $\mu$ при отображении $\Phi$.
-	
+
 	\section{Взвешенный образ меры}
-	$(X, \mathds{A}, \mu)$~--- пространство с мерой, $(Y, \mathds{B}, \_)$~--- пространство с $\sigma$-алгеброй.
-	
+	$<X, \mathds{A}, \mu>$~--- пространство с мерой, $<Y, \mathds{B}, \_>$~--- пространство с $\sigma$-алгеброй.
+
 	$\Phi: X \to Y$, $\Phi^{-1}(\mathds{B}) \subset \mathds{A}$ (прообраз любого множества из $\mathds{B}$ лежит в $\mathds{A}$).
-	
+
 	$\omega: X \to \overline{\mathds{R}}$, $\omega \geq 0$~--- измеримая.
-	
+
 	Пусть для $E \in \mathds{B}$ $\nu(E) = \int\limits_{\Phi^{-1}(E)} \omega~d\mu$.
-	
+
 	$\nu$ является мерой на $Y$ и называется взвешенным образом меры $\mu$.
-	
+
 	При $\omega \equiv 1$ взвешенный образ меры является обычным образом меры.
-	
+
 	\section{Плотность одной меры по отношению к другой}
-	$(X, \mathds{A}, \mu)$~--- пространство с мерой.
-	
+	$<X, \mathds{A}, \mu>$~--- пространство с мерой.
+
 	$\omega: X \to \overline{\mathds{R}}$, $\omega \geq 0$~--- измеримая.
-	
+
 	$\nu(E) = \int_E \omega(x)~d\mu$. $\nu$~--- мера на $X$.
-	
+
 	$\omega$ называется плотностью $\nu$ относительно $\mu$.
-	
+
 	\section{Заряд, множество положительности}
 	\subsection{Заряд}
-	$(X, \mathds{A}, \_)$~--- пространство с $\sigma$-алгеброй.
-	
+	$<X, \mathds{A}, \_>$~--- пространство с $\sigma$-алгеброй.
+
 	$\phi: \mathds{A} \to \mathds{R}$ (конечная, не обязательно неотрицательная).
-	
+
 	$\phi$ счётно аддитивна.
-	
+
 	Тогда $\phi$~--- заряд.
-	
+
 	\subsection{Множество положительности}
 	$A \subset X$~--- множество положительности, если
-	$\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.e
-	
+	$\forall B \subset A$, $B$ измеримо: $\phi(B) \geq 0$.
+
 	\section{Сферические координаты в $ R^3 $ и в $ R^m $, их Якобианы}
 	$x_1 = r \cdot \cos \phi_1$
-	$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ 
+    \hfill
 	$1 \leq i \leq m-2: \phi_i \in [0,\pi]$
-	
+
 	$x_2 = r \cdot \sin \phi_1 \cdot \cos \phi_2$
-	$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $
+    \hfill
 	$i=m-1: \phi_i \in [0,2\pi]$
-	
-	$x_3 = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdot \cos \phi_3$\\
-	.\\
-	.\\
-	.\\
-	$x_{m-2} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-3} \cdot \cos \phi_{n-2}$
-	
-	$x_{m-1} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-2} \cdot \cos \phi_{n-1}$
-	
-	
-	$x_{m} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{n-2} \cdot \sin \phi_{n-1}$\\
-	
-	$\mathcal{J} = r^{n-1} \cdot (\sin \phi_1)^{n-2} \cdot (\sin \phi_2)^{n-3} \cdots (\sin \phi_{n-2})^{1} \cdot (\sin \phi_{n-1})^{0}$
-	
-	Что тут происходит идейно. Сначала мы проецируем наш $m$-мерный вектор на нормаль к $(m-1)$-мерной гиперплоскости. Потом рассматриваем проекцию на эту гиперплоскость и в ней рекурсивно повторяем процедуру пока не дойдём до нашего любимого $\mathbb{R}^2$. Уже в нём рассматривем обычные полярные координаты(отсюда и другие ограничения на размер угла).
-	
+
+	$x_3 = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdot \cos \phi_3$
+    \hfill
+    $r \geq 0$
+
+    $\vdots$\\
+	$x_{m-2} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{m-3} \cdot \cos \phi_{m-2}$
+
+	$x_{m-1} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{m-2} \cdot \cos \phi_{m-1}$
+
+
+	$x_{m} = r \cdot \sin \phi_1 \cdot \sin \phi_2 \cdots \sin \phi_{m-2} \cdot \sin \phi_{m-1}$\\
+
+	$\mathcal{J} = r^{m-1} \cdot (\sin \phi_1)^{m-2} \cdot (\sin \phi_2)^{m-3} \cdots (\sin \phi_{m-2})^{1} \cdot (\sin \phi_{m-1})^{0}$
+
+	Что тут происходит идейно. Сначала мы проецируем наш $m$-мерный вектор на нормаль к $(m-1)$-мерной гиперплоскости. Потом рассматриваем проекцию на эту гиперплоскость и в ней рекурсивно повторяем процедуру, пока не дойдём до нашего любимого $\mathds{R}^2$. Уже в нём рассматривем обычные полярные координаты (отсюда и другие ограничения на размер угла).
+
 	\section{Интегральные неравества Гельдера и Минковского}
+	$<X, \mathds{A}, \mu>$; $f, g : E \subset X \rightarrow \mathds{C}$ ($E$ - изм.)~--- заданы п.в, измеримы.\\
 	\subsection{Нераветсво Гельдера}
-	$(X, \mathds{A}, \mu)\ f, g : E \subset X \rightarrow C$ ($E$ - изм.) --- заданы п.в, измеримы\\
-	$p, q > 1 : \frac{1}{p} + \frac{1}{q} = 1$. 
+	$p, q > 1 : \frac{1}{p} + \frac{1}{q} = 1$.
 	\emph{Тогда:}
 	${\displaystyle \int\limits_E |fg|d\mu \leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p} \cdot \left(\int\limits_E |g|^q d\mu)\right)^\frac{1}{q}}$
 	\subsection{Нераверство Минковского}
-	$(X, \mathds{A}, \mu)\ f, g $ --- заданы п.в, измеримы\\
-	$1 \leq p < +\infty$. 
+	$1 \leq p < +\infty$.
 	\emph{Тогда:}
-	${\displaystyle \left(\int\limits_E |f + g|^p d\mu \right)^\frac{1}{p} 
-		\leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p} 
+	${\displaystyle \left(\int\limits_E |f + g|^p d\mu \right)^\frac{1}{p}
+		\leq \left(\int\limits_E |f|^p d\mu\right)^\frac{1}{p}
 		+ \left(\int\limits_E |g|^p d\mu\right)^\frac{1}{p}}$
-	
+
 	\section{Интеграл комплекснозначных функции}
-	\textbf{TODO: Лев и Вадим}
+	$(X, \mathds{A}, \mu)$ - пространство с мерой. $E \in \mathds{A}$
 	
+	$f: E \rightarrow \mathds{C}$
+	
+	$f$ измерима (суммируема), если $Im(f)$ и $Re(f)$ измеримы (суммируема)
+	
+	$\int_E f =\int_E Re(f) + i \cdot \int_E Im(f) $ 
+
 	\section{Пространство $L_p(E,\mu),\ 1 \leq p < +\infty$}
-	$(X, \mathds{A}, \mu)\, E \in \mathds{A}$\\
-	$L_p'(E, \mu) = \{$ f : п.в. $E \rightarrow \mathbb{C}$, изм., $ \int\limits_E |f|^p d\mu < +\infty \}$\\
+	$<X, \mathds{A}, \mu>$, $E \in \mathds{A}$.\\
+	$L_p'(E, \mu) = \{ f : \text{п.в.}\ E \rightarrow \mathbb{C},\ \text{изм.},\ \int\limits_E |f|^p d\mu < +\infty \}$\\
 	Это линейное пространство (по нер-ву Минковского и линейности пространства измеримых функций).\\
-	У этого пространства есть дефект - если определить норму как $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$, то будет сразу много нулей пространства (ненулевые функции, которые п.в. равны 0 будут давать норму 0).
+	У этого пространства есть дефект~--- если определить норму как $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$, то будет сразу много нулей пространства (ненулевые функции, которые п.в. равны $0$, будут иметь норму $0$).
 	Поэтому перейдем к фактор-множеству функций по отношению эквивалентности:\\
 	$f \sim g$, если $f = g$ п.в.\\
-	$ L_p(E, \mu) := L_p'(E, \mu) /_{\sim}$ - лин. норм. пр-во с нормой $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$.\\
-	
+	$ L_p(E, \mu) := L_p'(E, \mu) / \sim$ - лин. норм. пр-во с нормой $||f|| = \left(\int\limits_E |f|^p\right)^\frac{1}{p}$.\\
+
 	\emph{NB1}: Его элементы --- классы эквивалентности обычных функций. Будем называть их тоже функциями. Они не умеют вычислять значение в точке (т.к. можно всегда подменить значение на любое другое и получить представителя все того же класса эквивалентности), но зато их можно интегрировать!\\
-	
+
 	\emph{NB2}: также иногда будем обозначать $||f||_p$ за норму $f$ в пространстве $L_p$.
-	
+
 	\section{Пространство $L_{\infty}(E,\mu)$}
-	$L_\infty(E, \mu) =\{$ f : п.в. $E \rightarrow \mathbb{C},\ \esssup\limits_E |f| < +\infty \}$\\
+	$L_\infty(E, \mu) =\{f : \text{п.в.}\ E \rightarrow \mathbb{C},\ \esssup\limits_E |f| < +\infty \}$\\
 	\emph{NB1}: $||f||_\infty = \esssup\limits_E |f|$.\\
-	
+
 	\emph{NB2}: Новый вид нер-ва Гельдера : $||f \cdot g||_1 \leq ||f||_p \cdot ||g||_q$ (причем можно брать $p = +\infty, q = 1$ или наоборот).
-	
+
 	\section{Существенный супремум}
-	$(X, \mathds{A}, \mu), E \subset X - $ изм., $f : $ п.в. $E \rightarrow \overline{\mathbb{R}}$.\\
-	
-	\emph{Тогда}: $\esssup\limits_{x \in E} f(x) = \inf \{A \in R : f(x) \leq A$ п.в. $x \}$. 
-	
-	В этом определении $A$ - существенная верхняя граница. 
-	
+	$<X, \mathds{A}, \mu>$, $E \subset X$~--- изм., $f : \text{п.в.}\ E \rightarrow \overline{\mathbb{R}}$.\\
+
+	\emph{Тогда}: $\esssup\limits_{x \in E} f(x) = \inf \{A \in R : f(x) \leq A\ \text{при п.в. $x$}\}$.
+
+	В этом определении $A$ - существенная верхняя граница.
+
 	\emph{Свойства}:
 	\begin{enumerate}
 		\item
 		$\esssup\limits_E f \leq \sup\limits_E f$
-		
+
 		\item
 		$f(x) \leq \esssup\limits_E f$ при п.в. $x \in E$.
-		
+
 		\item
 		$\int\limits_E |fg|d\mu \leq \esssup\limits_E |g| \cdot \int\limits_E |f|d\mu$.
 	\end{enumerate}
-	
+
 	\section{Фундаментальная последовательность, полное пространство}
-	
+	\subsection{Фундаментальная последовательность}
+	$\{a_n\}$ - фунд. посл. в метрическом пр-ве $(X, \rho)$, если $\forall \epsilon > 0 \exists N: \forall n, k > N: \rho(a_n, a_k) < \epsilon$
+
+	\subsection{Полное пространство}
+	$X$ - полное пространство, если любая фундаментальная последовательность в нём сходится.
+
 	\section{Плотное множество}
-	Множество $A$ плотно во множестве $B$, если $\forall b \in B \  \forall \epsilon > 0$ верно, что $U_\epsilon(b) \cap A \neq \emptyset$
- 
+	Множество $A$ плотно во множестве $B$, если $\forall b \in B \ \forall \epsilon > 0$ верно, что $U_\epsilon(b) \cap A \neq \emptyset$.
+
 	\section{Финитная функция}
-	$\varphi : \mathbb{R}^m \rightarrow \mathbb{R}. \exists $ шар $B: \varphi \equiv 0 $ вне $B$. Множество непрерывных финитных функций обозначаем как $C_0(\mathbb{R}^m)$. 
-	
+	$\varphi : \mathbb{R}^m \rightarrow \mathbb{R}$. $\exists$ шар $B: \varphi \equiv 0 $ вне $B$. Тогда $\phi$~--- финитная.
+    
+    Множество непрерывных финитных функций обозначаем как $C_0(\mathbb{R}^m)$.
+
 	\section{Мера Лебега-Стилтьеса}
-	$\mathbb{P}^1$ -- полукольцо ячеек \\
-	$g : \mathbb{R} \rightarrow \mathbb{R}$ непр., монотонно возрастает \\
-	$\mu [a, b):=g(b) - g(a)$ -- $\sigma$-конечная мера на $\mathbb{P}^1$ \\
+	$\mathbb{P}^1$ -- полукольцо ячеек в $\mathds{R}$.
+	$g : \mathbb{R} \rightarrow \mathbb{R}$ -- непрерывна слева, монотонно неубывающая.
 	
-	\emph{NB1}: $g$ не обязательно непр., но должна возрастать. \\
-	Тогда $g(c \pm 0)=\lim\limits_{x \rightarrow c \pm 0} g(x)$ \\ 
-	$\mu [a, b):=g(b - 0) - g(a - 0)$ -- тоже $\sigma$-конечная мера (если $g$ не непр. слева, то $\mu [a, b):=g(b) - g(a)$ -- не мера (нет непр. слева)) \\
+	\emph{Тогда:} 
 	
+	\begin{itemize}
 	
-	\emph{Тогда} мерой Лебега-Стилтьеса будем называть меру $\mu_g$, полученную из $\mu$ по теореме о лебеговском продолжении меры.
-	
+    \item	$\mu [a, b):=g(b) - g(a)$~--- $\sigma$-конечная мера на $\mathbb{P}^1$.
+
+	 \item Мерой Лебега-Стилтьеса будем называть меру $\mu_g$, полученную из $\mu$ по теореме о лебеговском продолжении меры.
+
+	\end{itemize}
+
 	\section{Функция распределения}
-	$(X, \mathds{A}, \mu) $, h : $X \rightarrow \overline{\mathbb{R}}$ -- изм, п.в. кон.\\
-	
+	$<X, \mathds{A}, \mu> $, $h: X \rightarrow \overline{\mathbb{R}}$~--- измерима, п.в. конечна.\\
+
 	Пусть $\forall t \in \mathbb{R}\quad \mu X(h < t) < +\infty$.\\
-	Тогда $H(t):=\mu X(h < t)$ -- это функция распределения функции $h$ по мере $\mu$.
+	Тогда $H(t):=\mu X(h < t)$~--- это функция распределения функции $h$ по мере $\mu$.
+
+	\section{Измеримое множество на простой двумерной поверхности в $\mathds{R}^3$}
 	
-	\section{Измеримое множество на простой двумерной поверхности в $R^3$}
+	$ M \subset R^3 $ -- простое 2-мерное многообразие, $ C^1 $ гладкости.
+
+	$ \phi : \underset{\text{откр. обл.}}{O} \subset R^2 \rightarrow R^3$, $ \phi \in C^1 $ -- гомеофорфизм, $ \phi(O) = M $
+
+	$ E \subset M $ -- изм. по Лебегу, если $ \phi^{-1}(E) $ -- изм. по Лебегу в $ R^2 $
 	
-	\section{Мера Лебега на простой двумерной поверхности в $R^3$}
-	
+	\section{Мера Лебега на простой двумерной поверхности в $\mathds{R}^3$}
+
+	$ S(E) := \iint\limits_{\phi^{-1}(E)} | \phi_u' \times \phi_v'| dudv $ -- взвеш. образ меры Лебега отн. $ \phi $. Значит это мера на $ \mathbb{A}_{M} $
+
 	\section{Поверхностный интеграл первого рода}
+        
+        $ M $ -- простое, гл, 2-мерное в $ R^3 $, $ \phi $ -- параметризация
+
+	$ f $ -- изм. отн. $S$ (см. выше), $ f > 0 $ (или $ f $ -- суммируем. по $ S $)
+
+        \emph{Тогда}: $ \int_M f dS$ -- называет инт. первого рода функ. $ f $ по поверхности $M$
+
+	\section{Кусочно-гладкая поверхность в $\mathds{R}^3$}
 	
-	\section{Кусочно-гладкая поверхность в $R^3$}
+        $M \subset \mathbb R^3$ называется кусочно-гладкой, если $M$ представляет собой объединение:
+
+    \begin{itemize}
+	    \item конечного числа простых гладких поверхностей
+	    \item конечного числа простых гладких дуг
+	    \item конечного числа точек
+    \end{itemize}
+
 	
 	\section{Гильбертово пространство}
-	$\mathds{H}$ - линейное пространство над $\mathds{R}$ или $\mathds{C}$, в котором задано скалярное произведение, и полное относительно соответствуйющей нормы, называется Гильбертовым.
-	
+	$\mathds{H}$~--- линейное пространство над $\mathds{R}$ или $\mathds{C}$, в котором задано скалярное произведение, и полное относительно соответствуйющей нормы, называется Гильбертовым.
+
 	\section{Ортогональный ряд}
-	$x_k \in \mathds{H}, \sum x_k$ называется ортогональным рядом, если $\forall k, l: k \neq l: x_k \bot x_l$
-	
+	$x_k \in \mathds{H}, \sum x_k$ называется ортогональным рядом, если $\forall k, l: k \neq l: x_k \bot x_l$.
+
 	\section{Сходящийся ряд в Гильбертовом пространстве}
-	$x_n \in \mathds{H}$
-	
+	$x_n \in \mathds{H}$.
+
 	$\sum x_n$ сходится к $x$, если
-	
-	$S_n := \sum\limits_{k = 1}^n x_k, S_n \rightarrow x$ (то есть $|S_n - x| \rightarrow 0$ - сходимость по мере) 
-	
+
+	$S_n := \sum\limits_{k = 1}^n x_k$, $S_n \rightarrow x$ (то есть, $|S_n - x| \rightarrow 0$~--- сходимость по норме).
+
 	\section{Ортогональное семейство векторов}
-	$\{e_k\} \in \mathds{H}$ - ортогональное семейство векторов, если $\forall k \neq l: e_k \bot e_l, e_k \neq 0, e_l \neq 0$.
-	
+	$\{e_k\} \in \mathds{H}$ - ортогональное семейство векторов, если $\forall k \neq l: e_k \bot e_l$, $\forall k: e_k \neq 0$.
+
 	\section{Ортонормированное семейство векторов}
-	$\{e_k\} \in \mathds{H}$ - ортонормированное семейство векторов, если ${e_k}$ - ортогональное семейство векторов, и $\forall k: |e_k| = 1 $
-	
+	$\{e_k\} \in \mathds{H}$ - ортонормированное семейство векторов, если ${e_k}$~--- ортогональное семейство векторов, и $\forall k: |e_k| = 1$.
+
 	\section{Коффициенты Фурье}
 	$\{e_k\}$ - ортонормированная система в $\mathds{H}, x \in \mathds{H}$.
-	
-	$c_k(x) = \dfrac{<x, e_k>}{|e_k|^2}$ называются коэффициентами Фурье вектора $x$ по ортогональной системе $\{e_k\}$
-	
+
+	$c_k(x) = \dfrac{\langle x, e_k \rangle}{|e_k|^2}$ называются коэффициентами Фурье вектора $x$ по ортогональной системе $\{e_k\}$.
+
 	\section{Ряд Фурье в Гильбертовом пространстве}
-	
-	$\sum c_k(x) \cdot e_k$ называется рядом Фурье вектора $x$ по ортогональной системе $\{e_k\}$
-	
+
+	$\sum c_k(x) \cdot e_k$ называется рядом Фурье вектора $x$ по ортогональной системе $\{e_k\}$.
+
 	\section{Базис, полная, замкнутая ОС}
-	
-	$\{e_k\}$ {{---}} ортогональная система в $\mathds{H}$
-	
+
+	$\{e_k\}$~--- ортогональная система в $\mathds{H}$.
+
 	\begin{enumerate}
-		
-		\item $\{e_k\}$ {{---}} \textbf{базис}, если $\forall x \in \mathds{H}:\ \exists c_k$, что $x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
-		
-		\item $\{e_k\}$ {{---}} \textbf{полная} О.С., если $\forall k: z \bot e_k \Rightarrow z = 0$
-		
-		\item $\{e_k\}$ {{---}} \textbf{замкнутая} О.С., если $\forall x \in \mathds{H}: \sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 = ||x||^2$
-		
+
+		\item $\{e_k\}$~--- \textbf{базис}, если $\forall x \in \mathds{H}:\ \exists c_k$, что $x = \sum\limits_{k=1}^{+\infty} c_k \cdot e_k$
+
+		\item $\{e_k\}$~--- \textbf{полная} О.С., если $(\forall k: z \bot e_k) \Rightarrow z = 0$.
+
+		\item $\{e_k\}$~--- \textbf{замкнутая} О.С., если $\forall x \in \mathds{H}: \sum\limits_{k=1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 = ||x||^2$.
+
 	\end{enumerate}
-	
+
 	\section{Сторона поверхности}
-	
+
 	Сторона (простой) гладкой двумерной поверхности {{---}} непрерывное поле единичных нормалей. Поверхность, для которой существует сторона, называется двусторонней. Если же стороны не существует, она называется односторонней.
-	
-	
+
+
 	\section{Задание стороны поверхности с помощью касательных реперов}
-	
-	$F_1, F_2$ -- два касательных векторных поля к $M$\\
-	$\forall p \in M \quad F_1(p), F_2(p)$ -- Л.Н.З. касательные векторы\\
+
+	$F_1, F_2$ -- два касательных векторных поля к поверхности $M$.\\
+	$\forall p \in M \quad F_1(p), F_2(p)$ -- Л.Н.З. касательные векторы.\\
 	Тогда поле нормалей стороны определяется, как $n := F_1 \times F_2$\\
-	
-	Реп\'{е}р - пара векторов из $F_1 \times F_2$. 
-	
+
+	Реп\'{е}р - пара векторов из $F_1 \times F_2$.
+
 	\section{Интеграл II рода}
-	
-	$M$ -- простая гладкая двусторонняя двумерная поверхность в $\mathbb{R}^3$\\
-	$n_0$ -- фиксированная сторона (одна из двух)\\
-	$F : M \rightarrow \mathbb{R}^3$ -- векторное поле\\
-	
+
+	$M$~--- простая гладкая двусторонняя двумерная поверхность в $\mathds{R}^3$.\\
+	$n_0$~--- фиксированная сторона (одна из двух).\\
+	$F : M \rightarrow \mathbb{R}^3$ -- векторное поле.\\
+
 	\emph{Тогда} интегралом II рода назовем $\int\limits_{M} \langle F, n_0 \rangle ds$
-	
+
 	\emph{Замечания}
 	\begin{enumerate}
-		\item Смена стороны эквивалентна смене знака
-		\item Не зависит от параметризации
-		\item 
-		$F=(P, Q, R)$
-		
-		Тогда интеграл имеет вид $\iint P dydz + Q dzdx + R dxdy$
-		
-		\emph{NB:} $Q dxdz = -Q dzdx$
+		\item Смена стороны эквивалентна смене знака.
+		\item Не зависит от параметризации.
+		\item
+		$F=(P, Q, R)$.
+
+		Тогда интеграл имеет вид $\iint P dydz + Q dzdx + R dxdy$.
+
+		\emph{NB:} $Q dxdz = -Q dzdx$.
 	\end{enumerate}
-	
+
 	\section{Ориентация контура, согласованная со стороной поверхности}
-	
+
 	Ориентация контура согласована со стороной поверхности, если она задает эту сторону.\\
-	
-	\emph{Пояснение}: 
-	Рассмотрим некоторый контур (замкнутую петлю) и точку на нем. Построим два касательных вектора к контуру в этой точке: первый - снаружи от контура (задает направление ''движения'' по петле), второй - внутри контура. Тогда будем называть такую ориентацию согласованной со стороной, если направление векторного произведения первого и второго векторов в точке совпадает с направлением нормали поверхности.
-	
+
+	\emph{Пояснение}:
+	Рассмотрим некоторый контур (замкнутую петлю) и точку на нем. Построим два касательных вектора к контуру в этой точке: первый~--- снаружи от контура (задает направление <<движения>> по петле), второй~--- внутри контура. Тогда будем называть такую ориентацию согласованной со стороной, если направление векторного произведения первого и второго векторов в точке совпадает с направлением нормали к поверхности.
+
 	\begin{center}
 		\begin{tikzpicture}
-			
+
 			\draw (2,2) ellipse (3cm and 2cm);
 			\draw[thick,->] (5,2) -- (5,3) node[anchor=south] {1};
 			\draw[thick,->] (5,2) -- (2.4,2) node[anchor=south] {2};
-				
+
 		\end{tikzpicture}
 	\end{center}
-	
+
 	\section{Тригонометрический ряд}
 
 	\begin{itemize}
-		\item $$ \frac{a_0}{2}  + \sum_{k = 1}^{\infty} a_k coskx + b_k sinkx $$ 
-		(где $ a_i, b_i $ -- коэффициенты ряда)
-		
+		\item $$ \frac{a_0}{2}  + \sum_{k = 1}^{\infty} a_k\cos kx + b_k\sin kx $$
+		(где $ a_i, b_i $ -- коэффициенты ряда).
+
 		\item Другая форма:	$$ \sum_{k = \mathbb{Z}} c_k e^{ikx} $$
-		
-		Тогда $ S_n := \sum_{k = -N}^{N} c_k e^{ikx} $
+
+		Тогда $ S_n := \sum_{k = -N}^{N} c_k e^{ikx} $.
 	\end{itemize}
 
 	\section{Коэффициенты Фурье функции}
 
 	\begin{itemize}
-		\item $$ a_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) coskx ~ dx $$
-		
-		\item $$ b_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) sinkx ~ dx $$
-		
-		\item $$ с_k(f) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx} ~ dx $$
-		
+		\item $$ a_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos kx ~ dx $$
+
+		\item $$ b_k(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin kx ~ dx $$
+
+		\item $$ c_k(f) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx} ~ dx $$
+
 	\end{itemize}
 
-	\section{Ядро Дирихле}
+	\section{Ядро Дирихле и Фейера}
 
-	$$ D_n(t) = \frac{1}{\pi}( \frac{1}{2} + \sum_{k = 1}^{n} coskt) $$
-	
-	\section{Ядро Фейера} 
-	
+	\subsection{Ядро Дирихле}
+
+	$$ D_n(t) = \frac{1}{\pi}( \frac{1}{2} + \sum_{k = 1}^{n} \cos kt) $$
+
+	\subsection{Ядро Фейера}
+
 	$$ \Phi_n(t) = \frac{1}{n+1} \sum_{k = 0}^{n} D_k(t) $$
 
 	\section{Ротор, дивергенция векторного поля}
-	$F = (P, Q, R) \rightarrow (R'_y - Q'_z, P'_z - R'_x, Q'_x - P'_y).$ Такое преобразование называется ротором или вихрем. Обозначается как $rot F$.
-\\
+    $F = (P, Q, R)$~--- векторное поле в $\mathds{R}^3$.
 
-	$div F  = F'_x + F'_y + F'_z, $ где $F - $ векторное поле с декартовыми компонентами $F_x, F_y, F_z$. Многомерный случай определяется аналогично.
+	$ rot\ F = (R'_y - Q'_z, P'_z - R'_x, Q'_x - P'_y) $ -- ротор, вихрь
+
+	$div\ F = P'_x + Q'_y + R'_z$. Многомерный случай определяется аналогично.
 
 	\section{Соленоидальное векторное поле}
-	Векторное поле $A-$ соленоидальное, если $\exists$ векторное поле $B: rotB = A$. Тогда $B$ называется векторным потенциалом поля $A$.
+	Векторное поле $A$~--- соленоидальное, если $\exists$ векторное поле $B: rot\ B = A$. Тогда $B$ называется векторным потенциалом поля $A$.
 
 	\section{Бескоординатное определение ротора и дивергенции}
-	$rot F -$ это такое векторное поле, что $\forall a \ \forall n_0 (rot F(a))_{n_0} = \lim_{r\to 0} \frac{1}{\pi r^2} \int_{\partial B_r} F_ldl$
-\\
+	$rot\ F$~--- это такое векторное поле, что $\forall a \ \forall n_0 (rot F(a))_{n_0} = \lim\limits_{r\to 0} \frac{1}{\pi r^2} \int\limits_{\partial B_r} F_ldl$
+		
+	где $ B_r $ -- круговой контур, $ n_0 $ -- нормаль контура, $ F_l $ -- проекция на касательное направление контура. 
 
-	$div F(a) = \lim_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iiint_{B(a,r)} div F_l \,dx\,dy\,dz = \\ \lim_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iint_{\partial B(a,r)} <F, n_0>\,dS$
+	Пояснение: $ \frac{1}{\pi r^2} \int\limits_{\partial B_r} F_ldl =  \frac{1}{\pi r^2} \iint\limits_{B_r} \langle rot\ F, n_0 \rangle dS \underset{r \approx 0}{\approx} rot F(a)$
+	
+
+
+	$div F(a) = \lim\limits_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iiint\limits_{B(a,r)} div F \,dx\,dy\,dz = \lim\limits_{r\to 0} \frac{1}{\lambda_3(B(a,r))} \iint\limits_{\partial B(a,r)} \langle F, n_0 \rangle dS$
 
 	\section{Свертка}
-	TODO! (мб это не моё вообще, я не нашёл)
 
-	\section{Апроксимативная единица Вейерштрасса}
+	$ f, K \in L_1[-\pi, \pi]$  -- пеорид.
+
+	$$ (f \ast K)(x) = \int_{-\pi}^{\pi} f(x-t)K(t) dt$$
+
+\section{Аппроксимативная единица. (а. е.)}
+	
+	Пояснения: нужна 1-ца по свертке, но это не совсем функция, поэтому зададим её как предел последовательности.
+	
+	$ D \subset R, h_0 $ -- предельная точка $ D $ в $ \overline{R} $, 
+	тогда $ \{K_h\}_{n \in D}$ -- а. е. если:
+	\begin{itemize}
+		\item[AE1: ] $ \forall h \in D ~~ K_h \in L_1[-\pi, \pi] ~ \int\limits_{-\pi}^{\pi} K_h = 1 $
+		\item[AE2: ] $ \exists M ~ \forall h ~ \int\limits_{-\pi}^{\pi} |K_h| \leq M $
+		\item[AE3: ] $ \forall \delta \in (0, \pi) ~  \int\limits_{E_\delta} | K_h | 
+		\underset{h \rightarrow h_0}{\rightarrow} 0  $, где $E_{\delta} = [-\pi,\pi] \setminus [h_0 - \delta, h_0 + \delta]$
+	\end{itemize}
+	
+\section{Усиленная аппроксимативная единица.}
+	
+	Изменяем свойство AE3, на AE3': 
+	
+	$ \forall h ~ K_h \in L_\infty[-\pi, \pi]; ~ \forall \delta \in (0, \pi) ~ ~ \esssup\limits_{t \in E_\delta} |K_h(t)| \underset{h \rightarrow h_0}{\rightarrow} 0 $
+	
+\section{Метод суммирования средними арифметическими}
+	$\sum a_n = \lim\limits_{n \to \infty} \dfrac{1}{n+1} \cdot \sum\limits_{k=0}^n S_k$
+\section{Суммы Фейера.}
+	$ \sigma_n = \frac{1}{n + 1} \sum\limits_{k=0}^{n} S_k(f(x)) = \int\limits_{-\pi}^{\pi} f(x - t) \Phi_n(t) dt$
+	
+	где $ S_i $ -- частичные суммы ряда Фурье
+\section{Преобразование Фурье.}
+	$ f \in L_1(R^m); y \in R^m$
+	
+	$  \hat{f}(y) := \int\limits_{R^m} f(x)e^{-2\pi i \langle y, x \rangle} d\lambda_m(x) $
+\section{Свертка в $L^1(\mathds{R}^m)$.}
+	
+	$ f, g \in L_1(R^m) $
+	
+	$$ f \ast g ~ (x) = \int_{R^m} f(x - t) g(t) d\lambda_m(x)$$
+	
+\section{Интеграл Фурье, частичный интеграл Фурье. TODO}
+	{\color{red} \textbf{TODO}}
+
+
+	\section{Несобственный интеграл по мере \Large Deprecated}
+
+	$$ \int_{a}^{\rightarrow b} f d\lambda_1 = \lim\limits_{B \rightarrow b-0} \int_{a}^{B} f d\lambda_1 $$
+
+	где $ f $ - локально суммируемая (т. е. $ \forall [a, B] \subset [a, b) ~ f $~--- сумм. на $ [a, B] $)
+
+	\section{$ L_{loc} $ \Large Deprecated}
+
+	$ f : X \times Y \rightarrow \overline{\mathbb{R}}$
+
+	$ (X, \mathds{A}, \mu) $~--- пространство с мерой.
+
+	$Y$~--- метрическое пространство (или метризуемое).
+
+	$\forall y \ f^y(x) = f(x, y)$~--- суммируема на $X$.
+
+	$f$ удовлетворяет $L_{loc}$ ($ f \in (L_{loc}) $) если:
+	\begin{itemize}
+		\item $ \exists g : X \rightarrow \overline{\mathbb{R}} $~--- суммируема.
+		\item $ \exists U(a) \ \forall y \in \dot{U} (a) \ \text{при п. в.} ~ x \in \mathbb{X} ~ |f(x, y)| \leq g(x)$
+	\end{itemize}
+
+\section{Апроксимативная единица Вейерштрасса}
 	Семейство функций ${w_t}_{t>0}$ - апроксимативная единица при $t \rightarrow 0$
 	\begin{enumerate}
 		\item $w_t \geq 0$
@@ -437,4 +548,5 @@
 	\end{enumerate}
 	Замечение: пункты 1 и 2 означают что $w_t \in L^1 (R^m)$
 	Замечание: $w_t$ - а.е. $f \in L^1 (R^m) \Rightarrow f * w_t \rightarrow f$ при $t \rightarrow 0$ (в $L^1(R^m)$)
- \end{document}
+	
+\end{document}
