@@ -811,27 +811,25 @@ $\int\limits_X g \overset{\text{т. Леви}}{=} \lim \int\limits_X g_n = \varl
 	 	\begin{itemize}
 	 		\item $\Rightarrow$: очевидно из стандартного свойства интеграла
 	 		\item $\Leftarrow$\par
-	 		\textcolor{red}{Что за бред тут вообще написан?}
-	 		\begin{itemize}
-	 			\item
-	 			Достаточно доказать, что $\omega > 0$ (когда $\omega = 0$, отсюда следуется что интеграл = 0 из оценок, что $\nu(E) = 0$)
-	 			\item
-	 			Давайте брать такие $A \subset X(\omega > 0)$, тогда $\nu A = \int\limits_A \omega(x) d\mu$
-	 			\item
-	 			Тогда для любого $A\in\mathbb{A}$ $A = A_1 \sqcup A_2$, где $A_1 \subset A(\omega > 0) \& A_2 \subset A(\omega = 0)$
-	 			\item
-	 			Получаем, что $\nu A = \nu A_1 + \nu A_2  = \int\limits_{A_1}\omega + 0 = \int\limits_{A_1}\omega + \int\limits_{A_2}\omega = \int\limits_{A}\omega$
-	 			\item
-	 			Пусть $q\in(0, 1)$ и $A_j:=A(q^j \leq \omega(x) < q^{j - 1}), j \in Z$. Получается, что $A = \bigsqcup_{j \in Z} A_j$
-	 			\item
-	 			Рассмотрим $q^j \mu A_j <= \nu A_j <= q^{j - 1} * \mu A_j$ и $\nu A_j = \int\limits_{A_j}\omega d\mu$
-	 			\item
-	 			$q * \int\limits_A \omega d\mu = q * \sum \int\limits_{A_j} \leq \sum q^j * \mu A_j \leq \sum j * A_j = \nu(A) \leq 1 / q * \sum q^j * \mu A_j \leq 1 / q * \sum \int\limits_{A_j} \omega = 1 /q * \int\limits_A \omega$
-	 			\item
-	 			$q * \int\limits_A \omega d\mu \leq \nu(A) \leq 1 / q * \int\limits_A \omega d\mu$
-	 			\item
-	 			Устремим q к 1 и мы победили
-	 		\end{itemize}
+	 		Докажем, что $\nu A = \int_A w \cdot d \mu$
+	 		
+	 		Пусть $w = 0$ на $A$. Тогда $0 \cdot \mu A \leqslant \nu A \leqslant 0 \cdot \mu A \Rightarrow \nu A = 0$
+	 		
+	 		$\int_A w = \int_A 0 = 0$
+	 		
+	 		Пусть $w > 0$ на $A$ (иначе выделим ту часть, где 0, для неё верно, докажем для остального). Зафиксируем произвольное $q \in  (0; 1)$
+	 		
+	 		Рассмотрим множества $A_j = \{x \in A: q^j \leqslant w(x) \leqslant q^{j - 1}\}$
+	 		
+	 		Из двусторонней оценки следует, что $q^j \cdot \mu A_j \leqslant \nu A_j \leqslant q^{j - 1} \cdot \mu A_j$
+	
+			Интегрируя по $\mu$ неравенство в определении $A_j$, получаем \newline $q^j \cdot \mu A_j \leqslant \int_{A_j} w d \mu \leqslant q^{j - 1} \cdot \mu A_j$
+			
+			Суммируя по $j$, получаем
+			
+			$q \cdot \int_A w d \mu \leqslant \sum\limits_{j} q^j \nu A_j \leqslant \nu A \leqslant \dfrac{1}{q} \sum\limits_{j} q^j \nu A_j \leqslant \dfrac{1}{q} \int_A w d \mu$
+			
+			Отсюда $q \cdot \int_A w d \mu \leqslant \nu A \leqslant \dfrac{1}{q} \int_A w d \mu$ для любого $q \in (0; 1)$. Переходим к пределу при $q \rightarrow 1$, получаем что нужно
 	 	\end{itemize}
 
 \section{Лемма о единственности плотности}
