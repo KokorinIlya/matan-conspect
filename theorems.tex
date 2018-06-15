@@ -1645,6 +1645,27 @@ $|\int\limits_{\mathds{R}}f(t)e(kt)| \leq\frac{1}{2}\int\limits_{\mathds{R}}|f(t
 
 \section{Принцип локализации Римана. TODO}
 
+$ f, G \in L_1[-\pi, \pi] $\\
+$ x_0 \in R, \delta > 0 $\\
+$ f \equiv g $ на $ (x_0 - \delta, x_0 + \delta) $
+
+\emph{Тогда:}
+
+$ S_n(f, x_0) - S_n(g, x_0) \to 0 $
+
+\emph{Доказательство:}
+
+$ h := f - g \equiv 0 $ на $ (x_0 - \delta, x_0 + \delta) $\\
+$ S_n(h, x_0) \to 0 $\\
+$ S_n(h, x_0) = \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} h(x_0 + t) (ctg(\frac{t}{2}) sin(nt) + cos(nt)) dt $\\
+$ a_k(f) = \int\limits_{-\pi}^{\pi} f(x) cos(kx) dx = a_k(h_1) + b_k(h_2) $\\
+$ h_1 = \frac{1}{2} h(x_0 + t) $\\
+$ h_2 = \frac{1}{2} h(x_0 + t) ctg(\frac{t}{2}) $\\
+$ |h_2(t)| \leq \frac{1}{2} |h(x_0 + t) ctg(\frac{t}{2})| \leq \frac{1}{2} |h(x_0 + t)| \frac{\delta}{2} $\\
+$ h = 0 $ при $ t \in (-\delta, \delta) $\\
+$ [a, b] \subset (x_0 - \delta, x_0 + \delta) $\\
+$ S_n(h, x) \rightrightarrows 0 $ при $ {x \in [a, b], n \to +\infty} $
+
 \section{Признак Дини. Следствия. TODO.}
 
 \section{Корректность свертки}
