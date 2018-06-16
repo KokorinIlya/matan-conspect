@@ -2294,7 +2294,19 @@ $2 \pi A = n$ - целое, тогда проверять и ничего
 $2 \pi A$ - нецелое. $n = [2\pi A]$
 $|I_A(f,x) - I_{\frac{n}{2\pi}}(f,x)| = |\int_{-A}^{A} - \int_{-\frac{\pi}{2n}}^{\frac{\pi}{2n}}| \leq \int_{A - \frac{1}{2\pi}}^{A} + \int_{-A}^{-A + \frac{1}{2\pi}} \leq 2 * \frac{1}{2\pi} \max_{|y| > A - \frac{1}{2\pi}|\hat f(y)|} \rightarrow 0$, как суммируемая функция.
 	
-\section{Признак Дирихле--Жордана. TODO}
+\section{Признак Дирихле--Жордана}
+\emph{Если:} \\
+	$f \in L^{1}(\mathds{R})$ или $f \in L^{1}[-\pi, \pi]$ \\
+	$x \in \mathds{R}$, в окружности х f имеет ограниченную вариацию.\\
+\emph {Тогда:} \\
+   $S_n(f, x) \rightarrow_{n \rightarrow \inf} 1/2 * (f(x + 0) + f(x - 0))$ \\
+   А также $I_A(f, x)$ стремится к этому при стремлении А к бесконечности
+\emph{Доказательство:}\\
+	$S_n(f, x) = \int\limits_{-\delta}^{\delta}f(x - t) * \frac{sin(n t)}{\pi t} dt + o(1) = \int\limits_{0}^{\delta} \phi(t) \frac{sin(n t)}{\pi t} dt + o(1) $, где $\phi(t) = f(x - t) + f(x + t)$ \\
+	Пусть дельта меньше радиуса из условия. Пусть $\Phi$ - убывающая положительная функция и $\Phi(t) = \phi(t) * \chi_{[0, \delta]}(t)$ \\
+	Так как $\phi$ - ограниченная вариация, то она представима как разность двух убывающих функций, а из этого у нас существует $\phi(t+0)$ для любого t(глобальный признак сходимости). \textit{/*у меня это указано в качестве замечаний */}
+	
+	$\int\limits_{0}^{\delta} \Phi(t) \frac{sin(n t)}{\pi t} dt = \int\limits_{0}^{\inf} \Phi(t) \frac{sin(n t)}{\pi t} dt = /* u=nt */ = \int\limits_{0}^{\inf} \Phi(u / n) \frac{sin(u)}{\pi u} du \rightarrow magic-knowledge \rightarrow \phi(0+) \int\limits_{0}^{\inf} \frac{sin(u)}{\pi u} du = 1 / 2 * \phi(0+)$
 \section{Лемма к теореме о формуле обращения.}
 
 \begin{enumerate}
