@@ -1884,7 +1884,7 @@ $-(B_2)'_z = A_1$ (1), $(B_1)'_z = A_2$ (2), $(B_2)'_x - (B_1)'_y = A_3$ (3).
 
 Из (2) : $B_1(x, y, z) = \int_{z_0}^{z} A_2(x, y, z)dz$ (еще одна наглость! берем аналогичное $\phi$ равным $0$)
 
-В (3) : $- \int_{z_0}^{z} (A_1)'_x dz + \phi'_x - \int_{z_0}^{z} A_2'_y dz = A_3$.
+В (3) : $- \int_{z_0}^{z} (A_{1}')_{x} dz + (\phi')_x - \int_{z_0}^{z} (A_{2}')_{y} dz = A_3$.
 
 Но т.к. $div(A) = 0$, то $\int_{z_0}^{z} (A_3)'_z dz + \phi\_x = A_3$ (это в последнее равенство подставили $(A_3)'_z = -(A_1)'_x - (A_2)'_y$). То есть $A_3(x, y, z) - A_3(x, y, z_0) + \phi'_x = A_3(x, y, z) \Rightarrow \phi'_x = A_3(x, y, z_0)$, ну а это значит $\phi = \int_{x_0}^{x} A_3(x, y, z)dx$. Мы нашли $\phi$, такео $\phi$ найдется, подставим теперь во все равенства выше и получим верными равенства и выражения для $B_1, B_2, B_3$. Значит система *** для найденного $B$ верна и значит это $B$ таково, что $A = rot(B)$, то есть $A$ --- соленоидально! чтд
 
@@ -2029,18 +2029,45 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 \section{Преобразование Фурье свертки}
 
 $f, g \in L^1(R^m)$
-
-1) $\hat{(f * g)} = \int_{R^m}(\int_{R^m} f(u)g(x-u)du)e^{-2\pi <x, y>}dx = \int_{R^m}f(u)e^{-2\pi <u, y>}(\int_{R^m} g(x-u)e^{-2\pi <x-u, y>}dx)du = \hat{f(y)}\hat{g(y)}$
-
-2) $\int_{R^m}\hat{f(y)}g(y)dy = \int_{R^m}f(y)\hat{g(y)}dy$ (как-то аналогично доказывается)
-
+\begin{enumerate}
+	\item $\hat{(f * g)} = \int_{R^m}(\int_{R^m} f(u)g(x-u)du)e^{-2\pi <x, y>}dx = \int_{R^m}f(u)e^{-2\pi <u, y>}(\int_{R^m} g(x-u)e^{-2\pi <x-u, y>}dx)du = \hat{f(y)}\hat{g(y)}$
+	\item $\int_{R^m}\hat{f(y)}g(y)dy = \int_{R^m}f(y)\hat{g(y)}dy$ (как-то аналогично доказывается)
+\end{enumerate}
 \section{Преобразование Фурье и дифференцирование}
 
 $f \in L^1(R^m)$
 \begin{enumerate}
-	\item k - номер координаты, $\frac{df}{dx_k} \in L^1, \hat{(\frac{df}{dx_k})}(y) = 2\pi i y_k f(y)$
+	\item k - номер координаты, $\frac{df}{dx_k} \in L^1$, а также непрерывно $ \hat{(\frac{df}{dx_k})}(y) = 2\pi i y_k \hat{f(y)}$
 	\item $|x|f(x)$ --- сумм. Тогда $\hat{f} \in C^1(R^m). \forall c : \frac{d\hat{f}}{dy_k}(y) = -2\pi i \hat{(x_k f(x))}$ (пр. Лейбница)
 \end{enumerate}
+
+\emph{Доказательство:}
+
+\subsection{Обозначения}
+
+Рассмотрим $g = \frac{df}{dx_k}$, а также $(x_1, \ldots, x_{m-1}, x_m) = (u, t), $ где $u = (x_1, \ldots, x_{m-1}), t = x_m$. Тогда $\frac{df}{dx_k} = \frac{df}{dt}(u, t) = g(u, t)$.
+
+\subsection{Утверждение: при п.в. $u f(u, t) \rightarrow 0 (t \rightarrow \infty)$}
+
+Это утверждение почти очевидно: $\int_{0}^{t}g(u, \tau)d\tau = f(u, t) - f(u, 0)$,\\
+$g$ --- сумм. в $R^m$, тогда отображение $t \mapsto g(u, t)$ --- сумм. п.в. $u$ на $R$ (это утверждает Теорема Фубини), т.е. $\int\limits_{0}^{t}g(u, \tau)d\tau \rightarrow \int\limits_{0}^{+\infty}g(u, \tau)d\tau$ (при п.в.u)
+
+Аналогично: $f$ --- сумм в  $R^m$, тогда $ t \mapsto f(u, t)$ --- сумм в  $R$. То есть при п.в.u есть одновременно и предел $f(u, t \rightarrow \infty)$ и $f(u, t)$ суммируема на $R$, тогда очевидно этот предел $f(u, t \rightarrow \infty) = 0$
+
+\subsection{Доказательство основного факта теоремы:}
+
+Докажем только пункт (1), а пункт (2) разбирается как-то так же + кукарек про пр. Лейбница
+
+Найдем $\hat{g}$ (с помощью инт. по частям и сведения к $\hat{f}$).
+
+$\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}dt = $ (т.к. $g = f'_t$) $ =  f(u, t)e^{-2\pi i y_m t}|_{t=-\infty}^{t=+\infty} - \int\limits_{-\infty}^{+\infty}f(u, t)(-2\pi i y_m)e^{-2\pi i y_m t}dt = (-2\pi i y_m) \int\limits_{-\infty}^{+\infty}f(u, t)e^{-2\pi i y_m t}dt$ (при п.в.u).
+
+Но на самом деле мы считаем интегралы по $R^m$ !!! Поэтому мы только что показали следующее:
+
+$\int\limits_{R^{m-1}}\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}e^{-2\pi i (u_{1}y_{1}+\ldots+u_{m-1}y_{m-1})}dt = \int\limits_{R^{m}}\int\limits_{-\infty}^{+\infty}(2\pi i y_m)f(u, t)e^{-2\pi i <(u, t), y>}dt dy = (2\pi i y_m) \hat{f(y)}$, ч.т.д.
+
+
+
 
 \section{Лемма об оценке интеграла ядра Дирихле}
 \begin{enumerate}
