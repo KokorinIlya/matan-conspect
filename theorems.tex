@@ -2098,7 +2098,7 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 	\emph{Доказательство:}
 	\begin{enumerate}
 		\item $ \widehat{f \ast g}(y)
-		= \int\limits_{R^m} (\int\limits_{R^m} f(x - t)g(t) dt) e^{-2\pi i <y, x>} dx $
+		= \int\limits_{\mathbb{R}^m}(\int\limits_{\mathbb{R}^m} f(t) g(x - t) dt) e^{-2 \pi i <x, y>}dx = \int\limits_{\mathbb{R}^m} f(t) e^{-2 \pi i <t, y>}(\int\limits_{\mathbb{R}^m} g(x - t) e^{-2 \pi i <x - t, y>} dx) dt = \int\limits_{\mathbb{R}^m} f(t) e^{-2 \pi i <t, y>} \widehat{g}(y) dt = \widehat{f}(y) \cdot \widehat{g}(y)$
 
 		$= \iint\limits_{R^m \times R^m} f(x - t)e^{-2\pi i <y, x-t>} g(t)e^{-2\pi i <y, t>} dx dt = \int\limits_{R^m} \hat{f}(y) g(t) e^{-2\pi i <y, t>} dt = f(y)\widehat{g}(y) dy$
 
