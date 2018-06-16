@@ -2024,6 +2024,8 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
     свертка $(f* K)(x) = \int_{-\pi}^{\pi} f(x-t)K(t)dt$
     \item $f \in L^1 [-\pi, \pi] \Rightarrow ||(f * K_h) - f||_1 \rightarrow 0 (h \rightarrow h_0)$
     \item $K_h$ - усил. апрокс ед. $f$ - непр. в точке $x$. Тогда $(f * K_h)(x) \rightarrow f(x)$
+
+    \emph{Замеч.}) пункт 2 верен для $ L_p $
 \end{enumerate}
 \emph{Доказательство:}
 	\begin{enumerate}
@@ -2046,15 +2048,52 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 		Все доказано!
 
 	\end{enumerate}
-\section{Теорема Фейера. TODO} 
-\section{Свойства преобразования Фурье: непрерывность, ограниченность, сдвиг. TODO}
-\section{Преобразование Фурье свертки}
+\section{Теорема Фейера.}
 
-$f, g \in L^1(R^m)$
-\begin{enumerate}
-	\item $\hat{(f * g)} = \int_{R^m}(\int_{R^m} f(u)g(x-u)du)e^{-2\pi <x, y>}dx = \int_{R^m}f(u)e^{-2\pi <u, y>}(\int_{R^m} g(x-u)e^{-2\pi <x-u, y>}dx)du = \hat{f(y)}\hat{g(y)}$
-	\item $\int_{R^m}\hat{f(y)}g(y)dy = \int_{R^m}f(y)\hat{g(y)}dy$ (как-то аналогично доказывается)
-\end{enumerate}
+	\begin{enumerate}
+		\item $ f \in \widetilde{C}[\pi, -\pi] $, тогда $ \sigma_n \underset{n \rightarrow +\infty}{\rightrightarrows} f$
+
+		\item $ f \in L_p[\pi, -\pi], (1 \leq p < +\infty)$, тогда $ ||\sigma_n(f) - f||_p \underset{n \rightarrow +\infty}{\rightarrow} 0 $
+
+		\item $ f \in L_1[\pi, -\pi], f $- непр. в т. $x$, тогда $ \sigma_n(f, x) \underset{n \rightarrow +\infty}{\rightarrow} 0 $
+	\end{enumerate}
+
+	\emph{Доказательство:}
+
+	\begin{enumerate}
+		\item ядра Фейера -- аппрок. единица
+		\begin{itemize}
+			\item $ \int\limits_{-\pi}^{\pi} \Phi_n  = 1 $ -- по Лемме о простых свойствах ядра Фейера
+			\item $  \Phi_n > 0 \Rightarrow \int\limits_{-\pi}^{\pi} |\Phi_n | \leq 1$
+			\item $ t \in E_{\delta} ~ | \Phi_n(t)| = \frac{1}{(n+1)2\pi}\frac{\sin^2\frac{n + 1}{2}t}{\sin^2(t/2)} \underset{n \rightarrow +\infty}{\rightarrow} 0 $
+		\end{itemize}
+
+		Далее по теореме о свойствах аппрок. ед-цы следуют все 3 пункта.
+
+	\end{enumerate}
+
+\section{Свойства преобразования Фурье: непрерывность, ограниченность, сдвиг. TODO}
+
+\section{Преобразование Фурье свертки.}
+	$ f, g \in L_1(R^m) $
+
+	\emph{Тогда:}
+	\begin{enumerate}
+		\item $ \widehat{f \ast g} = f(y)\widehat{g}(y) dy$
+		\item $ \int\limits_{R^m} \widehat{f}(y)g(y) dy = \int\limits_{R^m} f(y)\widehat{g}(y) dy $
+	\end{enumerate}
+	\emph{Доказательство:}
+	\begin{enumerate}
+		\item $ \widehat{f \ast g}(y)
+		= \int\limits_{R^m} (\int\limits_{R^m} f(x - t)g(t) dt) e^{-2\pi i <y, x>} dx $
+
+		$= \iint\limits_{R^m \times R^m} f(x - t)e^{-2\pi i <y, x-t>} g(t)e^{-2\pi i <y, t>} dx dt = \int\limits_{R^m} \hat{f}(y) g(t) e^{-2\pi i <y, t>} dt = f(y)\widehat{g}(y) dy$
+
+		\item л. ч.
+		$ = \int\limits_{R^m} \int\limits_{R^m} f(x) e^{-2\pi i <y, x>} dx g(y) dy
+		= \int\limits_{R^m} f(x) \int\limits_{R^m} g(y) e^{-2\pi i <x, y>} dy  dx = \int\limits_{R^m}f(x)\widehat{g}(x) dx$
+	\end{enumerate}
+
 \section{Преобразование Фурье и дифференцирование}
 
 $f \in L^1(R^m)$
@@ -2087,8 +2126,6 @@ $\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}dt = $ (т.к. $g = f'_t
 Но на самом деле мы считаем интегралы по $R^m$ !!! Поэтому мы только что показали следующее:
 
 $\int\limits_{R^{m-1}}\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}e^{-2\pi i (u_{1}y_{1}+\ldots+u_{m-1}y_{m-1})}dt = \int\limits_{R^{m}}\int\limits_{-\infty}^{+\infty}(2\pi i y_m)f(u, t)e^{-2\pi i <(u, t), y>}dt dy = (2\pi i y_m) \hat{f(y)}$, ч.т.д.
-
-
 
 
 \section{Лемма об оценке интеграла ядра Дирихле}
