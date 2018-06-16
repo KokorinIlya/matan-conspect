@@ -1368,7 +1368,19 @@ $F_0$, $F_1$~--- замкнуты, $F_0 \cap F_1 = \emptyset$.
 \emph{Тогда:} $\exists f: X \rightarrow [0,1]$, непрерывная (в смысле топологического определения непрерывности), равная $0$ на $F_0$ и равная $1$ на $F_1$.
 \\\\
 \emph{Доказательство}:
-\textcolor{red}{TODO!}
+
+\begin{enumerate}
+	\item Нормальное пространство - $\forall$ замкнутого $F_0$  $\forall$ открытого $G$ $F_0 \subset G$ $\exists$ открытое $U(F_0)$ : $F_0 \subset U(F_0) \subset \overline{U(F_0)} \subset G$ 
+	\item Пусть $G = F_1^c$ и оставим $F_0$. Обозначим как $G_0 = U(F_0)$ и $G_1 = G$.
+	\item Рассмотрим открытое $G_{1/2} :  \overline{G_0} \subset G_{1/2} \subset \overline{G_{1/2}} \subset G_1$. Дальше так можно построить для рац чисел с знаменателем степенью двойки(дальше такие числа - двоично рациональные).
+	\item $f(x) = inf(\alpha : x \in G_\alpha)$ и $\alpha$ - дв.рац. Нужно проверить непрерывность. То есть для любого открытого множества прообраз открыт. А для этого достаточно проверить, что $f^{-1}(-\inf, s) = \cup_{\alpha < s} G_\alpha$ и $f^{-1}(-\inf, s] = \cap_{\alpha > s} \overline{G_\alpha}$. 
+	\item $\supset$. очевидно из определения f. $x \in G_\alpha \Rightarrow f(x) \leq \alpha \Rightarrow f(x) < S \Rightarrow x \in f^{-1}(-\inf, s)$
+	\item $\subset$. Пусть $f(x) = s_0 < \alpha < s$. Тогда $x \in G_\alpha$ /* $f(x) = s_0 = inf(\beta : x \in G_\beta)$ Если бы $x \notin G_\alpha$, то $x \in G_\beta$ при $\beta < \alpha$ и $\inf > s_0$.
+	\item Первое доказано, теперь второе. 
+	\item $\subset$ очевидно как выше
+	\item В обратную сторону - пусть существует $\beta \in (s, \alpha)$. Тогда $\overline{G_\beta} \subset G_\alpha$, т.е. $\cap_{\text{все } \alpha > s} G_\alpha  \supset \cap_{\text{некоторые } \beta > s} G_\beta \supset \cap_{\text{все } \beta > s} \overline{G_\beta}$ 
+	
+\end{enumerate} 
 
 \section{Плотность в $L^p$ непрерывных финитных функций}
 $(\mathbb{R}^m, \mathbb{A}, \lambda_m)$\\
