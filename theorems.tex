@@ -1630,7 +1630,13 @@ $S_n=\frac{a_0}2 + \sum\limits_{j=1}^n a_j \cos jx + b_j \sin jx$ (-- это $T_
 
 \section{Теорема Римана--Лебега}
 $E \subset \mathds{R}^1$ -- измеримо\\ $f \in L_1(E, \lambda), ~ \lambda \text{- мера Лебега}$ \\
-\emph{Тогда:} $$\int\limits_{E}f(x)e^{ikx}dx \xrightarrow[k \to +\infty]{} 0$$ и $$\int\limits_{E}f(x)cos(kx)dx \xrightarrow[k \to +\infty]{} 0$$
+\emph{Тогда:}
+$$\int\limits_{E}f(x)e^{ikx}dx \xrightarrow[k \to +\infty]{} 0$$
+
+$$\int\limits_{E}f(x)cos(kx)dx \xrightarrow[k \to +\infty]{} 0$$
+
+$$\int\limits_{E}f(x)sin(kx)dx \xrightarrow[k \to +\infty]{} 0$$
+
 \emph{Доказательство:} \\
 Пусть $f \equiv 0$ вне $E$, тогда можно считать, что $f \in L^1(\mathds{R}^1)$
 
@@ -1677,26 +1683,42 @@ $ S \in R $
 $ S_n(f, x_0) \to S $
 
 \emph{Доказательство:}
-
 $ D_n(t) = \frac{sin((n + \frac{1}{2})t)}{2\pi sin(\frac{t}{2})} $\\
 $ \phi(t) = f(x_0 + t) - 2S + f(x_0 - t) $\\
-$ S_n(f, x_0) - S = \int\limits_{-\pi}^{\pi} (f(x_0 + t) - S) D_n(t) dt$\\
-$ = \int\limits_{0}^{\pi} (f(x_0 + t) - S) D_n(t) dt + \int\limits_{-\pi}^{0} (f(x_0 + t) - S) D_n(t) dt $\\
-$ = \int\limits_{0}^{\pi} \phi(t) D_n(t) dt $\\
-$ h_2 = \frac{1}{2} \phi(t), t \in [0, \pi] $\\
-$ h_2 = 0, t \in [-\pi, 0] $\\
-$ h_1 = \frac{1}{2} \phi(t) ctg(\frac{t}{2}), t \in [0, \pi] $\\
-$ h_1 = 0, t \in [-\pi, 0] $\\
+$ S_n(f, x_0) - S \overset{\int\limits_{-\pi}^{\pi}D_n = 1}{=} \int\limits_{-\pi}^{\pi} (f(x_0 + t) - S) D_n(t) dt =$\\
+$ = \int\limits_{0}^{\pi} (f(x_0 + t) - S) D_n(t) dt + \int\limits_{-\pi}^{0} (f(x_0 + t) - S) D_n(t) dt
+ = \int\limits_{0}^{\pi} \phi(t) D_n(t) dt $
+\\\\
+Введём $h_1$, $h_2$:
+
+$ h_1(t) := 
+    \begin{cases}
+        \frac{1}{2} \phi(t), t \in [0, \pi] \\
+        0, t \in [-\pi,0)
+    \end{cases}
+$
+
+$ h_2(t) := 
+    \begin{cases}
+        \frac{1}{2} \phi(t) \ctg(\frac{t}{2}), t \in [0, \pi] \\
+        0, t \in (-\pi,0)
+    \end{cases}
+$
+\\\\
 Покажем что $ h_1 $ суммируема \\
 $ \int\limits_{-\pi}^{\pi} |h_1(t)| dt \leq $
 $ \frac{1}{2} \int\limits_{-\pi}^{\pi} |\phi(t)| dt \leq $
-$ \frac{1}{2} \int\limits_{-\pi}^{\pi} (|f(x_0 + t)| + 2|S| + |f(x_0 - t)|) dt \leq +\infty $\\
+$ \frac{1}{2} \int\limits_{-\pi}^{\pi} (|f(x_0 + t)| + 2|S| + |f(x_0 - t)|) dt < +\infty $\\
+(поскольку $f$ суммируема)
+\\\\
 Покажем что $ h_2 $ суммируема \\
-$ |ctg(\frac{t}{2})| < \frac{2}{|t|}, t \in [-\pi, \pi] $\\
-$ \frac{1}{2} \int\limits_{0}^{\pi} |\phi(t)| |ctg(\frac{t}{2})| dt \leq $
-$ \int\limits_{0}^{\pi} \frac{|\phi(t)|}{t} dt \leq +\infty $ т.к. (*)\\
+$ |\ctg(\frac{t}{2})| < \frac{2}{|t|}, t \in [-\pi, \pi] $\\
+$ \frac{1}{2} \int\limits_{0}^{\pi} |\phi(t)| |\ctg(\frac{t}{2})| dt \leq $
+$ \int\limits_{0}^{\pi} \frac{|\phi(t)|}{t} dt < +\infty $ по (*)\\
+\\\\
 Тогда \\
-$ b_n(h_1) + a_n(h_2) \xrightarrow[n \to +\infty]{} 0 $ (по теореме Римана - Лебега)\\
+$ \int\limits_0^\pi \phi(t)D_n(t) = C \cdot \int\limits_0^\pi \phi(t)(ctg(\frac{t}{2}) sin(nt) + cos(nt)) =$ ($C$~--- хз какая констатна, что-то из ядра Дирихле)\\
+$= C \cdot \int\limits_{-\pi}^\pi h_1\cos(nt) + h_2\sin(nt) \xrightarrow[n \to +\infty]{} 0 $ (по теореме Римана-Лебега)\\
 
 \emph{Следствие1:}
 
