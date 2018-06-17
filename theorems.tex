@@ -2107,24 +2107,27 @@ $ f_y' $ удовлетворяет усл. $ L_{loc} $ в точке $ a \in \m
 
 \section{Преобразование Фурье и дифференцирование}
 
-$f \in L^1(R^m)$
+$f \in L^1(\mathds{R}^m)$
 \begin{enumerate}
-	\item k - номер координаты, $\frac{df}{dx_k} \in L^1$, а также непрерывно $ \hat{(\frac{df}{dx_k})}(y) = 2\pi i y_k \hat{f(y)}$
-	\item $|x|f(x)$ --- сумм. Тогда $\hat{f} \in C^1(R^m). \forall c : \frac{d\hat{f}}{dy_k}(y) = -2\pi i \hat{(x_k f(x))}$ (пр. Лейбница)
+	\item $k$~--- номер координаты, $\frac{df}{dx_k} \in L^1$, а также непрерывно $ \widehat{(\frac{df}{dx_k})}(y) = 2\pi i y_k \hat{f}(y)$
+	\item $|x|f(x)$~--- сумм. Тогда $\hat{f} \in C^1(\mathds{R}^m)$, $\forall c : \frac{d\hat{f}}{dy_k}(y) = -2\pi i \hat{(x_k f(x))}$ (пр. Лейбница)
 \end{enumerate}
 
 \emph{Доказательство:}
 
 \subsection{Обозначения}
 
-Рассмотрим $g = \frac{df}{dx_k}$, а также $(x_1, \ldots, x_{m-1}, x_m) = (u, t), $ где $u = (x_1, \ldots, x_{m-1}), t = x_m$. Тогда $\frac{df}{dx_k} = \frac{df}{dt}(u, t) = g(u, t)$.
+Пусть $k=m$.
 
-\subsection{Утверждение: при п.в. $u f(u, t) \rightarrow 0 (t \rightarrow \infty)$}
+Рассмотрим $g = \frac{df}{dx_k}$, а также $(x_1, \ldots, x_{m-1}, x_m) = (u, t)$,\\
+где $u = (x_1, \ldots, x_{m-1}), t = x_m$. Тогда $\frac{df}{dx_k} = \frac{df}{dt}(u, t) = g(u, t)$.
+
+\subsection{Утверждение: при п.в. $u$: $f(u, t) \rightarrow 0$ $(t \rightarrow \infty)$}
 
 Это утверждение почти очевидно: $\int_{0}^{t}g(u, \tau)d\tau = f(u, t) - f(u, 0)$,\\
-$g$ --- сумм. в $R^m$, тогда отображение $t \mapsto g(u, t)$ --- сумм. п.в. $u$ на $R$ (это утверждает Теорема Фубини), т.е. $\int\limits_{0}^{t}g(u, \tau)d\tau \rightarrow \int\limits_{0}^{+\infty}g(u, \tau)d\tau$ (при п.в.u)
+$g$ --- сумм. в $\mathds{R}^m$, тогда отображение $t \mapsto g(u, t)$ --- сумм. п.в. $u$ на $\mathds{R}$ (это утверждает Теорема Фубини), т.е. $\int\limits_{0}^{t}g(u, \tau)d\tau \rightarrow \int\limits_{0}^{+\infty}g(u, \tau)d\tau$ (при п.в.u)
 
-Аналогично: $f$ --- сумм в  $R^m$, тогда $ t \mapsto f(u, t)$ --- сумм в  $R$. То есть при п.в.u есть одновременно и предел $f(u, t \rightarrow \infty)$ и $f(u, t)$ суммируема на $R$, тогда очевидно этот предел $f(u, t \rightarrow \infty) = 0$
+Аналогично: $f$ --- сумм в  $\mathds{R}^m$, тогда $ t \mapsto f(u, t)$ --- сумм в  $\mathds{R}$. То есть при п.в.u есть одновременно и предел $f(u, t \rightarrow \infty)$ и $f(u, t)$ суммируема на $\mathds{R}$, тогда очевидно этот предел $f(u, t \rightarrow \infty) = 0$
 
 \subsection{Доказательство основного факта теоремы:}
 
@@ -2132,11 +2135,13 @@ $g$ --- сумм. в $R^m$, тогда отображение $t \mapsto g(u, t)
 
 Найдем $\hat{g}$ (с помощью инт. по частям и сведения к $\hat{f}$).
 
-$\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}dt = $ (т.к. $g = f'_t$) $ =  f(u, t)e^{-2\pi i y_m t}|_{t=-\infty}^{t=+\infty} - \int\limits_{-\infty}^{+\infty}f(u, t)(-2\pi i y_m)e^{-2\pi i y_m t}dt = (-2\pi i y_m) \int\limits_{-\infty}^{+\infty}f(u, t)e^{-2\pi i y_m t}dt$ (при п.в.u).
+$\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}dt \overset{\text{т.к.}~g = f'_t}{=}  f(u, t)e^{-2\pi i y_m t}|_{t=-\infty}^{t=+\infty} -\\
+-\int\limits_{-\infty}^{+\infty}f(u, t)(-2\pi i y_m)e^{-2\pi i y_m t}dt = (2\pi i y_m) \int\limits_{-\infty}^{+\infty}f(u, t)e^{-2\pi i y_m t}dt$ (при п.в. $u$).
 
-Но на самом деле мы считаем интегралы по $R^m$ !!! Поэтому мы только что показали следующее:
+Но на самом деле мы считаем интегралы по $\mathds{R}^m$ !!! Поэтому мы только что показали следующее:
 
-$\int\limits_{R^{m-1}}\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}e^{-2\pi i (u_{1}y_{1}+\ldots+u_{m-1}y_{m-1})}dt = \int\limits_{R^{m}}\int\limits_{-\infty}^{+\infty}(2\pi i y_m)f(u, t)e^{-2\pi i <(u, t), y>}dt dy = (2\pi i y_m) \hat{f(y)}$, ч.т.д.
+$\int\limits_{\mathds{R}^{m-1}}\int\limits_{-\infty}^{+\infty}g(u, t)e^{-2\pi i y_m t}e^{-2\pi i (u_{1}y_{1}+\ldots+u_{m-1}y_{m-1})}dt =\\
+= \int\limits_{\mathds{R}^{m-1}}\int\limits_{-\infty}^{+\infty}(2\pi i y_m)f(u, t)e^{-2\pi i \langle(u, t), y\rangle}dt dy = (2\pi i y_m) \hat{f}(y)$, ч.т.д.
 
 
 \section{Лемма об оценке интеграла ядра Дирихле}
