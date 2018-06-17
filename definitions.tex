@@ -46,7 +46,7 @@
 
 	\section{Теорема Егорова о сходимости почти везде и почти равномерной сходимости}
 	$<X, \mathds{A}, \mu>$ - пространство с мерой, $\mu(X) < + \infty$\\
-	$f_n , f : X \rightarrow \mathds{R}$ - п.в. конечны, измеримы \\
+	$f_n , f : X \rightarrow \overline{\mathds{R}}$ - п.в. конечны, измеримы \\
 	$f_n \rightarrow f$ почти всюду. \\
 	Тогда $\forall \epsilon > 0\ \exists X_{\epsilon} \subset X, \mu(X \setminus X_{\epsilon}) < \epsilon$, $f_n$ равномерно сходится к $f$ на $X_{\epsilon}$
 
@@ -511,10 +511,10 @@
 	
 	$ f, g \in L_1(R^m) $
 	
-	$$ f \ast g ~ (x) = \int_{R^m} f(x - t) g(t) d\lambda_m(x)$$
+	$$ f \ast g ~ (x) = \int_{R^m} f(x - t) g(t) d\lambda_m(t)$$
 	
 \section{Интеграл Фурье, частичный интеграл Фурье}
-	$f(x) = v.p. \lim\limits_{R \rightarrow \infty} \int\limits_{-R}^{R} \hat{f}(x) * e^{2 \pi i x y} dy$ \\
+	$f(x) = v.p. \lim\limits_{R \rightarrow \infty} \int\limits_{-R}^{R} \hat{f}(x) e^{2 \pi i x y} dy$ \\
 	Частичный - только от $-\pi$ до $\pi$
 
 
