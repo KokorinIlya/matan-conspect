@@ -1142,27 +1142,24 @@ $\nu(A) = \lambda \Phi (A), \nu$ имеет плотность $J \Phi$ отно
 				$\int_X\nu E_x d\mu = \lim\int_X\nu(E_i)_x d\mu = \lim m E_i = m E$ (нерп. сверху меры $m$). Этот предельный переход корректен как раз по теореме Лебега ($f_n \rightarrow f$ п.в. $g$ : $|f_n| \leq g$ --- сумм. Тогда $\int f_n \rightarrow \int f$).\\
 				NB: мы доказали про пересечения и про объединения (пусть пересечения убывающие, а объединения --- дизъюнктные, но это лечится). Поэтому $\cap_j(\cup_i A_{i, j}) \in D$, если $A_{i,j} \in \rho$ ($\rho \subset D$).
 				
-			\textcolor{red}{Я точно не уверен, но вроде, дальше написан бред}
 			\item
 				$m E = 0 \Rightarrow E \in D$\\
 				$\exists H \in D, H$ имеет вид $\cap(\cup A_{i, j})$, где все $A_{i,j} \in \rho$ \\
-				$E \subset H , m H = 0$ из п.5 т. о продолжении \textcolor{red}{ЧТО?! поясните плез}\\
+				(из п.5 т. о продолжении, чем бы это ни было) Найдется такое $H$ такого вида, что $E \subset H , m H = 0$
 				$0 = m H = \int_X\nu H_x d\mu(x) \Rightarrow \nu H_x ~ 0$ ($ = 0$ при п.в. $x$).\\
 				$E_x \subset H_x \Rightarrow E_x$ --- $\nu$-изм. (из полноты $\nu$) и $\nu E_x = 0$ п.в. $x$\\
 				$\int_X \nu E_x d\mu = 0 = m E$
 			\item
-				\textcolor{red}{Неизмерима, но мера меньше $\infty$? ШТА?}
-				$C$ --- неизм, $m C < +\infty$. Тогда $C \in D$.\\
-				$C = H \setminus e$, где $m e = 0$, H --- вида $\cap(\cup A_{i, j})$.\\
+				$C$ --- измеримо, $m C < +\infty$. Тогда $C \in D$.\\
+				$C = H \setminus e$, где $m e = 0$, H --- вида $\cap(\cup A_{i, j})$. (так можно представить, потому что любое измеримое мн-во сколь угодно близко (с точностью до меры-0) приближается множеством полученым из прямоугольников) \\
 				$C_x = H_x \setminus e_x$ --- изм. при п.в. $x$\\
 				$\nu e_x = 0$ п.в.$x$ (проверено в п.4)\\
 				$\nu C_x = \nu H_x = \nu e_x$ --- изм. п.в.$x$\\
 				$\int_X\nu C_x = \int_X\nu H_x - \int_X\nu e_x = \int\nu H_x = m H = m C$.
 			\item
-				\textcolor{red}{Что тут вообще написано? Что такое $\subset \cap(X_k \times Y_n)$}
 				$C$ --- $m$-изм. произвольное\\
 				$X = \sqcup X_k, Y = \sqcup Y_n$ ($\mu X_k$ --- кон, $\nu Y_n$ --- кон.).\\
-				$C = \sqcup_{k,n}(\subset \cap(X_k \times Y_n)) \in D$ (по п.2) (т.к. $\subset \cap(X_k \times Y_n) \in D$ по п.5)
+				$C = \sqcup_{k,n}(C \cap(X_k \times Y_n)) \in D$ (по п.2) (т.к. $C \cap(X_k \times Y_n) \in D$ по п.5)
 		\end{enumerate}
 
 
